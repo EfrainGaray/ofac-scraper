@@ -300,3 +300,11 @@ La copia local procesa los datos, actualiza registros, sustituye informaci&oacut
 Una vez actualizada la copia local, los sistemas internos del participante utilizan esta informaci&oacute;n para sus flujos operativos: validaci&oacute;n de certificados, descubrimiento de endpoints, ejecuci&oacute;n de DCR, aplicaci&oacute;n del Perfil de Seguridad y cualquier otro proceso que dependa del Directorio.
 
 Este flujo debe ejecutarse cada vez que exista un aviso de actualizaci&oacute;n y por defecto, en caso de no haber aviso, con una frecuencia de m&iacute;nimo 8 horas para cumplir con los requisitos del Perfil de Seguridad y del Anexo 3, especialmente en lo relativo a la vigencia de certificados, estados de participantes y endpoints habilitados.
+
+---
+
+## Attachments
+
+- 🖼️ [image-20251118-134514.png](../attachments/v1-0-0-modelo-de-operacion-e-integracion-del-directorio/image-20251118-134514.png) (29 KB)
+- 🖼️ [image-20251118-134517.png](../attachments/v1-0-0-modelo-de-operacion-e-integracion-del-directorio/image-20251118-134517.png) (29 KB)
+- 🖼️ [Flujo de secuencia.png](../attachments/v1-0-0-modelo-de-operacion-e-integracion-del-directorio/Flujo%20de%20secuencia.png) (223 KB)

@@ -143,3 +143,10 @@ Gateway Timeout &ndash; Tiempo de espera excedido.
  | 
 Site Is Overloaded &ndash; Servicio sobrecargado. 
  |  |
+
+---
+
+## Attachments
+
+- 🖼️ [Diagrama de secuencia Pago único Inmediato.png](../attachments/pago-unico-inmediato-open-finance-chile-v1-0-0/Diagrama%20de%20secuencia%20Pago%20%C3%BAnico%20Inmediato.png) (306 KB)
+- 🖼️ [Flujo de secuencia - Pago programado.png](../attachments/pago-unico-inmediato-open-finance-chile-v1-0-0/Flujo%20de%20secuencia%20-%20Pago%20programado.png) (164 KB)

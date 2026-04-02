@@ -3382,3 +3382,21 @@ El estado retornado refleja la **&uacute;ltima informaci&oacute;n disponible** a
 
 - 
 Aplica de forma homog&eacute;nea para **PN y PJ**, sin diferencias funcionales.
+
+---
+
+## Attachments
+
+- 🖼️ [Authorization_details_PJ_ Request.png](../attachments/v1-0-0-informacion-general-iniciacion-de-pagos-unico-programado/Authorization_details_PJ_%20Request.png) (21 KB)
+- 🖼️ [Request_PJ_ API.png](../attachments/v1-0-0-informacion-general-iniciacion-de-pagos-unico-programado/Request_PJ_%20API.png) (26 KB)
+- 🖼️ [Authorization Details _PN_ Request.png](../attachments/v1-0-0-informacion-general-iniciacion-de-pagos-unico-programado/Authorization%20Details%20_PN_%20Request.png) (18 KB)
+- 🖼️ [Request_PN_ Request.png](../attachments/v1-0-0-informacion-general-iniciacion-de-pagos-unico-programado/Request_PN_%20Request.png) (25 KB)
+- 🖼️ [AD_PN_ Request.png](../attachments/v1-0-0-informacion-general-iniciacion-de-pagos-unico-programado/AD_PN_%20Request.png) (17 KB)
+- 📊 [Payments-ID v1.0.0.xlsx](../attachments/v1-0-0-informacion-general-iniciacion-de-pagos-unico-programado/Payments-ID%20v1.0.0.xlsx) (42 KB)
+- 🖼️ [UML Diagram - Payments.png](../attachments/v1-0-0-informacion-general-iniciacion-de-pagos-unico-programado/UML%20Diagram%20-%20Payments.png) (83 KB)
+- 📊 [Payments v1.0.0.xlsx](../attachments/v1-0-0-informacion-general-iniciacion-de-pagos-unico-programado/Payments%20v1.0.0.xlsx) (36 KB)
+- 🖼️ [UML Diagram - loans.png](../attachments/v1-0-0-informacion-general-iniciacion-de-pagos-unico-programado/UML%20Diagram%20-%20loans.png) (55 KB)
+- 🖼️ [Diagrama UML_Request_PJ.png](../attachments/v1-0-0-informacion-general-iniciacion-de-pagos-unico-programado/Diagrama%20UML_Request_PJ.png) (32 KB)
+- 🖼️ [Diagrama UML_Authorization Details_PN.png](../attachments/v1-0-0-informacion-general-iniciacion-de-pagos-unico-programado/Diagrama%20UML_Authorization%20Details_PN.png) (23 KB)
+- 🖼️ [Diagrama UML_Authorization Details_PJ.png](../attachments/v1-0-0-informacion-general-iniciacion-de-pagos-unico-programado/Diagrama%20UML_Authorization%20Details_PJ.png) (29 KB)
+- 🖼️ [Diagrama UML_Request_PN.png](../attachments/v1-0-0-informacion-general-iniciacion-de-pagos-unico-programado/Diagrama%20UML_Request_PN.png) (32 KB)

@@ -408,3 +408,10 @@ Valores permitidos publicados por la CMF (p.ej. `credit_scoring`, `pfm`, `tax_co
 
 - 
 Cualquier `PATCH /consents/{grantId}` a estado `Revoked` se refleja en <= 5 min en el Panel de control de consentimientos.
+
+---
+
+## Attachments
+
+- 📊 [RAR Scope-Matrizv1.xlsx](../attachments/v1-0-0-rich-authorization-requests-rar/RAR%20Scope-Matrizv1.xlsx) (35 KB)
+- 📊 [RAR Scope-Matriz.xlsx](../attachments/v1-0-0-rich-authorization-requests-rar/RAR%20Scope-Matriz.xlsx) (34 KB)

@@ -283,3 +283,12 @@ El orden de los pasos **no debe alterarse**
 
 - 
 El SSA y el JWKS son insumos clave para OAuth2, OIDC y DCR
+
+---
+
+## Attachments
+
+- 📎 [Directorio de Participantes - CMF (Pruebas - 2026).postman_collection](../attachments/uso-de-la-coleccion-postman-directorio-de-participantes/Directorio%20de%20Participantes%20-%20CMF%20(Pruebas%20-%202026).postman_collection) (16 KB)
+- 📎 [Directorio de Participantes - CMF (Pruebas - 2026)(1).postman_collection](../attachments/uso-de-la-coleccion-postman-directorio-de-participantes/Directorio%20de%20Participantes%20-%20CMF%20(Pruebas%20-%202026)(1).postman_collection) (16 KB)
+- 📄 [Guia_Registro_Participante_OpenFinance_Chile.pdf](../attachments/uso-de-la-coleccion-postman-directorio-de-participantes/Guia_Registro_Participante_OpenFinance_Chile.pdf) (295 KB)
+- 📎 [Directorio de Participantes - CMF (Pruebas - Banco de Pruebas).postman_collection.json](../attachments/uso-de-la-coleccion-postman-directorio-de-participantes/Directorio%20de%20Participantes%20-%20CMF%20(Pruebas%20-%20Banco%20de%20Pruebas).postman_collection.json) (16 KB)

@@ -5384,3 +5384,21 @@ El estado retornado refleja la **&uacute;ltima informaci&oacute;n disponible** a
 
 - 
 Aplica de forma homog&eacute;nea para **PN y PJ**, sin diferencias funcionales.
+
+---
+
+## Attachments
+
+- 🖼️ [Request_PJ_ API.png](../attachments/v1-0-0-informacion-general-iniciacion-de-pagos-recurrentes-con-monto-variable/Request_PJ_%20API.png) (26 KB)
+- 🖼️ [Authorization Details _PN_ Request.png](../attachments/v1-0-0-informacion-general-iniciacion-de-pagos-recurrentes-con-monto-variable/Authorization%20Details%20_PN_%20Request.png) (18 KB)
+- 🖼️ [Authorization_details_PJ_ Request.png](../attachments/v1-0-0-informacion-general-iniciacion-de-pagos-recurrentes-con-monto-variable/Authorization_details_PJ_%20Request.png) (21 KB)
+- 📊 [Payments-ID v1.0.0.xlsx](../attachments/v1-0-0-informacion-general-iniciacion-de-pagos-recurrentes-con-monto-variable/Payments-ID%20v1.0.0.xlsx) (42 KB)
+- 🖼️ [AD_PN_ Request.png](../attachments/v1-0-0-informacion-general-iniciacion-de-pagos-recurrentes-con-monto-variable/AD_PN_%20Request.png) (17 KB)
+- 🖼️ [Request_PN_ Request.png](../attachments/v1-0-0-informacion-general-iniciacion-de-pagos-recurrentes-con-monto-variable/Request_PN_%20Request.png) (25 KB)
+- 🖼️ [UML Diagram - Payments.png](../attachments/v1-0-0-informacion-general-iniciacion-de-pagos-recurrentes-con-monto-variable/UML%20Diagram%20-%20Payments.png) (83 KB)
+- 🖼️ [UML Diagram - loans.png](../attachments/v1-0-0-informacion-general-iniciacion-de-pagos-recurrentes-con-monto-variable/UML%20Diagram%20-%20loans.png) (55 KB)
+- 🖼️ [Recurrin_Variable_payments_Authorization_details_PN.png](../attachments/v1-0-0-informacion-general-iniciacion-de-pagos-recurrentes-con-monto-variable/Recurrin_Variable_payments_Authorization_details_PN.png) (44 KB)
+- 📊 [Payments v1.0.0.xlsx](../attachments/v1-0-0-informacion-general-iniciacion-de-pagos-recurrentes-con-monto-variable/Payments%20v1.0.0.xlsx) (36 KB)
+- 🖼️ [Recurrin_Variable_payments_Request_PN.png](../attachments/v1-0-0-informacion-general-iniciacion-de-pagos-recurrentes-con-monto-variable/Recurrin_Variable_payments_Request_PN.png) (38 KB)
+- 🖼️ [Recurrin_Variable_payments_Request_PJ.png](../attachments/v1-0-0-informacion-general-iniciacion-de-pagos-recurrentes-con-monto-variable/Recurrin_Variable_payments_Request_PJ.png) (40 KB)
+- 🖼️ [Recurrin_Variable_payments_Authorization_details_PJ.png](../attachments/v1-0-0-informacion-general-iniciacion-de-pagos-recurrentes-con-monto-variable/Recurrin_Variable_payments_Authorization_details_PJ.png) (46 KB)

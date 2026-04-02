@@ -49,3 +49,10 @@ Por cliente: 60 requests/min.
 - 
 Por aplicaci&oacute;n: 1 000 requests/min.  
 La cabecera `X-Rate-Limit-Remaining` indica el cupo restante.
+
+---
+
+## Attachments
+
+- 📎 [digital-channels.yaml](../attachments/v1-0-0-informacion-tecnica-canales-de-atencion/digital-channels.yaml) (26 KB)
+- 📎 [presential-channels.yaml](../attachments/v1-0-0-informacion-tecnica-canales-de-atencion/presential-channels.yaml) (23 KB)

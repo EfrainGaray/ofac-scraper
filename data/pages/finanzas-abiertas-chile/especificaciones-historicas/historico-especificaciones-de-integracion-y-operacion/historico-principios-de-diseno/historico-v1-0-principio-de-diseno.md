@@ -657,6 +657,10 @@ El cliente (o la aplicaci&oacute;n que consume la API) genera un identificador &
 
 **Ejemplo:**
 
+```json
+x-idempotency-key: 123e4567-e89b-12d3-a456-426655440000
+```
+
 #### Persistencia en el servidor
 
 - 
@@ -707,3 +711,16 @@ Se debe almacenar el resultado 409 junto con la clave de idempotencia para entre
 Una vez transcurrido el TTL (por ejemplo, 24-48 horas), el servidor podr&iacute;a descartar la asociaci&oacute;n clave-resultado. Si se vuelve a recibir la misma clave despu&eacute;s de ese periodo, podr&iacute;a ser procesada como nueva.
 
 Importante establecer la pol&iacute;tica clara para evitar comportamientos inesperados.
+
+---
+
+## Attachments
+
+- 🖼️ [image-20250318-212638.png](../attachments/historico-v1-0-principio-de-diseno/image-20250318-212638.png) (118 KB)
+- 🖼️ [image-20250318-204901.png](../attachments/historico-v1-0-principio-de-diseno/image-20250318-204901.png) (170 KB)
+- 🖼️ [image-20250318-201008.png](../attachments/historico-v1-0-principio-de-diseno/image-20250318-201008.png) (33 KB)
+- 🖼️ [image-20250318-212904.png](../attachments/historico-v1-0-principio-de-diseno/image-20250318-212904.png) (116 KB)
+- 🖼️ [image-20250318-201009.png](../attachments/historico-v1-0-principio-de-diseno/image-20250318-201009.png) (33 KB)
+- 🖼️ [image-20250318-203245.png](../attachments/historico-v1-0-principio-de-diseno/image-20250318-203245.png) (220 KB)
+- 🖼️ [image-20250318-212825.png](../attachments/historico-v1-0-principio-de-diseno/image-20250318-212825.png) (143 KB)
+- 🖼️ [image-20250318-212844.png](../attachments/historico-v1-0-principio-de-diseno/image-20250318-212844.png) (152 KB)

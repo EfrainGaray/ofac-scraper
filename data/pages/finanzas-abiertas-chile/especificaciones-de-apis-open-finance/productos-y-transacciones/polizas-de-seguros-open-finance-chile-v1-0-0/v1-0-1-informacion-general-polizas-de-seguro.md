@@ -63,3 +63,17 @@ La siguiente tabla detalla cada uno de los campos y entidades asociados al diagr
 #### Petici&oacute;n HTTP
 
 #### Respuesta
+
+---
+
+## Attachments
+
+- 🖼️ [UML Diagram - Accounts Response All.png](../attachments/v1-0-1-informacion-general-polizas-de-seguro/UML%20Diagram%20-%20Accounts%20Response%20All.png) (46 KB)
+- 📊 [Cuentas-v1.0.xlsx](../attachments/v1-0-1-informacion-general-polizas-de-seguro/Cuentas-v1.0.xlsx) (48 KB)
+- 🖼️ [Flujo de secuencia.png](../attachments/v1-0-1-informacion-general-polizas-de-seguro/Flujo%20de%20secuencia.png) (184 KB)
+- 🖼️ [UML Diagram - Insurances.png](../attachments/v1-0-1-informacion-general-polizas-de-seguro/UML%20Diagram%20-%20Insurances.png) (85 KB)
+- 📎 [insurances.yaml](../attachments/v1-0-1-informacion-general-polizas-de-seguro/insurances.yaml) (31 KB)
+- 🖼️ [UML Diagram - Insurances-ID.png](../attachments/v1-0-1-informacion-general-polizas-de-seguro/UML%20Diagram%20-%20Insurances-ID.png) (97 KB)
+- 📊 [Insurances-v1.0.xlsx](../attachments/v1-0-1-informacion-general-polizas-de-seguro/Insurances-v1.0.xlsx) (41 KB)
+- 📊 [Insurances-ID-v1.0.xlsx](../attachments/v1-0-1-informacion-general-polizas-de-seguro/Insurances-ID-v1.0.xlsx) (42 KB)
+- 📊 [Insurances-ID-Transactions-v1.0.xlsx](../attachments/v1-0-1-informacion-general-polizas-de-seguro/Insurances-ID-Transactions-v1.0.xlsx) (39 KB)

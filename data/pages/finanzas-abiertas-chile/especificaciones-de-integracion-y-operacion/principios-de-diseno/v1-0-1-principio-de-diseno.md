@@ -146,6 +146,16 @@ Porta una **firma JWS** que cubre el cuerpo y/o ciertos headers de la solicitud 
 x-jws-signature: eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9...<restoToken>
  |  |
 
+```json
+GET /investments/INV-MROJ-002/transactions?page=1&pageSize=2&fromDate=2025-01-01&toDate=2025-03-31 HTTP/1.1
+Host: api-chile.cl
+Authorization: Bearer eyJhbGciOi...
+x-fapi-interaction-id: 222e9999-e88b-12d3-a456-426655442222
+Accept: application/json
+x-jws-signature: eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9 
+
+```
+
 #### Estructura Response API
 
 | 
@@ -184,6 +194,12 @@ Firma JWS de la **respuesta** que cubre el payload, reforzando la integridad del
  | 
 x-jws-signature: eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9...<restoToken>
  |  |
+
+```json
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+x-fapi-interaction-id: 222e9999-e88b-12d3-a456-426655442222
+```
 
 ### Compatibilidad entre Plataformas
 
@@ -624,6 +640,10 @@ El cliente (o la aplicaci&oacute;n que consume la API) genera un identificador &
 
 **Ejemplo:**
 
+```json
+x-idempotency-key: 123e4567-e89b-12d3-a456-426655440000
+```
+
 #### Persistencia en el servidor
 
 - 
@@ -940,3 +960,16 @@ Consulta Recurso
  | 
 100
  |  |
+
+---
+
+## Attachments
+
+- 🖼️ [image-20250318-201009.png](../attachments/v1-0-1-principio-de-diseno/image-20250318-201009.png) (33 KB)
+- 🖼️ [image-20250318-201008.png](../attachments/v1-0-1-principio-de-diseno/image-20250318-201008.png) (33 KB)
+- 🖼️ [image-20250318-203245.png](../attachments/v1-0-1-principio-de-diseno/image-20250318-203245.png) (220 KB)
+- 🖼️ [image-20250318-204901.png](../attachments/v1-0-1-principio-de-diseno/image-20250318-204901.png) (170 KB)
+- 🖼️ [image-20250318-212638.png](../attachments/v1-0-1-principio-de-diseno/image-20250318-212638.png) (118 KB)
+- 🖼️ [image-20250318-212844.png](../attachments/v1-0-1-principio-de-diseno/image-20250318-212844.png) (152 KB)
+- 🖼️ [image-20250318-212825.png](../attachments/v1-0-1-principio-de-diseno/image-20250318-212825.png) (143 KB)
+- 🖼️ [image-20250318-212904.png](../attachments/v1-0-1-principio-de-diseno/image-20250318-212904.png) (116 KB)

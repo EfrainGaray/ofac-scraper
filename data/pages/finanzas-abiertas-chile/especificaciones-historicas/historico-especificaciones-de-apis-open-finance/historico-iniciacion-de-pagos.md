@@ -128,3 +128,9 @@ El PSU cancel&oacute; o hubo error de fondos.
  | 
 Mostrar mensaje y permitir reintento. 
  |  |
+
+---
+
+## Attachments
+
+- 🖼️ [Diagrama de secuencia Iniciación de pagos.png](../attachments/historico-iniciacion-de-pagos/Diagrama%20de%20secuencia%20Iniciaci%C3%B3n%20de%20pagos.png) (199 KB)

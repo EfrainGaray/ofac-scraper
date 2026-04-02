@@ -25,3 +25,12 @@ La siguiente tabla detalla cada uno de los campos y entidades asociados al diagr
 #### Petici&oacute;n HTTP
 
 #### Respuesta
+
+---
+
+## Attachments
+
+- 🖼️ [UML Diagram - Persona Natural.png](../attachments/v1-0-1-informacion-general-recursos/UML%20Diagram%20-%20Persona%20Natural.png) (51 KB)
+- 📊 [Enrolamiento-Persona-Natural-v1.0.xlsx](../attachments/v1-0-1-informacion-general-recursos/Enrolamiento-Persona-Natural-v1.0.xlsx) (29 KB)
+- 🖼️ [UML Diagram - resources.png](../attachments/v1-0-1-informacion-general-recursos/UML%20Diagram%20-%20resources.png) (35 KB)
+- 📊 [Resources-v1.0.xlsx](../attachments/v1-0-1-informacion-general-recursos/Resources-v1.0.xlsx) (75 KB)

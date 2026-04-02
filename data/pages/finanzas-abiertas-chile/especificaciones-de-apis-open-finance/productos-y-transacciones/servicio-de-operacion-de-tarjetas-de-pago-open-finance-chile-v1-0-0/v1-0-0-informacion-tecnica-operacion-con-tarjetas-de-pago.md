@@ -41,3 +41,9 @@ Por cliente: 60 requests/min.
 - 
 Por aplicaci&oacute;n: 1 000 requests/min.  
 La cabecera `X-Rate-Limit-Remaining` indica las llamadas disponibles.
+
+---
+
+## Attachments
+
+- 📎 [payment-reports.yaml](../attachments/v1-0-0-informacion-tecnica-operacion-con-tarjetas-de-pago/payment-reports.yaml) (16 KB)

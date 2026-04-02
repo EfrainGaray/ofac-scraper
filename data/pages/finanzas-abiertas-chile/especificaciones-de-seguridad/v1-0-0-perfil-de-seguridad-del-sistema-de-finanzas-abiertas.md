@@ -1280,3 +1280,12 @@ Los eventos deber&aacute;n cumplir con el est&aacute;ndar **definido por CMF**, 
 
 - 
 La CMF establecer&aacute; los **SLA m&aacute;ximos de propagaci&oacute;n** (ej. &le; 5 minutos).
+
+---
+
+## Attachments
+
+- 🖼️ [image-20251229-140303.png](../attachments/v1-0-0-perfil-de-seguridad-del-sistema-de-finanzas-abiertas/image-20251229-140303.png) (182 KB)
+- 🖼️ [image-20251229-140245.png](../attachments/v1-0-0-perfil-de-seguridad-del-sistema-de-finanzas-abiertas/image-20251229-140245.png) (182 KB)
+- 🖼️ [Flujo de registro con SSA  emitido por CMF.png](../attachments/v1-0-0-perfil-de-seguridad-del-sistema-de-finanzas-abiertas/Flujo%20de%20registro%20con%20SSA%20%20emitido%20por%20CMF.png) (224 KB)
+- 📊 [RAR Scope-Matriz.xlsx](../attachments/v1-0-0-perfil-de-seguridad-del-sistema-de-finanzas-abiertas/RAR%20Scope-Matriz.xlsx) (34 KB)

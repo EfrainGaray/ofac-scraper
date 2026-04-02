@@ -134,3 +134,10 @@ Gateway Timeout &ndash; Tiempo de espera excedido.
  | 
 Site Is Overloaded &ndash; Servicio sobrecargado. 
  |  |
+
+---
+
+## Attachments
+
+- 🖼️ [Flujo de secuencia - Pago programado.png](../attachments/confirmacion-de-fondos-open-finance-chile-v1-0-0/Flujo%20de%20secuencia%20-%20Pago%20programado.png) (164 KB)
+- 🖼️ [Flujo de confirmación de fondos.png](../attachments/confirmacion-de-fondos-open-finance-chile-v1-0-0/Flujo%20de%20confirmaci%C3%B3n%20de%20fondos.png) (172 KB)

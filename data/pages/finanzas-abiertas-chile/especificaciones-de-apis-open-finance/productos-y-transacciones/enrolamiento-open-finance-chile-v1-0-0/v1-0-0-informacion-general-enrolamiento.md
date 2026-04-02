@@ -42,3 +42,12 @@ La siguiente tabla detalla cada uno de los campos y entidades asociados al diagr
 #### Petici&oacute;n HTTP
 
 #### Respuesta
+
+---
+
+## Attachments
+
+- 🖼️ [UML Diagram - Persona Natural.png](../attachments/v1-0-0-informacion-general-enrolamiento/UML%20Diagram%20-%20Persona%20Natural.png) (51 KB)
+- 🖼️ [UML Diagram - Persona Juridica.png](../attachments/v1-0-0-informacion-general-enrolamiento/UML%20Diagram%20-%20Persona%20Juridica.png) (58 KB)
+- 📊 [Enrolamiento-Persona-Natural-v1.0.xlsx](../attachments/v1-0-0-informacion-general-enrolamiento/Enrolamiento-Persona-Natural-v1.0.xlsx) (29 KB)
+- 📊 [Enrolamiento-Persona-Juridica-v1.0.xlsx](../attachments/v1-0-0-informacion-general-enrolamiento/Enrolamiento-Persona-Juridica-v1.0.xlsx) (30 KB)

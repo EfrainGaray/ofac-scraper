@@ -103,39 +103,67 @@ function sleep(ms: number): Promise<void> {
 function confluenceToMarkdown(html: string, pageSlug: string): string {
   let md = html;
 
-  // Remove Confluence macros (TOC, structured-macro wrappers)
-  md = md.replace(/<ac:structured-macro[^>]*>[\s\S]*?<\/ac:structured-macro>/gi, "");
-  md = md.replace(/<ac:parameter[^>]*>[\s\S]*?<\/ac:parameter>/gi, "");
+  // ── Attachment & image links (BEFORE stripping macros) ──────────────────
 
-  // Confluence images → markdown images
+  // Pattern 1: ac:image with ri:attachment (most common)
   md = md.replace(
-    /<ac:image[^>]*>[\s\S]*?<ri:attachment ri:filename="([^"]+)"[^/]*\/>[\s\S]*?<\/ac:image>/gi,
+    /<ac:image[^>]*>[\s\S]*?<ri:attachment ri:filename="([^"]+)"[\s\S]*?<\/ac:image>/gi,
     (_, filename) => `![${filename}](../attachments/${pageSlug}/${encodeURIComponent(filename)})`,
   );
 
-  // Inline images (ri:url)
+  // Pattern 2: ac:image with ri:filename directly (alternate format)
+  md = md.replace(
+    /<ac:image[^>]*>[\s\S]*?ri:filename="([^"]+)"[\s\S]*?<\/ac:image>/gi,
+    (_, filename) => `![${filename}](../attachments/${pageSlug}/${encodeURIComponent(filename)})`,
+  );
+
+  // Pattern 3: ac:image with ri:url (external images)
   md = md.replace(
     /<ac:image[^>]*>[\s\S]*?<ri:url ri:value="([^"]+)"[^/]*\/>[\s\S]*?<\/ac:image>/gi,
     (_, url) => `![image](${url})`,
   );
 
-  // Links to other pages
+  // Pattern 4: ac:link to attachment files (Excel, YAML, JSON, PDF)
+  md = md.replace(
+    /<ac:link>[\s\S]*?<ri:attachment ri:filename="([^"]+)"[\s\S]*?\/>[\s\S]*?(?:<ac:plain-text-link-body><!\[CDATA\[([^\]]*)\]\]><\/ac:plain-text-link-body>)?[\s\S]*?<\/ac:link>/gi,
+    (_, filename, linkText) => `[${linkText || filename}](../attachments/${pageSlug}/${encodeURIComponent(filename)})`,
+  );
+
+  // Pattern 5: view-file-macro (embedded file viewers for Excel/PDF)
+  md = md.replace(
+    /<ac:structured-macro ac:name="view-file-macro"[^>]*>[\s\S]*?ri:filename="([^"]+)"[\s\S]*?<\/ac:structured-macro>/gi,
+    (_, filename) => `📎 [${filename}](../attachments/${pageSlug}/${encodeURIComponent(filename)})`,
+  );
+
+  // Pattern 6: drawio diagrams
+  md = md.replace(
+    /<ac:structured-macro ac:name="drawio"[^>]*>[\s\S]*?<\/ac:structured-macro>/gi,
+    "[📊 Drawio diagram — see attachments]",
+  );
+
+  // Links to other Confluence pages
   md = md.replace(
     /<ac:link>[\s\S]*?<ri:page ri:content-title="([^"]+)"[^/]*\/>[\s\S]*?(?:<ac:plain-text-link-body><!\[CDATA\[([^\]]*)\]\]><\/ac:plain-text-link-body>)?[\s\S]*?<\/ac:link>/gi,
     (_, title, linkText) => `[${linkText || title}](./${slugify(title)}.md)`,
   );
 
-  // Confluence status macros
+  // ── Remove remaining Confluence macros ─────────────────────────────────
+
+  // Confluence status macros → bold badges
   md = md.replace(
     /<ac:structured-macro ac:name="status"[^>]*>[\s\S]*?<ac:parameter ac:name="title">([^<]*)<\/ac:parameter>[\s\S]*?<\/ac:structured-macro>/gi,
     "**[$1]**",
   );
 
-  // Code blocks
+  // Code blocks with language
   md = md.replace(
     /<ac:structured-macro ac:name="code"[^>]*>[\s\S]*?<ac:parameter ac:name="language">([^<]*)<\/ac:parameter>[\s\S]*?<ac:plain-text-body><!\[CDATA\[([\s\S]*?)\]\]><\/ac:plain-text-body>[\s\S]*?<\/ac:structured-macro>/gi,
     (_, lang, code) => `\n\`\`\`${lang}\n${code}\n\`\`\`\n`,
   );
+
+  // Remove remaining structured macros (TOC, etc) AFTER extracting useful ones
+  md = md.replace(/<ac:structured-macro[^>]*>[\s\S]*?<\/ac:structured-macro>/gi, "");
+  md = md.replace(/<ac:parameter[^>]*>[\s\S]*?<\/ac:parameter>/gi, "");
 
   // Remaining CDATA code blocks without language
   md = md.replace(
@@ -472,13 +500,6 @@ async function main() {
       "",
     ].join("\n");
 
-    const fullMd = frontmatter + `# ${page.title}\n\n` + markdown;
-
-    // Save markdown
-    const mdPath = join(pagesDir, `${page.path}.md`);
-    mkdirSync(dirname(mdPath), { recursive: true });
-    writeFileSync(mdPath, fullMd);
-
     // Fetch and download attachments
     const attachments = await fetchAttachments(page.id);
     for (const att of attachments) {
@@ -489,6 +510,37 @@ async function main() {
         console.error(`   ⚠ Failed: ${att.title} — ${err}`);
       }
     }
+
+    // Build attachments section at the bottom of each page
+    let attachmentSection = "";
+    if (attachments.length > 0) {
+      const icons: Record<string, string> = {
+        "image/png": "🖼️", "image/jpeg": "🖼️", "image/gif": "🖼️", "image/svg+xml": "🖼️",
+        "application/json": "📋", "application/pdf": "📄",
+        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": "📊",
+        "application/vnd.ms-excel": "📊",
+        "application/yaml": "📝", "text/yaml": "📝",
+        "application/vnd.openxmlformats-officedocument.presentationml.presentation": "📊",
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document": "📝",
+        "text/html": "🌐", "application/zip": "📦",
+        "application/x-x509-ca-cert": "🔐", "application/x-pem-file": "🔐",
+        "application/x-sh": "⚙️",
+      };
+      attachmentSection = "\n\n---\n\n## Attachments\n\n";
+      for (const att of attachments) {
+        const icon = icons[att.mediaType] ?? "📎";
+        const sizeKB = Math.round(att.fileSize / 1024);
+        const link = `../attachments/${page.slug}/${encodeURIComponent(att.title)}`;
+        attachmentSection += `- ${icon} [${att.title}](${link}) (${sizeKB} KB)\n`;
+      }
+    }
+
+    const fullMd = frontmatter + `# ${page.title}\n\n` + markdown + attachmentSection;
+
+    // Save markdown
+    const mdPath = join(pagesDir, `${page.path}.md`);
+    mkdirSync(dirname(mdPath), { recursive: true });
+    writeFileSync(mdPath, fullMd);
 
     await sleep(50);
   }

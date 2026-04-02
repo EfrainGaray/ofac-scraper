@@ -152,3 +152,9 @@ El plazo m&aacute;ximo para programar la orden de pago ser&aacute; de 90 d&iacut
 
 - 
 El doble factor de seguridad se aplicar&aacute; &uacute;nicamente durante el proceso de generaci&oacute;n del token de consentimiento. Una vez obtenido el consentimiento, no ser&aacute; necesario aplicar factores de seguridad adicionales al momento de ejecutar las &oacute;rdenes de pago aprobadas.
+
+---
+
+## Attachments
+
+- 🖼️ [Flujo de secuencia - Pago programado.png](../attachments/pago-programado-open-finance-chile-v1-0-0/Flujo%20de%20secuencia%20-%20Pago%20programado.png) (164 KB)

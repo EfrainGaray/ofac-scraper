@@ -41,3 +41,9 @@ Por cliente: 60 requests/min.
 - 
 Por aplicaci&oacute;n: 1 000 requests/min.  
 La cabecera `X-Rate-Limit-Remaining` indica el cupo restante.
+
+---
+
+## Attachments
+
+- 📎 [Tarjeta de Crédito.yaml](../attachments/v1-0-0-informacion-tecnica-tarjetas-de-creditos/Tarjeta%20de%20Cr%C3%A9dito.yaml) (32 KB)

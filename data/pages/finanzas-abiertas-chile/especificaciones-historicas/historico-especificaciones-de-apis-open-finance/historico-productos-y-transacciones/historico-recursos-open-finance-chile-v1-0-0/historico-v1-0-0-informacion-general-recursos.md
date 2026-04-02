@@ -27,3 +27,10 @@ La siguiente tabla detalla cada uno de los campos y entidades asociados al diagr
 #### Petici&oacute;n HTTP
 
 #### Respuesta
+
+---
+
+## Attachments
+
+- 📊 [Resources-v1.0.xlsx](../attachments/historico-v1-0-0-informacion-general-recursos/Resources-v1.0.xlsx) (75 KB)
+- 🖼️ [UML Diagram - resources.png](../attachments/historico-v1-0-0-informacion-general-recursos/UML%20Diagram%20-%20resources.png) (35 KB)

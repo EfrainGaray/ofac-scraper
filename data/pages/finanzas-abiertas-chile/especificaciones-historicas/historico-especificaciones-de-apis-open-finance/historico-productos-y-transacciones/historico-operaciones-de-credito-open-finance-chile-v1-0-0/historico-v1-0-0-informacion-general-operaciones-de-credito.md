@@ -94,3 +94,16 @@ La siguiente tabla detalla cada uno de los campos y entidades asociados al diagr
 #### Petici&oacute;n HTTP
 
 #### Respuesta
+
+---
+
+## Attachments
+
+- 🖼️ [Sin título-20250701-160845.png](../attachments/historico-v1-0-0-informacion-general-operaciones-de-credito/Sin%20t%C3%ADtulo-20250701-160845.png) (56 KB)
+- 🖼️ [Sin título-1-20250701-161017.png](../attachments/historico-v1-0-0-informacion-general-operaciones-de-credito/Sin%20t%C3%ADtulo-1-20250701-161017.png) (56 KB)
+- 📊 [Loans-v1.0.xlsx](../attachments/historico-v1-0-0-informacion-general-operaciones-de-credito/Loans-v1.0.xlsx) (97 KB)
+- 🖼️ [UML Diagram - loans.png](../attachments/historico-v1-0-0-informacion-general-operaciones-de-credito/UML%20Diagram%20-%20loans.png) (55 KB)
+- 📊 [Loans-ID-v1.0.xlsx](../attachments/historico-v1-0-0-informacion-general-operaciones-de-credito/Loans-ID-v1.0.xlsx) (95 KB)
+- 📊 [Loans-ID-Transactions v1.0.xlsx](../attachments/historico-v1-0-0-informacion-general-operaciones-de-credito/Loans-ID-Transactions%20v1.0.xlsx) (79 KB)
+- 🖼️ [UML Diagram - transactions.png](../attachments/historico-v1-0-0-informacion-general-operaciones-de-credito/UML%20Diagram%20-%20transactions.png) (45 KB)
+- 📊 [Loans-ID-Balances v1.0.xlsx](../attachments/historico-v1-0-0-informacion-general-operaciones-de-credito/Loans-ID-Balances%20v1.0.xlsx) (81 KB)

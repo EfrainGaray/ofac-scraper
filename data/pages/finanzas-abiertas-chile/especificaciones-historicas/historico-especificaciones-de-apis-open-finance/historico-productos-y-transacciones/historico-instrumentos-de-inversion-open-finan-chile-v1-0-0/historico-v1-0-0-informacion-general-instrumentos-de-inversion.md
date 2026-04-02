@@ -86,3 +86,12 @@ La siguiente tabla detalla cada uno de los campos y entidades asociados al diagr
 #### Petici&oacute;n HTTP
 
 #### Respuesta
+
+---
+
+## Attachments
+
+- 🖼️ [UML Diagram - Balance.png](../attachments/historico-v1-0-0-informacion-general-instrumentos-de-inversion/UML%20Diagram%20-%20Balance.png) (40 KB)
+- 🖼️ [UML Diagram - Investments.png](../attachments/historico-v1-0-0-informacion-general-instrumentos-de-inversion/UML%20Diagram%20-%20Investments.png) (58 KB)
+- 🖼️ [UML Diagram - Insurances-ID.png](../attachments/historico-v1-0-0-informacion-general-instrumentos-de-inversion/UML%20Diagram%20-%20Insurances-ID.png) (97 KB)
+- 🖼️ [UML Diagram - Transactions.png](../attachments/historico-v1-0-0-informacion-general-instrumentos-de-inversion/UML%20Diagram%20-%20Transactions.png) (45 KB)

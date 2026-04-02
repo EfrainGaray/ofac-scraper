@@ -1,6 +1,6 @@
 # Open Finance Chile — Wiki Mirror
 
-Scraped: 2026-04-02T10:12:25.904Z
+Scraped: 2026-04-02T10:35:43.824Z
 Pages: 106
 Attachments: 367
 

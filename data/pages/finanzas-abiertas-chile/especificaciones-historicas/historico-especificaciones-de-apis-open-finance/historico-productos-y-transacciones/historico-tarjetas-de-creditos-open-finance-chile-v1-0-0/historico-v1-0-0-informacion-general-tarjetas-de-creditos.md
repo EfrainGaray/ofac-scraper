@@ -115,3 +115,19 @@ La siguiente tabla detalla cada uno de los campos y entidades asociados al diagr
 #### Petici&oacute;n HTTP
 
 #### Respuesta
+
+---
+
+## Attachments
+
+- 🖼️ [UML Diagram - Limit.png](../attachments/historico-v1-0-0-informacion-general-tarjetas-de-creditos/UML%20Diagram%20-%20Limit.png) (35 KB)
+- 🖼️ [UML Diagram - Current Balance.png](../attachments/historico-v1-0-0-informacion-general-tarjetas-de-creditos/UML%20Diagram%20-%20Current%20Balance.png) (33 KB)
+- 🖼️ [UML Diagram - Transactions.png](../attachments/historico-v1-0-0-informacion-general-tarjetas-de-creditos/UML%20Diagram%20-%20Transactions.png) (40 KB)
+- 🖼️ [UML Diagram - Credit Card AccountID.png](../attachments/historico-v1-0-0-informacion-general-tarjetas-de-creditos/UML%20Diagram%20-%20Credit%20Card%20AccountID.png) (42 KB)
+- 🖼️ [UML Diagram - Balance.png](../attachments/historico-v1-0-0-informacion-general-tarjetas-de-creditos/UML%20Diagram%20-%20Balance.png) (36 KB)
+- 📊 [Diccionario de datos_Credit-card-accounts_accounts.xlsx](../attachments/historico-v1-0-0-informacion-general-tarjetas-de-creditos/Diccionario%20de%20datos_Credit-card-accounts_accounts.xlsx) (82 KB)
+- 📊 [Diccionario de datos_credit-card-accounts_limit.xlsx](../attachments/historico-v1-0-0-informacion-general-tarjetas-de-creditos/Diccionario%20de%20datos_credit-card-accounts_limit.xlsx) (75 KB)
+- 🖼️ [UML Diagram - Credit Card Accounts.png](../attachments/historico-v1-0-0-informacion-general-tarjetas-de-creditos/UML%20Diagram%20-%20Credit%20Card%20Accounts.png) (42 KB)
+- 📊 [Diccionario de datos_credit-card-accounts_balance.xlsx](../attachments/historico-v1-0-0-informacion-general-tarjetas-de-creditos/Diccionario%20de%20datos_credit-card-accounts_balance.xlsx) (75 KB)
+- 📊 [Diccionario de datos_credit-card-accounts_current_balance.xlsx](../attachments/historico-v1-0-0-informacion-general-tarjetas-de-creditos/Diccionario%20de%20datos_credit-card-accounts_current_balance.xlsx) (72 KB)
+- 📊 [Diccionario de datos_credit-card-accounts_transactions.xlsx](../attachments/historico-v1-0-0-informacion-general-tarjetas-de-creditos/Diccionario%20de%20datos_credit-card-accounts_transactions.xlsx) (80 KB)

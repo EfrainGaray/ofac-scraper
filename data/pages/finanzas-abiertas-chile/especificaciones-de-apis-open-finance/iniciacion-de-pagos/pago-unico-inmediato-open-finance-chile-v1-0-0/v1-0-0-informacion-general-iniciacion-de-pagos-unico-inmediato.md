@@ -2879,3 +2879,18 @@ El estado retornado refleja la **&uacute;ltima informaci&oacute;n disponible** a
 
 - 
 Aplica de forma homog&eacute;nea para **PN y PJ**, sin diferencias funcionales.
+
+---
+
+## Attachments
+
+- 🖼️ [UML Diagram - loans.png](../attachments/v1-0-0-informacion-general-iniciacion-de-pagos-unico-inmediato/UML%20Diagram%20-%20loans.png) (55 KB)
+- 📊 [Payments v1.0.0.xlsx](../attachments/v1-0-0-informacion-general-iniciacion-de-pagos-unico-inmediato/Payments%20v1.0.0.xlsx) (36 KB)
+- 🖼️ [UML Diagram - Payments.png](../attachments/v1-0-0-informacion-general-iniciacion-de-pagos-unico-inmediato/UML%20Diagram%20-%20Payments.png) (83 KB)
+- 📊 [Payments-ID v1.0.0.xlsx](../attachments/v1-0-0-informacion-general-iniciacion-de-pagos-unico-inmediato/Payments-ID%20v1.0.0.xlsx) (42 KB)
+- 🖼️ [Authorization Details _PN_ Request.png](../attachments/v1-0-0-informacion-general-iniciacion-de-pagos-unico-inmediato/Authorization%20Details%20_PN_%20Request.png) (18 KB)
+- 🖼️ [Request_PJ_ API.png](../attachments/v1-0-0-informacion-general-iniciacion-de-pagos-unico-inmediato/Request_PJ_%20API.png) (26 KB)
+- 🖼️ [AD_PN_ Request.png](../attachments/v1-0-0-informacion-general-iniciacion-de-pagos-unico-inmediato/AD_PN_%20Request.png) (17 KB)
+- 🖼️ [Request_PN_ Request.png](../attachments/v1-0-0-informacion-general-iniciacion-de-pagos-unico-inmediato/Request_PN_%20Request.png) (21 KB)
+- 🖼️ [Authorization_details_PJ_ Request.png](../attachments/v1-0-0-informacion-general-iniciacion-de-pagos-unico-inmediato/Authorization_details_PJ_%20Request.png) (21 KB)
+- 🖼️ [Request_PJ_ Request.png](../attachments/v1-0-0-informacion-general-iniciacion-de-pagos-unico-inmediato/Request_PJ_%20Request.png) (26 KB)

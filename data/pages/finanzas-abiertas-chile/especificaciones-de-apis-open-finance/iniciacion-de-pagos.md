@@ -18,3 +18,9 @@ Pago Recurrente con Monto Variable - Open Finance Chile v1.0.0
 Confirmaci&oacute;n de Fondos - Open Finance Chile v1.0.0 
 
 Hist&oacute;rico de especificaciones de APIs Open Finance
+
+---
+
+## Attachments
+
+- 🖼️ [Diagrama de secuencia Iniciación de pagos.png](../attachments/iniciacion-de-pagos/Diagrama%20de%20secuencia%20Iniciaci%C3%B3n%20de%20pagos.png) (199 KB)

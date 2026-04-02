@@ -63,3 +63,15 @@ La siguiente tabla detalla cada uno de los campos y entidades asociados al diagr
 #### Petici&oacute;n HTTP
 
 #### Respuesta
+
+---
+
+## Attachments
+
+- 📊 [Insurances-ID-Transactions-v1.0.xlsx](../attachments/historico-v1-0-0-informacion-general-polizas-de-seguro/Insurances-ID-Transactions-v1.0.xlsx) (40 KB)
+- 📊 [Insurances-ID-v1.0.xlsx](../attachments/historico-v1-0-0-informacion-general-polizas-de-seguro/Insurances-ID-v1.0.xlsx) (43 KB)
+- 📊 [Insurances-v1.0.xlsx](../attachments/historico-v1-0-0-informacion-general-polizas-de-seguro/Insurances-v1.0.xlsx) (42 KB)
+- 📎 [insurances.yaml](../attachments/historico-v1-0-0-informacion-general-polizas-de-seguro/insurances.yaml) (31 KB)
+- 🖼️ [Sin título-1-20250701-161758.png](../attachments/historico-v1-0-0-informacion-general-polizas-de-seguro/Sin%20t%C3%ADtulo-1-20250701-161758.png) (87 KB)
+- 🖼️ [UML Diagram - Insurances-ID.png](../attachments/historico-v1-0-0-informacion-general-polizas-de-seguro/UML%20Diagram%20-%20Insurances-ID.png) (97 KB)
+- 🖼️ [UML Diagram - Insurances.png](../attachments/historico-v1-0-0-informacion-general-polizas-de-seguro/UML%20Diagram%20-%20Insurances.png) (85 KB)

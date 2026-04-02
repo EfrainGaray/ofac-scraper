@@ -12,3 +12,9 @@ path: "finanzas-abiertas-chile"
 ## Portal del desarrollador
 
 ---
+
+---
+
+## Attachments
+
+- 🖼️ [logo.png](../attachments/finanzas-abiertas-chile/logo.png) (36 KB)

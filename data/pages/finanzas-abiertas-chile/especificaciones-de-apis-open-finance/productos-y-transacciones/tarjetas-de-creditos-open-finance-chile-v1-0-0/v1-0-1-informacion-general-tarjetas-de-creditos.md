@@ -115,3 +115,19 @@ La siguiente tabla detalla cada uno de los campos y entidades asociados al diagr
 #### Petici&oacute;n HTTP
 
 #### Respuesta
+
+---
+
+## Attachments
+
+- 🖼️ [UML Diagram - Credit Card Accounts.png](../attachments/v1-0-1-informacion-general-tarjetas-de-creditos/UML%20Diagram%20-%20Credit%20Card%20Accounts.png) (42 KB)
+- 🖼️ [UML Diagram - Credit Card AccountID.png](../attachments/v1-0-1-informacion-general-tarjetas-de-creditos/UML%20Diagram%20-%20Credit%20Card%20AccountID.png) (42 KB)
+- 🖼️ [UML Diagram - Balance.png](../attachments/v1-0-1-informacion-general-tarjetas-de-creditos/UML%20Diagram%20-%20Balance.png) (36 KB)
+- 🖼️ [UML Diagram - Current Balance.png](../attachments/v1-0-1-informacion-general-tarjetas-de-creditos/UML%20Diagram%20-%20Current%20Balance.png) (33 KB)
+- 🖼️ [UML Diagram - Limit.png](../attachments/v1-0-1-informacion-general-tarjetas-de-creditos/UML%20Diagram%20-%20Limit.png) (35 KB)
+- 🖼️ [UML Diagram - Transactions.png](../attachments/v1-0-1-informacion-general-tarjetas-de-creditos/UML%20Diagram%20-%20Transactions.png) (40 KB)
+- 📊 [Diccionario de datos_Credit-card-accounts_accounts.xlsx](../attachments/v1-0-1-informacion-general-tarjetas-de-creditos/Diccionario%20de%20datos_Credit-card-accounts_accounts.xlsx) (81 KB)
+- 📊 [Diccionario de datos_credit-card-accounts_balance.xlsx](../attachments/v1-0-1-informacion-general-tarjetas-de-creditos/Diccionario%20de%20datos_credit-card-accounts_balance.xlsx) (74 KB)
+- 📊 [Diccionario de datos_credit-card-accounts_current_balance.xlsx](../attachments/v1-0-1-informacion-general-tarjetas-de-creditos/Diccionario%20de%20datos_credit-card-accounts_current_balance.xlsx) (71 KB)
+- 📊 [Diccionario de datos_credit-card-accounts_limit.xlsx](../attachments/v1-0-1-informacion-general-tarjetas-de-creditos/Diccionario%20de%20datos_credit-card-accounts_limit.xlsx) (74 KB)
+- 📊 [Diccionario de datos_credit-card-accounts_transactions.xlsx](../attachments/v1-0-1-informacion-general-tarjetas-de-creditos/Diccionario%20de%20datos_credit-card-accounts_transactions.xlsx) (79 KB)

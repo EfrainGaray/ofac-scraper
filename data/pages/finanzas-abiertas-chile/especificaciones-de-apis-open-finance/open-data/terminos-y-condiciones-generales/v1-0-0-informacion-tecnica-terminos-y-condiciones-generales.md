@@ -43,3 +43,9 @@ Por cliente: 60 requests/min.
 - 
 Por aplicaci&oacute;n: 1 000 requests/min.  
 La cabecera `X-Rate-Limit-Remaining` indica el cupo restante.
+
+---
+
+## Attachments
+
+- 📎 [Termino-Condiciones-Generales.yaml](../attachments/v1-0-0-informacion-tecnica-terminos-y-condiciones-generales/Termino-Condiciones-Generales.yaml) (50 KB)

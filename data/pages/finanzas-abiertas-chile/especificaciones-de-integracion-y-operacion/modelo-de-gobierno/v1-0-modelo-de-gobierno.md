@@ -623,3 +623,26 @@ N/A
  | 
 P&eacute;rdida de habilitaci&oacute;n o certificado revocado
  |  |
+
+---
+
+## Attachments
+
+- 🖼️ [image-20250604-123852.png](../attachments/v1-0-modelo-de-gobierno/image-20250604-123852.png) (42 KB)
+- 🖼️ [image-20250604-123035.png](../attachments/v1-0-modelo-de-gobierno/image-20250604-123035.png) (80 KB)
+- 🖼️ [image-20250604-122515.png](../attachments/v1-0-modelo-de-gobierno/image-20250604-122515.png) (66 KB)
+- 🖼️ [image-20250604-115235.png](../attachments/v1-0-modelo-de-gobierno/image-20250604-115235.png) (47 KB)
+- 🖼️ [image-20250604-114906.png](../attachments/v1-0-modelo-de-gobierno/image-20250604-114906.png) (35 KB)
+- 🖼️ [image-20250318-220610.png](../attachments/v1-0-modelo-de-gobierno/image-20250318-220610.png) (145 KB)
+- 🖼️ [Flujo de Publicación.png](../attachments/v1-0-modelo-de-gobierno/Flujo%20de%20Publicaci%C3%B3n.png) (84 KB)
+- 🖼️ [Ciclo de Madurez API.png](../attachments/v1-0-modelo-de-gobierno/Ciclo%20de%20Madurez%20API.png) (25 KB)
+- 🖼️ [Interacción con los actores del ecosistema.png](../attachments/v1-0-modelo-de-gobierno/Interacci%C3%B3n%20con%20los%20actores%20del%20ecosistema.png) (144 KB)
+- 🖼️ [Flujo de certificación y publicación.png](../attachments/v1-0-modelo-de-gobierno/Flujo%20de%20certificaci%C3%B3n%20y%20publicaci%C3%B3n.png) (43 KB)
+- 🖼️ [Flujo de publicación 2.png](../attachments/v1-0-modelo-de-gobierno/Flujo%20de%20publicaci%C3%B3n%202.png) (64 KB)
+- 🖼️ [Flujo de revocación.png](../attachments/v1-0-modelo-de-gobierno/Flujo%20de%20revocaci%C3%B3n.png) (33 KB)
+- 🖼️ [image-20251209-013906.png](../attachments/v1-0-modelo-de-gobierno/image-20251209-013906.png) (96 KB)
+- 🖼️ [image-20251209-013459.png](../attachments/v1-0-modelo-de-gobierno/image-20251209-013459.png) (66 KB)
+- 🖼️ [image-20251209-012519.png](../attachments/v1-0-modelo-de-gobierno/image-20251209-012519.png) (95 KB)
+- 🖼️ [image-20251230-181640.png](../attachments/v1-0-modelo-de-gobierno/image-20251230-181640.png) (43 KB)
+- 🖼️ [image-20251230-181022.png](../attachments/v1-0-modelo-de-gobierno/image-20251230-181022.png) (55 KB)
+- 🖼️ [image-20251230-181753.png](../attachments/v1-0-modelo-de-gobierno/image-20251230-181753.png) (51 KB)

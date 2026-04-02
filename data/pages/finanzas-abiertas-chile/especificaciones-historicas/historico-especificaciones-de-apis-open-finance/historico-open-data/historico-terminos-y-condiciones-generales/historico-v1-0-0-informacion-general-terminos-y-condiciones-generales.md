@@ -310,3 +310,24 @@ La siguiente tabla detalla cada uno de los campos y entidades asociados al diagr
 #### Petici&oacute;n HTTP
 
 #### Respuesta
+
+---
+
+## Attachments
+
+- 🖼️ [UML Diagram - Card Operation Services.png](../attachments/historico-v1-0-0-informacion-general-terminos-y-condiciones-generales/UML%20Diagram%20-%20Card%20Operation%20Services.png) (79 KB)
+- 🖼️ [UML Diagram - Financial Sevice Providers.png](../attachments/historico-v1-0-0-informacion-general-terminos-y-condiciones-generales/UML%20Diagram%20-%20Financial%20Sevice%20Providers.png) (74 KB)
+- 🖼️ [UML Diagram - Savings Instruments.png](../attachments/historico-v1-0-0-informacion-general-terminos-y-condiciones-generales/UML%20Diagram%20-%20Savings%20Instruments.png) (84 KB)
+- 🖼️ [UML Diagram - Investment Instruments.png](../attachments/historico-v1-0-0-informacion-general-terminos-y-condiciones-generales/UML%20Diagram%20-%20Investment%20Instruments.png) (92 KB)
+- 🖼️ [UML Diagram - Credits Cards.png](../attachments/historico-v1-0-0-informacion-general-terminos-y-condiciones-generales/UML%20Diagram%20-%20Credits%20Cards.png) (94 KB)
+- 🖼️ [UML Diagram - Insurance Policies.png](../attachments/historico-v1-0-0-informacion-general-terminos-y-condiciones-generales/UML%20Diagram%20-%20Insurance%20Policies.png) (77 KB)
+- 🖼️ [UML Diagram - Credit Operations.png](../attachments/historico-v1-0-0-informacion-general-terminos-y-condiciones-generales/UML%20Diagram%20-%20Credit%20Operations.png) (83 KB)
+- 📊 [OpenData-Accounts-v1.0.xlsx](../attachments/historico-v1-0-0-informacion-general-terminos-y-condiciones-generales/OpenData-Accounts-v1.0.xlsx) (32 KB)
+- 📊 [OpenData-Credit-Operations-v1.0.xlsx](../attachments/historico-v1-0-0-informacion-general-terminos-y-condiciones-generales/OpenData-Credit-Operations-v1.0.xlsx) (32 KB)
+- 🖼️ [UML Diagram - Accounts.png](../attachments/historico-v1-0-0-informacion-general-terminos-y-condiciones-generales/UML%20Diagram%20-%20Accounts.png) (80 KB)
+- 📊 [OpenData-Insurance-Policies-v1.0.xlsx](../attachments/historico-v1-0-0-informacion-general-terminos-y-condiciones-generales/OpenData-Insurance-Policies-v1.0.xlsx) (31 KB)
+- 📊 [OpenData-Card-Operation-Service-v1.0.xlsx](../attachments/historico-v1-0-0-informacion-general-terminos-y-condiciones-generales/OpenData-Card-Operation-Service-v1.0.xlsx) (32 KB)
+- 📊 [OpenData-Savings-Instruments-v1.0.xlsx](../attachments/historico-v1-0-0-informacion-general-terminos-y-condiciones-generales/OpenData-Savings-Instruments-v1.0.xlsx) (32 KB)
+- 📊 [OpenData-Investment-Instruments-v1.0.xlsx](../attachments/historico-v1-0-0-informacion-general-terminos-y-condiciones-generales/OpenData-Investment-Instruments-v1.0.xlsx) (32 KB)
+- 📊 [OpenData-Financial-Service-Providers-v1.0.xlsx](../attachments/historico-v1-0-0-informacion-general-terminos-y-condiciones-generales/OpenData-Financial-Service-Providers-v1.0.xlsx) (31 KB)
+- 📊 [OpenData-Credits-Cards-v1.0.xlsx](../attachments/historico-v1-0-0-informacion-general-terminos-y-condiciones-generales/OpenData-Credits-Cards-v1.0.xlsx) (32 KB)

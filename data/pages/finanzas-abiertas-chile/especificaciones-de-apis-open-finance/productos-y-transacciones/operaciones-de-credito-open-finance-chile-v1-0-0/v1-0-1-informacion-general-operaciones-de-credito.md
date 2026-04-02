@@ -94,3 +94,15 @@ La siguiente tabla detalla cada uno de los campos y entidades asociados al diagr
 #### Petici&oacute;n HTTP
 
 #### Respuesta
+
+---
+
+## Attachments
+
+- 🖼️ [UML Diagram - Credit Card Accounts.png](../attachments/v1-0-1-informacion-general-operaciones-de-credito/UML%20Diagram%20-%20Credit%20Card%20Accounts.png) (42 KB)
+- 🖼️ [UML Diagram - loans.png](../attachments/v1-0-1-informacion-general-operaciones-de-credito/UML%20Diagram%20-%20loans.png) (55 KB)
+- 🖼️ [UML Diagram - transactions.png](../attachments/v1-0-1-informacion-general-operaciones-de-credito/UML%20Diagram%20-%20transactions.png) (45 KB)
+- 📊 [Loans-v1.0.xlsx](../attachments/v1-0-1-informacion-general-operaciones-de-credito/Loans-v1.0.xlsx) (96 KB)
+- 📊 [Loans-ID-v1.0.xlsx](../attachments/v1-0-1-informacion-general-operaciones-de-credito/Loans-ID-v1.0.xlsx) (94 KB)
+- 📊 [Loans-ID-Transactions v1.0.xlsx](../attachments/v1-0-1-informacion-general-operaciones-de-credito/Loans-ID-Transactions%20v1.0.xlsx) (78 KB)
+- 📊 [Loans-ID-Balances v1.0.xlsx](../attachments/v1-0-1-informacion-general-operaciones-de-credito/Loans-ID-Balances%20v1.0.xlsx) (81 KB)

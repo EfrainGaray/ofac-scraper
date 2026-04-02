@@ -86,3 +86,21 @@ La siguiente tabla detalla cada uno de los campos y entidades asociados al diagr
 #### Petici&oacute;n HTTP
 
 #### Respuesta
+
+---
+
+## Attachments
+
+- 🖼️ [UML Diagram - Insurances-ID.png](../attachments/v1-0-1-informacion-general-instrumentos-de-inversion/UML%20Diagram%20-%20Insurances-ID.png) (97 KB)
+- 📎 [insurances.yaml](../attachments/v1-0-1-informacion-general-instrumentos-de-inversion/insurances.yaml) (31 KB)
+- 🖼️ [UML Diagram - Insurances.png](../attachments/v1-0-1-informacion-general-instrumentos-de-inversion/UML%20Diagram%20-%20Insurances.png) (85 KB)
+- 🖼️ [UML Diagram - Investments.png](../attachments/v1-0-1-informacion-general-instrumentos-de-inversion/UML%20Diagram%20-%20Investments.png) (58 KB)
+- 🖼️ [UML Diagram - Balance.png](../attachments/v1-0-1-informacion-general-instrumentos-de-inversion/UML%20Diagram%20-%20Balance.png) (40 KB)
+- 🖼️ [UML Diagram - Transactions.png](../attachments/v1-0-1-informacion-general-instrumentos-de-inversion/UML%20Diagram%20-%20Transactions.png) (45 KB)
+- 📊 [Insurances-v1.0.xlsx](../attachments/v1-0-1-informacion-general-instrumentos-de-inversion/Insurances-v1.0.xlsx) (41 KB)
+- 📊 [Insurances-ID-v1.0.xlsx](../attachments/v1-0-1-informacion-general-instrumentos-de-inversion/Insurances-ID-v1.0.xlsx) (42 KB)
+- 📊 [Insurances-ID-Transactions-v1.0.xlsx](../attachments/v1-0-1-informacion-general-instrumentos-de-inversion/Insurances-ID-Transactions-v1.0.xlsx) (39 KB)
+- 📊 [Investments-Balance-v1.0.xlsx](../attachments/v1-0-1-informacion-general-instrumentos-de-inversion/Investments-Balance-v1.0.xlsx) (39 KB)
+- 📊 [Investments-transactions-v1.0.xlsx](../attachments/v1-0-1-informacion-general-instrumentos-de-inversion/Investments-transactions-v1.0.xlsx) (40 KB)
+- 📊 [InvestmentsID - v1.0.xlsx](../attachments/v1-0-1-informacion-general-instrumentos-de-inversion/InvestmentsID%20-%20v1.0.xlsx) (40 KB)
+- 📊 [Investments - v1.0.xlsx](../attachments/v1-0-1-informacion-general-instrumentos-de-inversion/Investments%20-%20v1.0.xlsx) (41 KB)

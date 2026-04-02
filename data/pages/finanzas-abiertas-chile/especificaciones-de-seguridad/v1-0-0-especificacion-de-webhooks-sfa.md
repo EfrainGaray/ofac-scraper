@@ -203,3 +203,11 @@ Los emisores deber&aacute;n implementar mecanismos de **monitoreo y auditor&iacu
 
 - 
 Cualquier actualizaci&oacute;n en esta especificaci&oacute;n ser&aacute; publicada en el **Portal del Desarrollador** y notificada por los canales oficiales de la CMF.
+
+---
+
+## Attachments
+
+- 🖼️ [Flujo de cambios de estado Consentimientos.png](../attachments/v1-0-0-especificacion-de-webhooks-sfa/Flujo%20de%20cambios%20de%20estado%20Consentimientos.png) (158 KB)
+- 🖼️ [Flujo de cambios de estado Iniciación de pagos.png](../attachments/v1-0-0-especificacion-de-webhooks-sfa/Flujo%20de%20cambios%20de%20estado%20Iniciaci%C3%B3n%20de%20pagos.png) (136 KB)
+- 🖼️ [Flujo general de notificación y consulta.png](../attachments/v1-0-0-especificacion-de-webhooks-sfa/Flujo%20general%20de%20notificaci%C3%B3n%20y%20consulta.png) (131 KB)

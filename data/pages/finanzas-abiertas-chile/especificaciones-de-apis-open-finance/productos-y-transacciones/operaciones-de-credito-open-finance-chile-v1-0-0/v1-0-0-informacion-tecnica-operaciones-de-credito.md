@@ -32,3 +32,9 @@ Cambios retro-compatibles &rarr; incrementan la versi&oacute;n menor (1.1, 1.2&h
 
 - 
 Cambios incompatibles &rarr; nueva versi&oacute;n mayor (2.0).
+
+---
+
+## Attachments
+
+- 📎 [Operaciones de Crédito.yaml](../attachments/v1-0-0-informacion-tecnica-operaciones-de-credito/Operaciones%20de%20Cr%C3%A9dito.yaml) (32 KB)

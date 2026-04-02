@@ -41,3 +41,9 @@ Cambios incompatibles &rarr; nueva versi&oacute;n mayor (2.0).
 - 
 1 000 requests/min por aplicaci&oacute;n.  
 La cabecera `X-Rate-Limit-Remaining` indica el cupo disponible.
+
+---
+
+## Attachments
+
+- 📎 [Resources.yaml](../attachments/v1-0-0-informacion-tecnica-recursos/Resources.yaml) (14 KB)

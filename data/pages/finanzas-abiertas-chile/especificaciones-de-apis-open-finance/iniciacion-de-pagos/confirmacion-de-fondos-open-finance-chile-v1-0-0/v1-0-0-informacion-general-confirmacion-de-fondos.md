@@ -1285,3 +1285,19 @@ S&iacute;
  |  |
 
 **Ejemplo de respuesta**
+
+---
+
+## Attachments
+
+- 🖼️ [UML Diagram - loans.png](../attachments/v1-0-0-informacion-general-confirmacion-de-fondos/UML%20Diagram%20-%20loans.png) (55 KB)
+- 🖼️ [UML Diagram - Payments.png](../attachments/v1-0-0-informacion-general-confirmacion-de-fondos/UML%20Diagram%20-%20Payments.png) (83 KB)
+- 📊 [Payments v1.0.0.xlsx](../attachments/v1-0-0-informacion-general-confirmacion-de-fondos/Payments%20v1.0.0.xlsx) (36 KB)
+- 🖼️ [AD_PN_ Request.png](../attachments/v1-0-0-informacion-general-confirmacion-de-fondos/AD_PN_%20Request.png) (17 KB)
+- 🖼️ [Request_PN_ Request.png](../attachments/v1-0-0-informacion-general-confirmacion-de-fondos/Request_PN_%20Request.png) (25 KB)
+- 📊 [Payments-ID v1.0.0.xlsx](../attachments/v1-0-0-informacion-general-confirmacion-de-fondos/Payments-ID%20v1.0.0.xlsx) (42 KB)
+- 🖼️ [Request_PJ_ API.png](../attachments/v1-0-0-informacion-general-confirmacion-de-fondos/Request_PJ_%20API.png) (26 KB)
+- 🖼️ [Authorization Details _PN_ Request.png](../attachments/v1-0-0-informacion-general-confirmacion-de-fondos/Authorization%20Details%20_PN_%20Request.png) (18 KB)
+- 🖼️ [Founds_Confirmation_Diagrama UML_ request_ PN.png](../attachments/v1-0-0-informacion-general-confirmacion-de-fondos/Founds_Confirmation_Diagrama%20UML_%20request_%20PN.png) (12 KB)
+- 🖼️ [Authorization_details_PJ_ Request.png](../attachments/v1-0-0-informacion-general-confirmacion-de-fondos/Authorization_details_PJ_%20Request.png) (21 KB)
+- 🖼️ [Founds_Confirmation_Diagrama UML_ request_ PJ.png](../attachments/v1-0-0-informacion-general-confirmacion-de-fondos/Founds_Confirmation_Diagrama%20UML_%20request_%20PJ.png) (13 KB)

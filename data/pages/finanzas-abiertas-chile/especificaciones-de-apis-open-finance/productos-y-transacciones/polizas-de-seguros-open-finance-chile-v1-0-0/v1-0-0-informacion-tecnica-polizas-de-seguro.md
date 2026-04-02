@@ -41,3 +41,9 @@ Cambios incompatibles &rarr; nueva versi&oacute;n mayor (2.0).
 - 
 1 000 requests/min por aplicaci&oacute;n.  
 La cabecera `X-Rate-Limit-Remaining` indica el cupo disponible.
+
+---
+
+## Attachments
+
+- 📎 [insurances.yaml](../attachments/v1-0-0-informacion-tecnica-polizas-de-seguro/insurances.yaml) (31 KB)

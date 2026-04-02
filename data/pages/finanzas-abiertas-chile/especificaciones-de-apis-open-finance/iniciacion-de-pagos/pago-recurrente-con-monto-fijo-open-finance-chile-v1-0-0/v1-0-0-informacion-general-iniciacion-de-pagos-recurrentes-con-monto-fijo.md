@@ -4528,3 +4528,21 @@ El estado retornado refleja la **&uacute;ltima informaci&oacute;n disponible** a
 
 - 
 Aplica de forma homog&eacute;nea para **PN y PJ**, sin diferencias funcionales.
+
+---
+
+## Attachments
+
+- 🖼️ [UML Diagram - loans.png](../attachments/v1-0-0-informacion-general-iniciacion-de-pagos-recurrentes-con-monto-fijo/UML%20Diagram%20-%20loans.png) (55 KB)
+- 📊 [Payments v1.0.0.xlsx](../attachments/v1-0-0-informacion-general-iniciacion-de-pagos-recurrentes-con-monto-fijo/Payments%20v1.0.0.xlsx) (36 KB)
+- 🖼️ [UML Diagram - Payments.png](../attachments/v1-0-0-informacion-general-iniciacion-de-pagos-recurrentes-con-monto-fijo/UML%20Diagram%20-%20Payments.png) (83 KB)
+- 🖼️ [AD_PN_ Request.png](../attachments/v1-0-0-informacion-general-iniciacion-de-pagos-recurrentes-con-monto-fijo/AD_PN_%20Request.png) (17 KB)
+- 🖼️ [Request_PN_ Request.png](../attachments/v1-0-0-informacion-general-iniciacion-de-pagos-recurrentes-con-monto-fijo/Request_PN_%20Request.png) (25 KB)
+- 📊 [Payments-ID v1.0.0.xlsx](../attachments/v1-0-0-informacion-general-iniciacion-de-pagos-recurrentes-con-monto-fijo/Payments-ID%20v1.0.0.xlsx) (42 KB)
+- 🖼️ [Authorization Details _PN_ Request.png](../attachments/v1-0-0-informacion-general-iniciacion-de-pagos-recurrentes-con-monto-fijo/Authorization%20Details%20_PN_%20Request.png) (18 KB)
+- 🖼️ [Request_PJ_ API.png](../attachments/v1-0-0-informacion-general-iniciacion-de-pagos-recurrentes-con-monto-fijo/Request_PJ_%20API.png) (26 KB)
+- 🖼️ [Authorization_details_PJ_ Request.png](../attachments/v1-0-0-informacion-general-iniciacion-de-pagos-recurrentes-con-monto-fijo/Authorization_details_PJ_%20Request.png) (21 KB)
+- 🖼️ [UML_Recurring Payment_PN_Request.png](../attachments/v1-0-0-informacion-general-iniciacion-de-pagos-recurrentes-con-monto-fijo/UML_Recurring%20Payment_PN_Request.png) (32 KB)
+- 🖼️ [UML_Recurring Payment_PJ_Request.png](../attachments/v1-0-0-informacion-general-iniciacion-de-pagos-recurrentes-con-monto-fijo/UML_Recurring%20Payment_PJ_Request.png) (33 KB)
+- 🖼️ [Authorization_Details_PN_Request.png](../attachments/v1-0-0-informacion-general-iniciacion-de-pagos-recurrentes-con-monto-fijo/Authorization_Details_PN_Request.png) (39 KB)
+- 🖼️ [Authorization_Details_PJ_Request.png](../attachments/v1-0-0-informacion-general-iniciacion-de-pagos-recurrentes-con-monto-fijo/Authorization_Details_PJ_Request.png) (40 KB)

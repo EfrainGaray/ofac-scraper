@@ -144,3 +144,9 @@ Servicio temporalmente sobrecargado.
  | 
 Retry con *back-off*. 
  |  |
+
+---
+
+## Attachments
+
+- 🖼️ [Flujo API + RAR.png](../attachments/productos-y-transacciones/Flujo%20API%20%2B%20RAR.png) (184 KB)

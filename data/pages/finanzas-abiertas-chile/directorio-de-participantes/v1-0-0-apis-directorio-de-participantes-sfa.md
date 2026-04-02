@@ -183,3 +183,27 @@ Toda firma digital debe realizarse con PS256 (RSASSA-PSS SHA-256).
 
 - 
 Est&aacute; prohibido el uso de algoritmos sim&eacute;tricos (HS256) o none.
+
+---
+
+## Attachments
+
+- 🖼️ [Untitled diagram-2025-10-30-183336-20251030-183337.png](../attachments/v1-0-0-apis-directorio-de-participantes-sfa/Untitled%20diagram-2025-10-30-183336-20251030-183337.png) (47 KB)
+- 🖼️ [Untitled diagram-2025-11-05-200531-20251105-200533.png](../attachments/v1-0-0-apis-directorio-de-participantes-sfa/Untitled%20diagram-2025-11-05-200531-20251105-200533.png) (64 KB)
+- 🖼️ [Untitled diagram-2025-11-05-195746-20251105-195747.png](../attachments/v1-0-0-apis-directorio-de-participantes-sfa/Untitled%20diagram-2025-11-05-195746-20251105-195747.png) (213 KB)
+- 🖼️ [Untitled diagram-2025-11-05-204459-20251105-204500.png](../attachments/v1-0-0-apis-directorio-de-participantes-sfa/Untitled%20diagram-2025-11-05-204459-20251105-204500.png) (33 KB)
+- 🖼️ [image-20251105-210643.png](../attachments/v1-0-0-apis-directorio-de-participantes-sfa/image-20251105-210643.png) (102 KB)
+- 🖼️ [Untitled diagram-2025-11-05-205055-20251105-205056.png](../attachments/v1-0-0-apis-directorio-de-participantes-sfa/Untitled%20diagram-2025-11-05-205055-20251105-205056.png) (58 KB)
+- 🖼️ [image-20251105-211237.png](../attachments/v1-0-0-apis-directorio-de-participantes-sfa/image-20251105-211237.png) (53 KB)
+- 🖼️ [Untitled diagram-2025-11-05-211306-20251105-211307.png](../attachments/v1-0-0-apis-directorio-de-participantes-sfa/Untitled%20diagram-2025-11-05-211306-20251105-211307.png) (62 KB)
+- 🖼️ [image-20251105-211402.png](../attachments/v1-0-0-apis-directorio-de-participantes-sfa/image-20251105-211402.png) (78 KB)
+- 🖼️ [Untitled diagram-2025-11-05-212153-20251105-212154.png](../attachments/v1-0-0-apis-directorio-de-participantes-sfa/Untitled%20diagram-2025-11-05-212153-20251105-212154.png) (68 KB)
+- 🖼️ [image-20251105-212258.png](../attachments/v1-0-0-apis-directorio-de-participantes-sfa/image-20251105-212258.png) (76 KB)
+- 🖼️ [Untitled diagram-2025-11-05-212732-20251105-212733.png](../attachments/v1-0-0-apis-directorio-de-participantes-sfa/Untitled%20diagram-2025-11-05-212732-20251105-212733.png) (70 KB)
+- 🖼️ [image-20251105-212831.png](../attachments/v1-0-0-apis-directorio-de-participantes-sfa/image-20251105-212831.png) (97 KB)
+- 🖼️ [Untitled diagram-2025-11-05-213010-20251105-213011.png](../attachments/v1-0-0-apis-directorio-de-participantes-sfa/Untitled%20diagram-2025-11-05-213010-20251105-213011.png) (88 KB)
+- 🖼️ [image-20251105-213117.png](../attachments/v1-0-0-apis-directorio-de-participantes-sfa/image-20251105-213117.png) (99 KB)
+- 🖼️ [Untitled diagram-2025-11-05-213318-20251105-213320.png](../attachments/v1-0-0-apis-directorio-de-participantes-sfa/Untitled%20diagram-2025-11-05-213318-20251105-213320.png) (95 KB)
+- 🖼️ [Untitled diagram-2025-11-05-213613-20251105-213614.png](../attachments/v1-0-0-apis-directorio-de-participantes-sfa/Untitled%20diagram-2025-11-05-213613-20251105-213614.png) (103 KB)
+- 🖼️ [image-20251105-213416.png](../attachments/v1-0-0-apis-directorio-de-participantes-sfa/image-20251105-213416.png) (66 KB)
+- 🖼️ [image-20251105-213700.png](../attachments/v1-0-0-apis-directorio-de-participantes-sfa/image-20251105-213700.png) (49 KB)

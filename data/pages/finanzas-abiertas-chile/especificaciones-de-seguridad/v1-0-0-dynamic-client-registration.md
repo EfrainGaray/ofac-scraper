@@ -326,3 +326,10 @@ IPI / IPC
  | 
 Instituci&oacute;n Proveedora de Informaci&oacute;n / de Cuentas de Pago
  |  |
+
+---
+
+## Attachments
+
+- 🖼️ [Flujo de registro con SSA  emitido por CMF.png](../attachments/v1-0-0-dynamic-client-registration/Flujo%20de%20registro%20con%20SSA%20%20emitido%20por%20CMF.png) (224 KB)
+- 🖼️ [Flujo de secuencia DCR.png](../attachments/v1-0-0-dynamic-client-registration/Flujo%20de%20secuencia%20DCR.png) (208 KB)

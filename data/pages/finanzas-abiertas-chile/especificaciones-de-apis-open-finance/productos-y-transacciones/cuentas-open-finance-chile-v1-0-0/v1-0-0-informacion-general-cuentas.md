@@ -124,3 +124,20 @@ La siguiente tabla detalla cada uno de los campos y entidades asociados al diagr
 #### Petici&oacute;n HTTP
 
 #### Respuesta
+
+---
+
+## Attachments
+
+- 🖼️ [UML Diagram - Accounts Response All.png](../attachments/v1-0-0-informacion-general-cuentas/UML%20Diagram%20-%20Accounts%20Response%20All.png) (46 KB)
+- 🖼️ [UML Diagram - Account Balance Response.png](../attachments/v1-0-0-informacion-general-cuentas/UML%20Diagram%20-%20Account%20Balance%20Response.png) (49 KB)
+- 🖼️ [UML Diagram - Current Overdraft Limit Response.png](../attachments/v1-0-0-informacion-general-cuentas/UML%20Diagram%20-%20Current%20Overdraft%20Limit%20Response.png) (39 KB)
+- 📊 [Accounts-Courrent-Overdraft-v1.0.xlsx](../attachments/v1-0-0-informacion-general-cuentas/Accounts-Courrent-Overdraft-v1.0.xlsx) (48 KB)
+- 🖼️ [UML Diagram - Transacctions Response.png](../attachments/v1-0-0-informacion-general-cuentas/UML%20Diagram%20-%20Transacctions%20Response.png) (77 KB)
+- 📊 [Cuentas-v1.0.xlsx](../attachments/v1-0-0-informacion-general-cuentas/Cuentas-v1.0.xlsx) (48 KB)
+- 📊 [Account-Balance-v1.0.xlsx](../attachments/v1-0-0-informacion-general-cuentas/Account-Balance-v1.0.xlsx) (49 KB)
+- 📊 [Transactions-v1.0.xlsx](../attachments/v1-0-0-informacion-general-cuentas/Transactions-v1.0.xlsx) (50 KB)
+- 📊 [Accounts-Current-Overdraft-v1.0.xlsx](../attachments/v1-0-0-informacion-general-cuentas/Accounts-Current-Overdraft-v1.0.xlsx) (48 KB)
+- 📊 [Account-Overdraft-v1.0.xlsx](../attachments/v1-0-0-informacion-general-cuentas/Account-Overdraft-v1.0.xlsx) (48 KB)
+- 📊 [Account-Overdraft-limitsv1.0.xlsx](../attachments/v1-0-0-informacion-general-cuentas/Account-Overdraft-limitsv1.0.xlsx) (48 KB)
+- 🖼️ [UML Diagram - Overdraft Limits Response.png](../attachments/v1-0-0-informacion-general-cuentas/UML%20Diagram%20-%20Overdraft%20Limits%20Response.png) (15 KB)

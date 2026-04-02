@@ -121,3 +121,10 @@ Servicio temporalmente sobrecargado.
  | 
 Retry con *back-off*. 
  |  |
+
+---
+
+## Attachments
+
+- 🖼️ [1000201596.png](../attachments/historico-productos-y-transacciones/1000201596.png) (104 KB)
+- 🖼️ [Flujo API + RAR.png](../attachments/historico-productos-y-transacciones/Flujo%20API%20%2B%20RAR.png) (184 KB)

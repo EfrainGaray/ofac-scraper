@@ -28,3 +28,10 @@ La siguiente tabla detalla cada uno de los campos y entidades asociados al diagr
 #### Petici&oacute;n HTTP
 
 #### Respuesta
+
+---
+
+## Attachments
+
+- 📊 [Payments-Report v1.0.0 .xlsx](../attachments/historico-v1-0-0-informacion-general-operacion-con-tarjetas-de-pago/Payments-Report%20v1.0.0%20.xlsx) (33 KB)
+- 🖼️ [UML Diagram - Payment Reports.png](../attachments/historico-v1-0-0-informacion-general-operacion-con-tarjetas-de-pago/UML%20Diagram%20-%20Payment%20Reports.png) (42 KB)

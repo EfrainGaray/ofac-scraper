@@ -42,3 +42,9 @@ Por cliente: 60 requests/min.
 - 
 Por aplicaci&oacute;n: 1 000 requests/min.  
 La cabecera `X-Rate-Limit-Remaining` indica el cupo restante.
+
+---
+
+## Attachments
+
+- 📎 [Enrolamiento.yaml](../attachments/v1-0-0-informacion-tecnica-enrolamiento/Enrolamiento.yaml) (21 KB)

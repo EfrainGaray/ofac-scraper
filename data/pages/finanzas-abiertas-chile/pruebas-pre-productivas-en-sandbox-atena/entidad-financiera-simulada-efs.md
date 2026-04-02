@@ -323,3 +323,40 @@ respeten los l&iacute;mites operacionales del entorno;
 entreguen feedback t&eacute;cnico cuando corresponda.
 
 Cada participante deber&aacute; ejecutar &uacute;nicamente aquellos casos de prueba que resulten aplicables a su rol, alcance funcional y etapa de pruebas correspondiente.
+
+---
+
+## Attachments
+
+- 📄 [CMF Manual de ejecución de pruebas Postman v1.pdf](../attachments/entidad-financiera-simulada-efs/CMF%20Manual%20de%20ejecuci%C3%B3n%20de%20pruebas%20Postman%20v1.pdf) (5275 KB)
+- 📝 [CMF Manual de ejecución de pruebas Postman v1.docx](../attachments/entidad-financiera-simulada-efs/CMF%20Manual%20de%20ejecuci%C3%B3n%20de%20pruebas%20Postman%20v1.docx) (9737 KB)
+- 📎 [ca-cert.pem](../attachments/entidad-financiera-simulada-efs/ca-cert.pem) (1 KB)
+- 📎 [generate-client-cert.sh](../attachments/entidad-financiera-simulada-efs/generate-client-cert.sh) (10 KB)
+- 📎 [ca-key.key](../attachments/entidad-financiera-simulada-efs/ca-key.key) (2 KB)
+- 📎 [client.cnf](../attachments/entidad-financiera-simulada-efs/client.cnf) (1 KB)
+- 🌐 [jws-jwe-par-request-generator.html](../attachments/entidad-financiera-simulada-efs/jws-jwe-par-request-generator.html) (42 KB)
+- 🌐 [oauth-browser-helper.html](../attachments/entidad-financiera-simulada-efs/oauth-browser-helper.html) (32 KB)
+- 📎 [API Registro dinámico de clientes.postman_collection.json](../attachments/entidad-financiera-simulada-efs/API%20Registro%20din%C3%A1mico%20de%20clientes.postman_collection.json) (11 KB)
+- 🖼️ [image-20260330-111129.png](../attachments/entidad-financiera-simulada-efs/image-20260330-111129.png) (47 KB)
+- 📦 [OneDrive_1_30-03-2026.zip](../attachments/entidad-financiera-simulada-efs/OneDrive_1_30-03-2026.zip) (94 KB)
+- 🖼️ [image-20260330-103547.png](../attachments/entidad-financiera-simulada-efs/image-20260330-103547.png) (18 KB)
+- 📎 [Auth Code Flow + PKCE + PAR.postman_collection.json](../attachments/entidad-financiera-simulada-efs/Auth%20Code%20Flow%20%2B%20PKCE%20%2B%20PAR.postman_collection.json) (21 KB)
+- 🖼️ [image-20260330-103700.png](../attachments/entidad-financiera-simulada-efs/image-20260330-103700.png) (12 KB)
+- 📋 [CMF AWS SANDBOX.postman_environment.json](../attachments/entidad-financiera-simulada-efs/CMF%20AWS%20SANDBOX.postman_environment.json) (1 KB)
+- 🖼️ [image-20260327-143536.png](../attachments/entidad-financiera-simulada-efs/image-20260327-143536.png) (57 KB)
+- 📎 [API Datos Abiertos - Productos y Servicios.postman_collection.json](../attachments/entidad-financiera-simulada-efs/API%20Datos%20Abiertos%20-%20Productos%20y%20Servicios.postman_collection.json) (32 KB)
+- 🖼️ [image-20260330-103411.png](../attachments/entidad-financiera-simulada-efs/image-20260330-103411.png) (121 KB)
+- 📎 [API Instrumentos de Ahorro e Inversión.postman_collection.json](../attachments/entidad-financiera-simulada-efs/API%20Instrumentos%20de%20Ahorro%20e%20Inversi%C3%B3n.postman_collection.json) (47 KB)
+- 📎 [API Datos Abiertos - Canales de Atención Presencial.postman_collection.json](../attachments/entidad-financiera-simulada-efs/API%20Datos%20Abiertos%20-%20Canales%20de%20Atenci%C3%B3n%20Presencial.postman_collection.json) (11 KB)
+- 📎 [API Pólizas de Seguros.postman_collection.json](../attachments/entidad-financiera-simulada-efs/API%20P%C3%B3lizas%20de%20Seguros.postman_collection.json) (34 KB)
+- 📎 [API Datos Abiertos - Canales de Atención Digitales.postman_collection.json](../attachments/entidad-financiera-simulada-efs/API%20Datos%20Abiertos%20-%20Canales%20de%20Atenci%C3%B3n%20Digitales.postman_collection.json) (35 KB)
+- 📎 [API Operaciones Tarjetas de Pago.postman_collection.json](../attachments/entidad-financiera-simulada-efs/API%20Operaciones%20Tarjetas%20de%20Pago.postman_collection.json) (13 KB)
+- 📎 [API Enrolamiento.postman_collection.json](../attachments/entidad-financiera-simulada-efs/API%20Enrolamiento.postman_collection.json) (24 KB)
+- 📎 [API - Recursos.postman_collection.json](../attachments/entidad-financiera-simulada-efs/API%20-%20Recursos.postman_collection.json) (13 KB)
+- 📎 [API - Tarjetas de Crédito.postman_collection.json](../attachments/entidad-financiera-simulada-efs/API%20-%20Tarjetas%20de%20Cr%C3%A9dito.postman_collection.json) (59 KB)
+- 🖼️ [image-20260323-204223.png](../attachments/entidad-financiera-simulada-efs/image-20260323-204223.png) (494 KB)
+- 📎 [API - Operaciones de Crédito.postman_collection.json](../attachments/entidad-financiera-simulada-efs/API%20-%20Operaciones%20de%20Cr%C3%A9dito.postman_collection.json) (41 KB)
+- 🖼️ [image-20260323-204752.png](../attachments/entidad-financiera-simulada-efs/image-20260323-204752.png) (44 KB)
+- 📎 [API Iniciación de Pagos.postman_collection.json](../attachments/entidad-financiera-simulada-efs/API%20Iniciaci%C3%B3n%20de%20Pagos.postman_collection.json) (23 KB)
+- 📎 [API Cuentas.postman_collection.json](../attachments/entidad-financiera-simulada-efs/API%20Cuentas.postman_collection.json) (68 KB)
+- 📊 [Matriz de Pruebas Sandbox_V3.xlsx](../attachments/entidad-financiera-simulada-efs/Matriz%20de%20Pruebas%20Sandbox_V3.xlsx) (38 KB)

@@ -35,3 +35,13 @@ Identificar brechas t&eacute;cnicas antes de ambientes productivos.
 ### Gu&iacute;a de ayuda r&aacute;pida para pruebas en Sandbox ATENA SFA para el Ambiente Tecnol&oacute;gico de Experimentaci&oacute;n y Nuevas Aplicaciones
 
 ### Matriz de pruebas pre productivas para Participantes SFA
+
+---
+
+## Attachments
+
+- 📄 [202603 Guía Pruebas SFA.pdf](../attachments/pruebas-pre-productivas-en-sandbox-atena/202603%20Gu%C3%ADa%20Pruebas%20SFA.pdf) (852 KB)
+- 📊 [202603~2.PPT](../attachments/pruebas-pre-productivas-en-sandbox-atena/202603~2.PPT) (1558 KB)
+- 📊 [Matriz de Pruebas Sandbox_V4.xlsx](../attachments/pruebas-pre-productivas-en-sandbox-atena/Matriz%20de%20Pruebas%20Sandbox_V4.xlsx) (43 KB)
+- 📄 [202601 Capacitación Participantes SFA v1.pdf](../attachments/pruebas-pre-productivas-en-sandbox-atena/202601%20Capacitaci%C3%B3n%20Participantes%20SFA%20v1.pdf) (2962 KB)
+- 📄 [202603~1.PDF](../attachments/pruebas-pre-productivas-en-sandbox-atena/202603~1.PDF) (1237 KB)
