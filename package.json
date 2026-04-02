@@ -1,0 +1,13 @@
+{
+  "name": "ofac-scraper",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "scrape": "tsx scrape.ts",
+    "diff": "tsx scrape.ts --diff",
+    "daily": "tsx scrape.ts && echo 'Scrape complete' || echo 'Scrape failed'"
+  },
+  "dependencies": {
+    "tsx": "^4.0.0"
+  }
+}
