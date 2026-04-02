@@ -1,0 +1,35 @@
+
+oid_dection = OIDs
+
+[req]
+default_bits = 2048
+default_md = sha256
+encrypt_key = yes
+prompt = no
+string_mask = nombstr
+distinguished_name = client_distinguished_name
+req_extensions = req_cert_extensions
+
+[OIDs]
+organizationIdentifier = 2.5.4.97
+
+[ client_distinguished_name ]
+businessCategory = Private Organization
+jurisdictionCountryName = CL
+serialNumber = 901633276
+countryName = CL
+organizationName = CMF Pruebas 1
+stateOrProvinceName = ST
+localityName = Santiago
+organizationIdentifier = OFCL-effaccaf-64f5-48aa-b344-b0cb1968819c
+UID = eda8d442-d80a-4e51-a599-efd8bdc7cdca
+commonName = *.cmf.pruebas.cl
+
+[ req_cert_extensions ] 
+basicConstraints = CA:FALSE
+subjectAltName = @alt_name
+keyUsage = critical,digitalSignature,keyEncipherment
+extendedKeyUsage = clientAuth
+
+[ alt_name ] 
+DNS = *.cmf.pruebas.cl

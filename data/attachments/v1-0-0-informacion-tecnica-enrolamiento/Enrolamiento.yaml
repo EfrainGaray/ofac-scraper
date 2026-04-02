@@ -1,0 +1,613 @@
+openapi: 3.0.3
+info:
+  title: API Enrolamiento
+  version: 1.0.0
+  description: Este documento describe las APIs destinadas a desplegar la información asociada a la persona natural o jurídica vinculada al consentimiento otorgado. Estas interfaces permiten acceder de manera segura y eficiente a los datos relevantes, garantizando el cumplimiento de los requisitos legales y de privacidad aplicables. Además, se detalla el uso y funcionamiento de cada API, incluyendo los parámetros necesarios, los formatos de respuesta y los posibles casos de error.
+tags:
+  - name: Enrolamiento
+    description: Operaciones que permiten obtener los datos de personas naturales y jurídicas asociados al consentimiento autorizado.
+
+servers:
+  - url: https://api-chile.cl/customers/v1
+paths:
+  /customer/pn:
+    get:
+      tags:
+        - Enrolamiento
+      summary: Método para obtener los datos de una persona natural.
+      description: "Método para obtener los datos de la persona natural asociada al consentimiento."
+      security:
+        - Authorization: []  # Porta el token de acceso (Bearer Token) obtenido tras el proceso de autenticación. Permite al servidor identificar y autorizar la solicitud.
+      parameters:
+        - $ref: '#/components/parameters/x-fapi-interaction-id'
+        - $ref: '#/components/parameters/x-jws-signature'
+        - $ref: "#/components/parameters/page"
+        - $ref: "#/components/parameters/pageSize"
+      responses:
+        '200':
+          description: "Respuesta exitosa con los datos de persona natural"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/customerPNResponse"
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '405':
+          $ref: '#/components/responses/MethodNotAllowed'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+        '504':
+          $ref: '#/components/responses/GatewayTimeout'
+        '529':
+          $ref: '#/components/responses/SiteIsOverloaded'
+        default:
+          $ref: '#/components/responses/Default'
+
+  /customer/pj:
+    get:
+      tags:
+        - Enrolamiento
+      summary: Método para obtener los datos de una persona jurídica.
+      description: "Método para obtener los datos de la persona jurídica asociada al consentimiento."
+      security:
+        - Authorization: []  # Aplica el esquema de seguridad "Authorization"
+      parameters:
+        - $ref: '#/components/parameters/x-fapi-interaction-id'
+        - $ref: '#/components/parameters/x-jws-signature'
+        - $ref: "#/components/parameters/page"
+        - $ref: "#/components/parameters/pageSize"
+      responses:
+        '200':
+          description: "Respuesta exitosa con los datos de persona jurídica"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/customerPJResponse"
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '405':
+          $ref: '#/components/responses/MethodNotAllowed'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+        '504':
+          $ref: '#/components/responses/GatewayTimeout'
+        '529':
+          $ref: '#/components/responses/SiteIsOverloaded'
+        default:
+          $ref: '#/components/responses/Default'
+          
+components:
+
+  schemas:
+  
+    customerPNResponse:
+      type: object
+      required :
+        - data
+        - links
+        - meta
+      properties:
+        data:
+          $ref: '#/components/schemas/DataPN'
+        links:
+          $ref: '#/components/schemas/Links'
+        meta:
+          $ref: '#/components/schemas/Meta'
+          
+    DataPN:
+      type: object
+      properties:
+        pnCustomer:
+            $ref: '#/components/schemas/PnCustomer'
+      required:
+        - pnCustomer
+      
+    PnCustomer:
+      type: object
+      properties:
+        customerName:
+          type: string
+          description: "Nombre del cliente"
+          maxLength: 140
+          example: "Juan Pérez"
+        rut:
+          type: string
+          description: "RUT de la persona natural"
+          pattern: '^\d{7,8}-[0-9Kk]{1}$' 
+          maxLength: 10
+          example: "16423986-4"
+        startDate:
+          type: string
+          format: date
+          description: "Fecha de inicio de relación"
+          pattern: '^\d{4}-\d{2}-\d{2}$'
+          example: "2025-01-01"
+        emailAddress:
+          type: string
+          format: email
+          description: "Correo electrónico"
+          maxLength: 256
+          example: "jperez@miempresa.cl"
+        phoneNumber:
+          type: string
+          pattern: "^\\+56\\s?(9\\d{8}|[2-9]\\d{7})$"
+          description: "Teléfono"
+          example: "+56 912345678"
+        legalRepresentative:
+          type: string
+          description: "Representante legal (No aplica en la mayoría de los casos para persona natural, se deja opcional por uniformidad.)"
+          maxLength: 140
+          example: "Eduardo Sandoval"
+        legalRepresentativeRut:
+          type: string
+          description: "RUT del representante legal"
+          pattern: '^\d{7,8}-[0-9Kk]{1}$' 
+          maxLength: 10
+          example: "12765349-9"
+        dateOfBirth:
+          type: string
+          format: date
+          description: "Fecha de nacimiento"
+          pattern: '^\d{4}-\d{2}-\d{2}$'
+          example: "1985-12-30"
+        maritalStatus:
+          type: string
+          description: "Estado civil"
+          maxLength: 40
+          example: "Casado"
+        occupation:
+          type: string
+          description: "Ocupación/Profesión"
+          maxLength: 70
+          example: "Ingeniero de Software"
+        monthlyIncomeRange:
+          type: string
+          description: "Rango de Ingresos Mensuales"
+          maxLength: 256
+          example: "CLP 1.000.000 - CLP 2.000.000"
+        address:
+          $ref: '#/components/schemas/Address' 
+        pepStatus:
+          type: string
+          description: "Indicador PEP"
+          maxLength: 40
+          example: "PEP"
+        kycStatus:
+          type: string
+          description: "Estado KYC"
+          maxLength: 40
+          example: "Verificado"
+      required:
+        - customerName
+        - rut
+        
+    Address:
+      type: object
+      properties:
+        streetName:
+          type: string
+          description: "Nombre de Calle"
+          maxLength: 70
+          example: "Avenida Providencia"
+        buildingNumber:
+          type: string
+          description: "Número del edificio"
+          maxLength: 16
+          example: "1453"
+        city:
+          type: string
+          description: "Ciudad"
+          maxLength: 35
+          example: "Santiago"
+        postalCode:
+          type: string
+          description: "Código Postal"
+          maxLength: 16
+          example: "7500000"
+          
+    customerPJResponse:
+      type: object
+      required :
+        - data
+        - links
+        - meta
+      properties:
+        data:
+          $ref: '#/components/schemas/DataPJ'
+        links:
+          $ref: '#/components/schemas/Links'
+        meta:
+          $ref: '#/components/schemas/Meta'
+          
+    DataPJ:
+      type: object
+      properties:
+        pjCustomer:
+            $ref: '#/components/schemas/PjCustomer'
+      required:
+        - pjCustomer
+
+    PjCustomer:
+      type: object
+      properties:
+        customerName:
+          type: string
+          description: "Nombre del cliente"
+          maxLength: 140
+          example: "Juan Pérez"
+        rut:
+          type: string
+          description: "RUT de la persona natural"
+          pattern: '^\d{7,8}-[0-9Kk]{1}$'
+          maxLength: 10
+          example: "16423986-4"
+        startDate:
+          type: string
+          format: date
+          description: "Fecha de inicio de relación"
+          pattern: '^\d{4}-\d{2}-\d{2}$'
+          example: "2025-01-01"
+        emailAddress:
+          type: string
+          format: email
+          description: "Correo electrónico"
+          maxLength: 256
+          example: "jperez@miempresa.cl"
+        phoneNumber:
+          type: string
+          pattern: "^\\+56\\s?(9\\d{8}|[2-9]\\d{7})$"
+          description: "Teléfono"
+          example: "+56 912345678"
+        legalRepresentative:
+          type: string
+          description: "Nombre del representante legal"
+          maxLength: 140
+          example: "Eduardo Sandoval"
+        legalRepresentativeRut:
+          type: string
+          description: "RUT del representante legal"
+          pattern: '^\d{7,8}-[0-9Kk]{1}$' 
+          maxLength: 10
+          example: "12765349-9"
+        sector:
+          type: string
+          description: "Sector de la Empresa"
+          maxLength: 70
+          example: "Tecnología"
+        foundingDate:
+          type: string
+          format: date
+          description: "Fecha de constitución"
+          pattern: '^\d{4}-\d{2}-\d{2}$'
+          example: "2016-10-05"
+        businessTurnoverRange:
+          type: string
+          description: "Rango de Facturación"
+          maxLength: 256
+          example: "CLP 50.000.000 - CLP 100.000.000"
+        address:
+          $ref: '#/components/schemas/Address' 
+        beneficialOwners:
+          type: array
+          items:
+            $ref: '#/components/schemas/BeneficialOwners'
+        pepStatus:
+          type: string
+          description: "Indicador PEP"
+          maxLength: 40
+          example: "PEP"
+        kycStatus:
+          type: string
+          description: "Estado KYC"
+          maxLength: 40
+          example: "Verificado"
+      required:
+        - customerName
+        - rut
+        - legalRepresentative
+        - legalRepresentativeRut
+    
+    BeneficialOwners:
+      type: object
+      properties:
+        name:
+          type: string
+          description: "Nombre del beneficiario"
+          maxLength: 140
+          example: "Carlos Soto"
+        rut:
+          type: string
+          description: "Rut del beneficiario"
+          pattern: '^\d{7,8}-[0-9Kk]{1}$'
+          maxLength: 10
+          example: "16543987-5"
+      required:
+        - name
+        - rut
+        
+    Links:
+      type: object
+      description: Referencias a otros recursos de la API solicitada
+      properties:
+        self:
+          type: string
+          format: url
+          description: URL de la página actual de registros
+          maxLength: 2000
+          minLength: 5
+          example: "https://api-chile.cl/customers/v1/customer/pn?page=4&pageSize=20"
+        first:
+          type: string
+          format: url
+          description: URL de la primera página de registros
+          maxLength: 2000
+          minLength: 5
+          example: "https://api-chile.cl/customers/v1/customer/pn?page=1&pageSize=20"
+        prev:
+          type: string
+          format: url
+          description: URL de la página anterior de registros
+          maxLength: 2000
+          minLength: 5
+          example: "https://api-chile.cl/customers/v1/customer/pn?page=3&pageSize=20"
+        next:
+          type: string
+          format: url
+          description: URL de la próxima página de registros
+          maxLength: 2000
+          minLength: 5
+          example: "https://api-chile.cl/customers/v1/customer/pn?page=5&pageSize=20"
+        last:
+          type: string
+          format: url
+          description: URL da última página de registros
+          maxLength: 2000
+          minLength: 5
+          example: "https://api-chile.cl/customers/v1/customer/pn?page=13&pageSize=20"
+          
+    Meta:
+      type: object
+      description: Meta información sobre los datos solicitados
+      properties:
+        firstAvailableDateTime:
+          type: string
+          format: date-time
+          description: Fecha del primer registro encontrado
+          example: "2024-01-11 14:56:34"
+        lastAvailableDateTime:
+          type: string
+          format: date-time
+          description: Fecha del último registro encontrado
+          example: "2025-01-23 14:56:34"
+        totalPages:
+          type: integer
+          description: Total de páginas para los registros encontrados
+          example: 12
+      required:
+        - firstAvailableDateTime
+        - lastAvailableDateTime
+        - totalPages  
+      
+    ResponseErrorMetaSingle:
+      type: object
+      required:
+        - errors
+      properties:
+        errors:
+          type: array
+          minItems: 1
+          maxItems: 13
+          items:
+            type: object
+            required:
+              - code
+              - title
+              - detail
+            properties:
+              code:
+                description: Código de error específico de la solicitud
+                type: string
+                maxLength: 255
+                example: "50001"
+              title:
+                description: Título legible por un humano de este error en específico
+                type: string
+                maxLength: 255
+                example: "Conexión interrumpida"
+              detail:
+                description: Descripción legible por un humano de este error en especifico
+                type: string
+                maxLength: 2048
+                example: "No pudimos conectar con el servidor de datos abiertos. Por favor, verifica tu conexión a internet o contáctanos si el problema persiste."
+        meta:
+          type: object
+          description: Meta de información sobre la API solicitada
+          required:
+            - requestDateTime
+          properties:
+            requestDateTime:
+              description: Fecha y hora de la consulta, según especificación RFC-3339, formato UTC.
+              type: string
+              format: date-time
+              minLength: 20
+              maxLength: 20
+              pattern: '^[2-9]\d{3}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$'
+              example: '2023-10-09T14:10:00Z'
+              
+    ResponseError:
+      type: object
+      required:
+        - errors
+      properties:
+        errors:
+          type: array
+          minItems: 1
+          maxItems: 13
+          items:
+            type: object
+            required:
+              - code
+              - title
+              - detail
+            properties:
+              code:
+                description: Código de error específico
+                type: string
+                maxLength: 255
+                example: "20001"
+              title:
+                description: Título legible por un humano de este error en específico
+                type: string
+                maxLength: 255
+                example: "Error al obtener personas naturales o juridicas enroladas"
+              detail:
+                description: Descripción legible por un humano de este error en específico
+                type: string
+                maxLength: 2048
+                example: "La información sobre personas naturales o juridicas enroladas no está disponible actualmente."
+        meta:
+          type: object
+          description: Meta de información sobre la API solicitada
+          required:
+            - requestDateTime
+          properties:
+            requestDateTime:
+              description: Fecha y hora de la consulta, según especificación RFC-3339, formato UTC.
+              type: string
+              format: date-time
+              minLength: 20
+              maxLength: 20
+              pattern: '^[2-9]\d{3}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$'
+              example: '2023-10-09T14:10:00Z'
+              
+  securitySchemes:
+    Authorization:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT  # Opcional, solo para aclarar el formato
+              
+  parameters:
+    page:
+      name: page
+      in: query
+      description: "Número de la página que se solicita (el valor de la primera página es 1)"
+      schema:
+        type: integer
+        format: int32
+        default: 1
+        minimum: 1
+        maximum: 2147483647
+    pageSize:
+      name: pageSize
+      in: query
+      description: "Número total de registros por página"
+      schema:
+        type: integer
+        format: int32
+        default: 20
+        minimum: 1
+        maximum: 2147483647
+    x-fapi-interaction-id:
+      name: x-fapi-interaction-id
+      in: header
+      required: true
+      description: "UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+      schema:
+        type: string
+    x-jws-signature:
+      name: x-jws-signature
+      in: header
+      required: false
+      description: "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+      schema:
+        type: string
+        
+  responses:
+    BadRequest:
+      description: La solicitud presentaba un formato incorrecto y faltaban atributos obligatorios, tanto en el  cuerpo de la solicitud como en los parámetros de la URL.
+      content:
+        application/json; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/ResponseError'
+          example:
+            code: "400"
+            title: "Solicitud inválida"
+            detail: "El parámetro 'page' es obligatorio y no fue incluido en la solicitud."
+    NotFound:
+      description: La característica solicitada no está disponible o aún no ha sido implementada.
+      content:
+        application/json; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/ResponseError'
+          example:
+            code: "404"
+            title: "Recurso no encontrado"
+            detail: "No se encontraron personas naturales o juridicas para la búsqueda especificada."
+    MethodNotAllowed:
+      description: El consumidor intentó acceder al recurso utilizando un método no compatible.
+      content:
+        application/json; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/ResponseError'
+          example:
+            code: "405"
+            title: "Método no permitido"
+            detail: "El método HTTP 'POST' no está habilitado para este recurso. Por favor, utilice 'GET'."
+    TooManyRequests:
+      description: La operación fue rechazada debido a que se superó el número permitido de solicitudes dentro de un período determinado o se alcanzó el límite de solicitudes simultáneas.
+      content:
+        application/json; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/ResponseError'
+          example:
+            code: "429"
+            title: "Demasiadas solicitudes"
+            detail: "Has excedido el límite de solicitudes permitidas. Intenta nuevamente después de 1 minuto."
+    InternalServerError:
+      description: Ocurrió un error en la puerta de enlace API o en el microservicio.
+      content:
+        application/json; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/ResponseError'
+          example:
+            code: "500"
+            title: "Error interno del servidor"
+            detail: "Ocurrió un error inesperado en el servidor. Por favor, inténtalo de nuevo más tarde."
+    GatewayTimeout:
+      description: GATEWAY TIMEOUT - La solicitud no fue respondida dentro del tiempo límite establecido.
+      content:
+        application/json; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/ResponseError'
+          example:
+            code: "504"
+            title: "Tiempo de espera agotado"
+            detail: "El servidor no pudo completar la solicitud a tiempo. Por favor, verifica tu conexión o inténtalo más tarde."
+    SiteIsOverloaded:
+      description: El sitio está sobrecargado y la operación fue rechazada debido a que se alcanzó el límite máximo global de TPS (transacciones por segundo) en este momento.
+      content:
+        application/json; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/ResponseErrorMetaSingle'
+          example:
+            code: "529"
+            title: "El sitio está sobrecargado"
+            detail: "El sistema está experimentando una carga elevada. Por favor, inténtalo más tarde."
+    Default:
+      description: '\-'
+      content:
+        application/json; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/ResponseError'
+          example:
+            code: "001"
+            title: "Error desconocido"
+            detail: "Ha ocurrido un error inesperado. Por favor, contacta al soporte técnico con los detalles de la solicitud."

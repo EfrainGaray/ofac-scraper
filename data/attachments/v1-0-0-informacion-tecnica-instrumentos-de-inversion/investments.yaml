@@ -1,0 +1,871 @@
+openapi: 3.0.3
+info:
+  title: API Instrumentos de Ahorro e Inversión
+  version: 1.0.0
+  description: Este documento describe las APIs destinadas a desplegar la información asociada a los instrumentos de ahorro e inversión vinculadas al consentimiento otorgado. Estas interfaces permiten acceder de manera segura y eficiente a los datos relevantes, garantizando el cumplimiento de los requisitos legales y de privacidad aplicables. Además, se detalla el uso y funcionamiento de cada API, incluyendo los parámetros necesarios, los formatos de respuesta y los posibles casos de error.
+tags:
+  - name: Instrumentos de Ahorro e Inversión
+    description: Operaciones que permiten obtener los datos asociados a los instrumentos de ahorro e inversión, basandose al consentimiento autorizado.
+
+servers:
+  - url: https://api-chile.cl/investments/v1
+paths:
+  /investments:
+    get:
+      tags:
+        - Instrumentos de Ahorro e Inversión
+      summary: Método para obtener los datos asociados a las inversiones.
+      description: "Método para obtener los datos de las operaciones de pólizas de seguros asociados al consentimiento autorizado."
+      security:
+        - Authorization: []  # Porta el token de acceso (Bearer Token) obtenido tras el proceso de autenticación. Permite al servidor identificar y autorizar la solicitud.
+      parameters:
+        - $ref: '#/components/parameters/x-fapi-interaction-id'
+        - $ref: '#/components/parameters/x-jws-signature'
+        - $ref: "#/components/parameters/page"
+        - $ref: "#/components/parameters/pageSize"
+      responses:
+        '200':
+          description: "Respuesta exitosa con los datos de inversiones."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/InvestmentsResponse"
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '405':
+          $ref: '#/components/responses/MethodNotAllowed'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+        '504':
+          $ref: '#/components/responses/GatewayTimeout'
+        '529':
+          $ref: '#/components/responses/SiteIsOverloaded'
+        default:
+          $ref: '#/components/responses/Default'
+          
+  /investments/{investmentID}:
+    get:
+      tags:
+        - Instrumentos de Ahorro e Inversión
+      summary: Método para obtener el detalle del instrumento de ahorro e inversión.
+      description: "Método para obtener el instrumento de ahorro e inversión mediante su investmentID asociados al consentimiento autorizado."
+      security:
+        - Authorization: []  # Porta el token de acceso (Bearer Token) obtenido tras el proceso de autenticación. Permite al servidor identificar y autorizar la solicitud.
+      parameters:
+        - $ref: '#/components/parameters/x-fapi-interaction-id'
+        - $ref: '#/components/parameters/x-jws-signature'
+        - $ref: '#/components/parameters/investmentID'
+      responses:
+        '200':
+          description: "Respuesta exitosa con la obtención del instrumento de ahorro e inversión."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/InvestmentResponse"
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '405':
+          $ref: '#/components/responses/MethodNotAllowed'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+        '504':
+          $ref: '#/components/responses/GatewayTimeout'
+        '529':
+          $ref: '#/components/responses/SiteIsOverloaded'
+        default:
+          $ref: '#/components/responses/Default'
+          
+  /investments/{investmentID}/balance:
+    get:
+      tags:
+        - Instrumentos de Ahorro e Inversión
+      summary: Método para obtener los balances del instrumento de ahorro e inversión por investmentId.
+      description: "Método para obtener los balances del instrumento de ahorro e inversión mediante investmentId asociados al consentimiento autorizado."
+      security:
+        - Authorization: []  # Porta el token de acceso (Bearer Token) obtenido tras el proceso de autenticación. Permite al servidor identificar y autorizar la solicitud.
+      parameters:
+        - $ref: '#/components/parameters/x-fapi-interaction-id'
+        - $ref: '#/components/parameters/x-jws-signature'
+        - $ref: '#/components/parameters/investmentID'
+        - $ref: "#/components/parameters/page"
+        - $ref: "#/components/parameters/pageSize"
+        - $ref: "#/components/parameters/fromDate"
+        - $ref: "#/components/parameters/toDate"
+      responses:
+        '200':
+          description: "Respuesta exitosa con los movimientos transaccionales de la póliza de seguros."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CurrentBalancesResponse"
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '405':
+          $ref: '#/components/responses/MethodNotAllowed'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+        '504':
+          $ref: '#/components/responses/GatewayTimeout'
+        '529':
+          $ref: '#/components/responses/SiteIsOverloaded'
+        default:
+          $ref: '#/components/responses/Default'
+          
+  /investments/{investmentID}/transactions:
+    get:
+      tags:
+        - Instrumentos de Ahorro e Inversión
+      summary: Método para obtener los movimientos transaccionales asociados al instrumento de inversión.
+      description: "Método para obtener los movimientos transaccionales del instrumento de inversion asociado al investmentId asociados al consentimiento autorizado."
+      security:
+        - Authorization: []  # Porta el token de acceso (Bearer Token) obtenido tras el proceso de autenticación. Permite al servidor identificar y autorizar la solicitud.
+      parameters:
+        - $ref: '#/components/parameters/x-fapi-interaction-id'
+        - $ref: '#/components/parameters/x-jws-signature'
+        - $ref: '#/components/parameters/investmentID'
+        - $ref: "#/components/parameters/page"
+        - $ref: "#/components/parameters/pageSize"
+        - $ref: "#/components/parameters/fromDate"
+        - $ref: "#/components/parameters/toDate"
+      responses:
+        '200':
+          description: "Respuesta exitosa con los movimientos transaccionales de la póliza de seguros."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TransactionsResponse"
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '405':
+          $ref: '#/components/responses/MethodNotAllowed'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+        '504':
+          $ref: '#/components/responses/GatewayTimeout'
+        '529':
+          $ref: '#/components/responses/SiteIsOverloaded'
+        default:
+          $ref: '#/components/responses/Default'
+          
+components:
+
+  schemas:
+  
+    InvestmentsResponse:
+      type: object
+      required :
+        - data
+        - links
+        - meta
+      properties:
+        data:
+          $ref: '#/components/schemas/DataInvestments'
+        links:
+          $ref: '#/components/schemas/Links'
+        meta:
+          $ref: '#/components/schemas/Meta'
+          
+    DataInvestments:
+      type: object
+      properties:
+        investments:
+          type: array
+          items:
+            $ref: '#/components/schemas/Investments'
+      
+    Investments:
+      type: object
+      properties:
+        investmentType:
+          type: string
+          description: "Tipo de instrumento"
+          maxLength: 140
+          example: "Depósito a Plazo"
+        rutClient:
+          type: string
+          description: "RUT del cliente"
+          pattern: '^\d{7,8}-[0-9Kk]{1}$' 
+          maxLength: 10
+          example: "16423986-4"
+        productId:
+          type: string
+          description: "ID interno del producto"
+          maxLength: 40
+          example: "INV12345"
+        productOwner:
+          type: string
+          description: "Dueño del producto"
+          maxLength: 40
+          example: "Casa de valores de Chile"
+        financialProductType:
+          type: string
+          description: "Tipo de producto financiero"
+          maxLength: 40
+          example: "APV" 
+        commercialCategory:
+          type: string
+          description: "Categoría comercial"
+          maxLength: 70
+          example: "Depósito a Plazo" 
+        coverageStartDate:
+          type: string
+          format: date
+          description: "Fecha de contratación"
+          pattern: '^\d{4}-\d{2}-\d{2}$'
+          example: "2025-01-15"
+        coverageEndDate:
+          type: string
+          format: date
+          description: "Fecha de vigencia fin"
+          pattern: '^\d{4}-\d{2}-\d{2}$'
+          example: "2026-01-15"
+        insuredAmount:
+          type: number
+          description: "Monto invertido"
+          example: "10000000" 
+        insuredCurrency:
+            type: string
+            description: "Moneda del monto invertido"
+            maxLength: 3
+            example: "CLP"
+        instrumentData:
+          $ref: '#/components/schemas/InstrumentData'
+          
+      required:
+        - investmentType
+        - rutClient
+        - productId
+        - productOwner
+        - financialProductType
+        - commercialCategory
+        
+    InstrumentData:
+      type: object
+      properties:
+        serialCode:
+          type: string
+          maxLength: 40
+          description: "código de Serie"
+          example: "93874834224"
+        depositTermType:
+          type: string
+          maxLength: 10
+          description: "Tipo de plazo"
+          example: "Fijo"
+        stockEndOfMonth:
+          type: number
+          description: "Stock de inversión a fin de mes"
+          example: "1500000"
+        depositTermDuration:
+          type: string
+          maxLength: 15
+          description: "Plazo del depósito (días o meses)"
+          example: "30 días"
+        depositRemainingTerm:
+          type: string
+          maxLength: 15
+          description: "Plazo remanente"
+          example: "15 días"
+        annualEffectiveInterestRate:
+          type: number
+          description: "Tasa de interés efectiva anualizada"
+          example: "3.5"
+        fundSeries:
+          type: string
+          maxLength: 15
+          description: "Serie"
+          example: "Serie A"
+        mnemonic:
+          type: string
+          maxLength: 40
+          description: "Nemotécnico"
+          example: "FNDMUTABC"
+        stockInvestment:
+          type: number
+          description: "Stock de inversión APV"
+          example: "3000000"
+        saleType:
+          type: string
+          maxLength: 15
+          description: "Tipo de venta"
+          example: "Online"
+          
+    InvestmentResponse:
+      type: object
+      required :
+        - data
+        - links
+        - meta
+      properties:
+        data:
+          $ref: '#/components/schemas/DataInvestment'
+        links:
+          $ref: '#/components/schemas/Links'
+        meta:
+          $ref: '#/components/schemas/Meta'
+          
+    DataInvestment:
+      type: object
+      properties:
+        investments:
+          items:
+            $ref: '#/components/schemas/Investment'
+            
+    Investment:
+      type: object
+      properties:
+        investmentType:
+          type: string
+          description: "Tipo de instrumento"
+          maxLength: 140
+          example: "Depósito a Plazo"
+        rutClient:
+          type: string
+          description: "RUT del cliente"
+          pattern: '^\d{7,8}-[0-9Kk]{1}$' 
+          maxLength: 10
+          example: "16423986-4"
+        productId:
+          type: string
+          description: "ID interno del producto"
+          maxLength: 40
+          example: "INV12345"
+        productOwner:
+          type: string
+          description: "Dueño del producto"
+          maxLength: 40
+          example: "Casa de valores de Chile"
+        financialProductType:
+          type: string
+          description: "Tipo de producto financiero"
+          maxLength: 40
+          example: "APV" 
+        commercialCategory:
+          type: string
+          description: "Categoría comercial"
+          maxLength: 70
+          example: "Depósito a Plazo" 
+        coverageStartDate:
+          type: string
+          format: date
+          description: "Fecha de contratación"
+          pattern: '^\d{4}-\d{2}-\d{2}$'
+          example: "2025-01-15"
+        coverageEndDate:
+          type: string
+          format: date
+          description: "Fecha de vigencia fin"
+          pattern: '^\d{4}-\d{2}-\d{2}$'
+          example: "2026-01-15"
+        insuredAmount:
+          type: number
+          description: "Monto invertido"
+          example: "10000000" 
+        insuredCurrency:
+            type: string
+            description: "Moneda del monto invertido"
+            maxLength: 3
+            example: "CLP"
+        instrumentData:
+          $ref: '#/components/schemas/InstrumentData'
+          
+      required:
+        - investmentType
+        - rutClient
+        - productId
+        - productOwner
+        - financialProductType
+        - commercialCategory
+        
+    CurrentBalancesResponse:
+      type: object
+      required :
+        - data
+        - links
+        - meta
+      properties:
+        data:
+          $ref: '#/components/schemas/DataBalances'
+        links:
+          $ref: '#/components/schemas/Links'
+        meta:
+          $ref: '#/components/schemas/Meta'
+
+    DataBalances:
+      type: object
+      properties:
+        currentBalance:
+            $ref: '#/components/schemas/CurrentBalances'
+
+    CurrentBalances:
+      type: object
+      properties:
+        amount:
+          type: number
+          description: "Monto del saldo actual"
+          example: "3000000" 
+        currency:
+          type: string
+          description: "Moneda del saldo actual"
+          minLength: 3
+          maxLength: 3
+          example: "CLP" 
+        updatedDateTime:
+          type: string
+          format: date-time
+          description: "Momento del cálculo del saldo"
+          example: "2025-02-25T15:00:00Z"
+        holdAmount:
+          type: number
+          description: "Monto retenido"
+          example: "20000" 
+        arrearsBalance:
+          type: number
+          description: "Monto en atraso"
+          example: "5000"
+        balances:
+          type: array
+          items:
+            $ref: '#/components/schemas/Balances'
+      required:
+        - amount
+        - currency
+        
+    Balances:
+      type: object
+      properties:
+        bookingDate:
+          type: string
+          format: date-time
+          description: "Fecha/hora del registro de saldo"
+          example: "2025-01-10T00:00:00Z"
+        amount:
+          type: number
+          description: "Monto del saldo en ese momento"
+          example: "2900000" 
+        currency:
+          type: string
+          description: "Moneda del saldo"
+          minLength: 3
+          maxLength: 3
+          example: "CLP" 
+        averageBalance:
+          type: number
+          description: "Saldo promedio"
+          example: "2950000" 
+        lockedAmount:
+          type: number
+          description: "Monto bloqueado"
+          example: "2000" 
+        lockedCurrency:
+          type: string
+          description: "Moneda del monto bloqueado"
+          minLength: 3
+          maxLength: 3
+          example: "CLP"
+      required:
+        - bookingDate
+        - amount
+        - currency
+        
+    TransactionsResponse:
+      type: object
+      required :
+        - data
+        - links
+        - meta
+      properties:
+        data:
+          $ref: '#/components/schemas/DataTransactions'
+        links:
+          $ref: '#/components/schemas/Links'
+        meta:
+          $ref: '#/components/schemas/Meta'
+
+    DataTransactions:
+      type: object
+      properties:
+        transactions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Transactions'
+            
+    Transactions:
+      type: object
+      properties:
+        transactionId:
+          type: string
+          description: "Identificador de la transacción"
+          maxLength: 40
+          example: "TXN12345"
+        transactionDate:
+          type: string
+          format: date-time
+          description: "Fecha/hora de la transacción"
+          example: "2025-02-25T15:00:00Z"
+        transactionType:
+          type: string
+          description: "Tipo de la transacción"
+          maxLength: 15
+          example: "Deposito"
+        description:
+          type: string
+          description: "Descripción o narrativa del movimiento"
+          maxLength: 256
+          example: "Renovación del depósito"
+        amount:
+          type: number
+          description: "Monto de la operación"
+          example: "50000"           
+        currency:
+          type: string
+          description: "Moneda de la operación"
+          minLength: 3
+          maxLength: 3
+          example: "CLP"          
+        coverageBefore:
+            $ref: '#/components/schemas/CoverageBefore'
+        coverageAfter:
+            $ref: '#/components/schemas/coverageAfter'
+            
+      required:
+        - transactionId
+        - transactionDate
+        - transactionType
+        
+    CoverageBefore:
+      type: object
+      properties:
+        insuredAmount:
+          type: number
+          description: "Valor previo del stock invertido"
+          example: "1000000"
+          
+    coverageAfter:
+      type: object
+      properties:
+        insuredAmount:
+          type: number
+          description: "Valor posterior del stock invertido"
+          example: "1500000"
+
+    Links:
+      type: object
+      description: Referencias a otros recursos de la API solicitada
+      properties:
+        self:
+          type: string
+          format: url
+          description: URL de la página actual de registros
+          maxLength: 2000
+          minLength: 5
+          example: "https://api-chile.cl/investments/v1/investments?page=4&pageSize=20"
+        first:
+          type: string
+          format: url
+          description: URL de la primera página de registros
+          maxLength: 2000
+          minLength: 5
+          example: "https://api-chile.cl/investments/v1/investments?page=1&pageSize=20"
+        prev:
+          type: string
+          format: url
+          description: URL de la página anterior de registros
+          maxLength: 2000
+          minLength: 5
+          example: "https://api-chile.cl/investments/v1/investments?page=3&pageSize=20"
+        next:
+          type: string
+          format: url
+          description: URL de la próxima página de registros
+          maxLength: 2000
+          minLength: 5
+          example: "https://api-chile.cl/investments/v1/investments?page=5&pageSize=20"
+        last:
+          type: string
+          format: url
+          description: URL da última página de registros
+          maxLength: 2000
+          minLength: 5
+          example: "https://api-chile.cl/investments/v1/investments?page=13&pageSize=20"
+          
+    Meta:
+      type: object
+      description: Meta información sobre los datos solicitados
+      properties:
+        firstAvailableDateTime:
+          type: string
+          format: date-time
+          description: Fecha del primer registro encontrado
+          example: "2024-01-11 14:56:34"
+        lastAvailableDateTime:
+          type: string
+          format: date-time
+          description: Fecha del último registro encontrado
+          example: "2025-01-23 14:56:34"
+        totalPages:
+          type: integer
+          description: Total de páginas para los registros encontrados
+          example: 12
+      required:
+        - firstAvailableDateTime
+        - lastAvailableDateTime
+        - totalPages  
+      
+    ResponseErrorMetaSingle:
+      type: object
+      required:
+        - errors
+      properties:
+        errors:
+          type: array
+          minItems: 1
+          maxItems: 13
+          items:
+            type: object
+            required:
+              - code
+              - title
+              - detail
+            properties:
+              code:
+                description: Código de error específico de la solicitud
+                type: string
+                maxLength: 255
+                example: "50001"
+              title:
+                description: Título legible por un humano de este error en específico
+                type: string
+                maxLength: 255
+                example: "Conexión interrumpida"
+              detail:
+                description: Descripción legible por un humano de este error en especifico
+                type: string
+                maxLength: 2048
+                example: "No pudimos conectar con el servidor de datos. Por favor, verifica tu conexión a internet o contáctanos si el problema persiste."
+        meta:
+          type: object
+          description: Meta de información sobre la API solicitada
+          required:
+            - requestDateTime
+          properties:
+            requestDateTime:
+              description: Fecha y hora de la consulta, según especificación RFC-3339, formato UTC.
+              type: string
+              format: date-time
+              minLength: 20
+              maxLength: 20
+              pattern: '^[2-9]\d{3}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$'
+              example: '2023-10-09T14:10:00Z'
+              
+    ResponseError:
+      type: object
+      required:
+        - errors
+      properties:
+        errors:
+          type: array
+          minItems: 1
+          maxItems: 13
+          items:
+            type: object
+            required:
+              - code
+              - title
+              - detail
+            properties:
+              code:
+                description: Código de error específico
+                type: string
+                maxLength: 255
+                example: "20001"
+              title:
+                description: Título legible por un humano de este error en específico
+                type: string
+                maxLength: 255
+                example: "Error al obtener datos asociados a instrumentos de inversión o ahorro."
+              detail:
+                description: Descripción legible por un humano de este error en específico
+                type: string
+                maxLength: 2048
+                example: "La información sobre instrumentos de inversión o ahorro  no está disponible actualmente."
+        meta:
+          type: object
+          description: Meta de información sobre la API solicitada
+          required:
+            - requestDateTime
+          properties:
+            requestDateTime:
+              description: Fecha y hora de la consulta, según especificación RFC-3339, formato UTC.
+              type: string
+              format: date-time
+              minLength: 20
+              maxLength: 20
+              pattern: '^[2-9]\d{3}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$'
+              example: '2023-10-09T14:10:00Z'
+              
+  securitySchemes:
+    Authorization:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT  # Opcional, solo para aclarar el formato
+              
+  parameters:
+    page:
+      name: page
+      in: query
+      description: "Número de la página que se solicita (el valor de la primera página es 1)"
+      schema:
+        type: integer
+        format: int32
+        default: 1
+        minimum: 1
+        maximum: 2147483647
+    pageSize:
+      name: pageSize
+      in: query
+      description: "Número total de registros por página"
+      schema:
+        type: integer
+        format: int32
+        default: 20
+        minimum: 1
+        maximum: 2147483647
+    x-fapi-interaction-id:
+      name: x-fapi-interaction-id
+      in: header
+      required: true
+      description: "UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+      schema:
+        type: string
+    x-jws-signature:
+      name: x-jws-signature
+      in: header
+      required: false
+      description: "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+      schema:
+        type: string
+    fromDate:
+      name: fromDate
+      in: query
+      required: false
+      description: "Fecha de inicio del rango"
+      example: "2024-01-01"
+      schema:
+        type: string
+        format: date
+    toDate:
+      name: toDate
+      in: query
+      required: false
+      description: "Fecha de fin del rango"
+      example: "2025-01-01"
+      schema:
+        type: string
+        format: date
+    investmentID:
+      name: investmentID
+      in: path
+      required: true
+      description: "Identificador de la inversión"
+      example: "INV123456"
+      schema:
+        type: string
+        
+  responses:
+    BadRequest:
+      description: La solicitud presentaba un formato incorrecto y faltaban atributos obligatorios, tanto en el  cuerpo de la solicitud como en los parámetros de la URL.
+      content:
+        application/json; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/ResponseError'
+          example:
+            code: "400"
+            title: "Solicitud inválida"
+            detail: "El parámetro 'page' es obligatorio y no fue incluido en la solicitud."
+    NotFound:
+      description: La característica solicitada no está disponible o aún no ha sido implementada.
+      content:
+        application/json; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/ResponseError'
+          example:
+            code: "404"
+            title: "Recurso no encontrado"
+            detail: "No se encontraron pólizas de seguros para la búsqueda especificada."
+    MethodNotAllowed:
+      description: El consumidor intentó acceder al recurso utilizando un método no compatible.
+      content:
+        application/json; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/ResponseError'
+          example:
+            code: "405"
+            title: "Método no permitido"
+            detail: "El método HTTP 'POST' no está habilitado para este recurso. Por favor, utilice 'GET'."
+    TooManyRequests:
+      description: La operación fue rechazada debido a que se superó el número permitido de solicitudes dentro de un período determinado o se alcanzó el límite de solicitudes simultáneas.
+      content:
+        application/json; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/ResponseError'
+          example:
+            code: "429"
+            title: "Demasiadas solicitudes"
+            detail: "Has excedido el límite de solicitudes permitidas. Intenta nuevamente después de 1 minuto."
+    InternalServerError:
+      description: Ocurrió un error en la puerta de enlace API o en el microservicio.
+      content:
+        application/json; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/ResponseError'
+          example:
+            code: "500"
+            title: "Error interno del servidor"
+            detail: "Ocurrió un error inesperado en el servidor. Por favor, inténtalo de nuevo más tarde."
+    GatewayTimeout:
+      description: GATEWAY TIMEOUT - La solicitud no fue respondida dentro del tiempo límite establecido.
+      content:
+        application/json; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/ResponseError'
+          example:
+            code: "504"
+            title: "Tiempo de espera agotado"
+            detail: "El servidor no pudo completar la solicitud a tiempo. Por favor, verifica tu conexión o inténtalo más tarde."
+    SiteIsOverloaded:
+      description: El sitio está sobrecargado y la operación fue rechazada debido a que se alcanzó el límite máximo global de TPS (transacciones por segundo) en este momento.
+      content:
+        application/json; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/ResponseErrorMetaSingle'
+          example:
+            code: "529"
+            title: "El sitio está sobrecargado"
+            detail: "El sistema está experimentando una carga elevada. Por favor, inténtalo más tarde."
+    Default:
+      description: '\-'
+      content:
+        application/json; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/ResponseError'
+          example:
+            code: "001"
+            title: "Error desconocido"
+            detail: "Ha ocurrido un error inesperado. Por favor, contacta al soporte técnico con los detalles de la solicitud."

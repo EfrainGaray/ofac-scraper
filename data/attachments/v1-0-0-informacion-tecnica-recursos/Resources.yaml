@@ -1,0 +1,403 @@
+openapi: 3.0.3
+info:
+  title: API - Recursos
+  version: 1.0.0
+  description: API que se ocupa de consultar el estado de los recursos para Open Finance Chile - Datos de registro y transacciones. No existe segregación entre persona física y jurídica.
+tags:
+  - name: Recursos
+    description: Operación que permiten obtener el estado de los recursos que tiene la persona con la institución transmisora.
+
+servers:
+  - url: https://api-chile.cl/resources/v1
+paths:
+  /resources:
+    get:
+      tags:
+        - Recursos
+      summary: Obtiene la lista de recursos mantenidos por el cliente en la instituciones.
+      description: "Método de obtención de la lista de recursos mantenidos por el cliente en la institución transmisora y para los cuales el cliente ha dado su consentimiento."
+      security:
+        - Authorization: []  # Porta el token de acceso (Bearer Token) obtenido tras el proceso de autenticación. Permite al servidor identificar y autorizar la solicitud.
+      parameters:
+        - $ref: '#/components/parameters/x-fapi-interaction-id'
+        - $ref: '#/components/parameters/x-jws-signature'
+        - $ref: "#/components/parameters/page"
+        - $ref: "#/components/parameters/pageSize"
+      responses:
+        '200':
+          description: "Respuesta exitosa con el listado de recursos mantenidos por el cliente en instituciones financieras."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ResourcesResponse"
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '405':
+          $ref: '#/components/responses/MethodNotAllowed'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+        '504':
+          $ref: '#/components/responses/GatewayTimeout'
+        '529':
+          $ref: '#/components/responses/SiteIsOverloaded'
+        default:
+          $ref: '#/components/responses/Default'
+          
+components:
+
+  schemas:
+  
+    ResourcesResponse:
+      type: object
+      required :
+        - data
+        - links
+        - meta
+      properties:
+        data:
+          $ref: '#/components/schemas/DataResource'
+        links:
+          $ref: '#/components/schemas/Links'
+        meta:
+          $ref: '#/components/schemas/Meta'
+
+    DataResource:
+      type: object
+      properties:
+        Resources:
+          type: array
+          items:
+            $ref: '#/components/schemas/Resources'
+      
+    Resources:
+      type: object
+      properties:
+        resourceId:
+          type: string
+          description: "Identificador del recurso"
+          maxLength: 40
+          example: "RES12345"
+        resourceType:
+          type: string
+          description: "Tipo del recurso"
+          maxLength: 40
+          example: "Auto"
+        financialProductType:
+          type: string
+          description: "Tipo de producto financiero"
+          maxLength: 40
+          example: "Automotriz"
+        status:
+          type: string
+          description: "Estado del recurso"
+          maxLength: 40
+          example: "Activo"
+          enum:
+            - "Activo"
+            - "Inactivo"
+            - "Suspendido"
+        ownerRut:
+          type: string
+          description: "Rut del titular"
+          pattern: '^\d{8}-[\dKk]$'
+          example: "16543987-6"
+        creationDate:
+          type: string
+          format: date
+          description: "Fecha de creación"
+          example: "2025-02-25"
+        lastUpdate:
+          type: string
+          format: date-time
+          description: "Última actualización"
+          example: "2025-02-25T15:00:00Z"
+      required:
+        - resourceId
+        - resourceType
+        - status
+         
+    Links:
+      type: object
+      description: Referencias a otros recursos de la API solicitada
+      properties:
+        self:
+          type: string
+          format: url
+          description: URL de la página actual de registros
+          maxLength: 2000
+          minLength: 5
+          example: "https://api-chile.cl/resources/v1/resources?page=4&pageSize=20"
+        first:
+          type: string
+          format: url
+          description: URL de la primera página de registros
+          maxLength: 2000
+          minLength: 5
+          example: "https://api-chile.cl/resources/v1/resources?page=1&pageSize=20"
+        prev:
+          type: string
+          format: url
+          description: URL de la página anterior de registros
+          maxLength: 2000
+          minLength: 5
+          example: "https://api-chile.cl/resources/v1/resources?page=3&pageSize=20"
+        next:
+          type: string
+          format: url
+          description: URL de la próxima página de registros
+          maxLength: 2000
+          minLength: 5
+          example: "https://api-chile.cl/resources/v1/resources?page=5&pageSize=20"
+        last:
+          type: string
+          format: url
+          description: URL da última página de registros
+          maxLength: 2000
+          minLength: 5
+          example: "https://api-chile.cl/resources/v1/resources?page=13&pageSize=20"
+          
+    Meta:
+      type: object
+      description: Meta información sobre los datos solicitados
+      properties:
+        firstAvailableDateTime:
+          type: string
+          format: date-time
+          description: Fecha del primer registro encontrado
+          example: "2024-01-11 14:56:34"
+        lastAvailableDateTime:
+          type: string
+          format: date-time
+          description: Fecha del último registro encontrado
+          example: "2025-01-23 14:56:34"
+        totalPages:
+          type: integer
+          description: Total de páginas para los registros encontrados
+          example: 12
+      required:
+        - firstAvailableDateTime
+        - lastAvailableDateTime
+        - totalPages  
+      
+    ResponseErrorMetaSingle:
+      type: object
+      required:
+        - errors
+      properties:
+        errors:
+          type: array
+          minItems: 1
+          maxItems: 13
+          items:
+            type: object
+            required:
+              - code
+              - title
+              - detail
+            properties:
+              code:
+                description: Código de error específico de la solicitud
+                type: string
+                maxLength: 255
+                example: "50001"
+              title:
+                description: Título legible por un humano de este error en específico
+                type: string
+                maxLength: 255
+                example: "Conexión interrumpida"
+              detail:
+                description: Descripción legible por un humano de este error en especifico
+                type: string
+                maxLength: 2048
+                example: "No pudimos conectar con el servidor de datos abiertos. Por favor, verifica tu conexión a internet o contáctanos si el problema persiste."
+        meta:
+          type: object
+          description: Meta de información sobre la API solicitada
+          required:
+            - requestDateTime
+          properties:
+            requestDateTime:
+              description: Fecha y hora de la consulta, según especificación RFC-3339, formato UTC.
+              type: string
+              format: date-time
+              minLength: 20
+              maxLength: 20
+              pattern: '^[2-9]\d{3}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$'
+              example: '2023-10-09T14:10:00Z'
+              
+    ResponseError:
+      type: object
+      required:
+        - errors
+      properties:
+        errors:
+          type: array
+          minItems: 1
+          maxItems: 13
+          items:
+            type: object
+            required:
+              - code
+              - title
+              - detail
+            properties:
+              code:
+                description: Código de error específico
+                type: string
+                maxLength: 255
+                example: "20001"
+              title:
+                description: Título legible por un humano de este error en específico
+                type: string
+                maxLength: 255
+                example: "Error al obtener los recursos"
+              detail:
+                description: Descripción legible por un humano de este error en específico
+                type: string
+                maxLength: 2048
+                example: "La información sobre el recurso no está disponible actualmente."
+        meta:
+          type: object
+          description: Meta de información sobre la API solicitada
+          required:
+            - requestDateTime
+          properties:
+            requestDateTime:
+              description: Fecha y hora de la consulta, según especificación RFC-3339, formato UTC.
+              type: string
+              format: date-time
+              minLength: 20
+              maxLength: 20
+              pattern: '^[2-9]\d{3}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$'
+              example: '2023-10-09T14:10:00Z'
+              
+  securitySchemes:
+    Authorization:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT  # Opcional, solo para aclarar el formato
+              
+  parameters:
+    page:
+      name: page
+      in: query
+      description: "Número de la página que se solicita (el valor de la primera página es 1)"
+      schema:
+        type: integer
+        format: int32
+        default: 1
+        minimum: 1
+        maximum: 2147483647
+        
+    pageSize:
+      name: pageSize
+      in: query
+      description: "Número total de registros por página"
+      schema:
+        type: integer
+        format: int32
+        default: 20
+        minimum: 1
+        maximum: 2147483647
+        
+    x-fapi-interaction-id:
+      name: x-fapi-interaction-id
+      in: header
+      required: true
+      description: "UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+      schema:
+        type: string
+        
+    x-jws-signature:
+      name: x-jws-signature
+      in: header
+      required: false
+      description: "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+      schema:
+        type: string
+        
+  responses:
+    BadRequest:
+      description: La solicitud presentaba un formato incorrecto y faltaban atributos obligatorios, tanto en el cuerpo de la solicitud como en los parámetros de la URL.
+      content:
+        application/json; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/ResponseError'
+          example:
+            code: "400"
+            title: "Solicitud inválida"
+            detail: "El parámetro 'x-fapi-interaction-id' es obligatorio y no fue incluido en la solicitud."
+    NotFound:
+      description: La característica solicitada no está disponible o aún no ha sido implementada.
+      content:
+        application/json; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/ResponseError'
+          example:
+            code: "404"
+            title: "Recurso no encontrado"
+            detail: "No se encontraron recursos para los parámetros especificados."
+    MethodNotAllowed:
+      description: El consumidor intentó acceder al recurso utilizando un método no compatible.
+      content:
+        application/json; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/ResponseError'
+          example:
+            code: "405"
+            title: "Método no permitido"
+            detail: "El método HTTP 'POST' no está habilitado para este recurso. Por favor, utilice 'GET'."
+    TooManyRequests:
+      description: La operación fue rechazada debido a que se superó el número permitido de solicitudes dentro de un período determinado o se alcanzó el límite de solicitudes simultáneas.
+      content:
+        application/json; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/ResponseError'
+          example:
+            code: "429"
+            title: "Demasiadas solicitudes"
+            detail: "Has excedido el límite de solicitudes permitidas. Intenta nuevamente después de 1 minuto."
+    InternalServerError:
+      description: Ocurrió un error en la puerta de enlace API o en el microservicio.
+      content:
+        application/json; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/ResponseError'
+          example:
+            code: "500"
+            title: "Error interno del servidor"
+            detail: "Ocurrió un error inesperado en el servidor. Por favor, inténtalo de nuevo más tarde."
+    GatewayTimeout:
+      description: GATEWAY TIMEOUT - La solicitud no fue respondida dentro del tiempo límite establecido.
+      content:
+        application/json; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/ResponseError'
+          example:
+            code: "504"
+            title: "Tiempo de espera agotado"
+            detail: "El servidor no pudo completar la solicitud a tiempo. Por favor, verifica tu conexión o inténtalo más tarde."
+    SiteIsOverloaded:
+      description: El sitio está sobrecargado y la operación fue rechazada debido a que se alcanzó el límite máximo global de TPS (transacciones por segundo) en este momento.
+      content:
+        application/json; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/ResponseErrorMetaSingle'
+          example:
+            code: "529"
+            title: "El sitio está sobrecargado"
+            detail: "El sistema está experimentando una carga elevada. Por favor, inténtalo más tarde."
+    Default:
+      description: '\-'
+      content:
+        application/json; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/ResponseError'
+          example:
+            code: "001"
+            title: "Error desconocido"
+            detail: "Ha ocurrido un error inesperado. Por favor, contacta al soporte técnico con los detalles de la solicitud."

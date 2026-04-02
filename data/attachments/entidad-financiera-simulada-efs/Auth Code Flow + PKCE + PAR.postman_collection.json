@@ -1,0 +1,513 @@
+{
+  "info": {
+    "_postman_id": "c1c7e6e4-aa4b-45ca-a1a3-9c10e3389462",
+    "name": "Auth Code Flow + PKCE + PAR",
+    "description": "Colección para simular el flujo de AUTH-CODE-APP-FRONTEND con Authorization Code + PKCE + PAR\n\n**HERRAMIENTAS AUXILIARES:**\n\n- `jwe-request-generator.html`: Genera el request JWE encriptado para PAR\n    \n- `oauth-browser-helper.html`: Asistente para completar el Paso 2 (autenticación en navegador)\n    \n\n**ORDEN DE EJECUCIÓN:**  \n0\\. Obtener JWKS (opcional, para referencia)\n\n1. PAR Request → Genera request_uri\n    \n2. Authorization Endpoint → Usar oauth-browser-helper.html\n    \n3. Token Exchange → Obtiene access_token\n    \n\n**REQUISITOS:**\n\n- Configurar mTLS en Postman (Settings > Certificates)\n    \n- Generar JWE con jwe-request-generator.html antes del Paso 1\n    \n- **IMPORTANTE redirect_uri:** Usa `https://localhost:8080/callback` o cualquier URI registrada en Keycloak. NO uses `https://oauth.pstmn.io/v1/callback` porque Postman oculta el código. Necesitas ver la URL completa con el parámetro `?code=` para copiarlo manualmente.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "17913263",
+    "_collection_link": "https://go.postman.co/collection/17913263-c1c7e6e4-aa4b-45ca-a1a3-9c10e3389462?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "1. PAR Request",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              "// Generar code_verifier aleatorio (43-128 caracteres base64url)",
+              "const code_verifier = CryptoJS.lib.WordArray.random(32).toString(CryptoJS.enc.Base64url);",
+              "pm.collectionVariables.set('code_verifier', code_verifier);",
+              "",
+              "// Generar code_challenge = BASE64URL(SHA256(code_verifier))",
+              "const code_challenge = CryptoJS.SHA256(code_verifier).toString(CryptoJS.enc.Base64url);",
+              "pm.collectionVariables.set('code_challenge', code_challenge);",
+              "",
+              "// Generar state aleatorio",
+              "const state = CryptoJS.lib.WordArray.random(16).toString(CryptoJS.enc.Base64url);",
+              "pm.collectionVariables.set('state', state);",
+              "",
+              "// Generar nonce aleatorio",
+              "const nonce = CryptoJS.lib.WordArray.random(16).toString(CryptoJS.enc.Hex);",
+              "pm.collectionVariables.set('nonce', nonce);",
+              "",
+              "// Timestamp actual",
+              "const current_time = Math.floor(Date.now() / 1000);",
+              "const exp_time = current_time + 300; // 5 minutos",
+              "",
+              "console.log('code_verifier:', code_verifier);",
+              "console.log('code_challenge:', code_challenge);",
+              "console.log('state:', state);",
+              "console.log('nonce:', nonce);",
+              "",
+              "// IMPORTANTE: En Postman no se puede generar JWE fácilmente.",
+              "// Debes usar una herramienta externa para encriptar el request object",
+              "// o implementar la encriptación en Node.js con la librería node-jose",
+              "",
+              "// Payload que debe encriptarse como JWE:",
+              "const payload = {",
+              "    \"aud\": `https://${pm.collectionVariables.get('keycloak_host')}/realms/${pm.collectionVariables.get('realm')}`,",
+              "    \"client_id\": pm.collectionVariables.get('client_id'),",
+              "    \"scope\": pm.collectionVariables.get('scope'),",
+              "    \"response_type\": \"code\",",
+              "    \"redirect_uri\": pm.collectionVariables.get('redirect_uri'),",
+              "    \"code_challenge_method\": \"S256\",",
+              "    \"code_challenge\": code_challenge,",
+              "    \"state\": state,",
+              "    \"consent_id\": pm.collectionVariables.get('consent_id'),",
+              "    \"authorization_details\": {},",
+              "    \"prompt\": \"consent\",",
+              "    \"nonce\": nonce,",
+              "    \"exp\": exp_time,",
+              "    \"nbf\": current_time",
+              "};",
+              "",
+              "console.log('Payload a encriptar (JWE con RSA-OAEP + A256GCM):', JSON.stringify(payload, null, 2));",
+              "",
+              "pm.collectionVariables.set('par_payload', JSON.stringify(payload));"
+            ],
+            "type": "text/javascript"
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "// Extraer request_uri de la respuesta",
+              "if (pm.response.code === 200 || pm.response.code === 201) {",
+              "    const jsonData = pm.response.json();",
+              "    pm.collectionVariables.set('request_uri', jsonData.request_uri);",
+              "    pm.collectionVariables.set('expires_in', jsonData.expires_in);",
+              "    console.log('request_uri:', jsonData.request_uri);",
+              "    console.log('expires_in:', jsonData.expires_in, 'segundos');",
+              "} else {",
+              "    console.error('Error en PAR request:', pm.response.text());",
+              "}"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded"
+          }
+        ],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "key": "client_id",
+              "value": "{{client_id}}",
+              "type": "text"
+            },
+            {
+              "key": "request",
+              "value": "{{encrypted_request}}",
+              "description": "JWE encriptado - debes generarlo externamente con RSA-OAEP + A256GCM usando la clave pública de Keycloak",
+              "type": "text"
+            }
+          ]
+        },
+        "url": {
+          "raw": "https://{{keycloak_host}}/realms/{{realm}}/protocol/openid-connect/ext/par/request",
+          "protocol": "https",
+          "host": [
+            "{{keycloak_host}}"
+          ],
+          "path": [
+            "realms",
+            "{{realm}}",
+            "protocol",
+            "openid-connect",
+            "ext",
+            "par",
+            "request"
+          ]
+        },
+        "description": "Pushed Authorization Request.\n\n**PREPARACIÓN REQUERIDA:**\n\n1. Abre `jws-jwe-par-request-generator.html` en tu navegador\n    \n2. Completa el formulario con los datos de esta colección\n    \n3. Usa los valores generados en el Pre-request Script (code_challenge, state, nonce)\n    \n4. Genera el JWE encriptado (RSA-OAEP + A256GCM)\n    \n5. Copia el JWE y guárdalo en la variable `encrypted_request`\n    \n\n**REQUISITOS:**\n\n- mTLS configurado en Postman (Settings > Certificates)\n    \n- JWE encriptado en la variable `encrypted_request`\n    \n\n**RESULTADO:** Obtendrás un `request_uri` para usar en el Paso 2"
+      },
+      "response": []
+    },
+    {
+      "name": "2. Authorization Endpoint (Leer Docs - NO ejecutar desde Postman)",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              "// Construir URL de autorización",
+              "const auth_url = `https://${pm.collectionVariables.get('keycloak_host')}/realms/${pm.collectionVariables.get('realm')}/protocol/openid-connect/auth?client_id=${pm.collectionVariables.get('client_id')}&request_uri=${pm.collectionVariables.get('request_uri')}`;",
+              "",
+              "console.log('URL de autorización:', auth_url);",
+              "console.log('');",
+              "console.log('INSTRUCCIONES:');",
+              "console.log('1. Copia la URL de autorización que aparece arriba');",
+              "console.log('2. Pégala en el navegador');",
+              "console.log('3. Autentícate en Keycloak');",
+              "console.log('4. Serás redirigido a:', pm.collectionVariables.get('redirect_uri'));",
+              "console.log('5. Copia el parámetro \"code\" de la URL de callback');",
+              "console.log('6. Guárdalo en la variable de colección \"authorization_code\"');"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://{{keycloak_host}}/realms/{{realm}}/protocol/openid-connect/auth?client_id={{client_id}}&request_uri={{request_uri}}",
+          "protocol": "https",
+          "host": [
+            "{{keycloak_host}}"
+          ],
+          "path": [
+            "realms",
+            "{{realm}}",
+            "protocol",
+            "openid-connect",
+            "auth"
+          ],
+          "query": [
+            {
+              "key": "client_id",
+              "value": "{{client_id}}"
+            },
+            {
+              "key": "request_uri",
+              "value": "{{request_uri}}"
+            }
+          ]
+        },
+        "description": "**⚠️ PASO MANUAL - NO EJECUTAR EN POSTMAN**\n\n**Problema:** Postman no puede renderizar el formulario de login HTML de Keycloak.\n\n**Solución:** Usa `oauth-browser-helper.html`\n\n**Instrucciones:**\n1. Ejecuta el Pre-request Script para ver los datos necesarios\n2. Abre `oauth-browser-helper.html` en tu navegador\n3. Completa el formulario con los datos mostrados en la consola\n4. Sigue las instrucciones del asistente para obtener el `authorization_code`\n5. Guarda el código en la variable `authorization_code` de esta colección\n\n**Luego:** Ejecuta el Paso 3 (Token Exchange)"
+      },
+      "response": []
+    },
+    {
+      "name": "3. Token Exchange",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "if (pm.response.code === 200) {",
+              "    const jsonData = pm.response.json();",
+              "    pm.collectionVariables.set('access_token', jsonData.access_token);",
+              "    pm.collectionVariables.set('refresh_token', jsonData.refresh_token);",
+              "    pm.collectionVariables.set('id_token', jsonData.id_token);",
+              "    pm.collectionVariables.set('token_type', jsonData.token_type);",
+              "    pm.collectionVariables.set('expires_in', jsonData.expires_in);",
+              "    ",
+              "    console.log('access_token:', jsonData.access_token);",
+              "    console.log('refresh_token:', jsonData.refresh_token);",
+              "    console.log('expires_in:', jsonData.expires_in);",
+              "} else {",
+              "    console.error('Error en token exchange:', pm.response.text());",
+              "}"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded"
+          }
+        ],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "key": "grant_type",
+              "value": "authorization_code",
+              "type": "text"
+            },
+            {
+              "key": "scope",
+              "value": "{{scope}}",
+              "type": "text"
+            },
+            {
+              "key": "code",
+              "value": "{{authorization_code}}",
+              "description": "Authorization code obtenido del callback",
+              "type": "text"
+            },
+            {
+              "key": "redirect_uri",
+              "value": "{{redirect_uri}}",
+              "type": "text"
+            },
+            {
+              "key": "client_id",
+              "value": "{{client_id}}",
+              "type": "text"
+            },
+            {
+              "key": "code_verifier",
+              "value": "{{code_verifier}}",
+              "description": "Generado en el paso 1",
+              "type": "text"
+            }
+          ]
+        },
+        "url": {
+          "raw": "https://{{keycloak_host}}/realms/{{realm}}/protocol/openid-connect/token",
+          "protocol": "https",
+          "host": [
+            "{{keycloak_host}}"
+          ],
+          "path": [
+            "realms",
+            "{{realm}}",
+            "protocol",
+            "openid-connect",
+            "token"
+          ]
+        },
+        "description": "Intercambio del authorization code por tokens (Access Token, Refresh Token, ID Token).\n\n**IMPORTANTE:**\n- Requiere mTLS configurado en Postman (Settings > Certificates)\n- Debes haber obtenido el `authorization_code` del Paso 2\n- El `code_verifier` se usa del Paso 1 (PKCE)\n\n**Después de este paso:** Tendrás el `access_token` para acceder a APIs protegidas."
+      },
+      "response": []
+    },
+    {
+      "name": "Extra. Obtener JWKS de Keycloak",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "if (pm.response.code === 200) {",
+              "    const jwks = pm.response.json();",
+              "    ",
+              "    // Buscar clave para encriptación (use='enc')",
+              "    const encKey = jwks.keys.find(key => key.use === 'enc');",
+              "    ",
+              "    if (encKey) {",
+              "        pm.collectionVariables.set('keycloak_enc_key', JSON.stringify(encKey));",
+              "        console.log('Clave de encriptación encontrada:');",
+              "        console.log('kid:', encKey.kid);",
+              "        console.log('kty:', encKey.kty);",
+              "        console.log('alg:', encKey.alg);",
+              "        console.log('');",
+              "        console.log('Usa esta clave pública para encriptar el request object con JWE (RSA-OAEP + A256GCM)');",
+              "        console.log('Puedes usar: https://dinochiesa.github.io/jwt/ o node-jose en Node.js');",
+              "    } else {",
+              "        console.warn('No se encontró clave con use=enc en JWKS');",
+              "    }",
+              "} else {",
+              "    console.error('Error obteniendo JWKS:', pm.response.text());",
+              "}"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://{{keycloak_host}}/realms/{{realm}}/protocol/openid-connect/certs",
+          "protocol": "https",
+          "host": [
+            "{{keycloak_host}}"
+          ],
+          "path": [
+            "realms",
+            "{{realm}}",
+            "protocol",
+            "openid-connect",
+            "certs"
+          ]
+        },
+        "description": "Obtener el JWKS (JSON Web Key Set) de Keycloak para encontrar la clave pública de encriptación.\n\n**OPCIONAL:** Este request es solo informativo. La herramienta `jwe-request-generator.html` consulta automáticamente el JWKS.\n\n**Útil para:**\n- Verificar qué claves públicas expone Keycloak\n- Ver el `kid` (Key ID) de la clave de encriptación\n- Debugging cuando hay problemas con JWE"
+      },
+      "response": []
+    },
+    {
+      "name": "Extra. Introspect",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "if (pm.response.code === 200) {",
+              "    const jwks = pm.response.json();",
+              "    ",
+              "    // Buscar clave para encriptación (use='enc')",
+              "    const encKey = jwks.keys.find(key => key.use === 'enc');",
+              "    ",
+              "    if (encKey) {",
+              "        pm.collectionVariables.set('keycloak_enc_key', JSON.stringify(encKey));",
+              "        console.log('Clave de encriptación encontrada:');",
+              "        console.log('kid:', encKey.kid);",
+              "        console.log('kty:', encKey.kty);",
+              "        console.log('alg:', encKey.alg);",
+              "        console.log('');",
+              "        console.log('Usa esta clave pública para encriptar el request object con JWE (RSA-OAEP + A256GCM)');",
+              "        console.log('Puedes usar: https://dinochiesa.github.io/jwt/ o node-jose en Node.js');",
+              "    } else {",
+              "        console.warn('No se encontró clave con use=enc en JWKS');",
+              "    }",
+              "} else {",
+              "    console.error('Error obteniendo JWKS:', pm.response.text());",
+              "}"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Basic YXBwSW50ZXJuYWwtS2V5Y2xvYWs6M0htbjJWVzZQOUdhQUdrMUxkbHhzUUF5MXJwcHhqaEQ=",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJQUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJwX0tEbmxwajQwT20zckpsU1QwcXJkMkZDaHlwdHkwY2RQcmlqZTNaV2tzIn0.eyJleHAiOjE3NzAzMTQ4NjIsImlhdCI6MTc3MDMxMTI2MiwianRpIjoiMzQzNjY2M2ItN2FiMi00ZmYxLTkyNTMtM2E1YzU5ZmRjNzM4IiwiaXNzIjoiaHR0cHM6Ly9rZXljbG9hay1kZXNhcnJvbGxvLmZpbmFuemFzYWJpZXJ0YXMuY2wvcmVhbG1zL2NtZiIsInR5cCI6IkJlYXJlciIsImF6cCI6IkFzZWd1cmFkb3JhLWJldGEiLCJzaWQiOiI0OGRhODlkNy1lZjA0LTRmOGQtYTViYS0xMTU1ODBiNDljZjQiLCJjbmYiOnsieDV0I1MyNTYiOiJBaUlaMl9NMm5Fa25QZ01qVFhPekRfMktESV9HMDhmVVVldFZlOXpwdzVzIn0sInNjb3BlIjoib3BlbmlkIGZhcGkgcHJvZmlsZSBlbWFpbCIsImdyYW50X2lkIjoiODkwMTIzNCJ9.NUPoOMvHjs9-CoxAYyp_HeJTjrR6pm0aozPEwqCIBwUi0iRd5NNvUqbyRNr75PtTV-dbxztIwjTNXkUv3MOYKh17gmFUrPW1Uexc9HCNCOj6tFZ2sniXRKtUVnKSoABtAZwDTZUlwdEQa5XsqX3op4HzeIOuZS7McdyuWAw9bqUEdQ0GD9LJaobmUYmqW3k4tA0aCCDqDFzA9Xlu1q3HEGEj9TB_U6zS5XGod0nXfxtl3enyQdXG76Zguh2FTPOrmaRCkY6ncPeeGaIssdq_R8TFUF1gW1_8Cq3NUHZIa3PWJGSMuwrcnGrLF5-Z1FfBaAnmJu0MH6zKQoGJWVKczwaaa",
+              "type": "text",
+              "uuid": "d0626e44-0b75-43f8-a2c1-f677276249e0"
+            }
+          ]
+        },
+        "url": {
+          "raw": "https://{{keycloak_host}}/realms/cmf/protocol/openid-connect/token/introspect",
+          "protocol": "https",
+          "host": [
+            "{{keycloak_host}}"
+          ],
+          "path": [
+            "realms",
+            "cmf",
+            "protocol",
+            "openid-connect",
+            "token",
+            "introspect"
+          ]
+        },
+        "description": "Obtener el JWKS (JSON Web Key Set) de Keycloak para encontrar la clave pública de encriptación.\n\n**OPCIONAL:** Este request es solo informativo. La herramienta `jwe-request-generator.html` consulta automáticamente el JWKS.\n\n**Útil para:**\n- Verificar qué claves públicas expone Keycloak\n- Ver el `kid` (Key ID) de la clave de encriptación\n- Debugging cuando hay problemas con JWE"
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "keycloak_host",
+      "value": "keycloak-desarrollo.finanzasabiertas.cl"
+    },
+    {
+      "key": "realm",
+      "value": "cmf"
+    },
+    {
+      "key": "client_id",
+      "value": "Aseguradora-beta"
+    },
+    {
+      "key": "redirect_uri",
+      "value": "https://localhost:8080/callback",
+      "description": "IMPORTANTE: NO usar https://oauth.pstmn.io/v1/callback porque Postman oculta el código. Usa https://localhost:8080/callback o cualquier URI registrada en Keycloak que te permita ver la URL completa con el parámetro ?code="
+    },
+    {
+      "key": "scope",
+      "value": "openid"
+    },
+    {
+      "key": "consent_id",
+      "value": "consent-123456"
+    },
+    {
+      "key": "code_verifier",
+      "value": ""
+    },
+    {
+      "key": "code_challenge",
+      "value": ""
+    },
+    {
+      "key": "state",
+      "value": ""
+    },
+    {
+      "key": "nonce",
+      "value": ""
+    },
+    {
+      "key": "request_uri",
+      "value": ""
+    },
+    {
+      "key": "authorization_code",
+      "value": "",
+      "description": "Código obtenido manualmente del callback"
+    },
+    {
+      "key": "access_token",
+      "value": ""
+    },
+    {
+      "key": "refresh_token",
+      "value": ""
+    },
+    {
+      "key": "id_token",
+      "value": ""
+    },
+    {
+      "key": "encrypted_request",
+      "value": "",
+      "description": "JWE encriptado manualmente - ver instrucciones en PAR request"
+    },
+    {
+      "key": "keycloak_enc_key",
+      "value": ""
+    },
+    {
+      "key": "par_payload",
+      "value": ""
+    },
+    {
+      "key": "expires_in",
+      "value": ""
+    },
+    {
+      "key": "token_type",
+      "value": ""
+    }
+  ]
+}

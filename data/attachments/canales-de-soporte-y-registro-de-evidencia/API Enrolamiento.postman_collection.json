@@ -1,0 +1,606 @@
+{
+	"info": {
+		"_postman_id": "ba3c0115-26d2-4f6e-a5e6-b86b43e41ce2",
+		"name": "API Enrolamiento",
+		"description": "Este documento describe las APIs destinadas a desplegar la información asociada a la persona natural o jurídica vinculada al consentimiento otorgado. Estas interfaces permiten acceder de manera segura y eficiente a los datos relevantes, garantizando el cumplimiento de los requisitos legales y de privacidad aplicables. Además, se detalla el uso y funcionamiento de cada API, incluyendo los parámetros necesarios, los formatos de respuesta y los posibles casos de error.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17913263",
+		"_collection_link": "https://restless-spaceship-269474.postman.co/workspace/CMF~6989a4ae-868d-4761-9ab5-331f222eae90/collection/17913263-ba3c0115-26d2-4f6e-a5e6-b86b43e41ce2?action=share&source=collection_link&creator=17913263"
+	},
+	"item": [
+		{
+			"name": "customer",
+			"item": [
+				{
+					"name": "pn",
+					"item": [
+						{
+							"name": "/customers/pn cgarcia",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-fapi-interaction-id",
+										"value": "333e9999-e88b-12d3-a456-426655443333",
+										"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+									},
+									{
+										"key": "x-jws-signature",
+										"value": "<string>",
+										"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo.",
+										"disabled": true
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/customer/pn?page=1&pageSize=3",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"customer",
+										"pn"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1",
+											"description": "Número de la página que se solicita (el valor de la primera página es 1)"
+										},
+										{
+											"key": "pageSize",
+											"value": "3",
+											"description": "Número total de registros por página"
+										}
+									]
+								},
+								"description": "Método para obtener los datos de la persona natural asociada al consentimiento."
+							},
+							"response": []
+						},
+						{
+							"name": "/customers/pn jmendoza",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-fapi-interaction-id",
+										"value": "111e9999-e88b-12d3-a456-426655441111",
+										"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+									},
+									{
+										"key": "x-jws-signature",
+										"value": "<string>",
+										"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo.",
+										"disabled": true
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/customer/pn?page=1&pageSize=2",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"customer",
+										"pn"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1",
+											"description": "Número de la página que se solicita (el valor de la primera página es 1)"
+										},
+										{
+											"key": "pageSize",
+											"value": "2",
+											"description": "Número total de registros por página"
+										}
+									]
+								},
+								"description": "Método para obtener los datos de la persona natural asociada al consentimiento."
+							},
+							"response": []
+						},
+						{
+							"name": "/customers/pn jperez",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-fapi-interaction-id",
+										"value": "444e9999-e88b-12d3-a456-426655444444",
+										"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+									},
+									{
+										"key": "x-jws-signature",
+										"value": "<string>",
+										"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo.",
+										"disabled": true
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/customer/pn?page=1&pageSize=1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"customer",
+										"pn"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1",
+											"description": "Número de la página que se solicita (el valor de la primera página es 1)"
+										},
+										{
+											"key": "pageSize",
+											"value": "1",
+											"description": "Número total de registros por página"
+										}
+									]
+								},
+								"description": "Método para obtener los datos de la persona natural asociada al consentimiento."
+							},
+							"response": []
+						},
+						{
+							"name": "/customers/pn mrojas",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-fapi-interaction-id",
+										"value": "222e9999-e88b-12d3-a456-426655442222",
+										"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+									},
+									{
+										"key": "x-jws-signature",
+										"value": "<string>",
+										"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo.",
+										"disabled": true
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/customer/pn?page=2&pageSize=2",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"customer",
+										"pn"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "2",
+											"description": "Número de la página que se solicita (el valor de la primera página es 1)"
+										},
+										{
+											"key": "pageSize",
+											"value": "2",
+											"description": "Número total de registros por página"
+										}
+									]
+								},
+								"description": "Método para obtener los datos de la persona natural asociada al consentimiento."
+							},
+							"response": []
+						},
+						{
+							"name": "/customers/pn sfernandez",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-fapi-interaction-id",
+										"value": "555e9999-e88b-12d3-a456-426655445555",
+										"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+									},
+									{
+										"key": "x-jws-signature",
+										"value": "<string>",
+										"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo.",
+										"disabled": true
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/customer/pn",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"customer",
+										"pn"
+									]
+								},
+								"description": "Método para obtener los datos de la persona natural asociada al consentimiento."
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "pj",
+					"item": [
+						{
+							"name": "/customers/pj cgarcia",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-fapi-interaction-id",
+										"value": "333e9999-e88b-12d3-a456-426655443333",
+										"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+									},
+									{
+										"key": "x-jws-signature",
+										"value": "<string>",
+										"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo.",
+										"disabled": true
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/customer/pj?page=1&pageSize=3",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"customer",
+										"pj"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1",
+											"description": "Número de la página que se solicita (el valor de la primera página es 1)"
+										},
+										{
+											"key": "pageSize",
+											"value": "3",
+											"description": "Número total de registros por página"
+										}
+									]
+								},
+								"description": "Método para obtener los datos de la persona natural asociada al consentimiento."
+							},
+							"response": []
+						},
+						{
+							"name": "/customers/pj jmendoza",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-fapi-interaction-id",
+										"value": "111e9999-e88b-12d3-a456-426655441111",
+										"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+									},
+									{
+										"key": "x-jws-signature",
+										"value": "<string>",
+										"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo.",
+										"disabled": true
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/customer/pj?page=1&pageSize=2",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"customer",
+										"pj"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1",
+											"description": "Número de la página que se solicita (el valor de la primera página es 1)"
+										},
+										{
+											"key": "pageSize",
+											"value": "2",
+											"description": "Número total de registros por página"
+										}
+									]
+								},
+								"description": "Método para obtener los datos de la persona natural asociada al consentimiento."
+							},
+							"response": []
+						},
+						{
+							"name": "/customers/pj jperez",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-fapi-interaction-id",
+										"value": "444e9999-e88b-12d3-a456-426655444444",
+										"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+									},
+									{
+										"key": "x-jws-signature",
+										"value": "<string>",
+										"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo.",
+										"disabled": true
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/customer/pj?page=2&pageSize=1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"customer",
+										"pj"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "2",
+											"description": "Número de la página que se solicita (el valor de la primera página es 1)"
+										},
+										{
+											"key": "pageSize",
+											"value": "1",
+											"description": "Número total de registros por página"
+										}
+									]
+								},
+								"description": "Método para obtener los datos de la persona natural asociada al consentimiento."
+							},
+							"response": []
+						},
+						{
+							"name": "/customers/pj mrojas",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-fapi-interaction-id",
+										"value": "222e9999-e88b-12d3-a456-426655442222",
+										"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+									},
+									{
+										"key": "x-jws-signature",
+										"value": "<string>",
+										"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo.",
+										"disabled": true
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/customer/pj?page=2&pageSize=2",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"customer",
+										"pj"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "2",
+											"description": "Número de la página que se solicita (el valor de la primera página es 1)"
+										},
+										{
+											"key": "pageSize",
+											"value": "2",
+											"description": "Número total de registros por página"
+										}
+									]
+								},
+								"description": "Método para obtener los datos de la persona natural asociada al consentimiento."
+							},
+							"response": []
+						},
+						{
+							"name": "/customers/pj sfernandez",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-fapi-interaction-id",
+										"value": "555e9999-e88b-12d3-a456-426655445555",
+										"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+									},
+									{
+										"key": "x-jws-signature",
+										"value": "<string>",
+										"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo.",
+										"disabled": true
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/customer/pj",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"customer",
+										"pj"
+									]
+								},
+								"description": "Método para obtener los datos de la persona natural asociada al consentimiento."
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://api-cmf.sensedia.com/customers/v1"
+		},
+		{
+			"key": "bearerToken",
+			"value": "eyJhbGciOiJQUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJZdXZwVk03cVdJNUN1bko5SmJQMEh3Z0hzMTlibnN6V3d1Y2d4YjcyUkp3In0.eyJleHAiOjE3NDU1OTg2MTYsImlhdCI6MTc0NTU5NTAxNiwiYXV0aF90aW1lIjoxNzQ1NTk1MDEzLCJqdGkiOiJmMTcwMGI0Yi1lZmE2LTQzYzEtYjNlMS1lYjBlZTRkNzAyOWYiLCJpc3MiOiJodHRwczovL2VjMi0zNC0yMzQtMjIxLTExOC5jb21wdXRlLTEuYW1hem9uYXdzLmNvbTo4NDQzL3JlYWxtcy9tYXN0ZXIiLCJzdWIiOiI0MDg5NDJjMi04NmU5LTQwNTUtYWMxMS1hMDEzZjlhYzA2NTkiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJBc2VndXJhZG9yYS1iZXRhIiwic2lkIjoiODM5NzBkMzMtODkzZC00NDIwLWE2YTEtNmMzMDFkODNlNzc3IiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyIiXSwiY25mIjp7Ing1dCNTMjU2IjoicmNZclpCUkthU0Y0NVNjUVdKYWsydkRuZmt6ZzYwRlM4RWRUX0F2TXA5SSJ9LCJzY29wZSI6ImZhcGkgcHJvZmlsZSBlbWFpbCBSZWFkTG9hbnMiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwicHJlZmVycmVkX3VzZXJuYW1lIjoiY2dhcmNpYSIsImNvbnNlbnRfaWQiOiI4OTAxMjM0In0.MVXtV7r8rQ5MSx5QeOE_0D4JOGf328zf2NMDL5ERnxuWGYLT8kCkljaeD1wZqHvQ4f1CAQ_QxpsCTAAL1NTPt65sdTaCTOvJwXIbhmaO11dXbYxnN5i4JhzxO_wVcQQI6x3ZRv7v9jgjoB0bRIaxDe0XdE22VxSz0_Odg-euXfYcwtXlcBjaC-31FvA1lLrvvPnhhG5XOnZe6GW-8ZIEp3fgCx_4dVOMQt5K3IeU958RJjcxkLDevioINKqqLQrl0h5BHolQcQfqLCCKR00DodI7kA48fZVlNF0XyVgUIpBvpF0-vEmGYLRrcTA9xJAMwl7jpTcff_GoKWA5SnbDIg",
+			"type": "default"
+		}
+	]
+}

@@ -1,0 +1,409 @@
+{
+  "info": {
+    "_postman_id": "0dbd43da-91f5-4b46-bdea-8a61d3dd9042",
+    "name": "Directorio de Participantes - CMF (Pruebas - 2026 chile)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "7403125"
+  },
+  "item": [
+    {
+      "name": "Upload Certificates",
+      "item": [
+        {
+          "name": "Upload Cert - Encriptado",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token_super}}"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "privateKeyFile",
+                  "type": "file",
+                  "description": "key",
+                  "src": "/home/user/Área de Trabalho/Meus Docs/Sensedia/CMF - Comisión para el Mercado Financiero - Open Finance LATAM/OF - Directorio de Participantes - chile/certificados/Pruebas directorio de participantes/server-cmfpruebas.key"
+                },
+                {
+                  "key": "publicKeyFile",
+                  "type": "file",
+                  "description": "pem / crt",
+                  "src": "/home/user/Área de Trabalho/Meus Docs/Sensedia/CMF - Comisión para el Mercado Financiero - Open Finance LATAM/OF - Directorio de Participantes - chile/certificados/Pruebas directorio de participantes/server-cmfpruebas.pem"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://api-qa.finanzasabiertas.cl/organisations/{{OrganisationId}}/softwarestatements/{{SoftwareStatementId}}/certificates/enc",
+              "protocol": "https",
+              "host": [
+                "api-qa",
+                "finanzasabiertas",
+                "cl"
+              ],
+              "path": [
+                "organisations",
+                "{{OrganisationId}}",
+                "softwarestatements",
+                "{{SoftwareStatementId}}",
+                "certificates",
+                "enc"
+              ]
+            },
+            "description": "Generated from cURL: curl --location 'https://api-qa.finanzasabiertas.cl/organisations/5cbff413-609b-4b85-aadc-1afedbd6ad53/softwarestatements/29a0239f-3e96-4ff9-8ec5-0559dfb66cd3/certificates/enc' \\\n--header 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJYR002U2l0WWUzM3N6bmJwdW5HRTVtN0pOSUNlWWNfUV9RSmpVdFVMRWJZIn0.eyJleHAiOjE3NTEzNzgzODEsImlhdCI6MTc1MTM3NjU4MSwianRpIjoiMmY3YjIzMmMtNzYxOS00NDE2LTljZTMtMjhhMDNiY2RmODNhIiwiaXNzIjoiaHR0cDovL29mLWxhdGFtLWRpci1vaWRjLXNlcnZlci1hcHAvcmVhbG1zL0RpcmVjdG9yaW9QYXJ0aWNpcGFudGUiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYzIzODUwMDItZjhkZS00MmJjLWJkZDMtYTFmNjM4NmM3MjA0IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoib2YtbGF0YW0tZGlyLWd0dyIsInNlc3Npb25fc3RhdGUiOiIzYmY1NjIyOS0yYzgyLTQ5ZmItYTE0Zi03MmU2N2ZmZGQ0Y2UiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHA6Ly9kZXYtZGlyZWN0b3Jpby5vcGVuY2NvLmNvbS9kaXJlY3RvcnkvdjEiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIm9mZmxpbmVfYWNjZXNzIiwic3VwZXJhZG1pbiIsInVtYV9hdXRob3JpemF0aW9uIiwiZGVmYXVsdC1yb2xlcy1kaXJlY3RvcmlvcGFydGljaXBhbnRlIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJwcm9maWxlIGVtYWlsIiwic2lkIjoiM2JmNTYyMjktMmM4Mi00OWZiLWExNGYtNzJlNjdmZmRkNGNlIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsIm5hbWUiOiJkZXNhcnJvbGxvIGNyZWRpYmFuY29vIiwicHJlZmVycmVkX3VzZXJuYW1lIjoiZGVzYXJyb2xsb2FkbWluQGNyZWRpYmFuY28uY29tIiwiZ2l2ZW5fbmFtZSI6ImRlc2Fycm9sbG8iLCJmYW1pbHlfbmFtZSI6ImNyZWRpYmFuY29vIiwiZW1haWwiOiJkZXNhcnJvbGxvYWRtaW5AY3JlZGliYW5jby5jb20ifQ.S1EP1s-9YGKa5fy4LLOp8FOxmptndCrtKr-tvOMeRy-BTnV7kvzjQnXUmgY-XcrybPVFJpTdc3nF82Y_UZ2qI_WuwPuL6Z3oGPg_UDBlEjAgjIUE7AhwrRSx6a5JOHhnut61RioDblVQcyMInfyj_nMxcHxuhWLyzQYQ3ZCHw0HTt1tm_zrk1M7VaGJCQCrKBFBbgmTwDyzgigWsSCx2_e8sf3v4Qa1B_PVjTpBl6F6EVTYHxZa06C3EZYfuNax5lIZHg4H1abw43fIvD2pqyYGVtOo2BgNuDkyP4Wqez-IeaOMiRbTgRvMlqW5thAa5XWpY5hDqXu8-LmN-FWAkIQ' \\\n--form 'privateKeyFile=@\"/path/to/file\"' \\\n--form 'publicKeyFile=@\"/path/to/file\"'"
+          },
+          "response": []
+        },
+        {
+          "name": "Upload Cert - Sig old",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJNU2V6dWFiWGtIRFU2Q3ZLNVNlWl8tSEo0ZHdSQURZY3NuRzItc3QzUmpJIn0.eyJleHAiOjE3NzA5ODQwMjgsImlhdCI6MTc3MDk4MzQyOCwianRpIjoiZjQyZWE5ZGUtMmMzZS00MjhiLTg3Y2YtMGQzNWVlZjEyNzk3IiwiaXNzIjoiaHR0cDovL29mLWNsLWRpci1vaWRjLXNlcnZlci1hcHAvcmVhbG1zL2RpcmVjdG9yaW8iLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiNWU0YWM2MmItY2YwOS00MmI5LTlhNGMtYjdhZjU5Y2Q0MWVkIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoib2YtY2wtZGlyLWd0dyIsInNlc3Npb25fc3RhdGUiOiIwMjc2MzZlMy00NzI0LTQ0YzMtOTg5Zi0xMjhlNjNlOWZhM2MiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHA6Ly9sb2NhbGhvc3Q6ODA4MCJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsib2ZmbGluZV9hY2Nlc3MiLCJzdXBlcmFkbWluIiwidW1hX2F1dGhvcml6YXRpb24iLCJkZWZhdWx0LXJvbGVzLWRpcmVjdG9yaW9wYXJ0aWNpcGFudGUiXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6InByb2ZpbGUgZW1haWwiLCJzaWQiOiIwMjc2MzZlMy00NzI0LTQ0YzMtOTg5Zi0xMjhlNjNlOWZhM2MiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwibmFtZSI6IlNlbnNlZGlhIiwicHJlZmVycmVkX3VzZXJuYW1lIjoic3VAc2Vuc2VkaWEuY29tIiwiZ2l2ZW5fbmFtZSI6IlNlbnNlZGlhIiwiZW1haWwiOiJzdUBzZW5zZWRpYS5jb20ifQ.nYktCZ_K7YXlVBt03jv5BT_IgcneE_eejs7xlanxo9QelDBRoVyyPb8zdd3jdZKLoDr3YZiPhSKqKHILvy5qp6NNMmoFz69DZBZFN0wGJVWq6Ym3-22qWePj2gFvKu7Qkt_6k32v9uhjH9nopJx2ZF6bYyMyE8rvHJuto_26ppmj8QiBQ1FFZtXae_C4TFWfA91ho0VnewDqKWYpNJ82GM30xzremBSe_FT8m6CLIhGsDneDvNxItLPrher6hKpvViVpEzOYsQj8983rTVhlYyTEB3hk2FebbX7xzMWF8OX4sDyCqePvVMGY0nPf6qXl0-DjN8GmNtp8_kd0UevYJg"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "privateKeyFile",
+                  "type": "file",
+                  "description": "key",
+                  "src": "2B82O4HgJ/cliente-institucion-financiera-cmf-sign.pkcs8.key"
+                },
+                {
+                  "key": "publicKeyFile",
+                  "type": "file",
+                  "description": "pem / crt",
+                  "src": "O0WjwgXYA/cliente-institucion-financiera-cmf-sign.pem"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://api-qa.finanzasabiertas.cl/organisations/{{OrganisationId}}/softwarestatements/{{SoftwareStatementId}}/certificates/sig",
+              "protocol": "https",
+              "host": [
+                "api-qa",
+                "finanzasabiertas",
+                "cl"
+              ],
+              "path": [
+                "organisations",
+                "{{OrganisationId}}",
+                "softwarestatements",
+                "{{SoftwareStatementId}}",
+                "certificates",
+                "sig"
+              ]
+            },
+            "description": ""
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Paso 0 PSBI Crear Token Participante PSBI en el Directorio",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "let response = pm.response.json();\r",
+              "pm.environment.set(\"access_token\", response.access_token);"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded"
+          }
+        ],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "key": "client_id",
+              "value": "92d75196-2263-4bfc-92d0-8bc0de03c706",
+              "type": "text",
+              "description": "clientId do Software statement"
+            },
+            {
+              "key": "client_secret",
+              "value": "ILlxOFzZSTtR3EN4YR8WOWC47RdHFmtO",
+              "type": "text",
+              "description": "secret SS"
+            },
+            {
+              "key": "scope",
+              "value": "openid",
+              "type": "text"
+            },
+            {
+              "key": "grant_type",
+              "value": "client_credentials",
+              "type": "text"
+            }
+          ]
+        },
+        "url": {
+          "raw": "https://oidc-qa.finanzasabiertas.cl/realms/directorio/protocol/openid-connect/token",
+          "protocol": "https",
+          "host": [
+            "oidc-qa",
+            "finanzasabiertas",
+            "cl"
+          ],
+          "path": [
+            "realms",
+            "directorio",
+            "protocol",
+            "openid-connect",
+            "token"
+          ]
+        },
+        "description": ""
+      },
+      "response": []
+    },
+    {
+      "name": "Paso 1 Listar Organizaciones CMF (token participante)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "let response = pm.response.json();",
+              "pm.environment.set(\"OrganisationId\", response.content[0].OrganisationId);"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{access_token}}"
+          }
+        ],
+        "url": {
+          "raw": "https://api-qa.finanzasabiertas.cl/organisations?page=1&sort=OrganisationName&direction=ASC&filterBy=ABC",
+          "protocol": "https",
+          "host": [
+            "api-qa",
+            "finanzasabiertas",
+            "cl"
+          ],
+          "path": [
+            "organisations"
+          ],
+          "query": [
+            {
+              "key": "page",
+              "value": "1"
+            },
+            {
+              "key": "sort",
+              "value": "OrganisationName"
+            },
+            {
+              "key": "direction",
+              "value": "ASC"
+            },
+            {
+              "key": "filterBy",
+              "value": "ABC"
+            }
+          ]
+        },
+        "description": ""
+      },
+      "response": []
+    },
+    {
+      "name": "Paso 2 Listar los Software Statements (token participante PSBI)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "let response = pm.response.json();",
+              "pm.environment.set(\"SoftwareStatementId\", response.content[0].SoftwareStatementId);"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{access_token}}"
+          }
+        ],
+        "url": {
+          "raw": "https://api-qa.finanzasabiertas.cl/organisations/{{OrganisationId}}/softwarestatements?page=1&sort=ClientName&direction=ASC",
+          "protocol": "https",
+          "host": [
+            "api-qa",
+            "finanzasabiertas",
+            "cl"
+          ],
+          "path": [
+            "organisations",
+            "{{OrganisationId}}",
+            "softwarestatements"
+          ],
+          "query": [
+            {
+              "key": "page",
+              "value": "1"
+            },
+            {
+              "key": "sort",
+              "value": "ClientName"
+            },
+            {
+              "key": "direction",
+              "value": "ASC"
+            },
+            {
+              "key": "filterBy",
+              "value": "ABC",
+              "disabled": true
+            }
+          ]
+        },
+        "description": ""
+      },
+      "response": []
+    },
+    {
+      "name": "Paso 3 - Obtener el JWKS - PSBI - CMF  (PUBLIC)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://api-qa.finanzasabiertas.cl/public/v1/organisations/{{OrganisationId}}/softwarestatements/{{SoftwareStatementId}}/jwks",
+          "protocol": "https",
+          "host": [
+            "api-qa",
+            "finanzasabiertas",
+            "cl"
+          ],
+          "path": [
+            "public",
+            "v1",
+            "organisations",
+            "{{OrganisationId}}",
+            "softwarestatements",
+            "{{SoftwareStatementId}}",
+            "jwks"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Paso 4 - Obtener el SSA - CMF (token participante PSBI) (genera JWT)",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{access_token}}",
+            "description": "tem que ser o acces_token da PSBI"
+          }
+        ],
+        "url": {
+          "raw": "https://api-qa.finanzasabiertas.cl/organisations/{{OrganisationId}}/softwarestatements/{{SoftwareStatementId}}/assertion",
+          "protocol": "https",
+          "host": [
+            "api-qa",
+            "finanzasabiertas",
+            "cl"
+          ],
+          "path": [
+            "organisations",
+            "{{OrganisationId}}",
+            "softwarestatements",
+            "{{SoftwareStatementId}}",
+            "assertion"
+          ]
+        },
+        "description": ""
+      },
+      "response": []
+    },
+    {
+      "name": ".well-known/openid-configuration",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://oidc-qa.finanzasabiertas.cl/realms/directorio/.well-known/openid-configuration",
+          "protocol": "https",
+          "host": [
+            "oidc-qa",
+            "finanzasabiertas",
+            "cl"
+          ],
+          "path": [
+            "realms",
+            "directorio",
+            ".well-known",
+            "openid-configuration"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Obtener /public/v1/participants",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJNU2V6dWFiWGtIRFU2Q3ZLNVNlWl8tSEo0ZHdSQURZY3NuRzItc3QzUmpJIn0.eyJleHAiOjE3Njg1ODY1ODYsImlhdCI6MTc2ODU4NTk4NiwianRpIjoiYThiZGFlNGEtZDc2ZS00NjlhLTg0MjQtZjA1Mzk4NzMyOTNhIiwiaXNzIjoiaHR0cDovL29mLWNsLWRpci1vaWRjLXNlcnZlci1hcHAvcmVhbG1zL2RpcmVjdG9yaW8iLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiNWU0YWM2MmItY2YwOS00MmI5LTlhNGMtYjdhZjU5Y2Q0MWVkIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoib2YtY2wtZGlyLWd0dyIsInNlc3Npb25fc3RhdGUiOiIzYTBlZmM5Yy0xYjNhLTRiYzEtYjlmZC1hZjE4NDY3ZGRkM2QiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHA6Ly9sb2NhbGhvc3Q6ODA4MCJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsib2ZmbGluZV9hY2Nlc3MiLCJzdXBlcmFkbWluIiwidW1hX2F1dGhvcml6YXRpb24iLCJkZWZhdWx0LXJvbGVzLWRpcmVjdG9yaW9wYXJ0aWNpcGFudGUiXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6InByb2ZpbGUgZW1haWwiLCJzaWQiOiIzYTBlZmM5Yy0xYjNhLTRiYzEtYjlmZC1hZjE4NDY3ZGRkM2QiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwibmFtZSI6IlNlbnNlZGlhIiwicHJlZmVycmVkX3VzZXJuYW1lIjoic3VAc2Vuc2VkaWEuY29tIiwiZ2l2ZW5fbmFtZSI6IlNlbnNlZGlhIiwiZW1haWwiOiJzdUBzZW5zZWRpYS5jb20ifQ.LwRG9qx5GeAi4Ipjx2aefZ2J67Ef5dm8hErHyVdfI90ozaoEcX6XRRo734q6NV4xCX0q4Ql5tX8Jr9tY8SxwubiQkuiJma57An8UVhUKc-l1806saYvQARDmoYxq3g8LlluT8vNI7KvXA8X3us7k5nTbEv4zr1H3ryklSreO86UfV2dkgzfjDA_Vm1uxa4289eh3zBnhx_1J1Xxgld0XWGeT19XiJeWZyggQ5VzhpYHjGg-w7mSKIOKQdRX_Fh_wnOdhXo-5roBbPWe5nzBt_kW4pXeqihvmLtBVUPg5ISfx-jI0IltLWyPp81Qmw33SFe_wVdLytk99-7cgWhr4cw",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "https://api-qa.finanzasabiertas.cl/public/v1/participants",
+          "protocol": "https",
+          "host": [
+            "api-qa",
+            "finanzasabiertas",
+            "cl"
+          ],
+          "path": [
+            "public",
+            "v1",
+            "participants"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

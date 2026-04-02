@@ -1,0 +1,216 @@
+{
+  "info": {
+    "_postman_id": "2c7249c0-14b8-45c6-a5d5-c5bfcd7c6349",
+    "name": "API Registro dinámico de clientes",
+    "description": "API para registrar clientes en un servidor OpenID Connect.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "17913263",
+    "_collection_link": "https://go.postman.co/collection/17913263-2c7249c0-14b8-45c6-a5d5-c5bfcd7c6349?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "DCR",
+      "item": [
+        {
+          "name": "Registra un nuevo cliente",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "let response = pm.response.json();\r",
+                  "pm.environment.set(\"client_id_dcr\", response.client_id);\r",
+                  "pm.environment.set(\"registration_access_token_dcr\", response.registration_access_token);\r",
+                  "console.log(\"Client ID:\", response.client_id);\r",
+                  "console.log(\"Registration Access Token:\", response.registration_access_token);"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "x-fapi-interaction-id",
+                "value": "amet et enim",
+                "description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"software_statement\": \"eyJraWQiOiJ6ekpSclFSUjdDbDhMbS1aUlZwckxkTjE5d1dnVlNOWjlNSHo3UWpjbFQ0IiwidHlwIjoiSldUIiwiYWxnIjoiUFMyNTYifQ.eyJzb2Z0d2FyZV9yZWRpcmVjdF91cmlzIjpbImh0dHBzOi8vb3BlbmZpbmFuY2UuY21mY2hpbGUuY2wvcmVkaXJlY3QiXSwic29mdHdhcmVfY2xpZW50X25hbWUiOiJDZW50cm8gRmluYW5jaWVybyBBcHAiLCJvcmdfc3RhdHVzIjoiQUNUSVZFIiwic29mdHdhcmVfY2xpZW50X2lkIjoiYjBjODBlNzAtMWYxOS00NjI2LTk0ZWYtNTM3NDM4NTc0NjI1IiwiaXNzIjoiMDNhMTViM2YtZjQxYy00ZmRmLWE0YzUtYzI3NDc1MjczOGE3Iiwic29mdHdhcmVfaWQiOiIyZTFlM2JkMi02N2MwLTRlMjMtYmViYy04NDcxZWNiYmIzMDAiLCJvcmdfaWQiOiIwM2ExNWIzZi1mNDFjLTRmZGYtYTRjNS1jMjc0NzUyNzM4YTciLCJvcmdfbnVtYmVyIjoiMjMuNzIxLjI0NS0yIiwic29mdHdhcmVfandrc191cmkiOiJodHRwczovL2FwaS1xYS5maW5hbnphc2FiaWVydGFzLmNsL3B1YmxpYy92MS9vcmdhbmlzYXRpb25zLzAzYTE1YjNmLWY0MWMtNGZkZi1hNGM1LWMyNzQ3NTI3MzhhNy9zb2Z0d2FyZXN0YXRlbWVudHMvMmUxZTNiZDItNjdjMC00ZTIzLWJlYmMtODQ3MWVjYmJiMzAwL2p3a3MiLCJvcmdfbmFtZSI6IkNlbnRybyBGaW5hbmNpZXJvIiwiaWF0IjoxNzcyODIwNjIxLCJqdGkiOiI4YTIzYzA0NC02YjhmLTRhNmQtYmVhYi1iZTcyYmE1NDg0NTEifQ.PkJiUfal71rvu7WeUE1iftLw4Fi0CrZBCvG01G7n4jUcgbShj1U9V_DGrtYed6gF8bwSnFrc24zjwSsW_PZDN_uLJ81ZNMoEAcIzCEKLlgpMbPoNMob5CyCszG2Cd2Z1c2g4aWzwkse57_PWii07O56tOAUxlBu8uHCc7SYNGU1IRxazuLKffS8iuD_Cc1bgdOBW6_sSkOnhVJ874jgAdGyNw59c7kzJikhXQLSJtvv1vBPF-1XKak7h2hqeGo7bXYs4F6V8LTsxFo2dTluGBO30PnRwy5TgYy_inB51s34iqk95AXP3V3Z4viCSeFxNMt0h25qzNvxivkBKCSCF2A\",\n  \"redirect_uris\":\n     [\"https://auth-code-app-frontend.sandboxcmf.svc.cluster.local:5005/callback\",\n      \"https://oauth.pstmn.io/v1/callback\",\n      \"https://localhost:8080/callback\"],\n  \"response_types\": [\"code\"],\n  \"scope\": \"ReadAccounts ReadAccountsBalance ReadAccountsCurrentOverdraftLimit ReadAccountsInsurance ReadAccountsInsuranceTransactions ReadAccountsOverdraft ReadAccountsTransactions ReadCreditCardsAccounts ReadCreditCardsBalance ReadCreditCardsCurrentBalance ReadCreditCardsLimit ReadCreditCardsTransactions ReadCustomersPj ReadCustomersPn ReadInvestments ReadInvestmentsBalance ReadInvestmentsTransactions ReadLoans ReadLoansBalance ReadLoansCurrentTransactions ReadPayments ReadPaymetReports ReadResources offline_access\",\n  \"grant_types\": [\"authorization_code\"],\n  \"application_type\": \"web\",\n  \"contacts\": [\"dev@auth-code-app-frontend.sandboxcmf.svc.cluster.local\", \"admin@auth-code-app-frontend.sandboxcmf.svc.cluster.local\"],\n  \"client_name\": \"Cliente de prueba DCR\",\n  \"logo_uri\": \"https://auth-code-app-frontend.sandboxcmf.svc.cluster.local/logo.png\",\n  \"client_uri\": \"https://auth-code-app-frontend.sandboxcmf.svc.cluster.local\",\n  \"policy_uri\": \"https://auth-code-app-frontend.sandboxcmf.svc.cluster.local/policy\",\n  \"tos_uri\": \"https://auth-code-app-frontend.sandboxcmf.svc.cluster.local/terms\",\n  \"subject_type\": \"public\",\n  \"id_token_signed_response_alg\": \"PS256\",\n  \"userinfo_signed_response_alg\": \"PS256\",\n  \"request_object_signing_alg\": \"PS256\",\n  \"request_object_encryption_alg\": \"RSA-OAEP\",\n  \"request_object_encryption_enc\": \"A256GCM\",\n  \"token_endpoint_auth_method\": \"tls_client_auth\",\n  \"token_endpoint_auth_signing_alg\": \"PS256\",\n  \"default_max_age\": 3600,\n  \"require_auth_time\": true,\n  \"request_uris\": [\"https://auth-code-app-frontend.sandboxcmf.svc.cluster.local/request1\", \"https://auth-code-app-frontend.sandboxcmf.svc.cluster.local/request2\"],\n  \"backchannel_token_delivery_mode\": \"ping\",\n  \"backchannel_client_notification_endpoint\": \"http://ciba-app-backend.sandboxcmf.svc.cluster.local:8085/callback\",\n  \"backchannel_authentication_request_signing_alg\": \"PS256\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/clients-registrations/v1/register",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "clients-registrations",
+                "v1",
+                "register"
+              ]
+            },
+            "description": "Este endpoint permite registrar un nuevo cliente en el servidor. Los clientes deben proporcionar la información\nnecesaria, como las URIs de redirección, tipos de respuesta y otros parámetros opcionales definidos por el servidor.\n"
+          },
+          "response": []
+        },
+        {
+          "name": "Actualiza un cliente",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "let response = pm.response.json();\r",
+                  "pm.environment.set(\"registration_access_token_dcr\", response.registration_access_token);\r",
+                  "console.log(\"Registration Access Token:\", response.registration_access_token);"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "x-fapi-interaction-id",
+                "value": "amet et enim",
+                "description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{registration_access_token_dcr}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"client_id\": \"{{client_id_dcr}}\",\n  \"application_type\": \"web\",\n  \"scope\": \"ReadAccounts CreatePayments ReadPayments\",\n  \"redirect_uris\": [\n    \"https://auth-code-app-frontend.sandboxcmf.svc.cluster.local:5005/callback\",\n    \"https://oauth.pstmn.io/v1/callback\",\n    \"https://localhost:8080/callback\"\n  ],\n  \"client_name\": \"Cliente de prueba DCR actualizado\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/clients-registrations/v1/register/:clientId",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "clients-registrations",
+                "v1",
+                "register",
+                ":clientId"
+              ],
+              "variable": [
+                {
+                  "key": "clientId",
+                  "value": "{{client_id_dcr}}",
+                  "description": "(Required) Identificador del cliente"
+                }
+              ]
+            },
+            "description": "Este endpoint permite actualizar un cliente en el servidor. Los clientes deben proporcionar la información\nnecesaria, como las URIs de redirección, tipos de respuesta y otros parámetros opcionales definidos por el servidor.\n"
+          },
+          "response": []
+        },
+        {
+          "name": "Consulta un cliente",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-fapi-interaction-id",
+                "value": "amet et enim",
+                "description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{registration_access_token_dcr}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/clients-registrations/v1/register/:clientId",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "clients-registrations",
+                "v1",
+                "register",
+                ":clientId"
+              ],
+              "variable": [
+                {
+                  "key": "clientId",
+                  "value": "{{client_id_dcr}}",
+                  "description": "(Required) Identificador del cliente"
+                }
+              ]
+            },
+            "description": "Este endpoint permite consultar un cliente en el servidor.\n"
+          },
+          "response": []
+        }
+      ],
+      "description": "Registro dinámico de clientes"
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ]
+}

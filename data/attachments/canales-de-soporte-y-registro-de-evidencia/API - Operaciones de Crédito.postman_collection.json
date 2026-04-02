@@ -1,0 +1,1106 @@
+{
+	"info": {
+		"_postman_id": "de48acef-ed81-40da-9bc4-0c3175c9c8c7",
+		"name": "API - Operaciones de Crédito",
+		"description": "API de información de operaciones de préstamos. API que devuelve información sobre operaciones de crédito de tipo préstamo, mantenidas en las instituciones transmisoras por sus clientes. Requiere el consentimiento del cliente para todos los puntos finales.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17913263",
+		"_collection_link": "https://restless-spaceship-269474.postman.co/workspace/CMF~6989a4ae-868d-4761-9ab5-331f222eae90/collection/17913263-de48acef-ed81-40da-9bc4-0c3175c9c8c7?action=share&source=collection_link&creator=17913263"
+	},
+	"item": [
+		{
+			"name": "loans",
+			"item": [
+				{
+					"name": "/loans cgarcia",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "333e9999-e88b-12d3-a456-426655443333",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "<string>",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo.",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/loans?page=1&pageSize=2",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"loans"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"description": "Número de la página que se solicita (el valor de la primera página es 1)"
+								},
+								{
+									"key": "pageSize",
+									"value": "2",
+									"description": "Número total de registros por página"
+								}
+							]
+						},
+						"description": "Método para obtener la lista de cuentas de pago pospago que el cliente mantiene en la entidad transmisora y para las que ha prestado su consentimiento."
+					},
+					"response": []
+				},
+				{
+					"name": "/loans jmendoza",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "111e9999-e88b-12d3-a456-426655441111",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "<string>",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo.",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/loans?page=1&pageSize=2",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"loans"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"description": "Número de la página que se solicita (el valor de la primera página es 1)"
+								},
+								{
+									"key": "pageSize",
+									"value": "2",
+									"description": "Número total de registros por página"
+								}
+							]
+						},
+						"description": "Método para obtener la lista de cuentas de pago pospago que el cliente mantiene en la entidad transmisora y para las que ha prestado su consentimiento."
+					},
+					"response": []
+				},
+				{
+					"name": "/loans jperez",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "444e9999-e88b-12d3-a456-426655444444",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "<string>",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo.",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/loans?page=1&pageSize=2",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"loans"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"description": "Número de la página que se solicita (el valor de la primera página es 1)"
+								},
+								{
+									"key": "pageSize",
+									"value": "2",
+									"description": "Número total de registros por página"
+								}
+							]
+						},
+						"description": "Método para obtener la lista de cuentas de pago pospago que el cliente mantiene en la entidad transmisora y para las que ha prestado su consentimiento."
+					},
+					"response": []
+				},
+				{
+					"name": "/loans mrojas",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "222e9999-e88b-12d3-a456-426655442222",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "<string>",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo.",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/loans?page=1&pageSize=2",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"loans"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"description": "Número de la página que se solicita (el valor de la primera página es 1)"
+								},
+								{
+									"key": "pageSize",
+									"value": "2",
+									"description": "Número total de registros por página"
+								}
+							]
+						},
+						"description": "Método para obtener la lista de cuentas de pago pospago que el cliente mantiene en la entidad transmisora y para las que ha prestado su consentimiento."
+					},
+					"response": []
+				},
+				{
+					"name": "/loans sfernandez",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "555e9999-e88b-12d3-a456-426655445555",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "<string>",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo.",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/loans?page=1&pageSize=2",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"loans"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"description": "Número de la página que se solicita (el valor de la primera página es 1)"
+								},
+								{
+									"key": "pageSize",
+									"value": "2",
+									"description": "Número total de registros por página"
+								}
+							]
+						},
+						"description": "Método para obtener la lista de cuentas de pago pospago que el cliente mantiene en la entidad transmisora y para las que ha prestado su consentimiento."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "{loanID}",
+			"item": [
+				{
+					"name": "/loans/LN-CGAR-001 cgarcia",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "333e9999-e88b-12d3-a456-426655443333",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "<string>",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo.",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/loans/LN-CGAR-001",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"loans",
+								"LN-CGAR-001"
+							]
+						},
+						"description": "Método para obtener la lista de cuentas de pago pospago que el cliente mantiene en la entidad transmisora y para las que ha prestado su consentimiento."
+					},
+					"response": []
+				},
+				{
+					"name": "/loans/LN-JMEN-001 jmendoza",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "111e9999-e88b-12d3-a456-426655441111",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "<string>",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo.",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/loans/LN-JMEN-001",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"loans",
+								"LN-JMEN-001"
+							]
+						},
+						"description": "Método para obtener la lista de cuentas de pago pospago que el cliente mantiene en la entidad transmisora y para las que ha prestado su consentimiento."
+					},
+					"response": []
+				},
+				{
+					"name": "/loans/LN-JPEREZ-001 jperez",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "444e9999-e88b-12d3-a456-426655444444",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "<string>",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo.",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/loans/LN-JPEREZ-001",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"loans",
+								"LN-JPEREZ-001"
+							]
+						},
+						"description": "Método para obtener la lista de cuentas de pago pospago que el cliente mantiene en la entidad transmisora y para las que ha prestado su consentimiento."
+					},
+					"response": []
+				},
+				{
+					"name": "/loans/LN-MROJ-002 mrojas",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "222e9999-e88b-12d3-a456-426655442222",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "<string>",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo.",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/loans/LN-MROJ-002",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"loans",
+								"LN-MROJ-002"
+							]
+						},
+						"description": "Método para obtener la lista de cuentas de pago pospago que el cliente mantiene en la entidad transmisora y para las que ha prestado su consentimiento."
+					},
+					"response": []
+				},
+				{
+					"name": "/loans/LN-SFER-002 sfernandez",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "555e9999-e88b-12d3-a456-426655445555",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "<string>",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo.",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/loans/LN-SFER-002",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"loans",
+								"LN-SFER-002"
+							]
+						},
+						"description": "Método para obtener la lista de cuentas de pago pospago que el cliente mantiene en la entidad transmisora y para las que ha prestado su consentimiento."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "balance",
+			"item": [
+				{
+					"name": "/loans/LN-CGAR-001/balance cgarcia",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "333e9999-e88b-12d3-a456-426655443333",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "<string>",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo.",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/loans/LN-CGAR-001/balance",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"loans",
+								"LN-CGAR-001",
+								"balance"
+							]
+						},
+						"description": "Método para obtener la lista de cuentas de pago pospago que el cliente mantiene en la entidad transmisora y para las que ha prestado su consentimiento."
+					},
+					"response": []
+				},
+				{
+					"name": "/loans/LN-JMEN-001/balance jmendoza",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "111e9999-e88b-12d3-a456-426655441111",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "<string>",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo.",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/loans/LN-JMEN-001/balance",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"loans",
+								"LN-JMEN-001",
+								"balance"
+							]
+						},
+						"description": "Método para obtener la lista de cuentas de pago pospago que el cliente mantiene en la entidad transmisora y para las que ha prestado su consentimiento."
+					},
+					"response": []
+				},
+				{
+					"name": "/loans/LN-JPEREZ-001/balance jperez",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "444e9999-e88b-12d3-a456-426655444444",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "<string>",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo.",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/loans/LN-JPEREZ-001/balance?fromDate=2022-09-01&toDate=2023-09-01",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"loans",
+								"LN-JPEREZ-001",
+								"balance"
+							],
+							"query": [
+								{
+									"key": "fromDate",
+									"value": "2022-09-01"
+								},
+								{
+									"key": "toDate",
+									"value": "2023-09-01"
+								}
+							]
+						},
+						"description": "Método para obtener la lista de cuentas de pago pospago que el cliente mantiene en la entidad transmisora y para las que ha prestado su consentimiento."
+					},
+					"response": []
+				},
+				{
+					"name": "/loans/LN-MROJ-002/balance mrojas",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "222e9999-e88b-12d3-a456-426655442222",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "<string>",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo.",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/loans/LN-MROJ-002/balance?fromDate=2024-12-01",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"loans",
+								"LN-MROJ-002",
+								"balance"
+							],
+							"query": [
+								{
+									"key": "fromDate",
+									"value": "2024-12-01"
+								}
+							]
+						},
+						"description": "Método para obtener la lista de cuentas de pago pospago que el cliente mantiene en la entidad transmisora y para las que ha prestado su consentimiento."
+					},
+					"response": []
+				},
+				{
+					"name": "/loans/LN-SFER-002/balance sfernandez",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "555e9999-e88b-12d3-a456-426655445555",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "<string>",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo.",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/loans/LN-SFER-002/balance?page=1&pageSize=3",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"loans",
+								"LN-SFER-002",
+								"balance"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "3"
+								}
+							]
+						},
+						"description": "Método para obtener la lista de cuentas de pago pospago que el cliente mantiene en la entidad transmisora y para las que ha prestado su consentimiento."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "current-transactions",
+			"item": [
+				{
+					"name": "/loans/LN-CGAR-001/current-transactions cgarcia",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "333e9999-e88b-12d3-a456-426655443333",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "<string>",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo.",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/loans/LN-CGAR-001/current-transactions?page=1&pageSize=2",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"loans",
+								"LN-CGAR-001",
+								"current-transactions"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "2"
+								}
+							]
+						},
+						"description": "Método para obtener la lista de cuentas de pago pospago que el cliente mantiene en la entidad transmisora y para las que ha prestado su consentimiento."
+					},
+					"response": []
+				},
+				{
+					"name": "/loans/LN-JMEN-001/current-transactions jmendoza",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "111e9999-e88b-12d3-a456-426655441111",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "<string>",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo.",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/loans/LN-JMEN-001/current-transactions?page=1&pageSize=3",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"loans",
+								"LN-JMEN-001",
+								"current-transactions"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "3"
+								}
+							]
+						},
+						"description": "Método para obtener la lista de cuentas de pago pospago que el cliente mantiene en la entidad transmisora y para las que ha prestado su consentimiento."
+					},
+					"response": []
+				},
+				{
+					"name": "/loans/LN-JPEREZ-001/current-transactions jperez",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "444e9999-e88b-12d3-a456-426655444444",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "<string>",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo.",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/loans/LN-JPEREZ-001/current-transactions?page=1&pageSize=2",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"loans",
+								"LN-JPEREZ-001",
+								"current-transactions"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "2"
+								}
+							]
+						},
+						"description": "Método para obtener la lista de cuentas de pago pospago que el cliente mantiene en la entidad transmisora y para las que ha prestado su consentimiento."
+					},
+					"response": []
+				},
+				{
+					"name": "/loans/LN-MROJ-002/current-transactions mrojas",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "222e9999-e88b-12d3-a456-426655442222",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "<string>",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo.",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/loans/LN-MROJ-002/current-transactions?page=1&pageSize=2",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"loans",
+								"LN-MROJ-002",
+								"current-transactions"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "2"
+								}
+							]
+						},
+						"description": "Método para obtener la lista de cuentas de pago pospago que el cliente mantiene en la entidad transmisora y para las que ha prestado su consentimiento."
+					},
+					"response": []
+				},
+				{
+					"name": "/loans/LN-SFER-002/current-transactions sfernandez",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "555e9999-e88b-12d3-a456-426655445555",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "<string>",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo.",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/loans/LN-SFER-002/current-transactions?page=2&pageSize=2",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"loans",
+								"LN-SFER-002",
+								"current-transactions"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "2"
+								},
+								{
+									"key": "pageSize",
+									"value": "2"
+								}
+							]
+						},
+						"description": "Método para obtener la lista de cuentas de pago pospago que el cliente mantiene en la entidad transmisora y para las que ha prestado su consentimiento."
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://api-cmf.sensedia.com/loans/v1"
+		},
+		{
+			"key": "bearerToken",
+			"value": "eyJhbGciOiJQUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJZdXZwVk03cVdJNUN1bko5SmJQMEh3Z0hzMTlibnN6V3d1Y2d4YjcyUkp3In0.eyJleHAiOjE3NDU1OTg2MTYsImlhdCI6MTc0NTU5NTAxNiwiYXV0aF90aW1lIjoxNzQ1NTk1MDEzLCJqdGkiOiJmMTcwMGI0Yi1lZmE2LTQzYzEtYjNlMS1lYjBlZTRkNzAyOWYiLCJpc3MiOiJodHRwczovL2VjMi0zNC0yMzQtMjIxLTExOC5jb21wdXRlLTEuYW1hem9uYXdzLmNvbTo4NDQzL3JlYWxtcy9tYXN0ZXIiLCJzdWIiOiI0MDg5NDJjMi04NmU5LTQwNTUtYWMxMS1hMDEzZjlhYzA2NTkiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJBc2VndXJhZG9yYS1iZXRhIiwic2lkIjoiODM5NzBkMzMtODkzZC00NDIwLWE2YTEtNmMzMDFkODNlNzc3IiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyIiXSwiY25mIjp7Ing1dCNTMjU2IjoicmNZclpCUkthU0Y0NVNjUVdKYWsydkRuZmt6ZzYwRlM4RWRUX0F2TXA5SSJ9LCJzY29wZSI6ImZhcGkgcHJvZmlsZSBlbWFpbCBSZWFkTG9hbnMiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwicHJlZmVycmVkX3VzZXJuYW1lIjoiY2dhcmNpYSIsImNvbnNlbnRfaWQiOiI4OTAxMjM0In0.MVXtV7r8rQ5MSx5QeOE_0D4JOGf328zf2NMDL5ERnxuWGYLT8kCkljaeD1wZqHvQ4f1CAQ_QxpsCTAAL1NTPt65sdTaCTOvJwXIbhmaO11dXbYxnN5i4JhzxO_wVcQQI6x3ZRv7v9jgjoB0bRIaxDe0XdE22VxSz0_Odg-euXfYcwtXlcBjaC-31FvA1lLrvvPnhhG5XOnZe6GW-8ZIEp3fgCx_4dVOMQt5K3IeU958RJjcxkLDevioINKqqLQrl0h5BHolQcQfqLCCKR00DodI7kA48fZVlNF0XyVgUIpBvpF0-vEmGYLRrcTA9xJAMwl7jpTcff_GoKWA5SnbDIg",
+			"type": "default"
+		}
+	]
+}

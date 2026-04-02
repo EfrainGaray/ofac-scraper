@@ -1,0 +1,350 @@
+{
+  "info": {
+    "_postman_id": "4ae1782a-579c-4849-a148-8ce725a7244d",
+    "name": "API Datos Abiertos - Canales de Atención Presencial",
+    "description": "Este documento describe las API de datos abiertos relacionadas con los distintos canales de atención presenciales disponibles de una entidad financiera.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "17913263",
+    "_collection_link": "https://go.postman.co/collection/17913263-4ae1782a-579c-4849-a148-8ce725a7244d?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Endpoints Canales de Antención Presencial",
+      "item": [
+        {
+          "name": "Office-channels",
+          "item": [
+            {
+              "name": "/office-channels caso 1",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{access_token}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/presential-channels/v1/office-channels?page=1&pageSize=1",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "presential-channels",
+                    "v1",
+                    "office-channels"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1",
+                      "description": "Número de la página que se solicita (el valor de la primera página es 1)."
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "1"
+                    }
+                  ]
+                },
+                "description": "Método para obtener el listado de oficinas presenciales"
+              },
+              "response": []
+            },
+            {
+              "name": "/office-channels caso 2",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{access_token}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/presential-channels/v1/office-channels?page=2&pageSize=2&townName=Providencia",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "presential-channels",
+                    "v1",
+                    "office-channels"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "2",
+                      "description": "Número de la página que se solicita (el valor de la primera página es 1)."
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "2"
+                    },
+                    {
+                      "key": "townName",
+                      "value": "Providencia"
+                    }
+                  ]
+                },
+                "description": "Método para obtener el listado de oficinas presenciales"
+              },
+              "response": []
+            },
+            {
+              "name": "/office-channels caso filtro RM",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{access_token}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/presential-channels/v1/office-channels",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "presential-channels",
+                    "v1",
+                    "office-channels"
+                  ],
+                  "query": [
+                    {
+                      "key": "countrySubDivision",
+                      "value": "RM",
+                      "disabled": true
+                    }
+                  ]
+                },
+                "description": "Método para obtener el listado de oficinas presenciales"
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Atm-channels",
+          "item": [
+            {
+              "name": "/atm-channels caso 1",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{access_token}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/presential-channels/v1/atm-channels?page=1&pageSize=1",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "presential-channels",
+                    "v1",
+                    "atm-channels"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1",
+                      "description": "Número de la página que se solicita (el valor de la primera página es 1)."
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "1"
+                    }
+                  ]
+                },
+                "description": "Método para obtener el listado de cajeros automáticos disponibles por marca y canales de atención"
+              },
+              "response": []
+            },
+            {
+              "name": "/atm-channels caso 2",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{access_token}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/presential-channels/v1/atm-channels?page=2&pageSize=2&townName=Las Condes",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "presential-channels",
+                    "v1",
+                    "atm-channels"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "2",
+                      "description": "Número de la página que se solicita (el valor de la primera página es 1)."
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "2"
+                    },
+                    {
+                      "key": "townName",
+                      "value": "Las Condes"
+                    }
+                  ]
+                },
+                "description": "Método para obtener el listado de cajeros automáticos disponibles por marca y canales de atención"
+              },
+              "response": []
+            },
+            {
+              "name": "/atm-channels caso 3",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{access_token}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/presential-channels/v1/atm-channels?countrySubDivision=RM",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "presential-channels",
+                    "v1",
+                    "atm-channels"
+                  ],
+                  "query": [
+                    {
+                      "key": "countrySubDivision",
+                      "value": "RM"
+                    }
+                  ]
+                },
+                "description": "Método para obtener el listado de cajeros automáticos disponibles por marca y canales de atención"
+              },
+              "response": []
+            }
+          ]
+        }
+      ],
+      "description": "Operaciones que obtienen canales presenciales de atención."
+    },
+    {
+      "name": "Request token (client_credentials con X509)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.environment.set(\"access_token\", pm.response.json().access_token);\r",
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "key": "grant_type",
+              "value": "client_credentials",
+              "type": "text"
+            },
+            {
+              "key": "client_id",
+              "value": "{{client_id}}",
+              "type": "text"
+            }
+          ]
+        },
+        "url": {
+          "raw": "https://{{keycloak_host}}:8443/realms/openbanking/protocol/openid-connect/token",
+          "protocol": "https",
+          "host": [
+            "{{keycloak_host}}"
+          ],
+          "port": "8443",
+          "path": [
+            "realms",
+            "openbanking",
+            "protocol",
+            "openid-connect",
+            "token"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ]
+}

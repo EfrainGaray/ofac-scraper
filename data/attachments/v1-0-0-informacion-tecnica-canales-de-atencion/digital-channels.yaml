@@ -1,0 +1,793 @@
+openapi: 3.0.3
+info:
+  title: API Datos Abiertos - Canales de Atención Digitales
+  version: 1.0.0
+  description: Este documento describe las API de datos abiertos relacionadas con los distintos canales de atención digital disponibles de una entidad financiera.
+tags:
+  - name: Endpoints Canales de Antención Digital
+    description: Operaciones que obtienen canales digitales de atención.
+
+servers:
+  - url: https://api-chile.cl/digital-channels/v1
+  
+paths:
+  /sms-channels:
+    get:
+      tags:
+        - Endpoints Canales de Antención Digital
+      summary: Obtiene el listado de números de contacto que permite la comunicación mediante SMS.
+      description: "Método para obtener el listado de números de contacto mediante comunicación SMS"
+      parameters:
+        - $ref: "#/components/parameters/page"
+        - $ref: "#/components/parameters/pageSize"
+      responses:
+        '200':
+          description: "Respuesta exitosa con el listado de números de contato que permiten comunicación mediante SMS"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OpenDataSmsChannels"
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '405':
+          $ref: '#/components/responses/MethodNotAllowed'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+        '504':
+          $ref: '#/components/responses/GatewayTimeout'
+        '529':
+          $ref: '#/components/responses/SiteIsOverloaded'
+        default:
+          $ref: '#/components/responses/Default'
+          
+  /web-app-channels:
+    get:
+      tags:
+        - Endpoints Canales de Antención Digital
+      summary: Obtiene el listado de páginas web y aplicaciones como canal de comunicación y atención digital.
+      description: "Método para obtener el listado de páginas web y aplicaciones como canal de comunicación y atención digital"
+      parameters:
+        - $ref: "#/components/parameters/page"
+        - $ref: "#/components/parameters/pageSize"
+      responses:
+        '200':
+          description: "Respuesta exitosa con el listado de páginas web y aplicaciones como canal de comunicación y atención digital."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OpenDataWebAppChannels"
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '405':
+          $ref: '#/components/responses/MethodNotAllowed'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+        '504':
+          $ref: '#/components/responses/GatewayTimeout'
+        '529':
+          $ref: '#/components/responses/SiteIsOverloaded'
+        default:
+          $ref: '#/components/responses/Default'
+          
+  /phone-channels:
+    get:
+      tags:
+        - Endpoints Canales de Antención Digital
+      summary: Obtiene el listado de números de telefonos como canal de atención.
+      description: "Método para obtener el listado números de teléfonos como canal de atención"
+      parameters:
+        - $ref: "#/components/parameters/page"
+        - $ref: "#/components/parameters/pageSize"
+      responses:
+        '200':
+          description: "Respuesta exitosa con el listado números de contacto como canal de atención."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OpenDataPhoneChannels"
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '405':
+          $ref: '#/components/responses/MethodNotAllowed'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+        '504':
+          $ref: '#/components/responses/GatewayTimeout'
+        '529':
+          $ref: '#/components/responses/SiteIsOverloaded'
+        default:
+          $ref: '#/components/responses/Default'
+          
+  /email-channels:
+    get:
+      tags:
+        - Endpoints Canales de Antención Digital
+      summary: Obtiene el listado de emails como canal de atención.
+      description: "Método para obtener el listado de emails como canal de atención"
+      parameters:
+        - $ref: "#/components/parameters/page"
+        - $ref: "#/components/parameters/pageSize"
+      responses:
+        '200':
+          description: "Respuesta exitosa con el listado de emails como canal de atención."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OpenDataEmailChannels"
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '405':
+          $ref: '#/components/responses/MethodNotAllowed'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+        '504':
+          $ref: '#/components/responses/GatewayTimeout'
+        '529':
+          $ref: '#/components/responses/SiteIsOverloaded'
+        default:
+          $ref: '#/components/responses/Default'
+          
+  /social-media-channels:
+    get:
+      tags:
+        - Endpoints Canales de Antención Digital
+      summary: Obtiene el listado de redes sociales como canal de atención.
+      description: "Método para obtener el listado de redes sociales como canal de atención"
+      parameters:
+        - $ref: "#/components/parameters/page"
+        - $ref: "#/components/parameters/pageSize"
+      responses:
+        '200':
+          description: "Respuesta exitosa con el listado de redes sociales como canal de atención."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OpenDataSocialMediaChannels"
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '405':
+          $ref: '#/components/responses/MethodNotAllowed'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+        '504':
+          $ref: '#/components/responses/GatewayTimeout'
+        '529':
+          $ref: '#/components/responses/SiteIsOverloaded'
+        default:
+          $ref: '#/components/responses/Default'
+
+components:
+
+  schemas:
+  
+    OpenDataSmsChannels:
+      type: object
+      required :
+        - brand
+        - links
+        - meta
+      properties:
+        brand:
+          type: array
+          items:
+            $ref: '#/components/schemas/BrandSmsChannels'
+        links:
+          $ref: '#/components/schemas/Links'
+        meta:
+          $ref: '#/components/schemas/Meta'
+          
+    BrandSmsChannels:
+      allOf:
+        - $ref : '#/components/schemas/Brand'
+        - type: object
+          properties:
+            digitalChannels:
+              type: array
+              items:
+                $ref: '#/components/schemas/smsDigitalChannels'
+            
+    smsDigitalChannels:
+      allOf:
+        - $ref: '#/components/schemas/DigitalChannel'
+        - type: object
+          properties:
+            smsChannels:
+              type: array
+              items:
+                $ref: '#/components/schemas/SmsChannels'
+    
+    SmsChannels:
+      type: object
+      properties:
+        smsId:
+          type: string
+          description: Identificador de la mensajeria de texto.
+          maxLength: 35
+          example: "SMS0001"
+        smsNumber:
+          type: string
+          pattern: "^\\+56\\s?(9\\d{8}|[2-9]\\d{7})$"
+          description: >
+            Número de contacto
+            Un número de teléfono en Chile:
+            - Para móviles: +56 9 XXXXXXXX (9 dígitos).
+            - Para fijos: +56 XX XXXXXXX (8 dígitos comenzando con 2-9).
+            - El código de país (+56) es obligatorio.
+          example: "+569 70098855"
+    
+    OpenDataWebAppChannels:
+      type: object
+      required :
+        - brand
+        - links
+        - meta
+      properties:
+        brand:
+          type: array
+          items:
+            $ref: '#/components/schemas/BrandWebAppChannels'
+        links:
+          $ref: '#/components/schemas/Links'
+        meta:
+          $ref: '#/components/schemas/Meta'
+          
+    BrandWebAppChannels:
+      allOf:
+        - $ref : '#/components/schemas/Brand'
+        - type: object
+          properties:
+            digitalChannels:
+              type: array
+              items:
+                $ref: '#/components/schemas/WebAppDigitalChannels'
+
+    WebAppDigitalChannels:
+      allOf:
+        - $ref: '#/components/schemas/DigitalChannel'
+        - type: object
+          properties:
+            webAppChannels:
+              type: array
+              items:
+                $ref: '#/components/schemas/WebAppChannels'
+            
+    WebAppChannels:
+      type: object
+      properties:
+        webAppId:
+          type: string
+          description: Identificador de la aplicaciones o web.
+          maxLength: 35
+          example: "WBAP0001"
+        url:
+          type: string
+          format: uri
+          description: Url del sitio web o aplicativo
+          example: "https://www.entidadfinanciera.cl"
+        applicationPlatform:
+          type: string
+          description: Servicio ofrecido
+          maxLength: 70
+          example: "WebApp"
+
+    OpenDataPhoneChannels:
+      type: object
+      required :
+        - brand
+        - links
+        - meta
+      properties:
+        brand:
+          type: array
+          items:
+            $ref: '#/components/schemas/BrandPhoneChannels'
+        links:
+          $ref: '#/components/schemas/Links'
+        meta:
+          $ref: '#/components/schemas/Meta'
+          
+    BrandPhoneChannels:
+      allOf:
+        - $ref : '#/components/schemas/Brand'
+        - type: object
+          properties:
+            digitalChannels:
+              type: array
+              items:
+                $ref: '#/components/schemas/PhoneDigitalChannels'
+
+    PhoneDigitalChannels:
+      allOf:
+        - $ref: '#/components/schemas/DigitalChannel'
+        - type: object
+          properties:
+            phoneChannels:
+              type: array
+              items:
+                $ref: '#/components/schemas/PhoneChannels'
+
+    PhoneChannels:
+      type: object
+      properties:
+        phoneId:
+          type: string
+          description: Identificador único del teléfono de contacto
+          maxLength: 35
+          example: "P0001"
+        phoneNumber:
+          type: string
+          pattern: "^\\+56\\s?(9\\d{8}|[2-9]\\d{7})$"
+          description: Número teléfonico
+          example: "+569 79980043"
+          
+    OpenDataEmailChannels:
+      type: object
+      required :
+        - brand
+        - links
+        - meta
+      properties:
+        brand:
+          type: array
+          items:
+            $ref: '#/components/schemas/BrandEmailChannels'
+        links:
+          $ref: '#/components/schemas/Links'
+        meta:
+          $ref: '#/components/schemas/Meta'
+
+    BrandEmailChannels:
+      allOf:
+        - $ref : '#/components/schemas/Brand'
+        - type: object
+          properties:
+            digitalChannels:
+              type: array
+              items:
+                $ref: '#/components/schemas/EmailDigitalChannels'
+
+    EmailDigitalChannels:
+      allOf:
+        - $ref: '#/components/schemas/DigitalChannel'
+        - type: object
+          properties:
+            emailChannels:
+              type: array
+              items:
+                $ref: '#/components/schemas/EmailChannels'
+
+    EmailChannels:
+      type: object
+      properties:
+        emailId:
+          type: string
+          description: Identificador único del email
+          maxLength: 35
+          example: "E0001"
+        emailAddress:
+          type: string
+          format: email
+          description: dirección de email.
+          example: "contacto@entidadfinanciera.cl"
+          
+    OpenDataSocialMediaChannels:
+      type: object
+      required :
+        - brand
+        - links
+        - meta
+      properties:
+        brand:
+          type: array
+          items:
+            $ref: '#/components/schemas/BrandSocialMediaChannels'
+        links:
+          $ref: '#/components/schemas/Links'
+        meta:
+          $ref: '#/components/schemas/Meta'
+
+    BrandSocialMediaChannels:
+      allOf:
+        - $ref : '#/components/schemas/Brand'
+        - type: object
+          properties:
+            digitalChannels:
+              type: array
+              items:
+                $ref: '#/components/schemas/SocialMediaDigitalChannels'
+            
+    SocialMediaDigitalChannels:
+      allOf:
+        - $ref: '#/components/schemas/DigitalChannel'
+        - type: object
+          properties:
+            socialMediaChannels:
+              type: array
+              items:
+                $ref: '#/components/schemas/SocialMediaChannels'
+            
+    SocialMediaChannels:
+      type: object
+      properties:
+        platform:
+          type: string
+          description: Nombre de la plataforma
+          maxLength: 70
+          example: "MobileApp"
+        url:
+          type: string
+          format: uri
+          description: Url del medio social
+          example: "https://www.entidadfinanciera.cl/miAplicacion"
+        handle:
+          type: string
+          maxLength: 70
+          description: Handle de la institución 
+          example: "EntidadFinancieraApp"
+        methodContact:
+          type: array
+          description: Métodos de contacto
+          items:
+            type: string
+            maxLength: 70
+          example:
+            - "Teléfono"
+            - "Correo Electrónico"
+            - "Chat en Línea"
+          
+    Brand:
+      type: object
+      properties:
+        brandName:
+          type: string
+          description: Nombre de la marca
+          maxLength: 70
+          example: "BCI Grupo"
+    
+    DigitalChannel:
+      type: object
+      properties:
+        channelId:
+          type: string
+          description: Identificador del canal digital
+          maxLength: 35
+          example: "CHN_12345"
+        channelType:
+          type: string
+          description: Tipo de canal digital
+          maxLength: 70
+          example: "WebApp"
+        additionalInfo:
+          type: string
+          description: Información adicionales
+          maxLength: 256
+          example : "Disponible 24/7"
+        openingHours:
+          $ref: '#/components/schemas/OpeningHours'
+        availableServices:
+          type: array
+          description: Tipos de servicios ofrecidos por el canal digital
+          example: ["Atención al cliente", "Gestión de cuentas", "Alertas de cuenta", "Ofertas promocionales", "Banca móvil", "Pagos"]
+          items:
+            type: string
+            maxLength: 70
+        supportedLanguages:
+          type: array
+          description: Lenguajes soportados por el canal digital
+          example: ["es", "en", "pt"]
+          items:
+            type: string
+            maxLength: 70
+        segmentType:
+          type: string
+          description: Tipo de segmento del canal digital.
+          maxLength: 70
+          example: "Personas"
+          
+    OpeningHours:
+      type: object
+      properties:
+        openTime:
+          type: string
+          description: Horario de apertura del canal de atención
+          pattern: ^(?:[01]\d|2[0-3]):[0-5]\d$
+          example: "09:00"
+        closeTime:
+          type: string
+          description: Horario de cierre del canal de atención
+          pattern: ^(?:[01]\d|2[0-3]):[0-5]\d$
+          example: "14:00"
+        openDays:
+          type: array
+          description: Días de atención
+          items:
+            type: string
+            enum: 
+              - Lunes
+              - Martes
+              - Miércoles
+              - Jueves
+              - Viernes
+              - Sabado
+              - Domingo
+          example: ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sabado"]
+          
+    Links:
+      type: object
+      description: Referencias a otros recursos de la API solicitada
+      properties:
+        self:
+          type: string
+          format: url
+          description: URL de la página actual de registros
+          maxLength: 2000
+          minLength: 5
+          example: "https://api-chile.cl/open-data/v1/digital-channels?page=5&pageSize=20"
+        first:
+          type: string
+          format: url
+          description: URL de la primera página de registros
+          maxLength: 2000
+          minLength: 5
+          example: "https://api-chile.cl/open-data/v1/digital-channels?page=1&pageSize=20"
+        prev:
+          type: string
+          format: url
+          description: URL de la página anterior de registros
+          maxLength: 2000
+          minLength: 5
+          example: "https://api-chile.cl/open-data/v1/digital-channels?page=4&pageSize=20"
+        next:
+          type: string
+          format: url
+          description: URL de la próxima página de registros
+          maxLength: 2000
+          minLength: 5
+          example: "https://api-chile.cl/open-data/v1/digital-channels?page=6&pageSize=20"
+        last:
+          type: string
+          format: url
+          description: URL da última página de registros
+          maxLength: 2000
+          minLength: 5
+          example: "https://api-chile.cl/open-data/v1/digital-channels?page=12&pageSize=20"
+          
+    Meta:
+      type: object
+      description: Meta información sobre los datos solicitados
+      properties:
+        firstAvailableDateTime:
+          type: string
+          format: date-time
+          description: Fecha del primer registro encontrado
+          example: "2024-01-11 14:56:34"
+        lastAvailableDateTime:
+          type: string
+          format: date-time
+          description: Fecha del último registro encontrado
+          example: "2025-01-23 14:56:34"
+        totalPages:
+          type: integer
+          description: Total de páginas para los registros encontrados
+          example: 12
+      required:
+        - firstAvailableDateTime
+        - lastAvailableDateTime
+        - totalPages  
+      
+    ResponseErrorMetaSingle:
+      type: object
+      required:
+        - errors
+      properties:
+        errors:
+          type: array
+          minItems: 1
+          maxItems: 13
+          items:
+            type: object
+            required:
+              - code
+              - title
+              - detail
+            properties:
+              code:
+                description: Código de error específico de la solicitud
+                type: string
+                maxLength: 255
+                example: "50001"
+              title:
+                description: Título legible por un humano de este error en específico
+                type: string
+                maxLength: 255
+                example: "Conexión interrumpida"
+              detail:
+                description: Descripción legible por un humano de este error en especifico
+                type: string
+                maxLength: 2048
+                example: "No pudimos conectar con el servidor de datos abiertos. Por favor, verifica tu conexión a internet o contáctanos si el problema persiste."
+        meta:
+          type: object
+          description: Meta de información sobre la API solicitada
+          required:
+            - requestDateTime
+          properties:
+            requestDateTime:
+              description: Fecha y hora de la consulta, según especificación RFC-3339, formato UTC.
+              type: string
+              format: date-time
+              minLength: 20
+              maxLength: 20
+              pattern: '^[2-9]\d{3}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$'
+              example: '2023-10-09T14:10:00Z'
+              
+    ResponseError:
+      type: object
+      required:
+        - errors
+      properties:
+        errors:
+          type: array
+          minItems: 1
+          maxItems: 13
+          items:
+            type: object
+            required:
+              - code
+              - title
+              - detail
+            properties:
+              code:
+                description: Código de error específico
+                type: string
+                maxLength: 255
+                example: "20001"
+              title:
+                description: Título legible por un humano de este error en específico
+                type: string
+                maxLength: 255
+                example: "Error al obtener oficinas presenciales"
+              detail:
+                description: Descripción legible por un humano de este error en específico
+                type: string
+                maxLength: 2048
+                example: "La información sobre oficinas presenciales no está disponible actualmente."
+        meta:
+          type: object
+          description: Meta de información sobre la API solicitada
+          required:
+            - requestDateTime
+          properties:
+            requestDateTime:
+              description: Fecha y hora de la consulta, según especificación RFC-3339, formato UTC.
+              type: string
+              format: date-time
+              minLength: 20
+              maxLength: 20
+              pattern: '^[2-9]\d{3}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$'
+              example: '2023-10-09T14:10:00Z'
+              
+  parameters:
+    page:
+      name: page
+      in: query
+      description: Número de la página que se solicita (el valor de la primera página es 1).
+      schema:
+        type: integer
+        format: int32
+        default: 1
+        minimum: 1
+        maximum: 2147483647
+        
+    pageSize:
+      name: pageSize
+      in: query
+      description: Número total de registros por página.
+      schema:
+        type: integer
+        format: int32
+        default: 20
+        minimum: 1
+        maximum: 2147483647
+        
+  responses:
+    BadRequest:
+      description: La solicitud presentaba un formato incorrecto y faltaban atributos obligatorios, tanto en el cuerpo de la solicitud como en los parámetros de la URL.
+      content:
+        application/json; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/ResponseError'
+          example:
+            code: "400"
+            title: "Solicitud inválida"
+            detail: "El parámetro 'city' es obligatorio y no fue incluido en la solicitud."
+    NotFound:
+      description: La característica solicitada no está disponible o aún no ha sido implementada.
+      content:
+        application/json; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/ResponseError'
+          example:
+            code: "404"
+            title: "Recurso no encontrado"
+            detail: "No se encontraron oficinas presenciales para la región especificada."
+    MethodNotAllowed:
+      description: El consumidor intentó acceder al recurso utilizando un método no compatible.
+      content:
+        application/json; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/ResponseError'
+          example:
+            code: "405"
+            title: "Método no permitido"
+            detail: "El método HTTP 'POST' no está habilitado para este recurso. Por favor, utilice 'GET'."
+    TooManyRequests:
+      description: La operación fue rechazada debido a que se superó el número permitido de solicitudes dentro de un período determinado o se alcanzó el límite de solicitudes simultáneas.
+      content:
+        application/json; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/ResponseError'
+          example:
+            code: "429"
+            title: "Demasiadas solicitudes"
+            detail: "Has excedido el límite de solicitudes permitidas. Intenta nuevamente después de 1 minuto."
+    InternalServerError:
+      description: Ocurrió un error en la puerta de enlace API o en el microservicio.
+      content:
+        application/json; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/ResponseError'
+          example:
+            code: "500"
+            title: "Error interno del servidor"
+            detail: "Ocurrió un error inesperado en el servidor. Por favor, inténtalo de nuevo más tarde."
+    GatewayTimeout:
+      description: GATEWAY TIMEOUT - La solicitud no fue respondida dentro del tiempo límite establecido.
+      content:
+        application/json; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/ResponseError'
+          example:
+            code: "504"
+            title: "Tiempo de espera agotado"
+            detail: "El servidor no pudo completar la solicitud a tiempo. Por favor, verifica tu conexión o inténtalo más tarde."
+    SiteIsOverloaded:
+      description: El sitio está sobrecargado y la operación fue rechazada debido a que se alcanzó el límite máximo global de TPS (transacciones por segundo) en este momento.
+      content:
+        application/json; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/ResponseErrorMetaSingle'
+          example:
+            code: "529"
+            title: "El sitio está sobrecargado"
+            detail: "El sistema está experimentando una carga elevada. Por favor, inténtalo más tarde."
+    Default:
+      description: '\-'
+      content:
+        application/json; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/ResponseError'
+          example:
+            code: "001"
+            title: "Error desconocido"
+            detail: "Ha ocurrido un error inesperado. Por favor, contacta al soporte técnico con los detalles de la solicitud."

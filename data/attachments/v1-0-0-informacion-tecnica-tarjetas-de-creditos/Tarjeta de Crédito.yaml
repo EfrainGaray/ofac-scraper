@@ -1,0 +1,954 @@
+openapi: 3.0.3
+info:
+  title: API - Cuentas Tarjetas de Crédito
+  version: 1.0.0
+  description: La API de cuentas de tarjetas de crédito permite compartir datos de cuentas pospagas (tarjetas de crédito), como límites, transacciones y balances.
+tags:
+  - name: Tarjeta de Créditos
+    description: Operaciones que permiten obtener límites, transacciones y balances asociado a tarjetas de crédito.
+
+servers:
+  - url: https://api-chile.cl/credit-card-accounts/v1
+paths:
+  /accounts:
+    get:
+      tags:
+        - Tarjeta de Créditos
+      summary: Obtiene la lista conjunta de información de cuentas de pago pospago.
+      description: "Método para obtener la lista de cuentas de pago pospago que el cliente mantiene en la entidad transmisora y para las que ha prestado su consentimiento."
+      security:
+        - Authorization: []  # Porta el token de acceso (Bearer Token) obtenido tras el proceso de autenticación. Permite al servidor identificar y autorizar la solicitud.
+      parameters:
+        - $ref: '#/components/parameters/x-fapi-interaction-id'
+        - $ref: '#/components/parameters/x-jws-signature'
+        - $ref: "#/components/parameters/page"
+        - $ref: "#/components/parameters/pageSize"
+      responses:
+        '200':
+          description: "Respuesta exitosa con el listado de cuentas de pago pospago."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CreditCardAccountsResponse"
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '405':
+          $ref: '#/components/responses/MethodNotAllowed'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+        '504':
+          $ref: '#/components/responses/GatewayTimeout'
+        '529':
+          $ref: '#/components/responses/SiteIsOverloaded'
+        default:
+          $ref: '#/components/responses/Default'
+  
+  /accounts/{creditCardAccountID}:
+    get:
+      tags:
+        - Tarjeta de Créditos
+      summary: Obtiene los datos de identificación de la cuenta identificada por creditCardAccountId.
+      description: "Método para obtener datos de identificación de la cuenta de pago pospago identificada por creditCardAccountID mantenida por el cliente en la institución transmisora."
+      security:
+        - Authorization: []  # Porta el token de acceso (Bearer Token) obtenido tras el proceso de autenticación. Permite al servidor identificar y autorizar la solicitud.
+      parameters:
+        - $ref: '#/components/parameters/x-fapi-interaction-id'
+        - $ref: '#/components/parameters/x-jws-signature'
+        - $ref: "#/components/parameters/creditCardAccountID"
+      responses:
+        '200':
+          description: "Respuesta exitosa con la obtención de la cuenta"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CreditCardAccountResponse"
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '405':
+          $ref: '#/components/responses/MethodNotAllowed'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+        '504':
+          $ref: '#/components/responses/GatewayTimeout'
+        '529':
+          $ref: '#/components/responses/SiteIsOverloaded'
+        default:
+          $ref: '#/components/responses/Default'
+          
+  /accounts/{creditCardAccountID}/balance:
+    get:
+      tags:
+        - Tarjeta de Créditos
+      summary: Obtiene el balance de la cuenta identificada por creditCardAccountId.
+      description: "Método para obtener el balance de la cuenta de pago pospago identificada por creditCardAccountID mantenida por el cliente en la institución transmisora."
+      security:
+        - Authorization: []  # Porta el token de acceso (Bearer Token) obtenido tras el proceso de autenticación. Permite al servidor identificar y autorizar la solicitud.
+      parameters:
+        - $ref: '#/components/parameters/x-fapi-interaction-id'
+        - $ref: '#/components/parameters/x-jws-signature'
+        - $ref: "#/components/parameters/creditCardAccountID"
+      responses:
+        '200':
+          description: "Respuesta exitosa con la obtención del balance de la cuenta."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BalanceResponse"
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '405':
+          $ref: '#/components/responses/MethodNotAllowed'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+        '504':
+          $ref: '#/components/responses/GatewayTimeout'
+        '529':
+          $ref: '#/components/responses/SiteIsOverloaded'
+        default:
+          $ref: '#/components/responses/Default'
+          
+  /accounts/{creditCardAccountID}/current-balance:
+    get:
+      tags:
+        - Tarjeta de Créditos
+      summary: Obtiene el balance actual de la cuenta identificada por creditCardAccountId.
+      description: "Método para obtener el balance actual de la cuenta de pago pospago identificada por creditCardAccountID mantenida por el cliente en la institución transmisora."
+      security:
+        - Authorization: []  # Porta el token de acceso (Bearer Token) obtenido tras el proceso de autenticación. Permite al servidor identificar y autorizar la solicitud.
+      parameters:
+        - $ref: '#/components/parameters/x-fapi-interaction-id'
+        - $ref: '#/components/parameters/x-jws-signature'
+        - $ref: "#/components/parameters/creditCardAccountID"
+      responses:
+        '200':
+          description: "Respuesta exitosa con la obtención del balance actual de la cuenta."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CurrentBalanceResponse"
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '405':
+          $ref: '#/components/responses/MethodNotAllowed'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+        '504':
+          $ref: '#/components/responses/GatewayTimeout'
+        '529':
+          $ref: '#/components/responses/SiteIsOverloaded'
+        default:
+          $ref: '#/components/responses/Default'
+          
+  /accounts/{creditCardAccountID}/limit:
+    get:
+      tags:
+        - Tarjeta de Créditos
+      summary: Obtiene los limites de la cuenta identificada por creditCardAccountId.
+      description: "Método para obtener los limites crediticios de la cuenta de pago pospago identificada por creditCardAccountID mantenida por el cliente en la institución transmisora."
+      security:
+        - Authorization: []  # Porta el token de acceso (Bearer Token) obtenido tras el proceso de autenticación. Permite al servidor identificar y autorizar la solicitud.
+      parameters:
+        - $ref: '#/components/parameters/x-fapi-interaction-id'
+        - $ref: '#/components/parameters/x-jws-signature'
+        - $ref: "#/components/parameters/creditCardAccountID"
+      responses:
+        '200':
+          description: "Respuesta exitosa con la obtención de los limites crediticios de la cuenta."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LimitResponse"
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '405':
+          $ref: '#/components/responses/MethodNotAllowed'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+        '504':
+          $ref: '#/components/responses/GatewayTimeout'
+        '529':
+          $ref: '#/components/responses/SiteIsOverloaded'
+        default:
+          $ref: '#/components/responses/Default'
+          
+  /accounts/{creditCardAccountID}/transactions:
+    get:
+      tags:
+        - Tarjeta de Créditos
+      summary: Obtiene datos de transacciones relacionadas con la cuenta de pago pospago por creditCardAccountId.
+      description: "Método para obtener el listado de transacciones históricas (últimos 12 meses, o tramo de este período) de la cuenta de pago pospago identificada por creditCardAccountID mantenida por el cliente en la institución transmisora."
+      security:
+        - Authorization: []  # Porta el token de acceso (Bearer Token) obtenido tras el proceso de autenticación. Permite al servidor identificar y autorizar la solicitud.
+      parameters:
+        - $ref: '#/components/parameters/x-fapi-interaction-id'
+        - $ref: '#/components/parameters/x-jws-signature'
+        - $ref: "#/components/parameters/creditCardAccountID"
+        - $ref: "#/components/parameters/fromDate"
+        - $ref: "#/components/parameters/toDate"
+        - $ref: "#/components/parameters/page"
+        - $ref: "#/components/parameters/pageSize"
+      responses:
+        '200':
+          description: "Respuesta exitosa con la obtención de datos transaccionales relacionadas con la cuenta de pago pospago."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TransactionsResponse"
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '405':
+          $ref: '#/components/responses/MethodNotAllowed'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+        '504':
+          $ref: '#/components/responses/GatewayTimeout'
+        '529':
+          $ref: '#/components/responses/SiteIsOverloaded'
+        default:
+          $ref: '#/components/responses/Default'
+          
+components:
+
+  schemas:
+  
+    CreditCardAccountsResponse:
+      type: object
+      required :
+        - data
+        - links
+        - meta
+      properties:
+        data:
+          $ref: '#/components/schemas/DataCreditCardAccounts'
+        links:
+          $ref: '#/components/schemas/Links'
+        meta:
+          $ref: '#/components/schemas/Meta'
+
+    DataCreditCardAccounts:
+      type: object
+      properties:
+        creditCardAccounts:
+          type: array
+          items:
+            $ref: '#/components/schemas/CreditCardAccounts'
+      
+    CreditCardAccounts:
+      type: object
+      properties:
+        productId:
+          type: string
+          description: "Identificador del producto"
+          maxLength: 40
+          example: "CC12345"
+        cardType:
+          type: string
+          description: "Tipo de tarjeta de cédito"
+          maxLength: 40
+          example: "VISA"
+        rut:
+          type: string
+          description: "RUT del cliente"
+          maxLength: 10
+          pattern: '^\d{8}-[\dKk]$'
+          example: "16543987-6"
+        clientType:
+          type: string
+          description: "Tipo de cliente"
+          enum:
+            - Natural
+            - Jurídica
+          example: "Natural"
+        financialProductType:
+          type: string
+          description: "Tipo de producto financiero"
+          maxLength: 70
+          example: "Tarjeta de Crédito"
+        commercialCategory:
+          type: string
+          description: "Categoría comercial"
+          maxLength: 70
+          example: "Clásica"
+        approvedLine:
+          type: number
+          description: "Línea total aprobada"
+          example: "2000000"
+        unusedLine:
+          type: number
+          description: "Línea no utilizada"
+          example: "500000"
+        currency:
+          type: string
+          description: "Moneda de la Tarjeta"
+          minLength: 3
+          maxLength: 3
+          example: "CLP"
+        debtType:
+          type: string
+          description: "Tipo de deuda"
+          maxLength: 40
+          example: "Cuota"
+      required:
+        - productId
+        - rut
+        - financialProductType
+        - currency
+        
+    CreditCardAccountResponse:
+      type: object
+      required :
+        - data
+        - links
+        - meta
+      properties:
+        data:
+          $ref: '#/components/schemas/DataCreditCardAccount'
+        links:
+          $ref: '#/components/schemas/Links'
+        meta:
+          $ref: '#/components/schemas/Meta'
+          
+    DataCreditCardAccount:
+      type: object
+      properties:
+        creditCardAccount:
+          $ref: '#/components/schemas/CreditCardAccount'
+          
+    CreditCardAccount:
+      type: object
+      properties:
+        productId:
+          type: string
+          description: "Identificador del producto"
+          maxLength: 40
+          example: "CC12345"
+        cardType:
+          type: string
+          description: "Tipo de tarjeta de cédito"
+          maxLength: 40
+          example: "VISA"
+        rut:
+          type: string
+          description: "RUT del cliente"
+          maxLength: 10
+          pattern: '^\d{8}-[\dKk]$'
+          example: "16543987-6"
+        clientType:
+          type: string
+          description: "Tipo de cliente"
+          enum:
+            - Natural
+            - Jurídica
+          example: "Natural"
+        approvedLine:
+          type: number
+          description: "Línea total aprobada"
+          example: "2000000"
+        unusedLine:
+          type: number
+          description: "Línea no utilizada"
+          example: "500000"
+        currency:
+          type: string
+          description: "Moneda de la Tarjeta"
+          minLength: 3
+          maxLength: 3
+          example: "CLP"
+        commercialCategory:
+          type: string
+          description: "Categoría comercial"
+          maxLength: 70
+          example: "Clásica"
+        debtType:
+          type: string
+          description: "Tipo de deuda"
+          maxLength: 40
+          example: "Cuota"
+        productOpenDate:
+          type: string
+          format: date
+          description: "Fecha de apertura"
+          maxLength: 10
+          example: "2020-06-01"
+      required:
+        - productId
+        - rut
+        - currency
+        
+    BalanceResponse:
+      type: object
+      required :
+        - data
+        - links
+        - meta
+      properties:
+        data:
+          $ref: '#/components/schemas/DataBalance'
+        links:
+          $ref: '#/components/schemas/Links'
+        meta:
+          $ref: '#/components/schemas/Meta'
+          
+    DataBalance:
+      type: object
+      properties:
+        balance:
+          $ref: '#/components/schemas/Balance'
+          
+    Balance:
+      type: object
+      properties:
+        endOfMonthBalance:
+          type: number
+          description: "Saldo a fin de mes"
+          example: "150000"
+        currency:
+          type: string
+          description: "Moneda del saldo"
+          minLength: 3
+          maxLength: 3
+          example: "CLP"
+        closingDate:
+          type: string
+          format: date
+          description: "Fecha de cierre"
+          maxLength: 10
+          example: "2025-02-28"
+        minimumPaymentDue:
+          type: number
+          description: "Pago mínimo"
+          example: "10000"
+        dueDate:
+          type: string
+          format: date
+          description: "Fecha de vencimiento"
+          maxLength: 10
+          example: "2025-03-10"
+        debtType:
+          type: string
+          description: "Tipo de deuda"
+          maxLength: 40
+          example: "Cuota"
+      required:
+        - endOfMonthBalance
+        - currency
+        
+    CurrentBalanceResponse:
+      type: object
+      required :
+        - data
+        - links
+        - meta
+      properties:
+        data:
+          $ref: '#/components/schemas/DataCurrentBalance'
+        links:
+          $ref: '#/components/schemas/Links'
+        meta:
+          $ref: '#/components/schemas/Meta'
+          
+    DataCurrentBalance:
+      type: object
+      properties:
+        currentBalance:
+          $ref: '#/components/schemas/CurrentBalance'
+          
+    CurrentBalance:
+      type: object
+      properties:
+        currentBalance:
+          type: number
+          description: "Saldo actual"
+          example: "120000"
+        currency:
+          type: string
+          description: "Moneda del saldo"
+          minLength: 3
+          maxLength: 3
+          example: "CLP"
+        updatedDateTime:
+          type: string
+          format: date-time
+          description: "Fecha/Hora de cálculo"
+          example: "2025-02-25T15:00:00Z"
+        debtType:
+          type: string
+          description: "Tipo de deuda"
+          maxLength: 40
+          example: "Cuota"
+      required:
+        - currentBalance
+        - currency
+        
+    LimitResponse:
+      type: object
+      required :
+        - data
+        - links
+        - meta
+      properties:
+        data:
+          $ref: '#/components/schemas/DataLimit'
+        links:
+          $ref: '#/components/schemas/Links'
+        meta:
+          $ref: '#/components/schemas/Meta'
+          
+    DataLimit:
+      type: object
+      properties:
+        limit:
+          $ref: '#/components/schemas/Limit'
+          
+    Limit:
+      type: object
+      properties:
+        totalApproved:
+          type: number
+          description: "Línea total aprobada"
+          example: "2000000"
+        unusedLine:
+          type: number
+          description: "Línea no utilizada"
+          example: "500000"
+        currency:
+          type: string
+          description: "Moneda del límite"
+          minLength: 3
+          maxLength: 3
+          example: "CLP"
+        interestRate:
+          type: number
+          format: float
+          description: "Tasa de interés nominal"
+          example: "2.5"
+        limitStartDate:
+          type: string
+          format: date
+          description: "Fecha de inicio de vigencia"
+          example: "2024-02-01"         
+        limitEndDate:
+          type: string
+          format: date-time
+          description: "Fecha de fin de vigencia"
+          example: "2025-02-28"
+        debtType:
+          type: string
+          description: "Tipo de deuda"
+          maxLength: 40
+          example: "Cuota"
+      required:
+        - totalApproved
+        - unusedLine
+        - currency
+        
+    TransactionsResponse:
+      type: object
+      required :
+        - data
+        - links
+        - meta
+      properties:
+        data:
+          $ref: '#/components/schemas/DataTransactions'
+        links:
+          $ref: '#/components/schemas/Links'
+        meta:
+          $ref: '#/components/schemas/Meta'
+          
+    DataTransactions:
+      type: object
+      properties:
+        transactions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Transaction'
+            
+    Transaction:
+      type: object
+      properties:
+        id:
+          type: string
+          description: "ID interno de la operación"
+          maxLength: 40
+          example: "TXN67890"
+        date:
+          type: string
+          format: date-time
+          description: "Fecha de la operación"
+          example: "2025-02-15T12:00:00Z"
+        bookingDate:
+          type: string
+          format: date
+          description: "Fecha contable de la operación"
+          example: "2025-02-16"          
+        operationType:
+          type: string
+          description: "Tipo de operación"
+          maxLength: 40
+          example: "Avance"      
+        amount:
+          type: number
+          description: "Monto de la operación"
+          example: "30000"
+        operationCurrency:
+          type: string
+          description: "Moneda de la operación"
+          minLength: 3
+          maxLength: 3
+          example: "CLP"
+        merchantDetails:
+          $ref: '#/components/schemas/MerchantDetails'
+      required:
+        - id
+        - date
+        - operationType
+        - amount
+        - operationCurrency
+        
+    MerchantDetails:
+      type: object
+      properties:
+        name:
+          type: string
+          description: "Nombre del comercio"
+          maxLength: 140
+          example: "Falabella"
+        category:
+          type: string
+          description: "Categoría del comercio"
+          maxLength: 70
+          example: "Multitienda"
+      required:
+        - name
+         
+    Links:
+      type: object
+      description: Referencias a otros recursos de la API solicitada
+      properties:
+        self:
+          type: string
+          format: url
+          description: URL de la página actual de registros
+          maxLength: 2000
+          minLength: 5
+          example: "https://api-chile.cl/credit-card-accounts/v1/accounts?page=4&pageSize=20"
+        first:
+          type: string
+          format: url
+          description: URL de la primera página de registros
+          maxLength: 2000
+          minLength: 5
+          example: "https://api-chile.cl/credit-card-accounts/v1/accountspage=1&pageSize=20"
+        prev:
+          type: string
+          format: url
+          description: URL de la página anterior de registros
+          maxLength: 2000
+          minLength: 5
+          example: "https://api-chile.cl/credit-card-accounts/v1/accounts?page=3&pageSize=20"
+        next:
+          type: string
+          format: url
+          description: URL de la próxima página de registros
+          maxLength: 2000
+          minLength: 5
+          example: "https://api-chile.cl/credit-card-accounts/v1/accounts?page=5&pageSize=20"
+        last:
+          type: string
+          format: url
+          description: URL da última página de registros
+          maxLength: 2000
+          minLength: 5
+          example: "https://api-chile.cl/credit-card-accounts/v1/accounts?page=13&pageSize=20"
+          
+    Meta:
+      type: object
+      description: Meta información sobre los datos solicitados
+      properties:
+        firstAvailableDateTime:
+          type: string
+          format: date-time
+          description: Fecha del primer registro encontrado
+          example: "2024-01-11 14:56:34"
+        lastAvailableDateTime:
+          type: string
+          format: date-time
+          description: Fecha del último registro encontrado
+          example: "2025-01-23 14:56:34"
+        totalPages:
+          type: integer
+          description: Total de páginas para los registros encontrados
+          example: 12
+      required:
+        - firstAvailableDateTime
+        - lastAvailableDateTime
+        - totalPages  
+      
+    ResponseErrorMetaSingle:
+      type: object
+      required:
+        - errors
+      properties:
+        errors:
+          type: array
+          minItems: 1
+          maxItems: 13
+          items:
+            type: object
+            required:
+              - code
+              - title
+              - detail
+            properties:
+              code:
+                description: Código de error específico de la solicitud
+                type: string
+                maxLength: 255
+                example: "50001"
+              title:
+                description: Título legible por un humano de este error en específico
+                type: string
+                maxLength: 255
+                example: "Conexión interrumpida"
+              detail:
+                description: Descripción legible por un humano de este error en especifico
+                type: string
+                maxLength: 2048
+                example: "No pudimos conectar con el servidor de datos abiertos. Por favor, verifica tu conexión a internet o contáctanos si el problema persiste."
+        meta:
+          type: object
+          description: Meta de información sobre la API solicitada
+          required:
+            - requestDateTime
+          properties:
+            requestDateTime:
+              description: Fecha y hora de la consulta, según especificación RFC-3339, formato UTC.
+              type: string
+              format: date-time
+              minLength: 20
+              maxLength: 20
+              pattern: '^[2-9]\d{3}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$'
+              example: '2023-10-09T14:10:00Z'
+              
+    ResponseError:
+      type: object
+      required:
+        - errors
+      properties:
+        errors:
+          type: array
+          minItems: 1
+          maxItems: 13
+          items:
+            type: object
+            required:
+              - code
+              - title
+              - detail
+            properties:
+              code:
+                description: Código de error específico
+                type: string
+                maxLength: 255
+                example: "20001"
+              title:
+                description: Título legible por un humano de este error en específico
+                type: string
+                maxLength: 255
+                example: "Error al obtener cuentas"
+              detail:
+                description: Descripción legible por un humano de este error en específico
+                type: string
+                maxLength: 2048
+                example: "La información sobre cuentas no está disponible actualmente."
+        meta:
+          type: object
+          description: Meta de información sobre la API solicitada
+          required:
+            - requestDateTime
+          properties:
+            requestDateTime:
+              description: Fecha y hora de la consulta, según especificación RFC-3339, formato UTC.
+              type: string
+              format: date-time
+              minLength: 20
+              maxLength: 20
+              pattern: '^[2-9]\d{3}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$'
+              example: '2023-10-09T14:10:00Z'
+              
+  securitySchemes:
+    Authorization:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT  # Opcional, solo para aclarar el formato
+              
+  parameters:
+    page:
+      name: page
+      in: query
+      description: "Número de la página que se solicita (el valor de la primera página es 1)"
+      schema:
+        type: integer
+        format: int32
+        default: 1
+        minimum: 1
+        maximum: 2147483647
+    pageSize:
+      name: pageSize
+      in: query
+      description: "Número total de registros por página"
+      schema:
+        type: integer
+        format: int32
+        default: 20
+        minimum: 1
+        maximum: 2147483647
+    creditCardAccountID:
+      name: creditCardAccountID
+      in: path
+      required: true
+      description: "Identificador de la tarjeta de crédito"
+      example: "CC123456"
+      schema:
+        type: string
+        minimum: 1
+        maximum: 70
+    fromDate:
+      name: fromDate
+      in: query
+      required: false
+      description: "Fecha de inicio del rango"
+      example: "2024-01-01"
+      schema:
+        type: string
+        format: date
+    toDate:
+      name: toDate
+      in: query
+      required: false
+      description: "Fecha de fin del rango"
+      example: "2025-01-01"
+      schema:
+        type: string
+        format: date
+    x-fapi-interaction-id:
+      name: x-fapi-interaction-id
+      in: header
+      required: true
+      description: "UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+      schema:
+        type: string
+    x-jws-signature:
+      name: x-jws-signature
+      in: header
+      required: false
+      description: "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+      schema:
+        type: string
+        
+  responses:
+    BadRequest:
+      description: La solicitud presentaba un formato incorrecto y faltaban atributos obligatorios, tanto en el cuerpo de la solicitud como en los parámetros de la URL.
+      content:
+        application/json; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/ResponseError'
+          example:
+            code: "400"
+            title: "Solicitud inválida"
+            detail: "El parámetro 'x-fapi-interaction-id' es obligatorio y no fue incluido en la solicitud."
+    NotFound:
+      description: La característica solicitada no está disponible o aún no ha sido implementada.
+      content:
+        application/json; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/ResponseError'
+          example:
+            code: "404"
+            title: "Recurso no encontrado"
+            detail: "No se encontraron cuentas para los parámetros especificados."
+    MethodNotAllowed:
+      description: El consumidor intentó acceder al recurso utilizando un método no compatible.
+      content:
+        application/json; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/ResponseError'
+          example:
+            code: "405"
+            title: "Método no permitido"
+            detail: "El método HTTP 'POST' no está habilitado para este recurso. Por favor, utilice 'GET'."
+    TooManyRequests:
+      description: La operación fue rechazada debido a que se superó el número permitido de solicitudes dentro de un período determinado o se alcanzó el límite de solicitudes simultáneas.
+      content:
+        application/json; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/ResponseError'
+          example:
+            code: "429"
+            title: "Demasiadas solicitudes"
+            detail: "Has excedido el límite de solicitudes permitidas. Intenta nuevamente después de 1 minuto."
+    InternalServerError:
+      description: Ocurrió un error en la puerta de enlace API o en el microservicio.
+      content:
+        application/json; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/ResponseError'
+          example:
+            code: "500"
+            title: "Error interno del servidor"
+            detail: "Ocurrió un error inesperado en el servidor. Por favor, inténtalo de nuevo más tarde."
+    GatewayTimeout:
+      description: GATEWAY TIMEOUT - La solicitud no fue respondida dentro del tiempo límite establecido.
+      content:
+        application/json; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/ResponseError'
+          example:
+            code: "504"
+            title: "Tiempo de espera agotado"
+            detail: "El servidor no pudo completar la solicitud a tiempo. Por favor, verifica tu conexión o inténtalo más tarde."
+    SiteIsOverloaded:
+      description: El sitio está sobrecargado y la operación fue rechazada debido a que se alcanzó el límite máximo global de TPS (transacciones por segundo) en este momento.
+      content:
+        application/json; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/ResponseErrorMetaSingle'
+          example:
+            code: "529"
+            title: "El sitio está sobrecargado"
+            detail: "El sistema está experimentando una carga elevada. Por favor, inténtalo más tarde."
+    Default:
+      description: '\-'
+      content:
+        application/json; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/ResponseError'
+          example:
+            code: "001"
+            title: "Error desconocido"
+            detail: "Ha ocurrido un error inesperado. Por favor, contacta al soporte técnico con los detalles de la solicitud."

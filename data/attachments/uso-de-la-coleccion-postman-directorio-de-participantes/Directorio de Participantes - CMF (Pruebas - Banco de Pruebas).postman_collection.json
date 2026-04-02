@@ -1,0 +1,316 @@
+{
+  "info": {
+    "_postman_id": "1b210613-deb9-4299-a0fb-c7d0beef8329",
+    "name": "Directorio de Participantes - CMF (Pruebas - Banco de Pruebas)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "6874997",
+    "_collection_link": "https://go.postman.co/collection/6874997-1b210613-deb9-4299-a0fb-c7d0beef8329?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Paso 0 TPP Crear Token Participante TPP(Banco de Pruebas) en el Directorio",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "let response = pm.response.json();\r",
+              "pm.environment.set(\"access_token\", response.access_token);"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded"
+          }
+        ],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "key": "client_id",
+              "value": "09d421ce-162e-4241-aa49-41c2f4fc5fcc",
+              "type": "text",
+              "description": "clientId do SS tres - banco de pruebas chile"
+            },
+            {
+              "key": "client_secret",
+              "value": "kOCUFs99NqkoJXBvXdbchTNKHdDFDC8i",
+              "type": "text"
+            },
+            {
+              "key": "scope",
+              "value": "openid",
+              "type": "text"
+            },
+            {
+              "key": "grant_type",
+              "value": "client_credentials",
+              "type": "text"
+            }
+          ]
+        },
+        "url": {
+          "raw": "https://oidc.desarrollo.finanzasabiertas.cl/realms/directorio/protocol/openid-connect/token",
+          "protocol": "https",
+          "host": [
+            "oidc",
+            "desarrollo",
+            "finanzasabiertas",
+            "cl"
+          ],
+          "path": [
+            "realms",
+            "directorio",
+            "protocol",
+            "openid-connect",
+            "token"
+          ]
+        },
+        "description": "Generated from cURL: curl --location 'https://dev-directorio.opencco.com/directory/v1/auth/realms/DirectorioParticipante/protocol/openid-connect/token' \\\r\n--header 'Content-Type: application/x-www-form-urlencoded' \\\r\n--data-urlencode 'client_id=of-latam-dir-gtw' \\\r\n--data-urlencode 'client_secret=CntiuTXBHs6of7k8ZzV3gvEnrqHM1Ofv' \\\r\n--data-urlencode 'scope=openid' \\\r\n--data-urlencode 'grant_type=client_credentials'"
+      },
+      "response": []
+    },
+    {
+      "name": "Paso 1 Listar Organizaciones CMF (token participante)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "let response = pm.response.json();",
+              "pm.environment.set(\"OrganisationId\", response.content[0].OrganisationId);"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{access_token}}"
+          }
+        ],
+        "url": {
+          "raw": "https://api.desarrollo.finanzasabiertas.cl/organisations?page=1&sort=OrganisationName&direction=ASC&filterBy=Pruebas",
+          "protocol": "https",
+          "host": [
+            "api",
+            "desarrollo",
+            "finanzasabiertas",
+            "cl"
+          ],
+          "path": [
+            "organisations"
+          ],
+          "query": [
+            {
+              "key": "page",
+              "value": "1"
+            },
+            {
+              "key": "sort",
+              "value": "OrganisationName"
+            },
+            {
+              "key": "direction",
+              "value": "ASC"
+            },
+            {
+              "key": "filterBy",
+              "value": "Pruebas"
+            }
+          ]
+        },
+        "description": "Generated from cURL: curl --location 'https://dev-directorio.opencco.com/directory/v1/organisations' \\\r\n--header 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJYR002U2l0WWUzM3N6bmJwdW5HRTVtN0pOSUNlWWNfUV9RSmpVdFVMRWJZIn0.eyJleHAiOjE3NDcyNDI4NDcsImlhdCI6MTc0NzI0MTA0NywianRpIjoiMmZhOTA4YmUtZGY3MS00YjUxLTgxYjktOTFhZDk5ZjBiODg5IiwiaXNzIjoiaHR0cDovL29mLWxhdGFtLWRpci1vaWRjLXNlcnZlci1hcHAvcmVhbG1zL0RpcmVjdG9yaW9QYXJ0aWNpcGFudGUiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYzIzODUwMDItZjhkZS00MmJjLWJkZDMtYTFmNjM4NmM3MjA0IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoib2YtbGF0YW0tZGlyLWd0dyIsInNlc3Npb25fc3RhdGUiOiI5ZmMwYTgyMC1kODRlLTQzMjEtYWU2ZS04NjZlNDU5NzlmODgiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHA6Ly9kZXYtZGlyZWN0b3Jpby5vcGVuY2NvLmNvbS9kaXJlY3RvcnkvdjEiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIm9mZmxpbmVfYWNjZXNzIiwic3VwZXJhZG1pbiIsInVtYV9hdXRob3JpemF0aW9uIiwiZGVmYXVsdC1yb2xlcy1kaXJlY3RvcmlvcGFydGljaXBhbnRlIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJwcm9maWxlIGVtYWlsIiwic2lkIjoiOWZjMGE4MjAtZDg0ZS00MzIxLWFlNmUtODY2ZTQ1OTc5Zjg4IiwiZW1haWxfdmVyaWZpZWQiOnRydWUsIm5hbWUiOiJkZXNhcnJvbGxvIGNyZWRpYmFuY28iLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJkZXNhcnJvbGxvYWRtaW5AY3JlZGliYW5jby5jb20iLCJnaXZlbl9uYW1lIjoiZGVzYXJyb2xsbyIsImZhbWlseV9uYW1lIjoiY3JlZGliYW5jbyIsImVtYWlsIjoiZGVzYXJyb2xsb2FkbWluQGNyZWRpYmFuY28uY29tIn0.duBfy93ySK0Bsuw-u9VsLHcy6pZI6zWMnNt6kCei0EKrkWUWbpEHLJNv4fRHYwLjOp-CqVt37x_fxV_jFQNCR8tC89hhGpAJd0tExJMqr4YABjwYh_JcDivEz7ntqCudBk6XSTOp--j6zDsvVKWi26EPRZQnIc7v8mM1hMn7efiw7T3fRCndXY5MpB4aNBCOQ-3RiURBnmJkWXn-kmPFW6ovFOt-3Zp573EilavuyEtw2MnxbA85yCBWiKfl3ADkeCbct34kJcmP4sN2J6rFzn6PLvVjFC9f39kUeYuZGQ9FkjAtu8l1L_qEJhpyYhRok0vMVRfP7LAwoeg3YRDXeg'"
+      },
+      "response": []
+    },
+    {
+      "name": "Paso 2 Listar los Software Statements (token participante TPP)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "let response = pm.response.json();",
+              "pm.environment.set(\"SoftwareStatementId\", response.content[0].SoftwareStatementId);"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{access_token}}"
+          }
+        ],
+        "url": {
+          "raw": "https://api.desarrollo.finanzasabiertas.cl/organisations/{{OrganisationId}}/softwarestatements?page=1&sort=ClientName&direction=ASC&filterBy=tres",
+          "protocol": "https",
+          "host": [
+            "api",
+            "desarrollo",
+            "finanzasabiertas",
+            "cl"
+          ],
+          "path": [
+            "organisations",
+            "{{OrganisationId}}",
+            "softwarestatements"
+          ],
+          "query": [
+            {
+              "key": "page",
+              "value": "1"
+            },
+            {
+              "key": "sort",
+              "value": "ClientName"
+            },
+            {
+              "key": "direction",
+              "value": "ASC"
+            },
+            {
+              "key": "filterBy",
+              "value": "tres",
+              "type": "text"
+            }
+          ]
+        },
+        "description": "Generated from cURL: curl --location 'https://dev-directorio.opencco.com/directory/v1/organisations' \\\r\n--header 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJYR002U2l0WWUzM3N6bmJwdW5HRTVtN0pOSUNlWWNfUV9RSmpVdFVMRWJZIn0.eyJleHAiOjE3NDcyNDI4NDcsImlhdCI6MTc0NzI0MTA0NywianRpIjoiMmZhOTA4YmUtZGY3MS00YjUxLTgxYjktOTFhZDk5ZjBiODg5IiwiaXNzIjoiaHR0cDovL29mLWxhdGFtLWRpci1vaWRjLXNlcnZlci1hcHAvcmVhbG1zL0RpcmVjdG9yaW9QYXJ0aWNpcGFudGUiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYzIzODUwMDItZjhkZS00MmJjLWJkZDMtYTFmNjM4NmM3MjA0IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoib2YtbGF0YW0tZGlyLWd0dyIsInNlc3Npb25fc3RhdGUiOiI5ZmMwYTgyMC1kODRlLTQzMjEtYWU2ZS04NjZlNDU5NzlmODgiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHA6Ly9kZXYtZGlyZWN0b3Jpby5vcGVuY2NvLmNvbS9kaXJlY3RvcnkvdjEiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIm9mZmxpbmVfYWNjZXNzIiwic3VwZXJhZG1pbiIsInVtYV9hdXRob3JpemF0aW9uIiwiZGVmYXVsdC1yb2xlcy1kaXJlY3RvcmlvcGFydGljaXBhbnRlIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJwcm9maWxlIGVtYWlsIiwic2lkIjoiOWZjMGE4MjAtZDg0ZS00MzIxLWFlNmUtODY2ZTQ1OTc5Zjg4IiwiZW1haWxfdmVyaWZpZWQiOnRydWUsIm5hbWUiOiJkZXNhcnJvbGxvIGNyZWRpYmFuY28iLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJkZXNhcnJvbGxvYWRtaW5AY3JlZGliYW5jby5jb20iLCJnaXZlbl9uYW1lIjoiZGVzYXJyb2xsbyIsImZhbWlseV9uYW1lIjoiY3JlZGliYW5jbyIsImVtYWlsIjoiZGVzYXJyb2xsb2FkbWluQGNyZWRpYmFuY28uY29tIn0.duBfy93ySK0Bsuw-u9VsLHcy6pZI6zWMnNt6kCei0EKrkWUWbpEHLJNv4fRHYwLjOp-CqVt37x_fxV_jFQNCR8tC89hhGpAJd0tExJMqr4YABjwYh_JcDivEz7ntqCudBk6XSTOp--j6zDsvVKWi26EPRZQnIc7v8mM1hMn7efiw7T3fRCndXY5MpB4aNBCOQ-3RiURBnmJkWXn-kmPFW6ovFOt-3Zp573EilavuyEtw2MnxbA85yCBWiKfl3ADkeCbct34kJcmP4sN2J6rFzn6PLvVjFC9f39kUeYuZGQ9FkjAtu8l1L_qEJhpyYhRok0vMVRfP7LAwoeg3YRDXeg'"
+      },
+      "response": []
+    },
+    {
+      "name": "Paso 3 - Obtener el JWKS - TPP - CMF  (PUBLIC)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://api.desarrollo.finanzasabiertas.cl/public/v1/organisations/{{OrganisationId}}/softwarestatements/{{SoftwareStatementId}}/jwks",
+          "protocol": "https",
+          "host": [
+            "api",
+            "desarrollo",
+            "finanzasabiertas",
+            "cl"
+          ],
+          "path": [
+            "public",
+            "v1",
+            "organisations",
+            "{{OrganisationId}}",
+            "softwarestatements",
+            "{{SoftwareStatementId}}",
+            "jwks"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Paso 4 - Obtener el SSA - CMF (token participante TPP) (genera JWT)",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{access_token}}",
+            "description": "tem que ser o acces_token da TPP"
+          }
+        ],
+        "url": {
+          "raw": "https://api.desarrollo.finanzasabiertas.cl/organisations/{{OrganisationId}}/softwarestatements/{{SoftwareStatementId}}/assertion",
+          "protocol": "https",
+          "host": [
+            "api",
+            "desarrollo",
+            "finanzasabiertas",
+            "cl"
+          ],
+          "path": [
+            "organisations",
+            "{{OrganisationId}}",
+            "softwarestatements",
+            "{{SoftwareStatementId}}",
+            "assertion"
+          ]
+        },
+        "description": "Generated from cURL: curl --location 'https://dev-directorio.opencco.com/directory/v1/organisations' \\\r\n--header 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJYR002U2l0WWUzM3N6bmJwdW5HRTVtN0pOSUNlWWNfUV9RSmpVdFVMRWJZIn0.eyJleHAiOjE3NDcyNDI4NDcsImlhdCI6MTc0NzI0MTA0NywianRpIjoiMmZhOTA4YmUtZGY3MS00YjUxLTgxYjktOTFhZDk5ZjBiODg5IiwiaXNzIjoiaHR0cDovL29mLWxhdGFtLWRpci1vaWRjLXNlcnZlci1hcHAvcmVhbG1zL0RpcmVjdG9yaW9QYXJ0aWNpcGFudGUiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYzIzODUwMDItZjhkZS00MmJjLWJkZDMtYTFmNjM4NmM3MjA0IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoib2YtbGF0YW0tZGlyLWd0dyIsInNlc3Npb25fc3RhdGUiOiI5ZmMwYTgyMC1kODRlLTQzMjEtYWU2ZS04NjZlNDU5NzlmODgiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHA6Ly9kZXYtZGlyZWN0b3Jpby5vcGVuY2NvLmNvbS9kaXJlY3RvcnkvdjEiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIm9mZmxpbmVfYWNjZXNzIiwic3VwZXJhZG1pbiIsInVtYV9hdXRob3JpemF0aW9uIiwiZGVmYXVsdC1yb2xlcy1kaXJlY3RvcmlvcGFydGljaXBhbnRlIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJwcm9maWxlIGVtYWlsIiwic2lkIjoiOWZjMGE4MjAtZDg0ZS00MzIxLWFlNmUtODY2ZTQ1OTc5Zjg4IiwiZW1haWxfdmVyaWZpZWQiOnRydWUsIm5hbWUiOiJkZXNhcnJvbGxvIGNyZWRpYmFuY28iLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJkZXNhcnJvbGxvYWRtaW5AY3JlZGliYW5jby5jb20iLCJnaXZlbl9uYW1lIjoiZGVzYXJyb2xsbyIsImZhbWlseV9uYW1lIjoiY3JlZGliYW5jbyIsImVtYWlsIjoiZGVzYXJyb2xsb2FkbWluQGNyZWRpYmFuY28uY29tIn0.duBfy93ySK0Bsuw-u9VsLHcy6pZI6zWMnNt6kCei0EKrkWUWbpEHLJNv4fRHYwLjOp-CqVt37x_fxV_jFQNCR8tC89hhGpAJd0tExJMqr4YABjwYh_JcDivEz7ntqCudBk6XSTOp--j6zDsvVKWi26EPRZQnIc7v8mM1hMn7efiw7T3fRCndXY5MpB4aNBCOQ-3RiURBnmJkWXn-kmPFW6ovFOt-3Zp573EilavuyEtw2MnxbA85yCBWiKfl3ADkeCbct34kJcmP4sN2J6rFzn6PLvVjFC9f39kUeYuZGQ9FkjAtu8l1L_qEJhpyYhRok0vMVRfP7LAwoeg3YRDXeg'"
+      },
+      "response": []
+    },
+    {
+      "name": "Obtener Servidor de Autorizacion - CMF (token participante TPP)",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{access_token}}",
+            "description": "tem que ser o acces_token da TPP"
+          }
+        ],
+        "url": {
+          "raw": "https://api.desarrollo.finanzasabiertas.cl/organisations/{{OrganisationId}}/authorisationservers",
+          "protocol": "https",
+          "host": [
+            "api",
+            "desarrollo",
+            "finanzasabiertas",
+            "cl"
+          ],
+          "path": [
+            "organisations",
+            "{{OrganisationId}}",
+            "authorisationservers"
+          ]
+        },
+        "description": "Generated from cURL: curl --location 'https://dev-directorio.opencco.com/directory/v1/organisations' \\\r\n--header 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJYR002U2l0WWUzM3N6bmJwdW5HRTVtN0pOSUNlWWNfUV9RSmpVdFVMRWJZIn0.eyJleHAiOjE3NDcyNDI4NDcsImlhdCI6MTc0NzI0MTA0NywianRpIjoiMmZhOTA4YmUtZGY3MS00YjUxLTgxYjktOTFhZDk5ZjBiODg5IiwiaXNzIjoiaHR0cDovL29mLWxhdGFtLWRpci1vaWRjLXNlcnZlci1hcHAvcmVhbG1zL0RpcmVjdG9yaW9QYXJ0aWNpcGFudGUiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYzIzODUwMDItZjhkZS00MmJjLWJkZDMtYTFmNjM4NmM3MjA0IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoib2YtbGF0YW0tZGlyLWd0dyIsInNlc3Npb25fc3RhdGUiOiI5ZmMwYTgyMC1kODRlLTQzMjEtYWU2ZS04NjZlNDU5NzlmODgiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHA6Ly9kZXYtZGlyZWN0b3Jpby5vcGVuY2NvLmNvbS9kaXJlY3RvcnkvdjEiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIm9mZmxpbmVfYWNjZXNzIiwic3VwZXJhZG1pbiIsInVtYV9hdXRob3JpemF0aW9uIiwiZGVmYXVsdC1yb2xlcy1kaXJlY3RvcmlvcGFydGljaXBhbnRlIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJwcm9maWxlIGVtYWlsIiwic2lkIjoiOWZjMGE4MjAtZDg0ZS00MzIxLWFlNmUtODY2ZTQ1OTc5Zjg4IiwiZW1haWxfdmVyaWZpZWQiOnRydWUsIm5hbWUiOiJkZXNhcnJvbGxvIGNyZWRpYmFuY28iLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJkZXNhcnJvbGxvYWRtaW5AY3JlZGliYW5jby5jb20iLCJnaXZlbl9uYW1lIjoiZGVzYXJyb2xsbyIsImZhbWlseV9uYW1lIjoiY3JlZGliYW5jbyIsImVtYWlsIjoiZGVzYXJyb2xsb2FkbWluQGNyZWRpYmFuY28uY29tIn0.duBfy93ySK0Bsuw-u9VsLHcy6pZI6zWMnNt6kCei0EKrkWUWbpEHLJNv4fRHYwLjOp-CqVt37x_fxV_jFQNCR8tC89hhGpAJd0tExJMqr4YABjwYh_JcDivEz7ntqCudBk6XSTOp--j6zDsvVKWi26EPRZQnIc7v8mM1hMn7efiw7T3fRCndXY5MpB4aNBCOQ-3RiURBnmJkWXn-kmPFW6ovFOt-3Zp573EilavuyEtw2MnxbA85yCBWiKfl3ADkeCbct34kJcmP4sN2J6rFzn6PLvVjFC9f39kUeYuZGQ9FkjAtu8l1L_qEJhpyYhRok0vMVRfP7LAwoeg3YRDXeg'"
+      },
+      "response": []
+    },
+    {
+      "name": ".well-known/openid-configuration",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://oidc.desarrollo.finanzasabiertas.cl/realms/directorio/.well-known/openid-configuration",
+          "protocol": "https",
+          "host": [
+            "oidc",
+            "desarrollo",
+            "finanzasabiertas",
+            "cl"
+          ],
+          "path": [
+            "realms",
+            "directorio",
+            ".well-known",
+            "openid-configuration"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

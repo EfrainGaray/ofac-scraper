@@ -1,0 +1,679 @@
+openapi: 3.0.3
+info:
+  title: API Datos Abiertos - Canales de Atención Presencial
+  version: 1.0.0
+  description: Este documento describe las API de datos abiertos relacionadas con los distintos canales de atención presenciales disponibles de una entidad financiera.
+tags:
+  - name: Endpoints Canales de Antención Presencial
+    description: Operaciones que obtienen canales presenciales de atención.
+
+servers:
+  - url: https://api-chile.cl/presential-channels/v1
+paths:
+  /office-channels:
+    get:
+      tags:
+        - Endpoints Canales de Antención Presencial
+      summary: Obtiene el listado de oficinas presenciales.
+      description: "Método para obtener el listado de oficinas presenciales"
+      parameters:
+        - $ref: "#/components/parameters/page"
+        - $ref: "#/components/parameters/pageSize"
+        - $ref: "#/components/parameters/city"
+        - $ref: "#/components/parameters/townName"
+        - $ref: "#/components/parameters/countrySubDivision"
+      responses:
+        '200':
+          description: "Respuesta exitosa con el listado de oficinas presenciales"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OpenDataOfficeChannels"
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '405':
+          $ref: '#/components/responses/MethodNotAllowed'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+        '504':
+          $ref: '#/components/responses/GatewayTimeout'
+        '529':
+          $ref: '#/components/responses/SiteIsOverloaded'
+        default:
+          $ref: '#/components/responses/Default'
+  /atm-channels:
+    get:
+      tags:
+        - Endpoints Canales de Antención Presencial
+      summary: Obtiene el listado de cajeros automáticos.
+      description: "Método para obtener el listado de cajeros automáticos disponibles por marca y canales de atención"
+      parameters:
+        - $ref: "#/components/parameters/page"
+        - $ref: "#/components/parameters/pageSize"
+        - $ref: "#/components/parameters/city"
+        - $ref: "#/components/parameters/townName"
+        - $ref: "#/components/parameters/countrySubDivision"
+      responses:
+        '200':
+          description: "Respuesta exitosa con el listado de cajeros automáticos."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OpenDataAtmChannels"
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '405':
+          $ref: '#/components/responses/MethodNotAllowed'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+        '504':
+          $ref: '#/components/responses/GatewayTimeout'
+        '529':
+          $ref: '#/components/responses/SiteIsOverloaded'
+        default:
+          $ref: '#/components/responses/Default'
+
+components:
+
+  schemas:
+  
+    OpenDataOfficeChannels:
+      type: object
+      required :
+        - brand
+        - links
+        - meta
+      properties:
+        brand:
+          type: array
+          items:
+            $ref: '#/components/schemas/BrandOfficeChannels'
+        links:
+          $ref: '#/components/schemas/Links'
+        meta:
+          $ref: '#/components/schemas/Meta'
+          
+    BrandOfficeChannels:
+      allOf:
+        - $ref: '#/components/schemas/Brand'
+        - type: object
+          properties:
+            presentialChannels:
+              type: array
+              items:
+                $ref: '#/components/schemas/PresentialOfficeChannels'
+            
+    PresentialOfficeChannels:
+      allOf:
+        - $ref: '#/components/schemas/PresentialChannels'
+        - type: object
+          properties:
+            officeChannels:
+              type: array
+              items:
+                $ref: '#/components/schemas/OfficeChannels'
+    
+    OfficeChannels:
+      type: object
+      properties:
+        officeType:
+          type: string
+          description: Tipo de Oficina
+          maxLength: 70
+          example: "Sucursal"
+        officeId:
+          type: string
+          description: Identificador único de la oficina
+          maxLength: 35
+          example: "OFI30002"
+        officeManager:
+          type: string
+          description: Nombre persona a cargo
+          maxLength: 70
+          example: "Eduardo Francisco Sandoval Perez"
+        bankingSegment:
+          type: string
+          description: Segmento de la entidad
+          maxLength: 70
+          example: "Personas"
+        daysOfOperation:
+          type: array
+          description: Días de atención
+          items:
+            type: string
+            enum: 
+              - Lunes
+              - Martes
+              - Miércoles
+              - Jueves
+              - Viernes
+              - Sabado
+              - Domingo
+            example: ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes"]
+        specialOpeningHours:
+          type: array
+          items:
+            $ref: '#/components/schemas/SpecialOpeningHours'
+        servicesOffered:
+          type: array
+          description: Listado de servicios ofrecidos en la oficina.
+          example: ["Apertura de cuenta", "Créditos", "Ahorro"]
+          items:
+            type: string
+            maxLength: 70
+        officeAccessibility:
+          type: array
+          description: Facilidades de accesibilidad en la oficina.
+          example: ["Lenguaje de Señas", "Silla de Ruedas"]
+          items:
+            type: string
+            maxLength: 70
+            
+    OpenDataAtmChannels:
+      type: object
+      required :
+        - brand
+        - links
+        - meta
+      properties:
+        brand:
+          type: array
+          items:
+            $ref: '#/components/schemas/BrandAtmChannels'
+        links:
+          $ref: '#/components/schemas/Links'
+        meta:
+          $ref: '#/components/schemas/Meta'
+          
+    BrandAtmChannels:
+      allOf:
+        - $ref: '#/components/schemas/Brand'
+        - type: object
+          properties:
+            presentialChannels:
+              type: array
+              items:
+                $ref: '#/components/schemas/PresentialAtmChannels'
+
+    PresentialAtmChannels:
+      allOf:
+        - $ref: '#/components/schemas/PresentialChannels'
+        - type: object
+          properties:
+            atmChannels:
+              type: array
+              items:
+                $ref: '#/components/schemas/AtmChannels'
+
+    AtmChannels:
+      type: object
+      properties:
+        atmId:
+          type: string
+          description: Identificador del cajero automático
+          maxLength: 35
+          example: "ATM00123"
+        currency:
+          type: string
+          description: Código de moneda según ISO 4217.
+          minLength: 3
+          maxLength: 3
+          pattern: "^[A-Z]{3}$"
+          example: "CLP"
+        servicesAvailable:
+          type: array
+          description: Lista de servicios ofrecidos por el cajero automático
+          items:
+            type: string
+            example: ["Depositos", "Giros"]
+            maxLength: 70
+        minimumPossibleAmount:
+          type: number
+          description: Cantidad minima para retirar del cajero
+          pattern: "^-?[0-9]+$"
+          example: "5000"
+    
+    Brand:
+      type: object
+      properties:
+        brandName:
+          type: string
+          description: Nombre de la marca
+          maxLength: 70
+          example: "Grupo BCI"
+    
+    PresentialChannels:
+      type: object
+      properties:
+        channelId:
+          type: string
+          description: Identificador del canal de servicio
+          maxLength: 35
+          example: "Bci_123456"
+        channelType:
+          type: string
+          description: Tipo canal de servicio
+          maxLength: 70
+          example: "Oficina"
+        location:
+          $ref: '#/components/schemas/Location'
+        geoLocation:
+          $ref: '#/components/schemas/GeoLocation'
+        openingHours:
+          $ref: '#/components/schemas/OpeningHours'
+        contactNumber:
+          type: string
+          pattern: "^\\+56\\s?(9\\d{8}|[2-9]\\d{7})$"
+          description: >
+            Número de contacto
+            Un número de teléfono en Chile:
+            - Para móviles: +56 9 XXXXXXXX (9 dígitos).
+            - Para fijos: +56 XX XXXXXXX (8 dígitos comenzando con 2-9).
+            - El código de país (+56) es obligatorio.
+          example: "+5697634009"
+        additionalInfo:
+          type: string
+          description: Información adicional
+          maxLength: 256
+          example : "Servicio disponible 24/7"
+            
+    Location:
+      type: object
+      properties:
+        streetName:
+          type: string
+          description: Dirección
+          maxLength: 70
+          example: "Av. Providencia"
+        buildingNumber:
+          type: string
+          description: Número
+          maxLength: 70
+          example: "2040"
+        city:
+          type: string
+          description: Ciudad  
+          maxLength: 70
+          example: "Santiago"
+        townName:
+          type: string
+          description: Comuna
+          maxLength: 70
+          example: "Providencia"
+        countrySubDivision:
+          type: string
+          description: Región
+          maxLength: 70
+          example: "Región Metropolitana"
+        postCode:
+          type: string
+          description: Código Postal
+          maxLength: 70
+          example : "7510117"
+        country:
+          type: string
+          description: "Código de país conforme a ISO 3166-1 Alpha-2."
+          minLength: 2
+          maxLength: 2
+          pattern: "^[A-Z]{2}$"
+          example: "CL"
+          
+    GeoLocation:
+      type: object
+      properties:
+        latitude:
+          type: number
+          description: Latitud de ubicación
+          example: "-33.42300237299289"
+        longitude:
+          type: number
+          description: Longitud de ubicación
+          example: "-70.61238461854579"
+          
+    OpeningHours:
+      type: object
+      properties:
+        openTime:
+          type: string
+          description: Horario de apertura del canal de atención
+          pattern: ^(?:[01]\d|2[0-3]):[0-5]\d$
+          example: "09:00"
+        closeTime:
+          type: string
+          description: Horario de cierre del canal de atención
+          pattern: ^(?:[01]\d|2[0-3]):[0-5]\d$
+          example: "18:00"
+        openDays:
+          type: array
+          description: Días de atención
+          items:
+            type: string
+            enum: 
+              - Lunes
+              - Martes
+              - Miércoles
+              - Jueves
+              - Viernes
+              - Sabado
+              - Domingo
+          example: ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes"]
+          
+    SpecialOpeningHours:
+      type: object
+      properties:
+        effectiveDate:
+          type: string
+          minLength: 1
+          maxLength: 70
+          pattern: "^([0-2][0-9]|3[0-1])-(0[1-9]|1[0-2])-(\\d{4})$"
+          description: Fecha excepcional de la sucursal
+          example: "31-12-2025"
+        openTime:
+          type: string
+          description: Hora de apertura
+          pattern: ^(?:[01]\d|2[0-3]):[0-5]\d$
+          maxLength: 35
+          example: "09:00"
+        closeTime:
+          type: string
+          description: Hora de cierre
+          pattern: ^(?:[01]\d|2[0-3]):[0-5]\d$
+          maxLength: 35
+          example: "14:00"
+        reason:
+          type: string
+          minLength: 1
+          maxLength: 256
+          description: descripción de la excepción o motivo especial
+          example: "Festividad de año nuevo"
+          
+    Links:
+      type: object
+      description: Referencias a otros recursos de la API solicitada
+      properties:
+        self:
+          type: string
+          format: url
+          description: URL de la página actual de registros
+          maxLength: 2000
+          minLength: 5
+          example: "https://api-chile.cl/open-data/v1/office-channels?city=Santiago&townName=Providencia&countrySubDivision=RM&page=2&pageSize=20"
+        first:
+          type: string
+          format: url
+          description: URL de la primera página de registros
+          maxLength: 2000
+          minLength: 5
+          example: "https://api-chile.cl/open-data/v1/office-channels?city=Santiago&townName=Providencia&countrySubDivision=RM&page=1&pageSize=20"
+        prev:
+          type: string
+          format: url
+          description: URL de la página anterior de registros
+          maxLength: 2000
+          minLength: 5
+          example: "https://api-chile.cl/open-data/v1/office-channels?city=Santiago&townName=Providencia&countrySubDivision=RM&page=1&pageSize=20"
+        next:
+          type: string
+          format: url
+          description: URL de la próxima página de registros
+          maxLength: 2000
+          minLength: 5
+          example: "https://api-chile.cl/open-data/v1/office-channels?city=Santiago&townName=Providencia&countrySubDivision=RM&page=3&pageSize=20"
+        last:
+          type: string
+          format: url
+          description: URL da última página de registros
+          maxLength: 2000
+          minLength: 5
+          example: "https://api-chile.cl/open-data/v1/office-channels?city=Santiago&townName=Providencia&countrySubDivision=RM&page=13&pageSize=20"
+          
+    Meta:
+      type: object
+      description: Meta información sobre los datos solicitados
+      properties:
+        firstAvailableDateTime:
+          type: string
+          format: date-time
+          description: Fecha del primer registro encontrado
+          example: "2025-02-11T17:03:21.054Z"
+        lastAvailableDateTime:
+          type: string
+          format: date-time
+          description: Fecha del último registro encontrado
+          example: "2024-11-25T15:04:21.054Z"
+        totalPages:
+          type: integer
+          description: Total de páginas para los registros encontrados
+          example: 13
+      required:
+        - firstAvailableDateTime
+        - lastAvailableDateTime
+        - totalPages  
+      
+    ResponseErrorMetaSingle:
+      type: object
+      required:
+        - errors
+      properties:
+        errors:
+          type: array
+          minItems: 1
+          maxItems: 13
+          items:
+            type: object
+            required:
+              - code
+              - title
+              - detail
+            properties:
+              code:
+                description: Código de error específico de la solicitud
+                type: string
+                maxLength: 255
+                example: "50001"
+              title:
+                description: Título legible por un humano de este error en específico
+                type: string
+                maxLength: 255
+                example: "Conexión interrumpida"
+              detail:
+                description: Descripción legible por un humano de este error en especifico
+                type: string
+                maxLength: 2048
+                example: "No pudimos conectar con el servidor de datos abiertos. Por favor, verifica tu conexión a internet o contáctanos si el problema persiste."
+        meta:
+          type: object
+          description: Meta de información sobre la API solicitada
+          required:
+            - requestDateTime
+          properties:
+            requestDateTime:
+              description: Fecha y hora de la consulta, según especificación RFC-3339, formato UTC.
+              type: string
+              format: date-time
+              minLength: 20
+              maxLength: 20
+              pattern: '^[2-9]\d{3}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$'
+              example: '2023-10-09T14:10:00Z'
+              
+    ResponseError:
+      type: object
+      required:
+        - errors
+      properties:
+        errors:
+          type: array
+          minItems: 1
+          maxItems: 13
+          items:
+            type: object
+            required:
+              - code
+              - title
+              - detail
+            properties:
+              code:
+                description: Código de error específico
+                type: string
+                maxLength: 255
+                example: "20001"
+              title:
+                description: Título legible por un humano de este error en específico
+                type: string
+                maxLength: 255
+                example: "Error al obtener oficinas presenciales"
+              detail:
+                description: Descripción legible por un humano de este error en específico
+                type: string
+                maxLength: 2048
+                example: "La información sobre oficinas presenciales no está disponible actualmente."
+        meta:
+          type: object
+          description: Meta de información sobre la API solicitada
+          required:
+            - requestDateTime
+          properties:
+            requestDateTime:
+              description: Fecha y hora de la consulta, según especificación RFC-3339, formato UTC.
+              type: string
+              format: date-time
+              minLength: 20
+              maxLength: 20
+              pattern: '^[2-9]\d{3}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$'
+              example: '2023-10-09T14:10:00Z'
+              
+  parameters:
+    page:
+      name: page
+      in: query
+      description: Número de la página que se solicita (el valor de la primera página es 1).
+      schema:
+        type: integer
+        format: int32
+        default: 1
+        minimum: 1
+        maximum: 2147483647
+    pageSize:
+      name: pageSize
+      in: query
+      description: Número total de registros por página.
+      schema:
+        type: integer
+        format: int32
+        default: 20
+        minimum: 1
+        maximum: 2147483647
+    city:
+      name: city
+      in: query
+      description: Nombre de la ciudad a filtrar.
+      schema:
+        type: string
+        minimum: 1
+        maximum: 70
+    townName:
+      name: townName
+      in: query
+      description: Nombre de la comuna a filtrar.
+      schema:
+        type: string
+        minimum: 1
+        maximum: 70
+    countrySubDivision:
+      name: countrySubDivision
+      in: query
+      description: Nombre de la región a filtrar.
+      schema:
+        type: string
+        minimum: 1
+        maximum: 70
+  
+  responses:
+    BadRequest:
+      description: La solicitud presentaba un formato incorrecto y faltaban atributos obligatorios, tanto en el cuerpo de la solicitud como en los parámetros de la URL.
+      content:
+        application/json; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/ResponseError'
+          example:
+            code: "400"
+            title: "Solicitud inválida"
+            detail: "El parámetro 'city' es obligatorio y no fue incluido en la solicitud."
+    NotFound:
+      description: La característica solicitada no está disponible o aún no ha sido implementada.
+      content:
+        application/json; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/ResponseError'
+          example:
+            code: "404"
+            title: "Recurso no encontrado"
+            detail: "No se encontraron oficinas presenciales para la región especificada."
+    MethodNotAllowed:
+      description: El consumidor intentó acceder al recurso utilizando un método no compatible.
+      content:
+        application/json; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/ResponseError'
+          example:
+            code: "405"
+            title: "Método no permitido"
+            detail: "El método HTTP 'POST' no está habilitado para este recurso. Por favor, utilice 'GET'."
+    TooManyRequests:
+      description: La operación fue rechazada debido a que se superó el número permitido de solicitudes dentro de un período determinado o se alcanzó el límite de solicitudes simultáneas.
+      content:
+        application/json; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/ResponseError'
+          example:
+            code: "429"
+            title: "Demasiadas solicitudes"
+            detail: "Has excedido el límite de solicitudes permitidas. Intenta nuevamente después de 1 minuto."
+    InternalServerError:
+      description: Ocurrió un error en la puerta de enlace API o en el microservicio.
+      content:
+        application/json; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/ResponseError'
+          example:
+            code: "500"
+            title: "Error interno del servidor"
+            detail: "Ocurrió un error inesperado en el servidor. Por favor, inténtalo de nuevo más tarde."
+    GatewayTimeout:
+      description: GATEWAY TIMEOUT - La solicitud no fue respondida dentro del tiempo límite establecido.
+      content:
+        application/json; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/ResponseError'
+          example:
+            code: "504"
+            title: "Tiempo de espera agotado"
+            detail: "El servidor no pudo completar la solicitud a tiempo. Por favor, verifica tu conexión o inténtalo más tarde."
+    SiteIsOverloaded:
+      description: El sitio está sobrecargado y la operación fue rechazada debido a que se alcanzó el límite máximo global de TPS (transacciones por segundo) en este momento.
+      content:
+        application/json; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/ResponseErrorMetaSingle'
+          example:
+            code: "529"
+            title: "El sitio está sobrecargado"
+            detail: "El sistema está experimentando una carga elevada. Por favor, inténtalo más tarde."
+    Default:
+      description: '\-'
+      content:
+        application/json; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/ResponseError'
+          example:
+            code: "001"
+            title: "Error desconocido"
+            detail: "Ha ocurrido un error inesperado. Por favor, contacta al soporte técnico con los detalles de la solicitud."

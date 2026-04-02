@@ -1,0 +1,1273 @@
+{
+	"info": {
+		"_postman_id": "ba06891a-cac7-4f7d-9d40-af8cdb1ce480",
+		"name": "API Instrumentos de Ahorro e Inversión",
+		"description": "Este documento describe las APIs destinadas a desplegar la información asociada a los instrumentos de ahorro e inversión vinculadas al consentimiento otorgado. Estas interfaces permiten acceder de manera segura y eficiente a los datos relevantes, garantizando el cumplimiento de los requisitos legales y de privacidad aplicables. Además, se detalla el uso y funcionamiento de cada API, incluyendo los parámetros necesarios, los formatos de respuesta y los posibles casos de error.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17913263",
+		"_collection_link": "https://restless-spaceship-269474.postman.co/workspace/CMF~6989a4ae-868d-4761-9ab5-331f222eae90/collection/17913263-ba06891a-cac7-4f7d-9d40-af8cdb1ce480?action=share&source=collection_link&creator=17913263"
+	},
+	"item": [
+		{
+			"name": "Instrumentos de Ahorro e Inversión",
+			"item": [
+				{
+					"name": "/investments cgarcia",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "commodo elit",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "commodo elit",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/investments?page=2&pageSize=2",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"investments"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "2",
+									"description": "Número de la página que se solicita (el valor de la primera página es 1)"
+								},
+								{
+									"key": "pageSize",
+									"value": "2",
+									"description": "Número total de registros por página"
+								}
+							]
+						},
+						"description": "Método para obtener los datos de las operaciones de pólizas de seguros asociados al consentimiento autorizado."
+					},
+					"response": []
+				},
+				{
+					"name": "/investments jmendoza",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "commodo elit",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "commodo elit",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/investments?page=1&pageSize=2",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"investments"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"description": "Número de la página que se solicita (el valor de la primera página es 1)"
+								},
+								{
+									"key": "pageSize",
+									"value": "2",
+									"description": "Número total de registros por página"
+								}
+							]
+						},
+						"description": "Método para obtener los datos de las operaciones de pólizas de seguros asociados al consentimiento autorizado."
+					},
+					"response": []
+				},
+				{
+					"name": "/investments jperez",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "commodo elit",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "commodo elit",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/investments?page=1&pageSize=3",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"investments"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"description": "Número de la página que se solicita (el valor de la primera página es 1)"
+								},
+								{
+									"key": "pageSize",
+									"value": "3",
+									"description": "Número total de registros por página"
+								}
+							]
+						},
+						"description": "Método para obtener los datos de las operaciones de pólizas de seguros asociados al consentimiento autorizado."
+					},
+					"response": []
+				},
+				{
+					"name": "/investments mrojas",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "commodo elit",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "commodo elit",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/investments?page=1&pageSize=2",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"investments"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"description": "Número de la página que se solicita (el valor de la primera página es 1)"
+								},
+								{
+									"key": "pageSize",
+									"value": "2",
+									"description": "Número total de registros por página"
+								}
+							]
+						},
+						"description": "Método para obtener los datos de las operaciones de pólizas de seguros asociados al consentimiento autorizado."
+					},
+					"response": []
+				},
+				{
+					"name": "/investments sfernandez",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "commodo elit",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "commodo elit",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/investments?page=1&pageSize=2",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"investments"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"description": "Número de la página que se solicita (el valor de la primera página es 1)"
+								},
+								{
+									"key": "pageSize",
+									"value": "2",
+									"description": "Número total de registros por página"
+								}
+							]
+						},
+						"description": "Método para obtener los datos de las operaciones de pólizas de seguros asociados al consentimiento autorizado."
+					},
+					"response": []
+				},
+				{
+					"name": "/investments/{investmentID} cgarcia",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "commodo elit",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "commodo elit",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/investments/:investmentID",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"investments",
+								":investmentID"
+							],
+							"variable": [
+								{
+									"key": "investmentID",
+									"value": "INV-CGAR-003",
+									"description": "(Required) Identificador de la inversión"
+								}
+							]
+						},
+						"description": "Método para obtener el instrumento de ahorro e inversión mediante su investmentID asociados al consentimiento autorizado."
+					},
+					"response": []
+				},
+				{
+					"name": "/investments/{investmentID} jmendoza",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "commodo elit",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "commodo elit",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/investments/:investmentID",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"investments",
+								":investmentID"
+							],
+							"variable": [
+								{
+									"key": "investmentID",
+									"value": "INV-JMEN-001",
+									"description": "(Required) Identificador de la inversión"
+								}
+							]
+						},
+						"description": "Método para obtener el instrumento de ahorro e inversión mediante su investmentID asociados al consentimiento autorizado."
+					},
+					"response": []
+				},
+				{
+					"name": "/investments/{investmentID} jperez",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "commodo elit",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "commodo elit",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/investments/:investmentID",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"investments",
+								":investmentID"
+							],
+							"variable": [
+								{
+									"key": "investmentID",
+									"value": "INV-JPEREZ-002",
+									"description": "(Required) Identificador de la inversión"
+								}
+							]
+						},
+						"description": "Método para obtener el instrumento de ahorro e inversión mediante su investmentID asociados al consentimiento autorizado."
+					},
+					"response": []
+				},
+				{
+					"name": "/investments/{investmentID} mrojas",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "commodo elit",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "commodo elit",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/investments/:investmentID",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"investments",
+								":investmentID"
+							],
+							"variable": [
+								{
+									"key": "investmentID",
+									"value": "INV-MROJ-002",
+									"description": "(Required) Identificador de la inversión"
+								}
+							]
+						},
+						"description": "Método para obtener el instrumento de ahorro e inversión mediante su investmentID asociados al consentimiento autorizado."
+					},
+					"response": []
+				},
+				{
+					"name": "/investments/{investmentID} sfernandez",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "commodo elit",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "commodo elit",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/investments/:investmentID",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"investments",
+								":investmentID"
+							],
+							"variable": [
+								{
+									"key": "investmentID",
+									"value": "INV-SFER-002",
+									"description": "(Required) Identificador de la inversión"
+								}
+							]
+						},
+						"description": "Método para obtener el instrumento de ahorro e inversión mediante su investmentID asociados al consentimiento autorizado."
+					},
+					"response": []
+				},
+				{
+					"name": "/investments/{investmentID}/balance cgarcia",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "commodo elit",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "commodo elit",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/investments/:investmentID/balance?page=2&pageSize=6&fromDate=2024-01-01&toDate=2025-04-01",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"investments",
+								":investmentID",
+								"balance"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "2",
+									"description": "Número de la página que se solicita (el valor de la primera página es 1)"
+								},
+								{
+									"key": "pageSize",
+									"value": "6",
+									"description": "Número total de registros por página"
+								},
+								{
+									"key": "fromDate",
+									"value": "2024-01-01",
+									"description": "Fecha de inicio del rango"
+								},
+								{
+									"key": "toDate",
+									"value": "2025-04-01",
+									"description": "Fecha de fin del rango"
+								}
+							],
+							"variable": [
+								{
+									"key": "investmentID",
+									"value": "INV-CGAR-003",
+									"description": "(Required) Identificador de la inversión"
+								}
+							]
+						},
+						"description": "Método para obtener los balances del instrumento de ahorro e inversión mediante investmentId asociados al consentimiento autorizado."
+					},
+					"response": []
+				},
+				{
+					"name": "/investments/{investmentID}/balance jmendoza",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "commodo elit",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "commodo elit",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/investments/:investmentID/balance?page=1&pageSize=3",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"investments",
+								":investmentID",
+								"balance"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "3"
+								}
+							],
+							"variable": [
+								{
+									"key": "investmentID",
+									"value": "INV-JMEN-001",
+									"description": "(Required) Identificador de la inversión"
+								}
+							]
+						},
+						"description": "Método para obtener los balances del instrumento de ahorro e inversión mediante investmentId asociados al consentimiento autorizado."
+					},
+					"response": []
+				},
+				{
+					"name": "/investments/{investmentID}/balance jperez",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "commodo elit",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "commodo elit",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/investments/:investmentID/balance?page=1&pageSize=2&fromDate=2025-02-01&toDate=2025-03-31",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"investments",
+								":investmentID",
+								"balance"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"description": "Número de la página que se solicita (el valor de la primera página es 1)"
+								},
+								{
+									"key": "pageSize",
+									"value": "2",
+									"description": "Número total de registros por página"
+								},
+								{
+									"key": "fromDate",
+									"value": "2025-02-01",
+									"description": "Fecha de inicio del rango"
+								},
+								{
+									"key": "toDate",
+									"value": "2025-03-31",
+									"description": "Fecha de fin del rango"
+								}
+							],
+							"variable": [
+								{
+									"key": "investmentID",
+									"value": "INV-JPEREZ-002",
+									"description": "(Required) Identificador de la inversión"
+								}
+							]
+						},
+						"description": "Método para obtener los balances del instrumento de ahorro e inversión mediante investmentId asociados al consentimiento autorizado."
+					},
+					"response": []
+				},
+				{
+					"name": "/investments/{investmentID}/balance mrojas",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "commodo elit",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "commodo elit",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/investments/:investmentID/balance?page=1&pageSize=2&fromDate=2025-01-01&toDate=2025-04-01",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"investments",
+								":investmentID",
+								"balance"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"description": "Número de la página que se solicita (el valor de la primera página es 1)"
+								},
+								{
+									"key": "pageSize",
+									"value": "2",
+									"description": "Número total de registros por página"
+								},
+								{
+									"key": "fromDate",
+									"value": "2025-01-01",
+									"description": "Fecha de inicio del rango"
+								},
+								{
+									"key": "toDate",
+									"value": "2025-04-01",
+									"description": "Fecha de fin del rango"
+								}
+							],
+							"variable": [
+								{
+									"key": "investmentID",
+									"value": "INV-MROJ-002",
+									"description": "(Required) Identificador de la inversión"
+								}
+							]
+						},
+						"description": "Método para obtener los balances del instrumento de ahorro e inversión mediante investmentId asociados al consentimiento autorizado."
+					},
+					"response": []
+				},
+				{
+					"name": "/investments/{investmentID}/balance sfernandez",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "commodo elit",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "commodo elit",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/investments/:investmentID/balance?page=1&pageSize=1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"investments",
+								":investmentID",
+								"balance"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "1"
+								}
+							],
+							"variable": [
+								{
+									"key": "investmentID",
+									"value": "INV-SFER-002",
+									"description": "(Required) Identificador de la inversión"
+								}
+							]
+						},
+						"description": "Método para obtener los balances del instrumento de ahorro e inversión mediante investmentId asociados al consentimiento autorizado."
+					},
+					"response": []
+				},
+				{
+					"name": "/investments/{investmentID}/transactions cgarcia",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "commodo elit",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "commodo elit",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/investments/:investmentID/transactions?page=1&pageSize=5&fromDate=2024-01-01&toDate=2025-06-01",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"investments",
+								":investmentID",
+								"transactions"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"description": "Número de la página que se solicita (el valor de la primera página es 1)"
+								},
+								{
+									"key": "pageSize",
+									"value": "5",
+									"description": "Número total de registros por página"
+								},
+								{
+									"key": "fromDate",
+									"value": "2024-01-01",
+									"description": "Fecha de inicio del rango"
+								},
+								{
+									"key": "toDate",
+									"value": "2025-06-01",
+									"description": "Fecha de fin del rango"
+								}
+							],
+							"variable": [
+								{
+									"key": "investmentID",
+									"value": "INV-CGAR-003",
+									"description": "(Required) Identificador de la inversión"
+								}
+							]
+						},
+						"description": "Método para obtener los movimientos transaccionales del instrumento de inversion asociado al investmentId asociados al consentimiento autorizado."
+					},
+					"response": []
+				},
+				{
+					"name": "/investments/{investmentID}/transactions jmendoza",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "commodo elit",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "commodo elit",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/investments/:investmentID/transactions?page=1&pageSize=5",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"investments",
+								":investmentID",
+								"transactions"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "5"
+								}
+							],
+							"variable": [
+								{
+									"key": "investmentID",
+									"value": "INV-JMEN-001",
+									"description": "(Required) Identificador de la inversión"
+								}
+							]
+						},
+						"description": "Método para obtener los movimientos transaccionales del instrumento de inversion asociado al investmentId asociados al consentimiento autorizado."
+					},
+					"response": []
+				},
+				{
+					"name": "/investments/{investmentID}/transactions jperez",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "commodo elit",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "commodo elit",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/investments/:investmentID/transactions?page=1&pageSize=2&fromDate=2025-02-01&toDate=2025-03-31",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"investments",
+								":investmentID",
+								"transactions"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"description": "Número de la página que se solicita (el valor de la primera página es 1)"
+								},
+								{
+									"key": "pageSize",
+									"value": "2",
+									"description": "Número total de registros por página"
+								},
+								{
+									"key": "fromDate",
+									"value": "2025-02-01",
+									"description": "Fecha de inicio del rango"
+								},
+								{
+									"key": "toDate",
+									"value": "2025-03-31",
+									"description": "Fecha de fin del rango"
+								}
+							],
+							"variable": [
+								{
+									"key": "investmentID",
+									"value": "INV-JPEREZ-002",
+									"description": "(Required) Identificador de la inversión"
+								}
+							]
+						},
+						"description": "Método para obtener los movimientos transaccionales del instrumento de inversion asociado al investmentId asociados al consentimiento autorizado."
+					},
+					"response": []
+				},
+				{
+					"name": "/investments/{investmentID}/transactions mrojas",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "commodo elit",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "commodo elit",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/investments/:investmentID/transactions?page=1&pageSize=2&fromDate=2025-01-01&toDate=2025-03-31",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"investments",
+								":investmentID",
+								"transactions"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"description": "Número de la página que se solicita (el valor de la primera página es 1)"
+								},
+								{
+									"key": "pageSize",
+									"value": "2",
+									"description": "Número total de registros por página"
+								},
+								{
+									"key": "fromDate",
+									"value": "2025-01-01",
+									"description": "Fecha de inicio del rango"
+								},
+								{
+									"key": "toDate",
+									"value": "2025-03-31",
+									"description": "Fecha de fin del rango"
+								}
+							],
+							"variable": [
+								{
+									"key": "investmentID",
+									"value": "INV-MROJ-002",
+									"description": "(Required) Identificador de la inversión"
+								}
+							]
+						},
+						"description": "Método para obtener los movimientos transaccionales del instrumento de inversion asociado al investmentId asociados al consentimiento autorizado."
+					},
+					"response": []
+				},
+				{
+					"name": "/investments/{investmentID}/transactions sfernandez",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "commodo elit",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "commodo elit",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/investments/:investmentID/transactions?page=1&pageSize=2",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"investments",
+								":investmentID",
+								"transactions"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "2"
+								}
+							],
+							"variable": [
+								{
+									"key": "investmentID",
+									"value": "INV-SFER-002",
+									"description": "(Required) Identificador de la inversión"
+								}
+							]
+						},
+						"description": "Método para obtener los movimientos transaccionales del instrumento de inversion asociado al investmentId asociados al consentimiento autorizado."
+					},
+					"response": []
+				}
+			],
+			"description": "Operaciones que permiten obtener los datos asociados a los instrumentos de ahorro e inversión, basandose al consentimiento autorizado."
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://api-cmf.sensedia.com/investments/v1"
+		},
+		{
+			"key": "bearerToken",
+			"value": "eyJhbGciOiJQUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJZdXZwVk03cVdJNUN1bko5SmJQMEh3Z0hzMTlibnN6V3d1Y2d4YjcyUkp3In0.eyJleHAiOjE3NDU1OTg2MTYsImlhdCI6MTc0NTU5NTAxNiwiYXV0aF90aW1lIjoxNzQ1NTk1MDEzLCJqdGkiOiJmMTcwMGI0Yi1lZmE2LTQzYzEtYjNlMS1lYjBlZTRkNzAyOWYiLCJpc3MiOiJodHRwczovL2VjMi0zNC0yMzQtMjIxLTExOC5jb21wdXRlLTEuYW1hem9uYXdzLmNvbTo4NDQzL3JlYWxtcy9tYXN0ZXIiLCJzdWIiOiI0MDg5NDJjMi04NmU5LTQwNTUtYWMxMS1hMDEzZjlhYzA2NTkiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJBc2VndXJhZG9yYS1iZXRhIiwic2lkIjoiODM5NzBkMzMtODkzZC00NDIwLWE2YTEtNmMzMDFkODNlNzc3IiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyIiXSwiY25mIjp7Ing1dCNTMjU2IjoicmNZclpCUkthU0Y0NVNjUVdKYWsydkRuZmt6ZzYwRlM4RWRUX0F2TXA5SSJ9LCJzY29wZSI6ImZhcGkgcHJvZmlsZSBlbWFpbCBSZWFkTG9hbnMiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwicHJlZmVycmVkX3VzZXJuYW1lIjoiY2dhcmNpYSIsImNvbnNlbnRfaWQiOiI4OTAxMjM0In0.MVXtV7r8rQ5MSx5QeOE_0D4JOGf328zf2NMDL5ERnxuWGYLT8kCkljaeD1wZqHvQ4f1CAQ_QxpsCTAAL1NTPt65sdTaCTOvJwXIbhmaO11dXbYxnN5i4JhzxO_wVcQQI6x3ZRv7v9jgjoB0bRIaxDe0XdE22VxSz0_Odg-euXfYcwtXlcBjaC-31FvA1lLrvvPnhhG5XOnZe6GW-8ZIEp3fgCx_4dVOMQt5K3IeU958RJjcxkLDevioINKqqLQrl0h5BHolQcQfqLCCKR00DodI7kA48fZVlNF0XyVgUIpBvpF0-vEmGYLRrcTA9xJAMwl7jpTcff_GoKWA5SnbDIg",
+			"type": "string"
+		}
+	]
+}

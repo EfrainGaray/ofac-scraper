@@ -1,0 +1,616 @@
+{
+	"info": {
+		"_postman_id": "cb98bc26-be9f-4caf-be83-469dc0812da9",
+		"name": "API Iniciación de Pagos",
+		"description": "API de iniciación de pagos, responsable de habilitar las operaciones de iniciación de pagos para Open Finance Chile. Para cada uno de los métodos de pagos, es necesario obtener el consentimiento previo del cliente a través de los endpoints dedicados al consentimiento en esta API.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17913263",
+		"_collection_link": "https://restless-spaceship-269474.postman.co/workspace/CMF~6989a4ae-868d-4761-9ab5-331f222eae90/collection/17913263-cb98bc26-be9f-4caf-be83-469dc0812da9?action=share&source=collection_link&creator=17913263"
+	},
+	"item": [
+		{
+			"name": "Iniciación de Pagos",
+			"item": [
+				{
+					"name": "/payments cgarcia",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "in ullamco",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "in ullamco",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+							},
+							{
+								"key": "x-idempotency-key",
+								"value": "in ullamco",
+								"description": "(Required) Clave única que identifica una operación idempotente (ej. una orden de pago). Evita la duplicación de operaciones en reintentos."
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"data\": [\n    {\n      \"grantId\": 40056,\n      \"transactionType\": \"TFE\",\n      \"paymentLimit\": 200000,\n      \"debtorInstitutionId\": \"014\",\n      \"debtorAccountNumber\": \"0123456789\",\n      \"debtorAccountType\": \"Cuenta Corriente\",\n      \"debtorName\": \"Juan Pérez\",\n      \"debtorIdentification\": \"12345678-9\",\n      \"debtorAddress\": \"Av. Providencia 123\",\n      \"debtorCountry\": \"Santiago\",\n      \"debtorPaymentMethod\": \"Pago Tarjeta de Crédito\",\n      \"creditorInstitutionId\": \"001\",\n      \"creditorAccountNumber\": \"9876543210\",\n      \"creditorAccountType\": \"Cuenta Corriente\",\n      \"creditorName\": \"Roberto Ponce\",\n      \"creditorIdentification\": \"11222333-4\",\n      \"creditorAddress\": \"Av. Las Condes 999\",\n      \"creditorCountry\": \"Valparaiso\",\n      \"originOfFunds\": \"Chile\",\n      \"amount\": 150000,\n      \"currency\": \"CLP\",\n      \"requestDateTime\": \"2025-05-30T10:30:00Z\",\n      \"suspiciousFlag\": \"No\",\n      \"fraudAnalysisData\": {\n        \"riskLevel\": \"alto\",\n        \"score\": 85,\n        \"details\": {\n          \"ip\": \"192.168.1.1\",\n          \"reason\": \"comportamiento sospechoso\"\n        }\n      },\n      \"purpose\": \"Pago de servicios\"\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/payments",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"payments"
+							]
+						},
+						"description": "Método para crear una iniciación de pagos."
+					},
+					"response": []
+				},
+				{
+					"name": "/payments jmendoza",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "in ullamco",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "in ullamco",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+							},
+							{
+								"key": "x-idempotency-key",
+								"value": "in ullamco",
+								"description": "(Required) Clave única que identifica una operación idempotente (ej. una orden de pago). Evita la duplicación de operaciones en reintentos."
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"data\": [\n    {\n      \"grantId\": 2565135,\n      \"transactionType\": \"TFE\",\n      \"paymentLimit\": 200000,\n      \"debtorInstitutionId\": \"014\",\n      \"debtorAccountNumber\": \"9876543210\",\n      \"debtorAccountType\": \"Cuenta Corriente\",\n      \"debtorName\": \"Carlos Mendoza\",\n      \"debtorIdentification\": \"13579246-7\",\n      \"creditorInstitutionId\": \"001\",\n      \"creditorAccountNumber\": \"1234567890\",\n      \"creditorAccountType\": \"Cuenta Corriente\",\n      \"creditorName\": \"Fernando Gómez\",\n      \"creditorIdentification\": \"75839456-3\",\n      \"amount\": 100000,\n      \"currency\": \"CLP\",\n      \"requestDateTime\": \"2025-05-30T12:00:00Z\",\n      \"purpose\": \"Pago de servicios\"\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/payments",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"payments"
+							]
+						},
+						"description": "Método para crear una iniciación de pagos."
+					},
+					"response": []
+				},
+				{
+					"name": "/payments jperez",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "in ullamco",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "in ullamco",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+							},
+							{
+								"key": "x-idempotency-key",
+								"value": "in ullamco",
+								"description": "(Required) Clave única que identifica una operación idempotente (ej. una orden de pago). Evita la duplicación de operaciones en reintentos."
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"data\": [\n    {\n      \"grantId\": 9012345,\n      \"transactionType\": \"TFE\",\n      \"paymentLimit\": 200000,\n      \"debtorInstitutionId\": \"014\",\n      \"debtorAccountNumber\": \"0123456789\",\n      \"debtorAccountType\": \"Cuenta Corriente\",\n      \"debtorName\": \"Juan Pérez\",\n      \"debtorIdentification\": \"12345678-9\",\n      \"debtorAddress\": \"Av. Providencia 123\",\n      \"debtorCountry\": \"Santiago\",\n      \"debtorPaymentMethod\": \"Pago Tarjeta de Crédito\",\n      \"creditorInstitutionId\": \"001\",\n      \"creditorAccountNumber\": \"9876543210\",\n      \"creditorAccountType\": \"Cuenta Corriente\",\n      \"creditorName\": \"Roberto Ponce\",\n      \"creditorIdentification\": \"11222333-4\",\n      \"creditorAddress\": \"Av. Las Condes 999\",\n      \"creditorCountry\": \"Valparaiso\",\n      \"originOfFunds\": \"Chile\",\n      \"amount\": 150000,\n      \"currency\": \"CLP\",\n      \"requestDateTime\": \"2025-05-30T14:00:00Z\",\n      \"suspiciousFlag\": \"No\",\n      \"fraudAnalysisData\": {\n        \"riskLevel\": \"alto\",\n        \"score\": 85,\n        \"details\": {\n          \"ip\": \"192.168.1.3\",\n          \"reason\": \"comportamiento sospechoso\"\n        }\n      },\n      \"purpose\": \"Pago de servicios\"\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/payments",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"payments"
+							]
+						},
+						"description": "Método para crear una iniciación de pagos."
+					},
+					"response": []
+				},
+				{
+					"name": "/payments mrojas",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "in ullamco",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "in ullamco",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+							},
+							{
+								"key": "x-idempotency-key",
+								"value": "in ullamco",
+								"description": "(Required) Clave única que identifica una operación idempotente (ej. una orden de pago). Evita la duplicación de operaciones en reintentos."
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"data\": [\n    {\n      \"grantId\": 7890123,\n      \"transactionType\": \"TFE\",\n      \"paymentLimit\": 200000,\n      \"debtorInstitutionId\": \"014\",\n      \"debtorAccountNumber\": \"0123456789\",\n      \"debtorAccountType\": \"Cuenta Corriente\",\n      \"debtorName\": \"Maria Rojas\",\n      \"debtorIdentification\": \"15012456-7\",\n      \"debtorAddress\": \"Av. Providencia 456\",\n      \"debtorCountry\": \"Santiago\",\n      \"debtorPaymentMethod\": \"Pago Tarjeta de Crédito\",\n      \"creditorInstitutionId\": \"001\",\n      \"creditorAccountNumber\": \"9876543210\",\n      \"creditorAccountType\": \"Cuenta Corriente\",\n      \"creditorName\": \"Eduardo Ponce\",\n      \"creditorIdentification\": \"11222333-4\",\n      \"creditorAddress\": \"Av. Las Condes 1010\",\n      \"creditorCountry\": \"Valparaiso\",\n      \"originOfFunds\": \"Chile\",\n      \"amount\": 120000,\n      \"currency\": \"CLP\",\n      \"requestDateTime\": \"2025-05-30T15:00:00Z\",\n      \"suspiciousFlag\": \"No\",\n      \"fraudAnalysisData\": {\n        \"riskLevel\": \"bajo\",\n        \"score\": 45,\n        \"details\": {\n          \"ip\": \"192.168.1.4\",\n          \"reason\": \"verificación estándar\"\n        }\n      },\n      \"purpose\": \"Pago de servicios\"\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/payments",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"payments"
+							]
+						},
+						"description": "Método para crear una iniciación de pagos."
+					},
+					"response": []
+				},
+				{
+					"name": "/payments sfernandez",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "in ullamco",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "in ullamco",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+							},
+							{
+								"key": "x-idempotency-key",
+								"value": "in ullamco",
+								"description": "(Required) Clave única que identifica una operación idempotente (ej. una orden de pago). Evita la duplicación de operaciones en reintentos."
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"data\": [\n    {\n      \"grantId\": 1234506,\n      \"transactionType\": \"TFE\",\n      \"paymentLimit\": 200000,\n      \"debtorInstitutionId\": \"014\",\n      \"debtorAccountNumber\": \"0123456789\",\n      \"debtorAccountType\": \"Cuenta Corriente\",\n      \"debtorName\": \"Sofia Fernandez\",\n      \"debtorIdentification\": \"17865432-1\",\n      \"debtorAddress\": \"Av. Las Condes 222\",\n      \"debtorCountry\": \"Santiago\",\n      \"debtorPaymentMethod\": \"Pago Transferencia\",\n      \"creditorInstitutionId\": \"001\",\n      \"creditorAccountNumber\": \"9876543210\",\n      \"creditorAccountType\": \"Cuenta Corriente\",\n      \"creditorName\": \"Juan Ponce\",\n      \"creditorIdentification\": \"11222333-4\",\n      \"creditorAddress\": \"Av. Vicuña Mackenna 123\",\n      \"creditorCountry\": \"Valparaiso\",\n      \"originOfFunds\": \"Chile\",\n      \"amount\": 100000,\n      \"currency\": \"CLP\",\n      \"requestDateTime\": \"2025-05-30T16:00:00Z\",\n      \"suspiciousFlag\": \"No\",\n      \"fraudAnalysisData\": {\n        \"riskLevel\": \"medio\",\n        \"score\": 60,\n        \"details\": {\n          \"ip\": \"192.168.1.5\",\n          \"reason\": \"verificación estándar\"\n        }\n      },\n      \"purpose\": \"Pago de servicios\"\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/payments",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"payments"
+							]
+						},
+						"description": "Método para crear una iniciación de pagos."
+					},
+					"response": []
+				},
+				{
+					"name": "/payments/{paymentID} cgarcia",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "in ullamco",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "in ullamco",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/payments/:paymentID",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"payments",
+								":paymentID"
+							],
+							"variable": [
+								{
+									"key": "paymentID",
+									"value": "PAY-20250001",
+									"description": "(Required) Identificador de Pago"
+								}
+							]
+						},
+						"description": "Método para consultar una iniciación de pago."
+					},
+					"response": []
+				},
+				{
+					"name": "/payments/{paymentID} jmendoza",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "in ullamco",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "in ullamco",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/payments/:paymentID",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"payments",
+								":paymentID"
+							],
+							"variable": [
+								{
+									"key": "paymentID",
+									"value": "PAY-20250002",
+									"description": "(Required) Identificador de Pago"
+								}
+							]
+						},
+						"description": "Método para consultar una iniciación de pago."
+					},
+					"response": []
+				},
+				{
+					"name": "/payments/{paymentID} jperez",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "in ullamco",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "in ullamco",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/payments/:paymentID",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"payments",
+								":paymentID"
+							],
+							"variable": [
+								{
+									"key": "paymentID",
+									"value": "PAY-20250003",
+									"description": "(Required) Identificador de Pago"
+								}
+							]
+						},
+						"description": "Método para consultar una iniciación de pago."
+					},
+					"response": []
+				},
+				{
+					"name": "/payments/{paymentID} mrojas",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "in ullamco",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "in ullamco",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/payments/:paymentID",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"payments",
+								":paymentID"
+							],
+							"variable": [
+								{
+									"key": "paymentID",
+									"value": "PAY-20250004",
+									"description": "(Required) Identificador de Pago"
+								}
+							]
+						},
+						"description": "Método para consultar una iniciación de pago."
+					},
+					"response": []
+				},
+				{
+					"name": "/payments/{paymentID} sfernandez",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "in ullamco",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "in ullamco",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/payments/:paymentID",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"payments",
+								":paymentID"
+							],
+							"variable": [
+								{
+									"key": "paymentID",
+									"value": "PAY-20250005",
+									"description": "(Required) Identificador de Pago"
+								}
+							]
+						},
+						"description": "Método para consultar una iniciación de pago."
+					},
+					"response": []
+				}
+			],
+			"description": "Operaciones que permiten generar la solicitud de iniciación de pagos."
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://api-cmf.sensedia.com/payments/v1"
+		},
+		{
+			"key": "bearerToken",
+			"value": "eyJhbGciOiJQUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJZdXZwVk03cVdJNUN1bko5SmJQMEh3Z0hzMTlibnN6V3d1Y2d4YjcyUkp3In0.eyJleHAiOjE3NDU1OTg2MTYsImlhdCI6MTc0NTU5NTAxNiwiYXV0aF90aW1lIjoxNzQ1NTk1MDEzLCJqdGkiOiJmMTcwMGI0Yi1lZmE2LTQzYzEtYjNlMS1lYjBlZTRkNzAyOWYiLCJpc3MiOiJodHRwczovL2VjMi0zNC0yMzQtMjIxLTExOC5jb21wdXRlLTEuYW1hem9uYXdzLmNvbTo4NDQzL3JlYWxtcy9tYXN0ZXIiLCJzdWIiOiI0MDg5NDJjMi04NmU5LTQwNTUtYWMxMS1hMDEzZjlhYzA2NTkiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJBc2VndXJhZG9yYS1iZXRhIiwic2lkIjoiODM5NzBkMzMtODkzZC00NDIwLWE2YTEtNmMzMDFkODNlNzc3IiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyIiXSwiY25mIjp7Ing1dCNTMjU2IjoicmNZclpCUkthU0Y0NVNjUVdKYWsydkRuZmt6ZzYwRlM4RWRUX0F2TXA5SSJ9LCJzY29wZSI6ImZhcGkgcHJvZmlsZSBlbWFpbCBSZWFkTG9hbnMiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwicHJlZmVycmVkX3VzZXJuYW1lIjoiY2dhcmNpYSIsImNvbnNlbnRfaWQiOiI4OTAxMjM0In0.MVXtV7r8rQ5MSx5QeOE_0D4JOGf328zf2NMDL5ERnxuWGYLT8kCkljaeD1wZqHvQ4f1CAQ_QxpsCTAAL1NTPt65sdTaCTOvJwXIbhmaO11dXbYxnN5i4JhzxO_wVcQQI6x3ZRv7v9jgjoB0bRIaxDe0XdE22VxSz0_Odg-euXfYcwtXlcBjaC-31FvA1lLrvvPnhhG5XOnZe6GW-8ZIEp3fgCx_4dVOMQt5K3IeU958RJjcxkLDevioINKqqLQrl0h5BHolQcQfqLCCKR00DodI7kA48fZVlNF0XyVgUIpBvpF0-vEmGYLRrcTA9xJAMwl7jpTcff_GoKWA5SnbDIg",
+			"type": "string"
+		}
+	]
+}

@@ -1,0 +1,927 @@
+{
+  "info": {
+    "_postman_id": "71a4b8f0-1678-442a-8dfa-8aa3cc0e12e8",
+    "name": "API Pólizas de Seguros",
+    "description": "Este documento describe las APIs destinadas a desplegar la información asociada a las pólizas de seguros vinculadas al consentimiento otorgado. Estas interfaces permiten acceder de manera segura y eficiente a los datos relevantes, garantizando el cumplimiento de los requisitos legales y de privacidad aplicables. Además, se detalla el uso y funcionamiento de cada API, incluyendo los parámetros necesarios, los formatos de respuesta y los posibles casos de error.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "17913263",
+    "_collection_link": "https://go.postman.co/collection/17913263-71a4b8f0-1678-442a-8dfa-8aa3cc0e12e8?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Pólizas de Seguros",
+      "item": [
+        {
+          "name": "/insurances cgarcia",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-fapi-interaction-id",
+                "value": "labore officia laborum",
+                "description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+              },
+              {
+                "key": "x-jws-signature",
+                "value": "labore officia laborum",
+                "description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/insurances/v1/insurances?page=2&pageSize=2",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "insurances",
+                "v1",
+                "insurances"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "2",
+                  "description": "Número de la página que se solicita (el valor de la primera página es 1)"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "2",
+                  "description": "Número total de registros por página"
+                }
+              ]
+            },
+            "description": "Método para obtener los datos de las operaciones de pólizas de seguros asociados al consentimiento autorizado."
+          },
+          "response": []
+        },
+        {
+          "name": "/insurances jmendoza",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-fapi-interaction-id",
+                "value": "labore officia laborum",
+                "description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+              },
+              {
+                "key": "x-jws-signature",
+                "value": "labore officia laborum",
+                "description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/insurances/v1/insurances?page=1&pageSize=2",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "insurances",
+                "v1",
+                "insurances"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1",
+                  "description": "Número de la página que se solicita (el valor de la primera página es 1)"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "2",
+                  "description": "Número total de registros por página"
+                }
+              ]
+            },
+            "description": "Método para obtener los datos de las operaciones de pólizas de seguros asociados al consentimiento autorizado."
+          },
+          "response": []
+        },
+        {
+          "name": "/insurances jperez",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-fapi-interaction-id",
+                "value": "labore officia laborum",
+                "description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+              },
+              {
+                "key": "x-jws-signature",
+                "value": "labore officia laborum",
+                "description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/insurances/v1/insurances?page=1&pageSize=3",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "insurances",
+                "v1",
+                "insurances"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1",
+                  "description": "Número de la página que se solicita (el valor de la primera página es 1)"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "3",
+                  "description": "Número total de registros por página"
+                }
+              ]
+            },
+            "description": "Método para obtener los datos de las operaciones de pólizas de seguros asociados al consentimiento autorizado."
+          },
+          "response": []
+        },
+        {
+          "name": "/insurances mrojas",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-fapi-interaction-id",
+                "value": "labore officia laborum",
+                "description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+              },
+              {
+                "key": "x-jws-signature",
+                "value": "labore officia laborum",
+                "description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/insurances/v1/insurances?page=1&pageSize=2",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "insurances",
+                "v1",
+                "insurances"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1",
+                  "description": "Número de la página que se solicita (el valor de la primera página es 1)"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "2",
+                  "description": "Número total de registros por página"
+                }
+              ]
+            },
+            "description": "Método para obtener los datos de las operaciones de pólizas de seguros asociados al consentimiento autorizado."
+          },
+          "response": []
+        },
+        {
+          "name": "/insurances sfernandez",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-fapi-interaction-id",
+                "value": "labore officia laborum",
+                "description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+              },
+              {
+                "key": "x-jws-signature",
+                "value": "labore officia laborum",
+                "description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/insurances/v1/insurances?page=2&pageSize=2",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "insurances",
+                "v1",
+                "insurances"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "2",
+                  "description": "Número de la página que se solicita (el valor de la primera página es 1)"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "2",
+                  "description": "Número total de registros por página"
+                }
+              ]
+            },
+            "description": "Método para obtener los datos de las operaciones de pólizas de seguros asociados al consentimiento autorizado."
+          },
+          "response": []
+        },
+        {
+          "name": "/insurances/{insuranceID} cgarcia",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-fapi-interaction-id",
+                "value": "labore officia laborum",
+                "description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+              },
+              {
+                "key": "x-jws-signature",
+                "value": "labore officia laborum",
+                "description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/insurances/v1/insurances/:insuranceID",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "insurances",
+                "v1",
+                "insurances",
+                ":insuranceID"
+              ],
+              "variable": [
+                {
+                  "key": "insuranceID",
+                  "value": "POL-CGAR-004",
+                  "description": "(Required) Identificador del seguro"
+                }
+              ]
+            },
+            "description": "Método para obtener los datos de la pólizas de seguros asociados al consentimiento autorizado."
+          },
+          "response": []
+        },
+        {
+          "name": "/insurances/{insuranceID} jmendoza",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-fapi-interaction-id",
+                "value": "labore officia laborum",
+                "description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+              },
+              {
+                "key": "x-jws-signature",
+                "value": "labore officia laborum",
+                "description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/insurances/v1/insurances/:insuranceID",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "insurances",
+                "v1",
+                "insurances",
+                ":insuranceID"
+              ],
+              "variable": [
+                {
+                  "key": "insuranceID",
+                  "value": "POL-JMEN-001",
+                  "description": "(Required) Identificador del seguro"
+                }
+              ]
+            },
+            "description": "Método para obtener los datos de la pólizas de seguros asociados al consentimiento autorizado."
+          },
+          "response": []
+        },
+        {
+          "name": "/insurances/{insuranceID} jperez",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-fapi-interaction-id",
+                "value": "labore officia laborum",
+                "description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+              },
+              {
+                "key": "x-jws-signature",
+                "value": "labore officia laborum",
+                "description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/insurances/v1/insurances/:insuranceID",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "insurances",
+                "v1",
+                "insurances",
+                ":insuranceID"
+              ],
+              "variable": [
+                {
+                  "key": "insuranceID",
+                  "value": "POL-JPEREZ-003",
+                  "description": "(Required) Identificador del seguro"
+                }
+              ]
+            },
+            "description": "Método para obtener los datos de la pólizas de seguros asociados al consentimiento autorizado."
+          },
+          "response": []
+        },
+        {
+          "name": "/insurances/{insuranceID} mrojas",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-fapi-interaction-id",
+                "value": "labore officia laborum",
+                "description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+              },
+              {
+                "key": "x-jws-signature",
+                "value": "labore officia laborum",
+                "description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/insurances/v1/insurances/:insuranceID",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "insurances",
+                "v1",
+                "insurances",
+                ":insuranceID"
+              ],
+              "variable": [
+                {
+                  "key": "insuranceID",
+                  "value": "POL-MROJ-002",
+                  "description": "(Required) Identificador del seguro"
+                }
+              ]
+            },
+            "description": "Método para obtener los datos de la pólizas de seguros asociados al consentimiento autorizado."
+          },
+          "response": []
+        },
+        {
+          "name": "/insurances/{insuranceID} sfernandez",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-fapi-interaction-id",
+                "value": "labore officia laborum",
+                "description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+              },
+              {
+                "key": "x-jws-signature",
+                "value": "labore officia laborum",
+                "description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/insurances/v1/insurances/:insuranceID",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "insurances",
+                "v1",
+                "insurances",
+                ":insuranceID"
+              ],
+              "variable": [
+                {
+                  "key": "insuranceID",
+                  "value": "POL-SFER-004",
+                  "description": "(Required) Identificador del seguro"
+                }
+              ]
+            },
+            "description": "Método para obtener los datos de la pólizas de seguros asociados al consentimiento autorizado."
+          },
+          "response": []
+        },
+        {
+          "name": "/insurances/{insuranceID}/transactions cgarcia",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-fapi-interaction-id",
+                "value": "labore officia laborum",
+                "description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+              },
+              {
+                "key": "x-jws-signature",
+                "value": "labore officia laborum",
+                "description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/insurances/v1/insurances/:insuranceID/transactions?page=2&pageSize=2",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "insurances",
+                "v1",
+                "insurances",
+                ":insuranceID",
+                "transactions"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "2",
+                  "description": "Número de la página que se solicita (el valor de la primera página es 1)"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "2",
+                  "description": "Número total de registros por página"
+                }
+              ],
+              "variable": [
+                {
+                  "key": "insuranceID",
+                  "value": "POL-CGAR-004",
+                  "description": "(Required) Identificador del seguro"
+                }
+              ]
+            },
+            "description": "Método para obtener los movimientos transaccionales de la pólizas de seguros asociados al consentimiento autorizado."
+          },
+          "response": []
+        },
+        {
+          "name": "/insurances/{insuranceID}/transactions jmendoza",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-fapi-interaction-id",
+                "value": "labore officia laborum",
+                "description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+              },
+              {
+                "key": "x-jws-signature",
+                "value": "labore officia laborum",
+                "description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/insurances/v1/insurances/:insuranceID/transactions?page=1&pageSize=3",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "insurances",
+                "v1",
+                "insurances",
+                ":insuranceID",
+                "transactions"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1",
+                  "description": "Número de la página que se solicita (el valor de la primera página es 1)"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "3",
+                  "description": "Número total de registros por página"
+                }
+              ],
+              "variable": [
+                {
+                  "key": "insuranceID",
+                  "value": "POL-JMEN-001",
+                  "description": "(Required) Identificador del seguro"
+                }
+              ]
+            },
+            "description": "Método para obtener los movimientos transaccionales de la pólizas de seguros asociados al consentimiento autorizado."
+          },
+          "response": []
+        },
+        {
+          "name": "/insurances/{insuranceID}/transactions jperez",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-fapi-interaction-id",
+                "value": "labore officia laborum",
+                "description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+              },
+              {
+                "key": "x-jws-signature",
+                "value": "labore officia laborum",
+                "description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/insurances/v1/insurances/:insuranceID/transactions?page=1&pageSize=2",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "insurances",
+                "v1",
+                "insurances",
+                ":insuranceID",
+                "transactions"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1",
+                  "description": "Número de la página que se solicita (el valor de la primera página es 1)"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "2",
+                  "description": "Número total de registros por página"
+                }
+              ],
+              "variable": [
+                {
+                  "key": "insuranceID",
+                  "value": "POL-JPEREZ-003",
+                  "description": "(Required) Identificador del seguro"
+                }
+              ]
+            },
+            "description": "Método para obtener los movimientos transaccionales de la pólizas de seguros asociados al consentimiento autorizado."
+          },
+          "response": []
+        },
+        {
+          "name": "/insurances/{insuranceID}/transactions mrojas",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-fapi-interaction-id",
+                "value": "labore officia laborum",
+                "description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+              },
+              {
+                "key": "x-jws-signature",
+                "value": "labore officia laborum",
+                "description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/insurances/v1/insurances/:insuranceID/transactions?page=1&pageSize=2",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "insurances",
+                "v1",
+                "insurances",
+                ":insuranceID",
+                "transactions"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1",
+                  "description": "Número de la página que se solicita (el valor de la primera página es 1)"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "2",
+                  "description": "Número total de registros por página"
+                }
+              ],
+              "variable": [
+                {
+                  "key": "insuranceID",
+                  "value": "POL-MROJ-002",
+                  "description": "(Required) Identificador del seguro"
+                }
+              ]
+            },
+            "description": "Método para obtener los movimientos transaccionales de la pólizas de seguros asociados al consentimiento autorizado."
+          },
+          "response": []
+        },
+        {
+          "name": "/insurances/{insuranceID}/transactions sfernandez",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-fapi-interaction-id",
+                "value": "labore officia laborum",
+                "description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+              },
+              {
+                "key": "x-jws-signature",
+                "value": "labore officia laborum",
+                "description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/insurances/v1/insurances/:insuranceID/transactions?page=1&pageSize=1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "insurances",
+                "v1",
+                "insurances",
+                ":insuranceID",
+                "transactions"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1",
+                  "description": "Número de la página que se solicita (el valor de la primera página es 1)"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "1",
+                  "description": "Número total de registros por página"
+                }
+              ],
+              "variable": [
+                {
+                  "key": "insuranceID",
+                  "value": "POL-SFER-004",
+                  "description": "(Required) Identificador del seguro"
+                }
+              ]
+            },
+            "description": "Método para obtener los movimientos transaccionales de la pólizas de seguros asociados al consentimiento autorizado."
+          },
+          "response": []
+        }
+      ],
+      "description": "Operaciones que permiten obtener los datos asociados a las operaciones asociadas a pólizas de seguros, basandose al consentimiento autorizado."
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "bearerToken",
+      "value": "eyJhbGciOiJQUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJZdXZwVk03cVdJNUN1bko5SmJQMEh3Z0hzMTlibnN6V3d1Y2d4YjcyUkp3In0.eyJleHAiOjE3NDU1OTg2MTYsImlhdCI6MTc0NTU5NTAxNiwiYXV0aF90aW1lIjoxNzQ1NTk1MDEzLCJqdGkiOiJmMTcwMGI0Yi1lZmE2LTQzYzEtYjNlMS1lYjBlZTRkNzAyOWYiLCJpc3MiOiJodHRwczovL2VjMi0zNC0yMzQtMjIxLTExOC5jb21wdXRlLTEuYW1hem9uYXdzLmNvbTo4NDQzL3JlYWxtcy9tYXN0ZXIiLCJzdWIiOiI0MDg5NDJjMi04NmU5LTQwNTUtYWMxMS1hMDEzZjlhYzA2NTkiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJBc2VndXJhZG9yYS1iZXRhIiwic2lkIjoiODM5NzBkMzMtODkzZC00NDIwLWE2YTEtNmMzMDFkODNlNzc3IiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyIiXSwiY25mIjp7Ing1dCNTMjU2IjoicmNZclpCUkthU0Y0NVNjUVdKYWsydkRuZmt6ZzYwRlM4RWRUX0F2TXA5SSJ9LCJzY29wZSI6ImZhcGkgcHJvZmlsZSBlbWFpbCBSZWFkTG9hbnMiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwicHJlZmVycmVkX3VzZXJuYW1lIjoiY2dhcmNpYSIsImNvbnNlbnRfaWQiOiI4OTAxMjM0In0.MVXtV7r8rQ5MSx5QeOE_0D4JOGf328zf2NMDL5ERnxuWGYLT8kCkljaeD1wZqHvQ4f1CAQ_QxpsCTAAL1NTPt65sdTaCTOvJwXIbhmaO11dXbYxnN5i4JhzxO_wVcQQI6x3ZRv7v9jgjoB0bRIaxDe0XdE22VxSz0_Odg-euXfYcwtXlcBjaC-31FvA1lLrvvPnhhG5XOnZe6GW-8ZIEp3fgCx_4dVOMQt5K3IeU958RJjcxkLDevioINKqqLQrl0h5BHolQcQfqLCCKR00DodI7kA48fZVlNF0XyVgUIpBvpF0-vEmGYLRrcTA9xJAMwl7jpTcff_GoKWA5SnbDIg",
+      "type": "string"
+    }
+  ]
+}

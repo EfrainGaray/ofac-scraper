@@ -1,0 +1,330 @@
+{
+	"info": {
+		"_postman_id": "c7b56ddd-70dc-44c4-af93-13ce201c8258",
+		"name": "API - Recursos",
+		"description": "API que se ocupa de consultar el estado de los recursos para Open Finance Chile - Datos de registro y transacciones. No existe segregación entre persona física y jurídica.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17913263",
+		"_collection_link": "https://restless-spaceship-269474.postman.co/workspace/CMF~6989a4ae-868d-4761-9ab5-331f222eae90/collection/17913263-c7b56ddd-70dc-44c4-af93-13ce201c8258?action=share&source=collection_link&creator=17913263"
+	},
+	"item": [
+		{
+			"name": "resources",
+			"item": [
+				{
+					"name": "/resources cgarcia",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "333e9999-e88b-12d3-a456-426655443333",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "<string>",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo.",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/resources?page=1&pageSize=3",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"resources"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"description": "Número de la página que se solicita (el valor de la primera página es 1)"
+								},
+								{
+									"key": "pageSize",
+									"value": "3",
+									"description": "Número total de registros por página"
+								}
+							]
+						},
+						"description": "Método de obtención de la lista de recursos mantenidos por el cliente en la institución transmisora y para los cuales el cliente ha dado su consentimiento."
+					},
+					"response": []
+				},
+				{
+					"name": "/resources jmendoza",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "111e9999-e88b-12d3-a456-426655441111",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "<string>",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo.",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/resources?page=1&pageSize=2",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"resources"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"description": "Número de la página que se solicita (el valor de la primera página es 1)"
+								},
+								{
+									"key": "pageSize",
+									"value": "2",
+									"description": "Número total de registros por página"
+								}
+							]
+						},
+						"description": "Método de obtención de la lista de recursos mantenidos por el cliente en la institución transmisora y para los cuales el cliente ha dado su consentimiento."
+					},
+					"response": []
+				},
+				{
+					"name": "/resources jperez",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "444e9999-e88b-12d3-a456-426655444444",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "<string>",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo.",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/resources?page=1&pageSize=2",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"resources"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"description": "Número de la página que se solicita (el valor de la primera página es 1)"
+								},
+								{
+									"key": "pageSize",
+									"value": "2",
+									"description": "Número total de registros por página"
+								}
+							]
+						},
+						"description": "Método de obtención de la lista de recursos mantenidos por el cliente en la institución transmisora y para los cuales el cliente ha dado su consentimiento."
+					},
+					"response": []
+				},
+				{
+					"name": "/resources mrojas",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "222e9999-e88b-12d3-a456-426655442222",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "<string>",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo.",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/resources?page=1&pageSize=2",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"resources"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"description": "Número de la página que se solicita (el valor de la primera página es 1)"
+								},
+								{
+									"key": "pageSize",
+									"value": "2",
+									"description": "Número total de registros por página"
+								}
+							]
+						},
+						"description": "Método de obtención de la lista de recursos mantenidos por el cliente en la institución transmisora y para los cuales el cliente ha dado su consentimiento."
+					},
+					"response": []
+				},
+				{
+					"name": "/resources sfernandez",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "555e9999-e88b-12d3-a456-426655445555",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "<string>",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo.",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/resources?page=1&pageSize=2",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"resources"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"description": "Número de la página que se solicita (el valor de la primera página es 1)"
+								},
+								{
+									"key": "pageSize",
+									"value": "2",
+									"description": "Número total de registros por página"
+								}
+							]
+						},
+						"description": "Método de obtención de la lista de recursos mantenidos por el cliente en la institución transmisora y para los cuales el cliente ha dado su consentimiento."
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://api-cmf.sensedia.com/resources/v1"
+		},
+		{
+			"key": "bearerToken",
+			"value": "eyJhbGciOiJSUzUxMiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJOWWwtZlN2bDdGTmhtUzBXOWtPTGFEVWdVMHhXSnJTVWQ5TnRQRXZLV09ZIn0.eyJleHAiOjE3NDQwMjI1MTksImlhdCI6MTc0NDAxODkxOSwiYXV0aF90aW1lIjoxNzQ0MDE4OTE1LCJqdGkiOiIxNjYyZDRhYS02YjFmLTQ1NDctYWRjZS1jOTA3MjdiMDkzMWYiLCJpc3MiOiJodHRwczovL2VjMi0zNC0yMzQtMjIxLTExOC5jb21wdXRlLTEuYW1hem9uYXdzLmNvbTo4NDQzL3JlYWxtcy9tYXN0ZXIiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiNDA4OTQyYzItODZlOS00MDU1LWFjMTEtYTAxM2Y5YWMwNjU5IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiRmludGVjaC1jYXBhIiwic2lkIjoiZDhhNWY1NDQtYTNmNS00NzQ0LWExZDMtZmMyNTYxMDE0NTUxIiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyIiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtbWFzdGVyIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sImNuZiI6eyJ4NXQjUzI1NiI6Ik83ZTc4QWtOd2I2YWo0a3oyZlF2ODRTWThLa1BucFdiUnRmMjQ0bm5RTEEifSwic2NvcGUiOiJvcGVuaWQgZmFwaSBwcm9maWxlIGVtYWlsIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsInByZWZlcnJlZF91c2VybmFtZSI6ImNnYXJjaWEiLCJjb25zZW50X2lkIjoiODkwMTIzNCJ9.nskADWbv3YQluTzhRZLcKrw8nLF2qXhggzw6-78_lCmdABppx-JEoi9qeaNdIM55cf6Cu2dULQri2__geEN-OaqE01bHXKUfz_wuajn_-TISgaRMhppApY8b4FqYtX-EfeYG76LqxeZDJKkneqdzvr8ynSf-sdJT4FFquetg2OkPq886Ll5KVSmcy7JTvZLPl7NSJJ6bQPKE1LHwWCLTcu6UnMpw30m2NxY0xmCdxVgitC6sVDkZikZxoQO6ObN9q9NslgcJRtk-6JFPl0Cph5YQyhj3QXODj0PdoB707ykWsjEkCaAYLYbTDANfxqf-ym_VDHmE9LrQ72BYfyVlgw",
+			"type": "default"
+		}
+	]
+}

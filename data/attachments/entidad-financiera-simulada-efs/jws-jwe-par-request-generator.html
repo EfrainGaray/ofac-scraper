@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Request JWS + JWE para PAR - Postman</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            padding: 40px;
+        }
+        
+        .logo-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .logo-container svg {
+            width: 200px;
+            height: auto;
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 28px;
+            text-align: center;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+        
+        .form-section {
+            margin-bottom: 30px;
+        }
+        
+        .form-section h2 {
+            color: #fa709a;
+            font-size: 18px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #fa709a;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+            font-weight: 500;
+            font-size: 14px;
+        }
+        
+        input[type="text"],
+        input[type="url"],
+        input[type="file"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+            font-family: 'Courier New', monospace;
+        }
+        
+        input[type="text"]:focus,
+        input[type="url"]:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+            border-color: #fa709a;
+        }
+        
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 30px;
+        }
+        
+        button {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(250, 112, 154, 0.4);
+        }
+        
+        .btn-secondary {
+            background: #f0f0f0;
+            color: #333;
+        }
+        
+        .btn-secondary:hover {
+            background: #e0e0e0;
+        }
+        
+        .btn-copy {
+            background: #10b981;
+            color: white;
+        }
+        
+        .btn-copy:hover {
+            background: #059669;
+        }
+        
+        #result {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #fa709a;
+            display: none;
+        }
+        
+        #result h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+        
+        .output-box {
+            background: white;
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid #e0e0e0;
+            margin-bottom: 15px;
+            word-wrap: break-word;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        
+        .info-box {
+            background: #fff3e0;
+            border-left: 4px solid #ff9800;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        
+        .info-box p {
+            margin: 5px 0;
+            font-size: 14px;
+            color: #333;
+        }
+        
+        .error-box {
+            background: #ffebee;
+            border-left: 4px solid #f44336;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 5px;
+            display: none;
+        }
+        
+        .error-box p {
+            color: #c62828;
+            font-size: 14px;
+        }
+        
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #fa709a;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 10px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .help-text {
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
+            font-style: italic;
+        }
+        
+        .two-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .two-columns {
+                grid-template-columns: 1fr;
+            }
+            
+            .button-group {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo-container">
+            <svg xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" width="1000" height="228.369" viewBox="0 0 26458333 6042263.3" version="1.1" id="svg1" sodipodi:docname="logo_cmf--white.svg" inkscape:version="1.3 (0e150ed6c4, 2023-07-21)" xml:space="preserve"><title id="title1">Comisión para el Mercado Financiero</title><sodipodi:namedview id="namedview1" pagecolor="#ffffff" bordercolor="#666666" borderopacity="1.0" inkscape:showpageshadow="true" inkscape:pageopacity="0.0" inkscape:pagecheckerboard="false" inkscape:deskcolor="#d1d1d1" inkscape:document-units="px" showgrid="false" showborder="true" borderlayer="true" showguides="true" inkscape:zoom="0.89052654" inkscape:cx="474.99988" inkscape:cy="88.711561" inkscape:window-width="1366" inkscape:window-height="705" inkscape:window-x="-8" inkscape:window-y="-8" inkscape:window-maximized="1" inkscape:current-layer="layer1"/><defs id="defs1"/><g inkscape:label="Capa 1" inkscape:groupmode="layer" id="layer1" transform="translate(-1687663.4,-15399740)"><g id="g33" transform="matrix(125655.52,0,0,125978.41,2349204.9,16045016)" style="stroke-width:0.210292"><rect x="83.709999" y="1.7" width="0.56" height="35.889999" style="fill:#6d4c95;stroke-width:0.210292" id="rect1"/><polygon points="59.11,1.7 59.17,34.36 66.98,37.59 66.95,21.83 76.63,21.83 76.63,15.68 66.94,15.68 66.93,7.85 78.49,7.85 78.49,1.7 " style="fill:#6d4c95;stroke-width:0.210292" id="polygon1"/><polygon points="53.08,31.85 53.08,1.7 35.49,10.65 17.9,1.7 17.9,10.09 35.49,17.36 46.48,12.88 46.48,29.11 " style="fill:#52307e;stroke-width:0.210292" id="polygon2"/><path d="m 97.79,3.25 v 1 0 0 a 3.34,3.34 0 0 0 -4.5,0.26 3.36,3.36 0 0 0 -1,2.44 3.34,3.34 0 0 0 1,2.43 3.24,3.24 0 0 0 2.39,1 3.31,3.31 0 0 0 2.11,-0.74 c 0,0 0,0 0,0 v 0.65 a 0.52,0.52 0 0 1 -0.31,0.5 4.21,4.21 0 0 1 -4.86,-0.79 4.24,4.24 0 0 1 -1.24,-3 4.24,4.24 0 0 1 1.24,-3.06 4.06,4.06 0 0 1 3,-1.26 4.14,4.14 0 0 1 2.15,0.59" transform="translate(0,-0.41)" style="fill:#737373;stroke:#737373;stroke-width:0.0630877px;stroke-miterlimit:10" id="path2"/><path d="m 101.74,4.5 a 3.36,3.36 0 0 0 -1,2.44 3.34,3.34 0 0 0 1,2.43 3.33,3.33 0 0 0 4.78,0 3.34,3.34 0 0 0 1,-2.43 3.37,3.37 0 0 0 -1,-2.44 3.33,3.33 0 0 0 -4.78,0 m 6.63,2.44 a 4.2,4.2 0 0 1 -1.24,3.06 4.2,4.2 0 0 1 -6,0 4.2,4.2 0 0 1 -1.24,-3 4.2,4.2 0 0 1 1.24,-3.06 4.2,4.2 0 0 1 6,0 4.2,4.2 0 0 1 1.24,3.06" transform="translate(0,-0.41)" style="fill:#737373;stroke:#737373;stroke-width:0.0630877px;stroke-miterlimit:10" id="path3"/><path d="m 111.14,2.81 3.71,4.84 3.7,-4.84 a 0.16,0.16 0 0 1 0.18,-0.05 0.15,0.15 0 0 1 0.1,0.15 V 11 c 0,0 0,0 0,0 h -0.51 a 0.29,0.29 0 0 1 -0.22,-0.09 0.33,0.33 0 0 1 -0.09,-0.23 V 5 l -3.07,4 a 0.09,0.09 0 0 1 -0.06,0 0.09,0.09 0 0 1 -0.07,0 l -3.07,-4 v 6 h -0.78 c 0,0 0,0 0,0 V 2.91 a 0.15,0.15 0 0 1 0.1,-0.15 0.16,0.16 0 0 1 0.18,0.05" transform="translate(0,-0.41)" style="fill:#737373;stroke:#737373;stroke-width:0.0630877px;stroke-miterlimit:10" id="path4"/><path d="M 122.82,11.07 H 122 c 0,0 0,0 0,0 V 2.84 c 0,0 0,0 0,0 h 0.78 V 11" transform="translate(0,-0.41)" style="fill:#737373;stroke:#737373;stroke-width:0.0630877px;stroke-miterlimit:10" id="path5"/><path d="m 128,10.39 a 3,3 0 0 0 1.09,-0.2 1.28,1.28 0 0 0 0.67,-0.7 1.32,1.32 0 0 0 0,-1.05 1.47,1.47 0 0 0 -0.77,-0.8 l -2.44,-1.15 h -0.08 a 1.94,1.94 0 0 1 -1,-1.1 1.88,1.88 0 0 1 0,-1.15 1.86,1.86 0 0 1 0.33,-0.66 2.14,2.14 0 0 1 1.06,-0.73 3.45,3.45 0 0 1 0.67,-0.15 4.59,4.59 0 0 1 0.75,0 5,5 0 0 1 2.08,0.49 c 0,0 0,0 0,0 V 4 c 0,0 0,0 0,0 v 0 h -0.1 a 4.11,4.11 0 0 0 -1.92,-0.51 3.25,3.25 0 0 0 -0.63,0 2.64,2.64 0 0 0 -0.52,0.12 1.48,1.48 0 0 0 -0.52,0.3 1,1 0 0 0 -0.31,0.52 1.06,1.06 0 0 0 0,0.61 1.26,1.26 0 0 0 0.69,0.67 l 2.35,1.11 a 2.25,2.25 0 0 1 1.2,1.26 2.19,2.19 0 0 1 0,1.72 2.1,2.1 0 0 1 -1.13,1.2 3.6,3.6 0 0 1 -1.41,0.28 4.33,4.33 0 0 1 -2.13,-0.47 0.52,0.52 0 0 1 -0.3,-0.5 V 9.64 c 0,0 0,0 0,0 0,0 0,0 0,0 a 4.44,4.44 0 0 0 0.38,0.27 3.49,3.49 0 0 0 2,0.51" transform="translate(0,-0.41)" style="fill:#737373;stroke:#737373;stroke-width:0.0630877px;stroke-miterlimit:10" id="path6"/><path d="m 134.1,11.07 h -0.78 V 2.84 h 0.78 V 11" transform="translate(0,-0.41)" style="fill:#737373;stroke:#737373;stroke-width:0.0630877px;stroke-miterlimit:10" id="path7"/><path d="m 140.49,2.18 -0.31,-0.3 a 0.05,0.05 0 0 1 0,-0.06 l 1.23,-1.25 h 0.8 v 0 c 0,0 0,0 0,0.05 l -1.51,1.56 a 0.12,0.12 0 0 1 -0.21,0 m -2,2.32 a 3.36,3.36 0 0 0 -1,2.44 3.34,3.34 0 0 0 1,2.43 3.34,3.34 0 0 0 4.79,0 3.34,3.34 0 0 0 1,-2.43 3.36,3.36 0 0 0 -1,-2.44 3.34,3.34 0 0 0 -4.79,0 m 6.64,2.44 a 4.21,4.21 0 0 1 -1.27,3.06 4.19,4.19 0 0 1 -6,0 4.21,4.21 0 0 1 -1.25,-3 4.21,4.21 0 0 1 1.25,-3.06 4.19,4.19 0 0 1 6,0 4.21,4.21 0 0 1 1.25,3.06" transform="translate(0,-0.41)" style="fill:#737373;stroke:#737373;stroke-width:0.0630877px;stroke-miterlimit:10" id="path8"/><path d="m 153.2,11.11 a 0.14,0.14 0 0 1 -0.18,-0.06 L 148.45,5 v 6 h -0.78 V 2.92 a 0.16,0.16 0 0 1 0.11,-0.16 0.15,0.15 0 0 1 0.19,0.06 l 4.57,6.06 V 3.12 a 0.29,0.29 0 0 1 0.09,-0.22 0.28,0.28 0 0 1 0.22,-0.1 h 0.51 V 11 a 0.16,0.16 0 0 1 -0.12,0.16" transform="translate(0,-0.41)" style="fill:#737373;stroke:#737373;stroke-width:0.0630877px;stroke-miterlimit:10" id="path9"/><path d="m 92.24,19.79 h 1.86 a 1.29,1.29 0 0 0 1.31,-0.87 1.92,1.92 0 0 0 0,-1.28 1.29,1.29 0 0 0 -1.31,-0.87 h -1.86 z m 0,0.87 v 3.46 h -0.78 v -8.19 c 0,0 0,0 0,0 h 2.64 a 2.15,2.15 0 0 1 2.1,1.43 2.64,2.64 0 0 1 0.18,1 2.55,2.55 0 0 1 -0.18,0.95 2.17,2.17 0 0 1 -0.75,1 2.21,2.21 0 0 1 -1.35,0.41 z" transform="translate(0,-0.41)" style="fill:#737373;stroke:#737373;stroke-width:0.0630877px;stroke-miterlimit:10" id="path10"/><path d="m 101,17.7 -1.6,3.74 h 3.22 z m -2.78,6.43 h -0.85 v 0 L 100.83,16 a 0.18,0.18 0 0 1 0.18,-0.11 0.2,0.2 0 0 1 0.18,0.11 l 3.51,8.15 v 0 h -0.62 a 0.37,0.37 0 0 1 -0.36,-0.24 l -0.7,-1.61 H 99 Z" transform="translate(0,-0.41)" style="fill:#737373;stroke:#737373;stroke-width:0.0630877px;stroke-miterlimit:10" id="path11"/><path d="m 107.37,19.79 h 1.87 a 1.27,1.27 0 0 0 1.3,-0.87 1.92,1.92 0 0 0 0,-1.28 1.27,1.27 0 0 0 -1.3,-0.87 h -1.87 z m 0,0.87 v 3.46 h -0.78 c 0,0 0,0 0,0 v -8.19 c 0,0 0,0 0,0 h 2.69 a 2.16,2.16 0 0 1 1.34,0.42 2.28,2.28 0 0 1 0.76,1 2.63,2.63 0 0 1 0.17,1 2.54,2.54 0 0 1 -0.17,0.95 2.06,2.06 0 0 1 -1.82,1.42 l 2.44,3.37 c 0,0 0,0 0,0 h -0.75 a 0.46,0.46 0 0 1 -0.38,-0.2 l -2.32,-3.2 a 0.23,0.23 0 0 0 -0.19,-0.1 z" transform="translate(0,-0.41)" style="fill:#737373;stroke:#737373;stroke-width:0.0630877px;stroke-miterlimit:10" id="path12"/><path d="m 116.54,17.7 -1.61,3.74 h 3.22 z m -2.78,6.43 h -0.85 v 0 L 116.36,16 a 0.18,0.18 0 0 1 0.18,-0.11 0.2,0.2 0 0 1 0.18,0.11 l 3.51,8.15 v 0 h -0.61 a 0.37,0.37 0 0 1 -0.36,-0.24 l -0.7,-1.61 h -4 z" transform="translate(0,-0.41)" style="fill:#737373;stroke:#737373;stroke-width:0.0630877px;stroke-miterlimit:10" id="path13"/><path d="m 127.26,19.38 h 2.31 c 0,0 0,0 0,0.05 v 0.51 a 0.29,0.29 0 0 1 -0.09,0.22 0.27,0.27 0 0 1 -0.22,0.1 h -2 v 3 h 2 a 0.3,0.3 0 0 1 0.22,0.1 0.29,0.29 0 0 1 0.09,0.22 v 0.52 h -2.86 A 0.27,0.27 0 0 1 126.49,24 0.29,0.29 0 0 1 126.4,23.78 v -7.85 c 0,0 0,0 0,0 h 3.14 c 0,0 0,0 0,0 v 0.79 c 0,0 0,0.05 0,0.05 h -2.31 z" transform="translate(0,-0.41)" style="fill:#737373;stroke:#737373;stroke-width:0.0630877px;stroke-miterlimit:10" id="path14"/><path d="m 135.34,23.29 a 0.31,0.31 0 0 1 0.22,0.09 0.29,0.29 0 0 1 0.09,0.22 v 0.52 h -2.86 a 0.3,0.3 0 0 1 -0.23,-0.1 0.29,0.29 0 0 1 -0.09,-0.22 v -7.87 h 0.78 c 0,0 0,0 0,0 v 7.36 z" transform="translate(0,-0.41)" style="fill:#737373;stroke:#737373;stroke-width:0.0630877px;stroke-miterlimit:10" id="path15"/><path d="m 142.69,15.9 3.71,4.84 3.71,-4.84 a 0.15,0.15 0 0 1 0.18,-0.05 0.14,0.14 0 0 1 0.1,0.15 v 8.12 h -0.51 a 0.28,0.28 0 0 1 -0.22,-0.1 0.29,0.29 0 0 1 -0.09,-0.22 v -5.73 l -3.07,4 a 0.08,0.08 0 0 1 -0.12,0 l -3.07,-4 v 6.05 h -0.78 V 16 a 0.16,0.16 0 0 1 0.28,-0.1" transform="translate(0,-0.41)" style="fill:#737373;stroke:#737373;stroke-width:0.0630877px;stroke-miterlimit:10" id="path16"/><path d="m 154.42,19.38 h 2.32 a 0.025,0 -90 0 0 0,0.05 v 0.51 a 0.29,0.29 0 0 1 -0.09,0.22 0.29,0.29 0 0 1 -0.23,0.1 h -2 v 3 h 2 a 0.33,0.33 0 0 1 0.23,0.1 0.29,0.29 0 0 1 0.09,0.22 v 0.52 h -2.87 a 0.28,0.28 0 0 1 -0.22,-0.1 0.29,0.29 0 0 1 -0.09,-0.22 v -7.85 c 0,0 0,0 0,0 h 3.14 v 0.79 a 0.025,0 -90 0 0 0,0.05 h -2.32 z" transform="translate(0,-0.41)" style="fill:#737373;stroke:#737373;stroke-width:0.0630877px;stroke-miterlimit:10" id="path17"/><path d="m 160.46,19.79 h 1.86 a 1.27,1.27 0 0 0 1.3,-0.87 1.77,1.77 0 0 0 0,-1.28 1.27,1.27 0 0 0 -1.3,-0.87 h -1.86 z m 0,0.87 v 3.46 a 0.025,0 0 0 0 -0.05,0 h -0.77 v -8.19 c 0,0 0,0 0,0 h 2.68 a 2.16,2.16 0 0 1 1.34,0.42 2.21,2.21 0 0 1 0.76,1 2.63,2.63 0 0 1 0.17,1 2.54,2.54 0 0 1 -0.17,0.95 2.06,2.06 0 0 1 -1.82,1.42 l 2.49,3.44 c 0,0 0,0 0,0 h -0.75 a 0.46,0.46 0 0 1 -0.38,-0.2 l -2.32,-3.2 a 0.22,0.22 0 0 0 -0.18,-0.1 z" transform="translate(0,-0.41)" style="fill:#737373;stroke:#737373;stroke-width:0.0630877px;stroke-miterlimit:10" id="path18"/><path d="m 173,16.33 v 1 c 0,0 0,0 0,0 a 3.34,3.34 0 0 0 -4.5,0.26 3.49,3.49 0 0 0 0,4.87 3.34,3.34 0 0 0 4.5,0.26 v 0 c 0,0 0,0 0,0 v 0.66 a 0.53,0.53 0 0 1 -0.3,0.5 4.16,4.16 0 0 1 -1.86,0.43 4.06,4.06 0 0 1 -3,-1.26 4.36,4.36 0 0 1 0,-6.11 4.06,4.06 0 0 1 3,-1.26 4.13,4.13 0 0 1 2.14,0.59 c 0,0 0,0 0,0" transform="translate(0,-0.41)" style="fill:#737373;stroke:#737373;stroke-width:0.0630877px;stroke-miterlimit:10" id="path19"/><path d="m 178.13,17.7 -1.62,3.74 h 3.23 z m -2.78,6.43 h -0.85 v 0 L 178,16 a 0.18,0.18 0 0 1 0.18,-0.11 0.18,0.18 0 0 1 0.17,0.11 l 3.52,8.15 h -0.62 a 0.35,0.35 0 0 1 -0.35,-0.24 l -0.7,-1.61 h -4 z" transform="translate(0,-0.41)" style="fill:#737373;stroke:#737373;stroke-width:0.0630877px;stroke-miterlimit:10" id="path20"/><path d="m 184.49,23.29 h 1.59 a 2.55,2.55 0 0 0 1.63,-0.55 2.93,2.93 0 0 0 0.93,-1.35 4.34,4.34 0 0 0 0,-2.73 2.88,2.88 0 0 0 -0.93,-1.35 2.54,2.54 0 0 0 -1.63,-0.54 h -1.59 z m 3.74,-6.68 a 3.74,3.74 0 0 1 1.21,1.76 5,5 0 0 1 0,3.31 3.74,3.74 0 0 1 -1.21,1.76 3.34,3.34 0 0 1 -2.15,0.72 H 184 a 0.34,0.34 0 0 1 -0.23,-0.1 0.29,0.29 0 0 1 -0.09,-0.22 v -7.91 h 2.41 a 3.34,3.34 0 0 1 2.15,0.72" transform="translate(0,-0.41)" style="fill:#737373;stroke:#737373;stroke-width:0.0630877px;stroke-miterlimit:10" id="path21"/><path d="m 193.36,17.59 a 3.49,3.49 0 0 0 0,4.87 3.34,3.34 0 0 0 4.79,0 3.49,3.49 0 0 0 0,-4.87 3.34,3.34 0 0 0 -4.79,0 M 200,20 a 4.2,4.2 0 0 1 -1.24,3 4.2,4.2 0 0 1 -6,0 4.36,4.36 0 0 1 0,-6.11 4.2,4.2 0 0 1 6,0 A 4.19,4.19 0 0 1 200,20" transform="translate(0,-0.41)" style="fill:#737373;stroke:#737373;stroke-width:0.0630877px;stroke-miterlimit:10" id="path22"/><path d="m 92.24,37.17 c 0,0 0,0 0,0 h -0.78 c 0,0 0,0 0,0 V 29 c 0,0 0,0 0,0 h 3.14 v 0.79 h -2.36 v 2.62 h 2.32 V 33 a 0.29,0.29 0 0 1 -0.09,0.22 0.33,0.33 0 0 1 -0.23,0.1 h -2 z" transform="translate(0,-0.41)" style="fill:#737373;stroke:#737373;stroke-width:0.0630877px;stroke-miterlimit:10" id="path23"/><path d="M 98.09,37.2 H 97.31 V 29 c 0,0 0,0 0,0 h 0.78 c 0,0 0,0 0,0 v 8.19 c 0,0 0,0 0,0" transform="translate(0,-0.41)" style="fill:#737373;stroke:#737373;stroke-width:0.0630877px;stroke-miterlimit:10" id="path24"/><path d="m 106.92,37.25 a 0.17,0.17 0 0 1 -0.19,-0.06 l -4.57,-6.07 v 6.05 c 0,0 0,0 0,0 h -0.78 v -8.11 a 0.14,0.14 0 0 1 0.11,-0.16 0.15,0.15 0 0 1 0.19,0.06 l 4.49,6.04 v -5.74 a 0.33,0.33 0 0 1 0.1,-0.23 0.29,0.29 0 0 1 0.22,-0.09 h 0.5 c 0,0 0,0 0,0 v 8.11 a 0.16,0.16 0 0 1 -0.11,0.16" transform="translate(0,-0.41)" style="fill:#737373;stroke:#737373;stroke-width:0.0630877px;stroke-miterlimit:10" id="path25"/><path d="m 112.54,30.75 -1.61,3.74 h 3.22 z m -2.77,6.43 c 0,0 0,0 0,0 h -0.88 c 0,0 0,0 0,0 L 112.36,29 a 0.18,0.18 0 0 1 0.18,-0.12 0.19,0.19 0 0 1 0.18,0.12 l 3.51,8.15 c 0,0 0,0 0,0 h -0.65 a 0.36,0.36 0 0 1 -0.36,-0.23 l -0.69,-1.61 h -4 z" transform="translate(0,-0.41)" style="fill:#737373;stroke:#737373;stroke-width:0.0630877px;stroke-miterlimit:10" id="path26"/><path d="m 123.66,37.25 a 0.18,0.18 0 0 1 -0.19,-0.06 l -4.56,-6.07 v 6.05 c 0,0 0,0 0,0 h -0.78 c 0,0 0,0 0,0 v -8.11 a 0.15,0.15 0 0 1 0.11,-0.16 0.15,0.15 0 0 1 0.19,0.06 L 122.92,35 V 29.26 A 0.32,0.32 0 0 1 123,29 a 0.29,0.29 0 0 1 0.22,-0.09 h 0.51 c 0,0 0,0 0,0 v 8.11 a 0.15,0.15 0 0 1 -0.11,0.16" transform="translate(0,-0.41)" style="fill:#737373;stroke:#737373;stroke-width:0.0630877px;stroke-miterlimit:10" id="path27"/><path d="m 132.67,29.38 v 1 c 0,0 0,0 0,0 0,0 0,0 0,0 a 3.32,3.32 0 0 0 -4.49,0.26 3.49,3.49 0 0 0 0,4.87 3.32,3.32 0 0 0 4.49,0.26 c 0,0 0,0 0,0 v 0.66 a 0.51,0.51 0 0 1 -0.31,0.49 4.17,4.17 0 0 1 -1.86,0.44 4.06,4.06 0 0 1 -3,-1.26 4.38,4.38 0 0 1 0,-6.11 4.21,4.21 0 0 1 5.15,-0.67 v 0" transform="translate(0,-0.41)" style="fill:#737373;stroke:#737373;stroke-width:0.0630877px;stroke-miterlimit:10" id="path28"/><path d="m 136.27,37.2 h -0.78 c 0,0 0,0 0,0 V 29 h 0.78 c 0,0 0,0 0,0 v 8.19 c 0,0 0,0 0,0" transform="translate(0,-0.41)" style="fill:#737373;stroke:#737373;stroke-width:0.0630877px;stroke-miterlimit:10" id="path29"/><path d="m 140.34,32.43 h 2.32 V 33 a 0.29,0.29 0 0 1 -0.09,0.22 0.32,0.32 0 0 1 -0.22,0.1 h -2 v 3 h 2 a 0.31,0.31 0 0 1 0.22,0.09 0.33,0.33 0 0 1 0.09,0.23 v 0.52 c 0,0 0,0 0,0 h -2.87 a 0.33,0.33 0 0 1 -0.22,-0.09 0.29,0.29 0 0 1 -0.09,-0.22 V 29 h 3.14 c 0,0 0,0 0,0 v 0.79 c 0,0 0,0 0,0 h -2.32 z" transform="translate(0,-0.41)" style="fill:#737373;stroke:#737373;stroke-width:0.0630877px;stroke-miterlimit:10" id="path30"/><path d="m 146.38,32.84 h 1.86 a 1.27,1.27 0 0 0 1.3,-0.87 1.79,1.79 0 0 0 0,-1.29 1.27,1.27 0 0 0 -1.3,-0.87 h -1.86 z m 0,0.87 v 3.46 c 0,0 0,0 0,0 h -0.78 c 0,0 0,0 0,0 V 29 c 0,0 0,0 0,0 h 2.68 a 2.22,2.22 0 0 1 1.34,0.41 2.19,2.19 0 0 1 0.76,1 2.6,2.6 0 0 1 0.18,1 2.55,2.55 0 0 1 -0.18,1 2.06,2.06 0 0 1 -1.82,1.42 l 2.44,3.31 c 0,0 0,0 0,0 0,0 0,0 0,0 h -0.75 a 0.42,0.42 0 0 1 -0.37,-0.19 l -2.32,-3.2 a 0.22,0.22 0 0 0 -0.19,-0.1 z" transform="translate(0,-0.41)" style="fill:#737373;stroke:#737373;stroke-width:0.0630877px;stroke-miterlimit:10" id="path31"/><path d="m 154.36,30.64 a 3.49,3.49 0 0 0 0,4.87 3.34,3.34 0 0 0 4.79,0 3.49,3.49 0 0 0 0,-4.87 3.34,3.34 0 0 0 -4.79,0 m 6.64,2.43 a 4.22,4.22 0 0 1 -1.24,3.06 4.2,4.2 0 0 1 -6,0 4.38,4.38 0 0 1 0,-6.11 4.2,4.2 0 0 1 6,0 4.18,4.18 0 0 1 1.24,3.05" transform="translate(0,-0.41)" style="fill:#737373;stroke:#737373;stroke-width:0.0630877px;stroke-miterlimit:10" id="path32"/><path d="m 27.35,21.62 a 9.16,9.16 0 0 1 -0.44,1.75 10.09,10.09 0 0 1 -9.34,6.7 A 10,10 0 0 1 7.69,20 10.15,10.15 0 0 1 9.49,14.22 l -7.23,-3 A 18,18 0 0 0 0,20 a 17.75,17.75 0 0 0 17.57,17.9 17.74,17.74 0 0 0 17,-13.3 z" transform="translate(0,-0.41)" style="fill:#6d4c95;stroke-width:0.210292" id="path33"/></g></g><metadata id="metadata1"><rdf:RDF><cc:Work rdf:about=""><dc:title>Comisión para el Mercado Financiero</dc:title><dc:subject><rdf:Bag><rdf:li>Comisión para el Mercado Financiero</rdf:li><rdf:li>CMF</rdf:li><rdf:li>Chile</rdf:li><rdf:li>Logo</rdf:li><rdf:li>Logotipo</rdf:li><rdf:li>SVG</rdf:li><rdf:li>Vector</rdf:li><rdf:li>Vectorial</rdf:li><rdf:li>PDF</rdf:li><rdf:li>Transparente</rdf:li><rdf:li>Escalable</rdf:li></rdf:Bag></dc:subject></cc:Work></rdf:RDF></metadata></svg>
+        </div>
+        <h1>🔐✍️ Generador de Request JWS + JWE para PAR</h1>
+        <p class="subtitle">Herramienta para firmar Y encriptar peticiones PAR (JWE anidado con JWS)</p>
+        
+        <div class="info-box">
+            <p><strong>⚠️ Información:</strong></p>
+            <p>Esta herramienta genera un request FIRMADO y ENCRIPTADO (JWE anidado) para el flujo PAR.</p>
+            <p><strong>Proceso:</strong> 1️⃣ Firma el payload con tu clave privada (JWS/PS256) → 2️⃣ Encripta el JWS con la clave pública de Keycloak (JWE/RSA-OAEP+A256GCM)</p>
+            <p><strong>Nota:</strong> La clave privada NO se envía al servidor, todo el procesamiento es local en tu navegador.</p>
+        </div>
+        
+        <form id="jwsjweForm">
+            <!-- Sección 0: Clave Privada -->
+            <div class="form-section">
+                <h2>0️⃣ Clave Privada del Cliente</h2>
+                <div class="form-group">
+                    <label for="private_key_file">Subir Clave Privada (archivo .key o .pem)</label>
+                    <input type="file" id="private_key_file" name="private_key_file" accept=".key,.pem">
+                    <p class="help-text">Selecciona el archivo de clave privada en formato PEM</p>
+                </div>
+                <div class="form-group">
+                    <label for="private_key">O pega la Clave Privada (PEM) *</label>
+                    <textarea id="private_key" name="private_key" required
+                              placeholder="-----BEGIN PRIVATE KEY-----
+MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC...
+-----END PRIVATE KEY-----"></textarea>
+                    <p class="help-text">Formato PEM - Debe comenzar con -----BEGIN PRIVATE KEY----- o -----BEGIN RSA PRIVATE KEY-----</p>
+                </div>
+                <div class="form-group">
+                    <label for="kid">Key ID (kid) - Opcional</label>
+                    <input type="text" id="kid" name="kid" 
+                           placeholder="Identificador de la clave (ej: my-key-2025)">
+                    <p class="help-text">Identificador de la clave en el header JWT. Se usa para que el servidor sepa qué clave pública usar del JWKS para validar la firma.</p>
+                </div>
+            </div>
+            
+            <!-- Sección 1: Configuración de Keycloak -->
+            <div class="form-section">
+                <h2>1️⃣ Configuración de Keycloak</h2>
+                <div class="form-group">
+                    <label for="keycloak_host">Host de Keycloak *</label>
+                    <input type="text" id="keycloak_host" name="keycloak_host" 
+                           placeholder="keycloak-desarrollo.finanzasabiertas.cl" required>
+                    <p class="help-text">Ejemplo: keycloak-desarrollo.finanzasabiertas.cl</p>
+                </div>
+                <div class="form-group">
+                    <label for="realm">Realm *</label>
+                    <input type="text" id="realm" name="realm" value="cmf" required>
+                    <p class="help-text">El realm de Keycloak (por defecto: cmf)</p>
+                </div>
+            </div>
+            
+            <!-- Sección 2: Datos del Cliente -->
+            <div class="form-section">
+                <h2>2️⃣ Datos del Cliente</h2>
+                <div class="form-group">
+                    <label for="client_id">Client ID *</label>
+                    <input type="text" id="client_id" name="client_id" 
+                           placeholder="YOUR_CLIENT_ID" required>
+                </div>
+                <div class="form-group">
+                    <label for="redirect_uri">Redirect URI *</label>
+                    <input type="url" id="redirect_uri" name="redirect_uri" 
+                           placeholder="https://localhost:8080/callback" required>
+                </div>
+                <div class="form-group">
+                    <label for="scope">Scope *</label>
+                    <input type="text" id="scope" name="scope" 
+                           value="openid" required>
+                    <p class="help-text">Scopes separados por espacios</p>
+                </div>
+            </div>
+            
+            <!-- Sección 3: Parámetros PKCE -->
+            <div class="form-section">
+                <h2>3️⃣ Parámetros PKCE</h2>
+                <div class="form-group">
+                    <label for="code_verifier">Code Verifier *</label>
+                    <input type="text" id="code_verifier" name="code_verifier" 
+                           placeholder="Se genera automáticamente" required>
+                    <p class="help-text">Valor aleatorio generado automáticamente (necesario para Token Exchange)</p>
+                </div>
+                <div class="two-columns">
+                    <div class="form-group">
+                        <label for="code_challenge">Code Challenge *</label>
+                        <input type="text" id="code_challenge" name="code_challenge" 
+                               placeholder="Se genera automáticamente" required>
+                        <p class="help-text">BASE64URL(SHA256(code_verifier))</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="code_challenge_method">Code Challenge Method *</label>
+                        <input type="text" id="code_challenge_method" name="code_challenge_method" 
+                               value="S256" readonly required>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Sección 4: Parámetros Adicionales -->
+            <div class="form-section">
+                <h2>4️⃣ Parámetros Adicionales</h2>
+                <div class="two-columns">
+                    <div class="form-group">
+                        <label for="state">State *</label>
+                        <input type="text" id="state" name="state" 
+                               placeholder="Se genera automáticamente" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="nonce">Nonce *</label>
+                        <input type="text" id="nonce" name="nonce" 
+                               placeholder="Se genera automáticamente" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="consent_id">Consent ID (opcional)</label>
+                    <input type="text" id="consent_id" name="consent_id" 
+                           placeholder="urn:bancoestado:consent:1234567890">
+                    <p class="help-text">Identificador único del consentimiento</p>
+                </div>
+                <div class="form-group">
+                    <label for="authorization_details">Authorization Details (JSON opcional)</label>
+                    <textarea id="authorization_details" name="authorization_details" 
+                              placeholder='{"type": "payment_initiation", "actions": ["initiate"], "locations": ["https://api.example.com"]}'></textarea>
+                    <p class="help-text">Objeto JSON con detalles de autorización (RAR). Dejar vacío si no se usa RAR</p>
+                </div>
+            </div>
+            
+            <div class="button-group">
+                <button type="button" class="btn-secondary" onclick="generateRandomValues()">🎲 Generar Valores Aleatorios</button>
+                <button type="submit" class="btn-primary">🔐✍️ Generar Request Firmado y Encriptado</button>
+            </div>
+        </form>
+        
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>Firmando y encriptando la petición...</p>
+        </div>
+        
+        <div class="error-box" id="error">
+            <p id="error-message"></p>
+        </div>
+        
+        <div id="result">
+            <h3>✅ Request Firmado y Encriptado Generado</h3>
+            
+            <div class="form-group">
+                <label>Request JWE Anidado (para usar en Postman - Paso 1)</label>
+                <div class="output-box" id="nested_request"></div>
+                <button type="button" class="btn-copy" onclick="copyToClipboard('nested_request')">📋 Copiar JWE Anidado</button>
+            </div>
+            
+            <div class="form-group">
+                <label>⚠️ Code Verifier (para usar en Postman - Paso 3: Token Exchange)</label>
+                <div class="output-box" id="code_verifier_output"></div>
+                <button type="button" class="btn-copy" onclick="copyToClipboard('code_verifier_output')">📋 Copiar Code Verifier</button>
+            </div>
+            
+            <div class="form-group">
+                <label>JWS Intermedio (firmado, antes de encriptar)</label>
+                <div class="output-box" id="jws_intermediate"></div>
+            </div>
+            
+            <div class="form-group">
+                <label>Payload Original (para referencia)</label>
+                <div class="output-box"><pre id="payload_preview"></pre></div>
+            </div>
+            
+            <div class="form-group">
+                <label>Clave Pública de Encriptación Utilizada (JWK)</label>
+                <div class="output-box"><pre id="public_key_preview"></pre></div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Importar la librería jose para manejo de JWS y JWE -->
+    <script type="module">
+        // Importar jose
+        import * as jose from 'https://cdn.jsdelivr.net/npm/jose@4.15.4/+esm';
+        
+        // Hacer jose disponible globalmente
+        window.jose = jose;
+        
+        // Manejar carga de archivo de clave privada
+        document.getElementById('private_key_file').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    document.getElementById('private_key').value = event.target.result;
+                };
+                reader.readAsText(file);
+            }
+        });
+        
+        // Generar valores aleatorios para code_verifier, state y nonce
+        window.generateRandomValues = function() {
+            // Generar code_verifier (32 bytes aleatorios en base64url)
+            const code_verifier = base64urlEncode(crypto.getRandomValues(new Uint8Array(32)));
+            document.getElementById('code_verifier').value = code_verifier;
+            
+            // Generar code_challenge = BASE64URL(SHA256(code_verifier))
+            generateCodeChallenge(code_verifier).then(code_challenge => {
+                document.getElementById('code_challenge').value = code_challenge;
+            });
+            
+            // Generar state (16 bytes aleatorios en base64url)
+            const state = base64urlEncode(crypto.getRandomValues(new Uint8Array(16)));
+            document.getElementById('state').value = state;
+            
+            // Generar nonce (16 bytes aleatorios en hex)
+            const nonce = Array.from(crypto.getRandomValues(new Uint8Array(16)))
+                .map(b => b.toString(16).padStart(2, '0'))
+                .join('');
+            document.getElementById('nonce').value = nonce;
+        }
+        
+        // Codificar en base64url
+        window.base64urlEncode = function(buffer) {
+            const base64 = btoa(String.fromCharCode(...new Uint8Array(buffer)));
+            return base64.replace(/\+/g, '-').replace(/\//g, '_').replace(/=/g, '');
+        }
+        
+        // Generar code_challenge a partir de code_verifier
+        window.generateCodeChallenge = async function(code_verifier) {
+            const encoder = new TextEncoder();
+            const data = encoder.encode(code_verifier);
+            const hash = await crypto.subtle.digest('SHA-256', data);
+            return base64urlEncode(hash);
+        }
+        
+        // Copiar al portapapeles
+        window.copyToClipboard = function(elementId) {
+            const element = document.getElementById(elementId);
+            const text = element.textContent;
+            
+            navigator.clipboard.writeText(text).then(() => {
+                alert('✅ Copiado al portapapeles');
+            }).catch(err => {
+                console.error('Error al copiar:', err);
+                alert('❌ Error al copiar al portapapeles');
+            });
+        }
+        
+        // Mostrar error
+        window.showError = function(message) {
+            const errorBox = document.getElementById('error');
+            const errorMessage = document.getElementById('error-message');
+            errorMessage.textContent = message;
+            errorBox.style.display = 'block';
+            
+            setTimeout(() => {
+                errorBox.style.display = 'none';
+            }, 10000);
+        }
+        
+        // Manejar el submit del formulario
+        document.getElementById('jwsjweForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // Ocultar resultados y errores previos
+            document.getElementById('result').style.display = 'none';
+            document.getElementById('error').style.display = 'none';
+            document.getElementById('loading').style.display = 'block';
+            
+            try {
+                // Obtener valores del formulario
+                const private_key_pem = document.getElementById('private_key').value.trim();
+                if (!private_key_pem) {
+                    throw new Error('Debes proporcionar una clave privada');
+                }
+                
+                const keycloak_host = document.getElementById('keycloak_host').value;
+                const realm = document.getElementById('realm').value;
+                const client_id = document.getElementById('client_id').value;
+                const redirect_uri = document.getElementById('redirect_uri').value;
+                const scope = document.getElementById('scope').value;
+                const code_challenge = document.getElementById('code_challenge').value;
+                const code_challenge_method = document.getElementById('code_challenge_method').value;
+                const state = document.getElementById('state').value;
+                const nonce = document.getElementById('nonce').value;
+                const consent_id = document.getElementById('consent_id').value;
+                const authorization_details_str = document.getElementById('authorization_details').value;
+                const kid = document.getElementById('kid').value.trim();
+                
+                // Parsear authorization_details si no está vacío
+                let authorization_details = {};
+                if (authorization_details_str.trim()) {
+                    try {
+                        authorization_details = JSON.parse(authorization_details_str);
+                    } catch (err) {
+                        throw new Error('El campo Authorization Details no es un JSON válido');
+                    }
+                }
+                
+                // Timestamps
+                const current_time = Math.floor(Date.now() / 1000);
+                const exp_time = current_time + 300; // 5 minutos
+                
+                // Construir payload
+                const payload = {
+                    aud: `https://${keycloak_host}/realms/${realm}`,
+                    client_id: client_id,
+                    scope: scope,
+                    response_type: "code",
+                    redirect_uri: redirect_uri,
+                    code_challenge_method: code_challenge_method,
+                    code_challenge: code_challenge,
+                    state: state,
+                    consent_id: consent_id || undefined,
+                    authorization_details: Object.keys(authorization_details).length > 0 ? authorization_details : {},
+                    prompt: "consent",
+                    nonce: nonce,
+                    exp: exp_time,
+                    nbf: current_time
+                };
+                
+                // Eliminar campos undefined
+                Object.keys(payload).forEach(key => payload[key] === undefined && delete payload[key]);
+                
+                // PASO 1: Firmar con la clave privada del cliente (JWS)
+                console.log('PASO 1: Importando clave privada y firmando...');
+                const privateKey = await jose.importPKCS8(private_key_pem, 'PS256');
+                
+                // Construir el header protegido con kid opcional
+                const protectedHeader = { 
+                    alg: 'PS256',
+                    typ: 'JWT'
+                };
+                
+                // Agregar kid al header si se proporcionó
+                if (kid) {
+                    protectedHeader.kid = kid;
+                }
+                
+                const jws = await new jose.SignJWT(payload)
+                    .setProtectedHeader(protectedHeader)
+                    .sign(privateKey);
+                
+                console.log('JWS generado:', jws);
+                
+                // PASO 2: Obtener clave pública de Keycloak y encriptar el JWS
+                console.log('PASO 2: Obteniendo clave pública de Keycloak...');
+                const jwks_url = `https://${keycloak_host}/realms/${realm}/protocol/openid-connect/certs`;
+                
+                const response = await fetch(jwks_url);
+                if (!response.ok) {
+                    throw new Error(`Error al obtener JWKS: ${response.status} ${response.statusText}`);
+                }
+                
+                const jwks = await response.json();
+                console.log('JWKS obtenido:', jwks);
+                
+                // Buscar clave pública con use='enc'
+                const encKey = jwks.keys.find(key => key.use === 'enc');
+                if (!encKey) {
+                    throw new Error('No se encontró una clave pública con use="enc" en el JWKS');
+                }
+                
+                console.log('Clave de encriptación encontrada:', encKey);
+                
+                // Importar la clave pública usando jose
+                const publicKey = await jose.importJWK(encKey, 'RSA-OAEP');
+                
+                // Encriptar el JWS (crear JWE anidado)
+                console.log('PASO 2: Encriptando JWS...');
+                const nestedJWE = await new jose.CompactEncrypt(
+                    new TextEncoder().encode(jws)  // Encriptar el JWS completo
+                )
+                .setProtectedHeader({ 
+                    alg: 'RSA-OAEP', 
+                    enc: 'A256GCM',
+                    cty: 'JWT'  // Content Type: JWT (indica que el contenido es un JWS)
+                })
+                .encrypt(publicKey);
+                
+                console.log('JWE anidado generado:', nestedJWE);
+                
+                // Obtener code_verifier del formulario
+                const code_verifier = document.getElementById('code_verifier').value;
+                
+                // Mostrar resultados
+                document.getElementById('nested_request').textContent = nestedJWE;
+                document.getElementById('code_verifier_output').textContent = code_verifier;
+                document.getElementById('jws_intermediate').textContent = jws;
+                document.getElementById('payload_preview').textContent = JSON.stringify(payload, null, 2);
+                document.getElementById('public_key_preview').textContent = JSON.stringify(encKey, null, 2);
+                
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('result').style.display = 'block';
+                
+                // Scroll al resultado
+                document.getElementById('result').scrollIntoView({ behavior: 'smooth' });
+                
+            } catch (error) {
+                console.error('Error:', error);
+                document.getElementById('loading').style.display = 'none';
+                showError(`❌ Error: ${error.message}`);
+            }
+        });
+        
+        // Generar valores aleatorios al cargar la página
+        window.addEventListener('load', () => {
+            generateRandomValues();
+        });
+    </script>
+</body>
+</html>

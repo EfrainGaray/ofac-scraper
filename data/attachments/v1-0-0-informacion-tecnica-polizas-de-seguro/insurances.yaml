@@ -1,0 +1,925 @@
+openapi: 3.0.3
+info:
+  title: API Pólizas de Seguros
+  version: 1.0.0
+  description: Este documento describe las APIs destinadas a desplegar la información asociada a las pólizas de seguros vinculadas al consentimiento otorgado. Estas interfaces permiten acceder de manera segura y eficiente a los datos relevantes, garantizando el cumplimiento de los requisitos legales y de privacidad aplicables. Además, se detalla el uso y funcionamiento de cada API, incluyendo los parámetros necesarios, los formatos de respuesta y los posibles casos de error.
+tags:
+  - name: Pólizas de Seguros
+    description: Operaciones que permiten obtener los datos asociados a las operaciones asociadas a pólizas de seguros, basandose al consentimiento autorizado.
+
+servers:
+  - url: https://api-chile.cl/insurances/v1
+paths:
+  /insurances:
+    get:
+      tags:
+        - Pólizas de Seguros
+      summary: Método para obtener los datos asociados a las operaciones de pólizas de seguros.
+      description: "Método para obtener los datos de las operaciones de pólizas de seguros asociados al consentimiento autorizado."
+      security:
+        - Authorization: []  # Porta el token de acceso (Bearer Token) obtenido tras el proceso de autenticación. Permite al servidor identificar y autorizar la solicitud.
+      parameters:
+        - $ref: '#/components/parameters/x-fapi-interaction-id'
+        - $ref: '#/components/parameters/x-jws-signature'
+        - $ref: "#/components/parameters/page"
+        - $ref: "#/components/parameters/pageSize"
+      responses:
+        '200':
+          description: "Respuesta exitosa con los datos de operaciones de pólizas de seguros."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/InsurancesResponse"
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '405':
+          $ref: '#/components/responses/MethodNotAllowed'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+        '504':
+          $ref: '#/components/responses/GatewayTimeout'
+        '529':
+          $ref: '#/components/responses/SiteIsOverloaded'
+        default:
+          $ref: '#/components/responses/Default'
+          
+  /insurances/{insuranceID}:
+    get:
+      tags:
+        - Pólizas de Seguros
+      summary: Método para obtener los datos asociados a la pólizas de seguros.
+      description: "Método para obtener los datos de la pólizas de seguros asociados al consentimiento autorizado."
+      security:
+        - Authorization: []  # Porta el token de acceso (Bearer Token) obtenido tras el proceso de autenticación. Permite al servidor identificar y autorizar la solicitud.
+      parameters:
+        - $ref: '#/components/parameters/x-fapi-interaction-id'
+        - $ref: '#/components/parameters/x-jws-signature'
+        - $ref: '#/components/parameters/insuranceID'
+      responses:
+        '200':
+          description: "Respuesta exitosa con los datos de la póliza de seguros."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/InsuranceResponse"
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '405':
+          $ref: '#/components/responses/MethodNotAllowed'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+        '504':
+          $ref: '#/components/responses/GatewayTimeout'
+        '529':
+          $ref: '#/components/responses/SiteIsOverloaded'
+        default:
+          $ref: '#/components/responses/Default'
+          
+  /insurances/{insuranceID}/transactions:
+    get:
+      tags:
+        - Pólizas de Seguros
+      summary: Método para obtener los movimientos transaccionales asociados a la pólizas de seguros.
+      description: "Método para obtener los movimientos transaccionales de la pólizas de seguros asociados al consentimiento autorizado."
+      security:
+        - Authorization: []  # Porta el token de acceso (Bearer Token) obtenido tras el proceso de autenticación. Permite al servidor identificar y autorizar la solicitud.
+      parameters:
+        - $ref: '#/components/parameters/x-fapi-interaction-id'
+        - $ref: '#/components/parameters/x-jws-signature'
+        - $ref: '#/components/parameters/insuranceID'
+        - $ref: "#/components/parameters/page"
+        - $ref: "#/components/parameters/pageSize"
+      responses:
+        '200':
+          description: "Respuesta exitosa con los movimientos transaccionales de la póliza de seguros."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/InsuranceTransactionsResponse"
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '405':
+          $ref: '#/components/responses/MethodNotAllowed'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+        '504':
+          $ref: '#/components/responses/GatewayTimeout'
+        '529':
+          $ref: '#/components/responses/SiteIsOverloaded'
+        default:
+          $ref: '#/components/responses/Default'
+          
+components:
+
+  schemas:
+  
+    InsurancesResponse:
+      type: object
+      required :
+        - data
+        - links
+        - meta
+      properties:
+        data:
+          $ref: '#/components/schemas/DataInsurances'
+        links:
+          $ref: '#/components/schemas/Links'
+        meta:
+          $ref: '#/components/schemas/Meta'
+          
+    DataInsurances:
+      type: object
+      properties:
+        insurances:
+          type: array
+          items:
+            $ref: '#/components/schemas/Insurances'
+      
+    Insurances:
+      type: object
+      properties:
+        companyRut:
+          type: string
+          description: "RUT de la compañía que responde"
+          pattern: '^\d{7,8}-[0-9Kk]{1}$' 
+          maxLength: 10
+          example: "16423986-4"
+        companyName:
+          type: string
+          description: "Razón Social de la Compañía"
+          maxLength: 140
+          example: "Aseguradora AACH"
+        group:
+          type: string
+          description: "Grupo al que pertenece la entidad"
+          maxLength: 50
+          example: "Vida"
+        informationCloseDate:
+          type: string
+          format: date
+          description: "Fecha de cierre de la información"
+          pattern: '^\d{4}-\d{2}-\d{2}$'
+          example: "2025-01-30"
+        policyNumberInternal:
+          type: string
+          description: "Número interno de la póliza"
+          maxLength: 40
+          example: "POL98765" 
+        policyStatus:
+          type: string
+          description: "Estado de la póliza"
+          maxLength: 40
+          example: "Vigente" 
+        policyCollectiveOrIndividual:
+          type: string
+          description: "Indica si es Colectiva o Individual"
+          maxLength: 40
+          example: "Colectivo" 
+        startDateCollective:
+          type: string
+          format: date
+          description: "Fecha inicio vigencia (colectiva)"
+          pattern: '^\d{4}-\d{2}-\d{2}$'
+          example: "2024-01-01"
+        noEndDateCollective:
+          type: string
+          maxLength: 2
+          description: "¿Sin fecha término colectiva?"
+          example: "Si"
+        endDateCollective:
+          type: string
+          format: date
+          description: "Fecha término vigencia colectiva"
+          pattern: '^\d{4}-\d{2}-\d{2}$'
+          example: "2025-12-31"
+        currentPremium:
+          type: number
+          description: "Prima vigente"
+          example: "25000" 
+        premiumPeriodicity:
+          type: string
+          maxLength: 10
+          description: "Periodicidad de la prima"
+          example: "Mensual" 
+        premiumPaymentFrequency:
+          type: string
+          maxLength: 10
+          description: "Frecuencia de pago de la prima"
+          example: "Mensual"
+        premiumCurrency:
+            type: string
+            description: "Moneda de la transacción."
+            maxLength: 3
+            example: "CLP"
+        insured:
+          $ref: '#/components/schemas/Insured'
+        contractHolder:
+          $ref: '#/components/schemas/ContractHolder'
+        broker:
+          $ref: '#/components/schemas/Broker'
+        details:
+          $ref: '#/components/schemas/Details'
+          
+      required:
+        - companyRut
+        - companyName
+        - policyNumberInternal
+        - policyStatus
+        - premiumCurrency
+        
+    Insured:
+      type: object
+      properties:
+        typeIdentification:
+          type: string
+          maxLength: 10
+          description: "Tipo de identificador del asegurado"
+          example: "RUT"
+        numberIdentification:
+          type: string
+          maxLength: 10
+          description: "Número identificador del asegurado"
+          example: "17454876-1"
+        nameOrSocialReason:
+          type: string
+          maxLength: 50
+          description: "Nombre / Razón Social del asegurado"
+          example: "Juan Pérez"
+      required:
+        - typeIdentification
+        - numberIdentification
+        - nameOrSocialReason
+
+    ContractHolder:
+      type: object
+      properties:
+        typeIdentification:
+          type: string
+          maxLength: 10
+          description: "Tipo de identificador del contratante"
+          example: "RUT"
+        numberIdentification:
+          type: string
+          maxLength: 10
+          description: "Número identificador del contratante"
+          example: "19857239-5"
+        nameOrSocialReason:
+          type: string
+          maxLength: 50
+          description: "Nombre / Razón Social del contratante"
+          example: "Felipe Zuñiga"
+      required:
+        - typeIdentification
+        - numberIdentification
+        - nameOrSocialReason
+
+    Broker:
+      type: object
+      properties:
+        typeIdentification:
+          type: string
+          maxLength: 10
+          description: "Tipo de identificador del corredor/asesor"
+          example: "RUT"
+        numberIdentification:
+          type: string
+          maxLength: 10
+          description: "Número identificador del corredor/asesor"
+          example: "21998354-3"
+        nameOrSocialReason:
+          type: string
+          maxLength: 50
+          description: "Nombre / Razón Social del corredor/asesor"
+          example: "Juan Sandoval"
+      
+    Details:
+      type: object
+      properties:
+        policies:
+          type: array
+          items:
+            $ref: '#/components/schemas/Policies'
+            
+    Policies:
+      type: object
+      properties:
+        code:
+          type: string
+          maxLength: 40
+          description: "Código póliza CMF (POLXXXX)"
+          example: "POL00123456"
+        branch:
+          type: string
+          maxLength: 70
+          description: "Ramo (Circular N°2022)"
+          example: "Vida Individual"
+          
+    InsuranceResponse:
+      type: object
+      required :
+        - data
+        - links
+        - meta
+      properties:
+        data:
+          $ref: '#/components/schemas/DataInsurance'
+        links:
+          $ref: '#/components/schemas/Links'
+        meta:
+          $ref: '#/components/schemas/Meta'
+          
+    DataInsurance:
+      type: object
+      properties:
+        insurance:
+            $ref: '#/components/schemas/Insurance'
+            
+    Insurance:
+      type: object
+      properties:
+        companyRut:
+          type: string
+          description: "RUT de la compañía que responde"
+          pattern: '^\d{7,8}-[0-9Kk]{1}$' 
+          maxLength: 10
+          example: "16423986-4"
+        companyName:
+          type: string
+          description: "Razón Social de la Compañía"
+          maxLength: 140
+          example: "Aseguradora AACH"
+        group:
+          type: string
+          description: "Grupo al que pertenece la entidad"
+          maxLength: 50
+          example: "Vida"
+        informationCloseDate:
+          type: string
+          format: date
+          description: "Fecha de cierre de la información"
+          pattern: '^\d{4}-\d{2}-\d{2}$'
+          example: "2025-01-30"
+        policyNumberInternal:
+          type: string
+          description: "Número interno de la póliza"
+          maxLength: 40
+          example: "POL98765" 
+        policyStatus:
+          type: string
+          description: "Estado de la póliza"
+          maxLength: 40
+          example: "Vigente" 
+        policyCollectiveOrIndividual:
+          type: string
+          description: "Indica si es Colectiva o Individual"
+          maxLength: 40
+          example: "Colectivo" 
+        startDateCollective:
+          type: string
+          format: date
+          description: "Fecha inicio vigencia (colectiva)"
+          pattern: '^\d{4}-\d{2}-\d{2}$'
+          example: "2024-01-01"
+        noEndDateCollective:
+          type: string
+          maxLength: 2
+          description: "¿Sin fecha término colectiva?"
+          example: "Si"
+        endDateCollective:
+          type: string
+          format: date
+          description: "Fecha término vigencia colectiva"
+          pattern: '^\d{4}-\d{2}-\d{2}$'
+          example: "2025-12-31"
+        currentPremium:
+          type: number
+          description: "Prima vigente"
+          example: "25000" 
+        premiumPeriodicity:
+          type: string
+          maxLength: 10
+          description: "Periodicidad de la prima"
+          example: "Mensual" 
+        premiumPaymentFrequency:
+          type: string
+          maxLength: 10
+          description: "Frecuencia de pago de la prima"
+          example: "Mensual"
+        insured:
+          $ref: '#/components/schemas/Insured'
+        contractHolder:
+          $ref: '#/components/schemas/ContractHolder'
+        broker:
+          $ref: '#/components/schemas/Broker'
+        details:
+          type: object
+          properties:
+            policies:
+              type: array
+              items:
+                $ref: '#/components/schemas/PoliciesExtend'
+            clauses:
+              type: array
+              items:
+                $ref: '#/components/schemas/Clauses'
+          
+      required:
+        - companyRut
+        - companyName
+        - policyNumberInternal
+        - policyStatus
+    
+    PoliciesExtend:
+      type: object
+      properties:
+        code:
+          type: string
+          maxLength: 40
+          description: "Código póliza CMF (POLXXXX)"
+          example: "POL00123456"
+        branch:
+          type: string
+          maxLength: 70
+          description: "Ramo (Circular N°2022)"
+          example: "Vida Individual"
+        startDateCoverage:
+          type: string
+          format: date
+          description: "Fecha inicio vigencia de cobertura"
+          pattern: '^\d{4}-\d{2}-\d{2}$'
+          example: "2024-01-01"
+        noEndDateCoverage:
+          type: string
+          maxLength: 2
+          description: "Sin fecha término cobertura"
+          example: "Si"
+        endDateCoverage:
+          type: string
+          format: date
+          description: "Fecha término vigencia cobertura"
+          pattern: '^\d{4}-\d{2}-\d{2}$'
+          example: "2025-12-31"
+          
+    Clauses:
+      type: object
+      properties:
+        code:
+          type: string
+          maxLength: 40
+          description: "Código cláusula CMF (CADXXXXXX)"
+          example: "POL00123456"
+        branch:
+          type: string
+          maxLength: 70
+          description: "Ramo (Circular N°2022)"
+          example: "Vida Individual"
+        startDateCoverage:
+          type: string
+          format: date
+          description: "Fecha inicio vigencia de la cobertura en cláusula"
+          pattern: '^\d{4}-\d{2}-\d{2}$'
+          example: "2024-01-01"
+        noEndDateCoverage:
+          type: string
+          maxLength: 2
+          description: "¿Sin fecha término en la cláusula?"
+          example: "Si"
+        endDateCoverage:
+          type: string
+          format: date
+          description: "Fecha término vigencia cobertura cláusula"
+          pattern: '^\d{4}-\d{2}-\d{2}$'
+          example: "2025-12-31"
+          
+    InsuranceTransactionsResponse:
+      type: object
+      required :
+        - data
+        - links
+        - meta
+      properties:
+        data:
+          $ref: '#/components/schemas/DataInsuranceTransactions'
+        links:
+          $ref: '#/components/schemas/Links'
+        meta:
+          $ref: '#/components/schemas/Meta'
+          
+    DataInsuranceTransactions:
+      type: object
+      properties:
+        transactions:
+          type: array
+          items:
+            $ref: '#/components/schemas/InsuranceTransactions'
+      
+    InsuranceTransactions:
+      type: object
+      properties:
+        transactionId:
+          type: string
+          description: "Identificador de la transacción"
+          maxLength: 40
+          example: "TXN12345"
+        transactionDate:
+          type: string
+          format: date
+          description: "Fecha/hora de la transacción"
+          example: "2025-02-10T10:00:00Z"
+        transactionType:
+          type: string
+          description: "Tipo de la transacción"
+          maxLength: 40
+          example: "Endoso"
+        description:
+          type: string
+          description: "Descripción del movimiento"
+          maxLength: 256
+          example: "Endoso para ampliar cobertura"
+        amount:
+          type: number
+          description: "Monto asociado a la transacción"
+          example: "50000" 
+        currency:
+          type: string
+          maxLength: 3
+          description: "Moneda del monto asociado"
+          example: "CLP" 
+        coverageBefore:
+          $ref: '#/components/schemas/CoverageBefore'
+        coverageAfter:
+          $ref: '#/components/schemas/CoverageAfter'
+        premiumBefore:
+          type: number
+          description: "Prima antes de la transacción"
+          example: "20000" 
+        premiumAfter:
+          type: number
+          description: "Prima posterior a la transacción"
+          example: "30000" 
+          
+      required:
+        - transactionId
+        - transactionDate
+        - transactionType
+        
+    CoverageBefore:
+      type: object
+      properties:
+        coverageType:
+          type: string
+          maxLength: 70
+          description: "Tipo de cobertura anterior"
+          example: "Vida"
+        insuredAmount:
+          type: number
+          description: "Monto asegurado anterior"
+          example: "10000000" 
+        insuredCurrency:
+          type: string
+          maxLength: 3
+          description: "Moneda anterior"
+          example: "CLP"
+      required:
+        - coverageType
+        - insuredAmount
+        - insuredCurrency
+
+    CoverageAfter:
+      type: object
+      properties:
+        coverageType:
+          type: string
+          maxLength: 70
+          description: "Tipo de cobertura posterior"
+          example: "Vida + AP"
+        insuredAmount:
+          type: number
+          description: "Monto asegurado posterior"
+          example: "15000000" 
+        insuredCurrency:
+          type: string
+          maxLength: 3
+          description: "Moneda posterior"
+          example: "CLP" 
+      required:
+        - coverageType
+        - insuredAmount
+        - insuredCurrency
+
+    Links:
+      type: object
+      description: Referencias a otros recursos de la API solicitada
+      properties:
+        self:
+          type: string
+          format: url
+          description: URL de la página actual de registros
+          maxLength: 2000
+          minLength: 5
+          example: "https://api-chile.cl/insurances/v1/insurances?page=4&pageSize=20"
+        first:
+          type: string
+          format: url
+          description: URL de la primera página de registros
+          maxLength: 2000
+          minLength: 5
+          example: "https://api-chile.cl/insurances/v1/insurances?page=1&pageSize=20"
+        prev:
+          type: string
+          format: url
+          description: URL de la página anterior de registros
+          maxLength: 2000
+          minLength: 5
+          example: "https://api-chile.cl/insurances/v1/insurances?page=3&pageSize=20"
+        next:
+          type: string
+          format: url
+          description: URL de la próxima página de registros
+          maxLength: 2000
+          minLength: 5
+          example: "https://api-chile.cl/insurances/v1/insurances?page=5&pageSize=20"
+        last:
+          type: string
+          format: url
+          description: URL da última página de registros
+          maxLength: 2000
+          minLength: 5
+          example: "https://api-chile.cl/insurances/v1/insurances?page=13&pageSize=20"
+          
+    Meta:
+      type: object
+      description: Meta información sobre los datos solicitados
+      properties:
+        firstAvailableDateTime:
+          type: string
+          format: date-time
+          description: Fecha del primer registro encontrado
+          example: "2024-01-11 14:56:34"
+        lastAvailableDateTime:
+          type: string
+          format: date-time
+          description: Fecha del último registro encontrado
+          example: "2025-01-23 14:56:34"
+        totalPages:
+          type: integer
+          description: Total de páginas para los registros encontrados
+          example: 12
+      required:
+        - firstAvailableDateTime
+        - lastAvailableDateTime
+        - totalPages  
+      
+    ResponseErrorMetaSingle:
+      type: object
+      required:
+        - errors
+      properties:
+        errors:
+          type: array
+          minItems: 1
+          maxItems: 13
+          items:
+            type: object
+            required:
+              - code
+              - title
+              - detail
+            properties:
+              code:
+                description: Código de error específico de la solicitud
+                type: string
+                maxLength: 255
+                example: "50001"
+              title:
+                description: Título legible por un humano de este error en específico
+                type: string
+                maxLength: 255
+                example: "Conexión interrumpida"
+              detail:
+                description: Descripción legible por un humano de este error en especifico
+                type: string
+                maxLength: 2048
+                example: "No pudimos conectar con el servidor de datos abiertos. Por favor, verifica tu conexión a internet o contáctanos si el problema persiste."
+        meta:
+          type: object
+          description: Meta de información sobre la API solicitada
+          required:
+            - requestDateTime
+          properties:
+            requestDateTime:
+              description: Fecha y hora de la consulta, según especificación RFC-3339, formato UTC.
+              type: string
+              format: date-time
+              minLength: 20
+              maxLength: 20
+              pattern: '^[2-9]\d{3}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$'
+              example: '2023-10-09T14:10:00Z'
+              
+    ResponseError:
+      type: object
+      required:
+        - errors
+      properties:
+        errors:
+          type: array
+          minItems: 1
+          maxItems: 13
+          items:
+            type: object
+            required:
+              - code
+              - title
+              - detail
+            properties:
+              code:
+                description: Código de error específico
+                type: string
+                maxLength: 255
+                example: "20001"
+              title:
+                description: Título legible por un humano de este error en específico
+                type: string
+                maxLength: 255
+                example: "Error al obtener datos asociados a las pólizas de seguros"
+              detail:
+                description: Descripción legible por un humano de este error en específico
+                type: string
+                maxLength: 2048
+                example: "La información sobre pólizas de seguros no está disponible actualmente."
+        meta:
+          type: object
+          description: Meta de información sobre la API solicitada
+          required:
+            - requestDateTime
+          properties:
+            requestDateTime:
+              description: Fecha y hora de la consulta, según especificación RFC-3339, formato UTC.
+              type: string
+              format: date-time
+              minLength: 20
+              maxLength: 20
+              pattern: '^[2-9]\d{3}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$'
+              example: '2023-10-09T14:10:00Z'
+              
+  securitySchemes:
+    Authorization:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT  # Opcional, solo para aclarar el formato
+              
+  parameters:
+    page:
+      name: page
+      in: query
+      description: "Número de la página que se solicita (el valor de la primera página es 1)"
+      schema:
+        type: integer
+        format: int32
+        default: 1
+        minimum: 1
+        maximum: 2147483647
+    pageSize:
+      name: pageSize
+      in: query
+      description: "Número total de registros por página"
+      schema:
+        type: integer
+        format: int32
+        default: 20
+        minimum: 1
+        maximum: 2147483647
+    x-fapi-interaction-id:
+      name: x-fapi-interaction-id
+      in: header
+      required: true
+      description: "UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+      schema:
+        type: string
+    x-jws-signature:
+      name: x-jws-signature
+      in: header
+      required: false
+      description: "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+      schema:
+        type: string
+    fromDate:
+      name: fromDate
+      in: query
+      required: false
+      description: "Fecha de inicio del rango"
+      example: "2024-01-01"
+      schema:
+        type: string
+        format: date
+    toDate:
+      name: toDate
+      in: query
+      required: false
+      description: "Fecha de fin del rango"
+      example: "2025-01-01"
+      schema:
+        type: string
+        format: date
+    insuranceID:
+      name: insuranceID
+      in: path
+      required: true
+      description: "Identificador del seguro"
+      example: "POL98765"
+      schema:
+        type: string
+        
+  responses:
+    BadRequest:
+      description: La solicitud presentaba un formato incorrecto y faltaban atributos obligatorios, tanto en el  cuerpo de la solicitud como en los parámetros de la URL.
+      content:
+        application/json; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/ResponseError'
+          example:
+            code: "400"
+            title: "Solicitud inválida"
+            detail: "El parámetro 'page' es obligatorio y no fue incluido en la solicitud."
+    NotFound:
+      description: La característica solicitada no está disponible o aún no ha sido implementada.
+      content:
+        application/json; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/ResponseError'
+          example:
+            code: "404"
+            title: "Recurso no encontrado"
+            detail: "No se encontraron pólizas de seguros para la búsqueda especificada."
+    MethodNotAllowed:
+      description: El consumidor intentó acceder al recurso utilizando un método no compatible.
+      content:
+        application/json; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/ResponseError'
+          example:
+            code: "405"
+            title: "Método no permitido"
+            detail: "El método HTTP 'POST' no está habilitado para este recurso. Por favor, utilice 'GET'."
+    TooManyRequests:
+      description: La operación fue rechazada debido a que se superó el número permitido de solicitudes dentro de un período determinado o se alcanzó el límite de solicitudes simultáneas.
+      content:
+        application/json; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/ResponseError'
+          example:
+            code: "429"
+            title: "Demasiadas solicitudes"
+            detail: "Has excedido el límite de solicitudes permitidas. Intenta nuevamente después de 1 minuto."
+    InternalServerError:
+      description: Ocurrió un error en la puerta de enlace API o en el microservicio.
+      content:
+        application/json; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/ResponseError'
+          example:
+            code: "500"
+            title: "Error interno del servidor"
+            detail: "Ocurrió un error inesperado en el servidor. Por favor, inténtalo de nuevo más tarde."
+    GatewayTimeout:
+      description: GATEWAY TIMEOUT - La solicitud no fue respondida dentro del tiempo límite establecido.
+      content:
+        application/json; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/ResponseError'
+          example:
+            code: "504"
+            title: "Tiempo de espera agotado"
+            detail: "El servidor no pudo completar la solicitud a tiempo. Por favor, verifica tu conexión o inténtalo más tarde."
+    SiteIsOverloaded:
+      description: El sitio está sobrecargado y la operación fue rechazada debido a que se alcanzó el límite máximo global de TPS (transacciones por segundo) en este momento.
+      content:
+        application/json; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/ResponseErrorMetaSingle'
+          example:
+            code: "529"
+            title: "El sitio está sobrecargado"
+            detail: "El sistema está experimentando una carga elevada. Por favor, inténtalo más tarde."
+    Default:
+      description: '\-'
+      content:
+        application/json; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/ResponseError'
+          example:
+            code: "001"
+            title: "Error desconocido"
+            detail: "Ha ocurrido un error inesperado. Por favor, contacta al soporte técnico con los detalles de la solicitud."

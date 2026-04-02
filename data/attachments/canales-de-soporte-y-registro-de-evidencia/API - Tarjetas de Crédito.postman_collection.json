@@ -1,0 +1,1638 @@
+{
+	"info": {
+		"_postman_id": "c8e8c123-6f73-48dd-86fe-68a030acb53c",
+		"name": "API - Tarjetas de Crédito",
+		"description": "La API de cuentas de tarjetas de crédito permite compartir datos de cuentas pospagas (tarjetas de crédito), como límites, transacciones y balances.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17913263",
+		"_collection_link": "https://restless-spaceship-269474.postman.co/workspace/CMF~6989a4ae-868d-4761-9ab5-331f222eae90/collection/17913263-c8e8c123-6f73-48dd-86fe-68a030acb53c?action=share&source=collection_link&creator=17913263"
+	},
+	"item": [
+		{
+			"name": "accounts",
+			"item": [
+				{
+					"name": "/accounts cgarcia",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "333e9999-e88b-12d3-a456-426655443333",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "<string>",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo.",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/accounts?page=2&pageSize=1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"accounts"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "2",
+									"description": "Número de la página que se solicita (el valor de la primera página es 1)"
+								},
+								{
+									"key": "pageSize",
+									"value": "1",
+									"description": "Número total de registros por página"
+								}
+							]
+						},
+						"description": "Método para obtener la lista de cuentas de pago pospago que el cliente mantiene en la entidad transmisora y para las que ha prestado su consentimiento."
+					},
+					"response": []
+				},
+				{
+					"name": "/accounts jmendoza",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "111e9999-e88b-12d3-a456-426655441111",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "<string>",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo.",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/accounts?page=1&pageSize=2",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"accounts"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"description": "Número de la página que se solicita (el valor de la primera página es 1)"
+								},
+								{
+									"key": "pageSize",
+									"value": "2",
+									"description": "Número total de registros por página"
+								}
+							]
+						},
+						"description": "Método para obtener la lista de cuentas de pago pospago que el cliente mantiene en la entidad transmisora y para las que ha prestado su consentimiento."
+					},
+					"response": []
+				},
+				{
+					"name": "/accounts jperez",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "444e9999-e88b-12d3-a456-426655444444",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "<string>",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo.",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/accounts?page=2&pageSize=2",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"accounts"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "2",
+									"description": "Número de la página que se solicita (el valor de la primera página es 1)"
+								},
+								{
+									"key": "pageSize",
+									"value": "2",
+									"description": "Número total de registros por página"
+								}
+							]
+						},
+						"description": "Método para obtener la lista de cuentas de pago pospago que el cliente mantiene en la entidad transmisora y para las que ha prestado su consentimiento."
+					},
+					"response": []
+				},
+				{
+					"name": "/accounts mrojas",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "222e9999-e88b-12d3-a456-426655442222",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "<string>",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo.",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/accounts?page=1&pageSize=5",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"accounts"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"description": "Número de la página que se solicita (el valor de la primera página es 1)"
+								},
+								{
+									"key": "pageSize",
+									"value": "5",
+									"description": "Número total de registros por página"
+								}
+							]
+						},
+						"description": "Método para obtener la lista de cuentas de pago pospago que el cliente mantiene en la entidad transmisora y para las que ha prestado su consentimiento."
+					},
+					"response": []
+				},
+				{
+					"name": "/accounts sfernandez",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "555e9999-e88b-12d3-a456-426655445555",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "<string>",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo.",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/accounts",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"accounts"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "2",
+									"description": "Número de la página que se solicita (el valor de la primera página es 1)",
+									"disabled": true
+								},
+								{
+									"key": "pageSize",
+									"value": "1",
+									"description": "Número total de registros por página",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Método para obtener la lista de cuentas de pago pospago que el cliente mantiene en la entidad transmisora y para las que ha prestado su consentimiento."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "{creditCardAccountID}",
+			"item": [
+				{
+					"name": "/creditCardAccountID cgarcia",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "333e9999-e88b-12d3-a456-426655443333",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "<string>",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo.",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/accounts/CC30002",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"accounts",
+								"CC30002"
+							]
+						},
+						"description": "Método para obtener datos de identificación de la cuenta de pago pospago identificada por creditCardAccountID mantenida por el cliente en la institución transmisora."
+					},
+					"response": []
+				},
+				{
+					"name": "/creditCardAccountID jmendoza",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "111e9999-e88b-12d3-a456-426655441111",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "<string>",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo.",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/accounts/CC10001",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"accounts",
+								"CC10001"
+							]
+						},
+						"description": "Método para obtener datos de identificación de la cuenta de pago pospago identificada por creditCardAccountID mantenida por el cliente en la institución transmisora."
+					},
+					"response": []
+				},
+				{
+					"name": "/creditCardAccountID jperez",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "444e9999-e88b-12d3-a456-426655444444",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "<string>",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo.",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/accounts/CC40004",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"accounts",
+								"CC40004"
+							]
+						},
+						"description": "Método para obtener datos de identificación de la cuenta de pago pospago identificada por creditCardAccountID mantenida por el cliente en la institución transmisora."
+					},
+					"response": []
+				},
+				{
+					"name": "/creditCardAccountID mrojas",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "222e9999-e88b-12d3-a456-426655442222",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "<string>",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo.",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/accounts/CC20002",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"accounts",
+								"CC20002"
+							]
+						},
+						"description": "Método para obtener datos de identificación de la cuenta de pago pospago identificada por creditCardAccountID mantenida por el cliente en la institución transmisora."
+					},
+					"response": []
+				},
+				{
+					"name": "/creditCardAccountID sfernandez",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "555e9999-e88b-12d3-a456-426655445555",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "<string>",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo.",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/accounts/CC50002",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"accounts",
+								"CC50002"
+							]
+						},
+						"description": "Método para obtener datos de identificación de la cuenta de pago pospago identificada por creditCardAccountID mantenida por el cliente en la institución transmisora."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "balance",
+			"item": [
+				{
+					"name": "/creditCardAccountID/balance cgarcia",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "333e9999-e88b-12d3-a456-426655443333",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "<string>",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo.",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/accounts/CC30002/balance",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"accounts",
+								"CC30002",
+								"balance"
+							]
+						},
+						"description": "Método para obtener datos de identificación de la cuenta de pago pospago identificada por creditCardAccountID mantenida por el cliente en la institución transmisora."
+					},
+					"response": []
+				},
+				{
+					"name": "/creditCardAccountID/balance jmendoza",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "111e9999-e88b-12d3-a456-426655441111",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "<string>",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo.",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/accounts/CC10001/balance",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"accounts",
+								"CC10001",
+								"balance"
+							]
+						},
+						"description": "Método para obtener datos de identificación de la cuenta de pago pospago identificada por creditCardAccountID mantenida por el cliente en la institución transmisora."
+					},
+					"response": []
+				},
+				{
+					"name": "/creditCardAccountID/balance jperez",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "444e9999-e88b-12d3-a456-426655444444",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "<string>",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo.",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/accounts/CC40004/balance",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"accounts",
+								"CC40004",
+								"balance"
+							]
+						},
+						"description": "Método para obtener datos de identificación de la cuenta de pago pospago identificada por creditCardAccountID mantenida por el cliente en la institución transmisora."
+					},
+					"response": []
+				},
+				{
+					"name": "/creditCardAccountID/balance mrojas",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "222e9999-e88b-12d3-a456-426655442222",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "<string>",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo.",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/accounts/CC20002/balance",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"accounts",
+								"CC20002",
+								"balance"
+							]
+						},
+						"description": "Método para obtener datos de identificación de la cuenta de pago pospago identificada por creditCardAccountID mantenida por el cliente en la institución transmisora."
+					},
+					"response": []
+				},
+				{
+					"name": "/creditCardAccountID/balance sfernandez",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "555e9999-e88b-12d3-a456-426655445555",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "<string>",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo.",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/accounts/CC50002/balance",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"accounts",
+								"CC50002",
+								"balance"
+							]
+						},
+						"description": "Método para obtener datos de identificación de la cuenta de pago pospago identificada por creditCardAccountID mantenida por el cliente en la institución transmisora."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "current-balance",
+			"item": [
+				{
+					"name": "/creditCardAccountID/current-balance cgarcia",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "333e9999-e88b-12d3-a456-426655443333",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "<string>",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo.",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/accounts/CC30002/current-balance",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"accounts",
+								"CC30002",
+								"current-balance"
+							]
+						},
+						"description": "Método para obtener datos de identificación de la cuenta de pago pospago identificada por creditCardAccountID mantenida por el cliente en la institución transmisora."
+					},
+					"response": []
+				},
+				{
+					"name": "/creditCardAccountID/current-balance jmendoza",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "111e9999-e88b-12d3-a456-426655441111",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "<string>",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo.",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/accounts/CC10001/current-balance",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"accounts",
+								"CC10001",
+								"current-balance"
+							]
+						},
+						"description": "Método para obtener datos de identificación de la cuenta de pago pospago identificada por creditCardAccountID mantenida por el cliente en la institución transmisora."
+					},
+					"response": []
+				},
+				{
+					"name": "/creditCardAccountID/current-balance jperez",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "444e9999-e88b-12d3-a456-426655444444",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "<string>",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo.",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/accounts/CC40004/current-balance",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"accounts",
+								"CC40004",
+								"current-balance"
+							]
+						},
+						"description": "Método para obtener datos de identificación de la cuenta de pago pospago identificada por creditCardAccountID mantenida por el cliente en la institución transmisora."
+					},
+					"response": []
+				},
+				{
+					"name": "/creditCardAccountID/current-balance mrojas",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "222e9999-e88b-12d3-a456-426655442222",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "<string>",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo.",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/accounts/CC20002/current-balance",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"accounts",
+								"CC20002",
+								"current-balance"
+							]
+						},
+						"description": "Método para obtener datos de identificación de la cuenta de pago pospago identificada por creditCardAccountID mantenida por el cliente en la institución transmisora."
+					},
+					"response": []
+				},
+				{
+					"name": "/creditCardAccountID/current-balance sfernandez",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "555e9999-e88b-12d3-a456-426655445555",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "<string>",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo.",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/accounts/CC50002/current-balance",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"accounts",
+								"CC50002",
+								"current-balance"
+							]
+						},
+						"description": "Método para obtener datos de identificación de la cuenta de pago pospago identificada por creditCardAccountID mantenida por el cliente en la institución transmisora."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "limit",
+			"item": [
+				{
+					"name": "/creditCardAccountID/limit cgarcia",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "333e9999-e88b-12d3-a456-426655443333",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "<string>",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo.",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/accounts/CC30002/limit",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"accounts",
+								"CC30002",
+								"limit"
+							]
+						},
+						"description": "Método para obtener datos de identificación de la cuenta de pago pospago identificada por creditCardAccountID mantenida por el cliente en la institución transmisora."
+					},
+					"response": []
+				},
+				{
+					"name": "/creditCardAccountID/limit jmendoza",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "111e9999-e88b-12d3-a456-426655441111",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "<string>",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo.",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/accounts/CC10001/limit",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"accounts",
+								"CC10001",
+								"limit"
+							]
+						},
+						"description": "Método para obtener datos de identificación de la cuenta de pago pospago identificada por creditCardAccountID mantenida por el cliente en la institución transmisora."
+					},
+					"response": []
+				},
+				{
+					"name": "/creditCardAccountID/limit jperez",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "444e9999-e88b-12d3-a456-426655444444",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "<string>",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo.",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/accounts/CC40004/limit",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"accounts",
+								"CC40004",
+								"limit"
+							]
+						},
+						"description": "Método para obtener datos de identificación de la cuenta de pago pospago identificada por creditCardAccountID mantenida por el cliente en la institución transmisora."
+					},
+					"response": []
+				},
+				{
+					"name": "/creditCardAccountID/limit mrojas",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "222e9999-e88b-12d3-a456-426655442222",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "<string>",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo.",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/accounts/CC20002/limit",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"accounts",
+								"CC20002",
+								"limit"
+							]
+						},
+						"description": "Método para obtener datos de identificación de la cuenta de pago pospago identificada por creditCardAccountID mantenida por el cliente en la institución transmisora."
+					},
+					"response": []
+				},
+				{
+					"name": "/creditCardAccountID/limit sfernandez",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "555e9999-e88b-12d3-a456-426655445555",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "<string>",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo.",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/accounts/CC50002/limit",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"accounts",
+								"CC50002",
+								"limit"
+							]
+						},
+						"description": "Método para obtener datos de identificación de la cuenta de pago pospago identificada por creditCardAccountID mantenida por el cliente en la institución transmisora."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "transactions",
+			"item": [
+				{
+					"name": "Obtiene datos de transacciones relacionadas con la cuenta de pago pospago por creditCardAccountId.",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "<string>",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "<string>",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/accounts/:creditCardAccountID/transactions?fromDate=<date>&toDate=<date>&page=1&pageSize=20",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"accounts",
+								":creditCardAccountID",
+								"transactions"
+							],
+							"query": [
+								{
+									"key": "fromDate",
+									"value": "<date>",
+									"description": "Fecha de inicio del rango"
+								},
+								{
+									"key": "toDate",
+									"value": "<date>",
+									"description": "Fecha de fin del rango"
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"description": "Número de la página que se solicita (el valor de la primera página es 1)"
+								},
+								{
+									"key": "pageSize",
+									"value": "20",
+									"description": "Número total de registros por página"
+								}
+							],
+							"variable": [
+								{
+									"key": "creditCardAccountID",
+									"value": "<string>",
+									"description": "(Required) Identificador de la tarjeta de crédito"
+								}
+							]
+						},
+						"description": "Método para obtener el listado de transacciones históricas (últimos 12 meses, o tramo de este período) de la cuenta de pago pospago identificada por creditCardAccountID mantenida por el cliente en la institución transmisora."
+					},
+					"response": []
+				},
+				{
+					"name": "/creditCardAccountID/transactions cgarcia",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "333e9999-e88b-12d3-a456-426655443333",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "<string>",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo.",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/accounts/CC30002/transactions?fromDate=2025-03-01&toDate=2025-03-10",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"accounts",
+								"CC30002",
+								"transactions"
+							],
+							"query": [
+								{
+									"key": "fromDate",
+									"value": "2025-03-01"
+								},
+								{
+									"key": "toDate",
+									"value": "2025-03-10"
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "pageSize",
+									"value": "20",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Método para obtener datos de identificación de la cuenta de pago pospago identificada por creditCardAccountID mantenida por el cliente en la institución transmisora."
+					},
+					"response": []
+				},
+				{
+					"name": "/creditCardAccountID/transactions jmendoza",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "111e9999-e88b-12d3-a456-426655441111",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "<string>",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo.",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/accounts/CC10001/transactions?fromDate=2025-01-01&toDate=2025-02-01&page=1&pageSize=2",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"accounts",
+								"CC10001",
+								"transactions"
+							],
+							"query": [
+								{
+									"key": "fromDate",
+									"value": "2025-01-01"
+								},
+								{
+									"key": "toDate",
+									"value": "2025-02-01"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "2"
+								}
+							]
+						},
+						"description": "Método para obtener datos de identificación de la cuenta de pago pospago identificada por creditCardAccountID mantenida por el cliente en la institución transmisora."
+					},
+					"response": []
+				},
+				{
+					"name": "/creditCardAccountID/transactions jperez",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "444e9999-e88b-12d3-a456-426655444444",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "<string>",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo.",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/accounts/CC40004/transactions?page=1&fromDate=2025-02-01&pageSize=2",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"accounts",
+								"CC40004",
+								"transactions"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "fromDate",
+									"value": "2025-02-01"
+								},
+								{
+									"key": "pageSize",
+									"value": "2"
+								}
+							]
+						},
+						"description": "Método para obtener datos de identificación de la cuenta de pago pospago identificada por creditCardAccountID mantenida por el cliente en la institución transmisora."
+					},
+					"response": []
+				},
+				{
+					"name": "/creditCardAccountID/transactions mrojas",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "222e9999-e88b-12d3-a456-426655442222",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "<string>",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo.",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/accounts/CC20002/transactions?page=3&pageSize=2",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"accounts",
+								"CC20002",
+								"transactions"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "3"
+								},
+								{
+									"key": "pageSize",
+									"value": "2"
+								}
+							]
+						},
+						"description": "Método para obtener datos de identificación de la cuenta de pago pospago identificada por creditCardAccountID mantenida por el cliente en la institución transmisora."
+					},
+					"response": []
+				},
+				{
+					"name": "/creditCardAccountID/transactions sfernandez",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "555e9999-e88b-12d3-a456-426655445555",
+								"description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+							},
+							{
+								"key": "x-jws-signature",
+								"value": "<string>",
+								"description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo.",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/accounts/CC50002/transactions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"accounts",
+								"CC50002",
+								"transactions"
+							]
+						},
+						"description": "Método para obtener datos de identificación de la cuenta de pago pospago identificada por creditCardAccountID mantenida por el cliente en la institución transmisora."
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://api-cmf.sensedia.com/credit-card-accounts/v1"
+		},
+		{
+			"key": "bearerToken",
+			"value": "eyJhbGciOiJQUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJZdXZwVk03cVdJNUN1bko5SmJQMEh3Z0hzMTlibnN6V3d1Y2d4YjcyUkp3In0.eyJleHAiOjE3NDU1OTg2MTYsImlhdCI6MTc0NTU5NTAxNiwiYXV0aF90aW1lIjoxNzQ1NTk1MDEzLCJqdGkiOiJmMTcwMGI0Yi1lZmE2LTQzYzEtYjNlMS1lYjBlZTRkNzAyOWYiLCJpc3MiOiJodHRwczovL2VjMi0zNC0yMzQtMjIxLTExOC5jb21wdXRlLTEuYW1hem9uYXdzLmNvbTo4NDQzL3JlYWxtcy9tYXN0ZXIiLCJzdWIiOiI0MDg5NDJjMi04NmU5LTQwNTUtYWMxMS1hMDEzZjlhYzA2NTkiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJBc2VndXJhZG9yYS1iZXRhIiwic2lkIjoiODM5NzBkMzMtODkzZC00NDIwLWE2YTEtNmMzMDFkODNlNzc3IiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyIiXSwiY25mIjp7Ing1dCNTMjU2IjoicmNZclpCUkthU0Y0NVNjUVdKYWsydkRuZmt6ZzYwRlM4RWRUX0F2TXA5SSJ9LCJzY29wZSI6ImZhcGkgcHJvZmlsZSBlbWFpbCBSZWFkTG9hbnMiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwicHJlZmVycmVkX3VzZXJuYW1lIjoiY2dhcmNpYSIsImNvbnNlbnRfaWQiOiI4OTAxMjM0In0.MVXtV7r8rQ5MSx5QeOE_0D4JOGf328zf2NMDL5ERnxuWGYLT8kCkljaeD1wZqHvQ4f1CAQ_QxpsCTAAL1NTPt65sdTaCTOvJwXIbhmaO11dXbYxnN5i4JhzxO_wVcQQI6x3ZRv7v9jgjoB0bRIaxDe0XdE22VxSz0_Odg-euXfYcwtXlcBjaC-31FvA1lLrvvPnhhG5XOnZe6GW-8ZIEp3fgCx_4dVOMQt5K3IeU958RJjcxkLDevioINKqqLQrl0h5BHolQcQfqLCCKR00DodI7kA48fZVlNF0XyVgUIpBvpF0-vEmGYLRrcTA9xJAMwl7jpTcff_GoKWA5SnbDIg",
+			"type": "default"
+		}
+	]
+}

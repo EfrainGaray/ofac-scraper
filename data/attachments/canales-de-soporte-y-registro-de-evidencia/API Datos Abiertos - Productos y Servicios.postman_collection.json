@@ -1,0 +1,1047 @@
+{
+	"info": {
+		"_postman_id": "11dc4d79-c1e2-413b-a1ba-b8b425839dde",
+		"name": "API Datos Abiertos - Productos y Servicios",
+		"description": "Este documento describe las API de datos abiertos relacionadas a los distintos productos y servicios ofrecidos por la distintas entidades financieras.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17913263",
+		"_collection_link": "https://restless-spaceship-269474.postman.co/workspace/CMF~6989a4ae-868d-4761-9ab5-331f222eae90/collection/17913263-11dc4d79-c1e2-413b-a1ba-b8b425839dde?action=share&source=collection_link&creator=17913263"
+	},
+	"item": [
+		{
+			"name": "opendata-accounts",
+			"item": [
+				{
+					"name": "/opendata-accounts caso 1",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/opendata-accounts?page=1&pageSize=1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"opendata-accounts"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"description": "Número de la página que se solicita (el valor de la primera página es 1)."
+								},
+								{
+									"key": "pageSize",
+									"value": "1"
+								}
+							]
+						},
+						"description": "Método para obtener los tipos de productos y servicios asociado a cuentas."
+					},
+					"response": []
+				},
+				{
+					"name": "/opendata-accounts caso 2",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/opendata-accounts?page=2&pageSize=2&accountType=Cuenta de Ahorro",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"opendata-accounts"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "2",
+									"description": "Número de la página que se solicita (el valor de la primera página es 1)."
+								},
+								{
+									"key": "pageSize",
+									"value": "2"
+								},
+								{
+									"key": "accountType",
+									"value": "Cuenta de Ahorro"
+								}
+							]
+						},
+						"description": "Método para obtener los tipos de productos y servicios asociado a cuentas."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "opendata-credit-cards",
+			"item": [
+				{
+					"name": "/opendata-credit-cards caso 1",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/opendata-credit-cards?page=1&pageSize=1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"opendata-credit-cards"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"description": "Número de la página que se solicita (el valor de la primera página es 1)."
+								},
+								{
+									"key": "pageSize",
+									"value": "1"
+								}
+							]
+						},
+						"description": "Método para obtener lass distintas opciones de tarjetas de créditos"
+					},
+					"response": []
+				},
+				{
+					"name": "/opendata-credit-cards caso 2",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/opendata-credit-cards?page=2&pageSize=2&cardType=Tarjeta Crédito",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"opendata-credit-cards"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "2"
+								},
+								{
+									"key": "pageSize",
+									"value": "2"
+								},
+								{
+									"key": "cardType",
+									"value": "Tarjeta Crédito"
+								}
+							]
+						},
+						"description": "Método para obtener lass distintas opciones de tarjetas de créditos"
+					},
+					"response": []
+				},
+				{
+					"name": "/opendata-credit-cards caso 3",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/opendata-credit-cards?status=Inactivo",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"opendata-credit-cards"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "Inactivo",
+									"description": "Estado del producto (activo o inactivo)"
+								}
+							]
+						},
+						"description": "Método para obtener lass distintas opciones de tarjetas de créditos"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "opendata-credit-operations",
+			"item": [
+				{
+					"name": "/opendata-credit-operations caso 1",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/opendata-credit-operations?page=1&pageSize=1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"opendata-credit-operations"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"description": "Número de la página que se solicita (el valor de la primera página es 1)."
+								},
+								{
+									"key": "pageSize",
+									"value": "1"
+								}
+							]
+						},
+						"description": "Método para obtener las distintas operaciones de créditos"
+					},
+					"response": []
+				},
+				{
+					"name": "/opendata-credit-operations caso 2",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/opendata-credit-operations?page=2&pageSize=2&creditType=Hipotecario",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"opendata-credit-operations"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "2",
+									"description": "Número de la página que se solicita (el valor de la primera página es 1)."
+								},
+								{
+									"key": "pageSize",
+									"value": "2",
+									"description": "Número total de registros por página."
+								},
+								{
+									"key": "creditType",
+									"value": "Hipotecario"
+								}
+							]
+						},
+						"description": "Método para obtener las distintas operaciones de créditos"
+					},
+					"response": []
+				},
+				{
+					"name": "/opendata-credit-operations caso 3",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/opendata-credit-operations?status=Inactivo",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"opendata-credit-operations"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "Inactivo"
+								}
+							]
+						},
+						"description": "Método para obtener las distintas operaciones de créditos"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "opendata-insurance-polices",
+			"item": [
+				{
+					"name": "/opendata-insurance-polices caso 1",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/opendata-insurance-polices?page=1&pageSize=1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"opendata-insurance-polices"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"description": "Número de la página que se solicita (el valor de la primera página es 1)."
+								},
+								{
+									"key": "pageSize",
+									"value": "1"
+								}
+							]
+						},
+						"description": "Método para obtener las distintas opciones de pólizas de seguros"
+					},
+					"response": []
+				},
+				{
+					"name": "/opendata-insurance-polices caso 2",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/opendata-insurance-polices?page=2&pageSize=2&policyType=Vehicular",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"opendata-insurance-polices"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "2",
+									"description": "Número de la página que se solicita (el valor de la primera página es 1)."
+								},
+								{
+									"key": "pageSize",
+									"value": "2",
+									"description": "Número total de registros por página."
+								},
+								{
+									"key": "policyType",
+									"value": "Vehicular"
+								}
+							]
+						},
+						"description": "Método para obtener las distintas opciones de pólizas de seguros"
+					},
+					"response": []
+				},
+				{
+					"name": "/opendata-insurance-polices caso 3",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/opendata-insurance-polices?status=Inactivo",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"opendata-insurance-polices"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "Inactivo"
+								}
+							]
+						},
+						"description": "Método para obtener las distintas opciones de pólizas de seguros"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "opendata-saving-instruments",
+			"item": [
+				{
+					"name": "/opendata-saving-instruments caso 1",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/opendata-saving-instruments?page=1&pageSize=1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"opendata-saving-instruments"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"description": "Número de la página que se solicita (el valor de la primera página es 1)."
+								},
+								{
+									"key": "pageSize",
+									"value": "1"
+								}
+							]
+						},
+						"description": "Método para obtener los distintos instrumentos de ahorro"
+					},
+					"response": []
+				},
+				{
+					"name": "/opendata-saving-instruments caso 2",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/opendata-saving-instruments?page=2&pageSize=2&savingsType=Cuenta de Ahorro",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"opendata-saving-instruments"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "2",
+									"description": "Número de la página que se solicita (el valor de la primera página es 1)."
+								},
+								{
+									"key": "pageSize",
+									"value": "2",
+									"description": "Número total de registros por página."
+								},
+								{
+									"key": "savingsType",
+									"value": "Cuenta de Ahorro"
+								}
+							]
+						},
+						"description": "Método para obtener los distintos instrumentos de ahorro"
+					},
+					"response": []
+				},
+				{
+					"name": "/opendata-saving-instruments caso 3",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/opendata-saving-instruments?status=Inactivo",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"opendata-saving-instruments"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "Inactivo"
+								}
+							]
+						},
+						"description": "Método para obtener los distintos instrumentos de ahorro"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "opendata-investment-instruments",
+			"item": [
+				{
+					"name": "/opendata-investment-instruments caso 1",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/opendata-investment-instruments?page=1&pageSize=1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"opendata-investment-instruments"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"description": "Número de la página que se solicita (el valor de la primera página es 1)."
+								},
+								{
+									"key": "pageSize",
+									"value": "1"
+								}
+							]
+						},
+						"description": "Método para obtener los distintos instrumentos de inversión"
+					},
+					"response": []
+				},
+				{
+					"name": "/opendata-investment-instruments caso 2",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/opendata-investment-instruments?page=2&pageSize=2&instrumentType=Fondo",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"opendata-investment-instruments"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "2",
+									"description": "Número de la página que se solicita (el valor de la primera página es 1)."
+								},
+								{
+									"key": "pageSize",
+									"value": "2"
+								},
+								{
+									"key": "instrumentType",
+									"value": "Fondo"
+								}
+							]
+						},
+						"description": "Método para obtener los distintos instrumentos de inversión"
+					},
+					"response": []
+				},
+				{
+					"name": "/opendata-investment-instruments caso 3",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/opendata-investment-instruments?status=Inactivo",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"opendata-investment-instruments"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "Inactivo"
+								}
+							]
+						},
+						"description": "Método para obtener los distintos instrumentos de inversión"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "opendata-card-operation-services",
+			"item": [
+				{
+					"name": "/opendata-card-operation-services caso 1",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/opendata-card-operation-services?page=1&pageSize=1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"opendata-card-operation-services"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"description": "Número de la página que se solicita (el valor de la primera página es 1)."
+								},
+								{
+									"key": "pageSize",
+									"value": "1"
+								}
+							]
+						},
+						"description": "Método para obtener los distintos servicios de operación de tarjetas"
+					},
+					"response": []
+				},
+				{
+					"name": "/opendata-card-operation-services caso 2",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/opendata-card-operation-services?page=2&pageSize=2&serviceType=POS Físico",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"opendata-card-operation-services"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "2",
+									"description": "Número de la página que se solicita (el valor de la primera página es 1)."
+								},
+								{
+									"key": "pageSize",
+									"value": "2",
+									"description": "Número total de registros por página."
+								},
+								{
+									"key": "serviceType",
+									"value": "POS Físico"
+								}
+							]
+						},
+						"description": "Método para obtener los distintos servicios de operación de tarjetas"
+					},
+					"response": []
+				},
+				{
+					"name": "/opendata-card-operation-services caso 3",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/opendata-card-operation-services?status=Inactivo",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"opendata-card-operation-services"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "Inactivo"
+								}
+							]
+						},
+						"description": "Método para obtener los distintos servicios de operación de tarjetas"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "opendata-financial-service-providers",
+			"item": [
+				{
+					"name": "/opendata-financial-service-providers caso 1",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/opendata-financial-service-providers?page=1&pageSize=1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"opendata-financial-service-providers"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"description": "Número de la página que se solicita (el valor de la primera página es 1)."
+								},
+								{
+									"key": "pageSize",
+									"value": "1",
+									"description": "Número total de registros por página."
+								}
+							]
+						},
+						"description": "Método para obtener los distintos proveedores de servicios financieros"
+					},
+					"response": []
+				},
+				{
+					"name": "/opendata-financial-service-providers caso 2",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/opendata-financial-service-providers?page=2&pageSize=2",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"opendata-financial-service-providers"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "2",
+									"description": "Número de la página que se solicita (el valor de la primera página es 1)."
+								},
+								{
+									"key": "pageSize",
+									"value": "2",
+									"description": "Número total de registros por página."
+								}
+							]
+						},
+						"description": "Método para obtener los distintos proveedores de servicios financieros"
+					},
+					"response": []
+				},
+				{
+					"name": "/opendata-financial-service-providers caso 3",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/opendata-financial-service-providers",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"opendata-financial-service-providers"
+							]
+						},
+						"description": "Método para obtener los distintos proveedores de servicios financieros"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Request token (client_credentials con X509)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"access_token\", pm.response.json().access_token);\r",
+							""
+						],
+						"packages": {},
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "{{client_id}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://{{keycloak_host}}:8443/realms/master/protocol/openid-connect/token",
+					"protocol": "https",
+					"host": [
+						"{{keycloak_host}}"
+					],
+					"port": "8443",
+					"path": [
+						"realms",
+						"master",
+						"protocol",
+						"openid-connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://api-cmf.sensedia.com/products-services/v1"
+		}
+	]
+}

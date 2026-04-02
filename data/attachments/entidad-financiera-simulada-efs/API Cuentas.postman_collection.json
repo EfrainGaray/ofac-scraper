@@ -1,0 +1,1902 @@
+{
+  "info": {
+    "_postman_id": "9d802922-0c4d-4eac-b3a3-b03bfa628dc3",
+    "name": "API Cuentas",
+    "description": "Este documento describe las APIs relacionadas con la gestión de cuentas, balances, sobregiros y transacciones, detallando su funcionamiento y los procesos asociados para el acceso y manejo de la información financiera de manera segura y eficiente.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "17913263",
+    "_collection_link": "https://go.postman.co/collection/17913263-9d802922-0c4d-4eac-b3a3-b03bfa628dc3?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Cuentas",
+      "item": [
+        {
+          "name": "/accounts Carlos Garcia",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-fapi-interaction-id",
+                "value": "333e9999-e88b-12d3-a456-426655443333",
+                "description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+              },
+              {
+                "key": "x-jws-signature",
+                "value": "in Ut consequat magna sint",
+                "description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "forwarded-client-cert",
+                "value": "Hash=def789ghi012;Cert=\"-----BEGIN%20CERTIFICATE-----%0AMIIDXTCCAkWgAwIBAgIJAKJ3vJ9z5hY6MA0GCSqGSIb3DQEBCwUAMEUxCzAJBgNV%0ABAYTAkJSMRMwEQYDVQQIDApTYW8gUGF1bG8xITAfBgNVBAoMGEludGVybmV0IFdp%0AZGdpdHMgUHR5IEx0ZDAeFw0yMzAxMTUxMjAwMDBaFw0yNDAxMTUxMjAwMDBaMGkx%0ACzAJBgNVBAYTAkJSMRMwEQYDVQQIDApTYW8gUGF1bG8xEzARBgNVBAcMClNhbyBQ%0AYXVsbzEZMBcGA1UECgwQRXhhbXBsZSBDb21wYW55MRUwEwYDVQQDDAxleGFtcGxl%0ALmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAL2MXq3K%2FJ9r3vW%0A8j5xQ2d3rT6hY8vK1mN9pQ2rX5tY6dF7sA3qW2eR4tY6dF7sA3qW2eR4tY6dF7s%0AA3qW2eR4tY6dF7sA3qW2eR4tY6dF7sA3qW2eR4tY6dF7sA3qW2eR4AgMBAAGjUzBR%0AMB0GA1UdDgQWBBQ3VzM3YzQ3MTQ3ODkwMTIzNDU2NzgwHwYDVR0jBBgwFoAU3VzM%0A3YzQ3MTQ3ODkwMTIzNDU2NzgwDwYDVR0TAQH%2FBAUwAwEB%2FzANBgkqhkiG9w0BAQsF%0AAAOCAQEAb2%2FQ7Y5rT6hY8vK1mN9pQ2rX5tY6dF7sA3qW2eR4tY6dF7sA3qW2eR4%0AtY6dF7sA3qW2eR4tY6dF7sA3qW2eR4tY6dF7sA3qW2eR4tY6dF7sA3qW2eR4%0A-----END%20CERTIFICATE-----\";Subject=\"CN=example.com,O=Example Company,L=Sao Paulo,ST=Sao Paulo,C=BR,2.5.4.97=f550ab1b-03f5-42e3-ade0-3be1a68a1153\"",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/accounts/v1/accounts?page=2&pageSize=1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "accounts",
+                "v1",
+                "accounts"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "2",
+                  "description": "Número de la página que se solicita (el valor de la primera página es 1)"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "1",
+                  "description": "Número total de registros por página"
+                }
+              ]
+            },
+            "description": "Método para obtener el listado de cuentas de depósito a la vista, de ahorro y de pago prepago mantenidas por el cliente en la entidad transmisora y para las que haya prestado su consentimiento."
+          },
+          "response": []
+        },
+        {
+          "name": "/accounts Jose Perez",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-fapi-interaction-id",
+                "value": "444e9999-e88b-12d3-a456-426655444444",
+                "description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+              },
+              {
+                "key": "x-jws-signature",
+                "value": "in Ut consequat magna sint",
+                "description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/accounts/v1/accounts?page=3&pageSize=2",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "accounts",
+                "v1",
+                "accounts"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "3",
+                  "description": "Número de la página que se solicita (el valor de la primera página es 1)"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "2",
+                  "description": "Número total de registros por página"
+                }
+              ]
+            },
+            "description": "Método para obtener el listado de cuentas de depósito a la vista, de ahorro y de pago prepago mantenidas por el cliente en la entidad transmisora y para las que haya prestado su consentimiento."
+          },
+          "response": []
+        },
+        {
+          "name": "/accounts Juan Mendoza",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-fapi-interaction-id",
+                "value": "111e9999-e88b-12d3-a456-426655441111",
+                "description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+              },
+              {
+                "key": "x-jws-signature",
+                "value": "in Ut consequat magna sint",
+                "description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/accounts/v1/accounts?page=1&pageSize=2",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "accounts",
+                "v1",
+                "accounts"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "2"
+                }
+              ]
+            },
+            "description": "Método para obtener el listado de cuentas de depósito a la vista, de ahorro y de pago prepago mantenidas por el cliente en la entidad transmisora y para las que haya prestado su consentimiento."
+          },
+          "response": []
+        },
+        {
+          "name": "/accounts Maria Rojas",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-fapi-interaction-id",
+                "value": "222e9999-e88b-12d3-a456-426655442222",
+                "description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+              },
+              {
+                "key": "x-jws-signature",
+                "value": "in Ut consequat magna sint",
+                "description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/accounts/v1/accounts?page=1&pageSize=5",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "accounts",
+                "v1",
+                "accounts"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1",
+                  "description": "Número de la página que se solicita (el valor de la primera página es 1)"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "5",
+                  "description": "Número total de registros por página"
+                }
+              ]
+            },
+            "description": "Método para obtener el listado de cuentas de depósito a la vista, de ahorro y de pago prepago mantenidas por el cliente en la entidad transmisora y para las que haya prestado su consentimiento."
+          },
+          "response": []
+        },
+        {
+          "name": "/accounts Sandra Fernandez",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-fapi-interaction-id",
+                "value": "555e9999-e88b-12d3-a456-426655445555",
+                "description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+              },
+              {
+                "key": "x-jws-signature",
+                "value": "in Ut consequat magna sint",
+                "description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/accounts/v1/accounts?page=1&pageSize=3",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "accounts",
+                "v1",
+                "accounts"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1",
+                  "description": "Número de la página que se solicita (el valor de la primera página es 1)"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "3",
+                  "description": "Número total de registros por página"
+                }
+              ]
+            },
+            "description": "Método para obtener el listado de cuentas de depósito a la vista, de ahorro y de pago prepago mantenidas por el cliente en la entidad transmisora y para las que haya prestado su consentimiento."
+          },
+          "response": []
+        },
+        {
+          "name": "/accounts/{accountID} Carlos Garcia",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-fapi-interaction-id",
+                "value": "333e9999-e88b-12d3-a456-426655443333",
+                "description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+              },
+              {
+                "key": "x-jws-signature",
+                "value": "in Ut consequat magna sint",
+                "description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/accounts/v1/accounts/:accountID",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "accounts",
+                "v1",
+                "accounts",
+                ":accountID"
+              ],
+              "variable": [
+                {
+                  "key": "accountID",
+                  "value": "ACC30002"
+                }
+              ]
+            },
+            "description": "Método para obtener la cuenta de depósito a la vista, de ahorro y de pago prepago mantenidas por el cliente en la entidad transmisora y para las que haya prestado su consentimiento."
+          },
+          "response": []
+        },
+        {
+          "name": "/accounts/{accountID} Jose Perez",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-fapi-interaction-id",
+                "value": "444e9999-e88b-12d3-a456-426655444444",
+                "description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+              },
+              {
+                "key": "x-jws-signature",
+                "value": "in Ut consequat magna sint",
+                "description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/accounts/v1/accounts/:accountID",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "accounts",
+                "v1",
+                "accounts",
+                ":accountID"
+              ],
+              "variable": [
+                {
+                  "key": "accountID",
+                  "value": "ACC40005"
+                }
+              ]
+            },
+            "description": "Método para obtener la cuenta de depósito a la vista, de ahorro y de pago prepago mantenidas por el cliente en la entidad transmisora y para las que haya prestado su consentimiento."
+          },
+          "response": []
+        },
+        {
+          "name": "/accounts/{accountID} Juan Mendoza",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-fapi-interaction-id",
+                "value": "111e9999-e88b-12d3-a456-426655441111",
+                "description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+              },
+              {
+                "key": "x-jws-signature",
+                "value": "in Ut consequat magna sint",
+                "description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/accounts/v1/accounts/:accountID",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "accounts",
+                "v1",
+                "accounts",
+                ":accountID"
+              ],
+              "variable": [
+                {
+                  "key": "accountID",
+                  "value": "ACC10001"
+                }
+              ]
+            },
+            "description": "Método para obtener la cuenta de depósito a la vista, de ahorro y de pago prepago mantenidas por el cliente en la entidad transmisora y para las que haya prestado su consentimiento."
+          },
+          "response": []
+        },
+        {
+          "name": "/accounts/{accountID} Maria Rojas",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-fapi-interaction-id",
+                "value": "in Ut consequat magna sint",
+                "description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+              },
+              {
+                "key": "x-jws-signature",
+                "value": "in Ut consequat magna sint",
+                "description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/accounts/v1/accounts/:accountID",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "accounts",
+                "v1",
+                "accounts",
+                ":accountID"
+              ],
+              "variable": [
+                {
+                  "key": "accountID",
+                  "value": "ACC20002",
+                  "description": "(Required) Identificador de la cuenta"
+                }
+              ]
+            },
+            "description": "Método para obtener la cuenta de depósito a la vista, de ahorro y de pago prepago mantenidas por el cliente en la entidad transmisora y para las que haya prestado su consentimiento."
+          },
+          "response": []
+        },
+        {
+          "name": "/accounts/{accountID} Sandra Fernandez",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-fapi-interaction-id",
+                "value": "555e9999-e88b-12d3-a456-426655445555",
+                "description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+              },
+              {
+                "key": "x-jws-signature",
+                "value": "in Ut consequat magna sint",
+                "description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/accounts/v1/accounts/:accountID",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "accounts",
+                "v1",
+                "accounts",
+                ":accountID"
+              ],
+              "variable": [
+                {
+                  "key": "accountID",
+                  "value": "ACC50002",
+                  "description": "(Required) Identificador de la cuenta"
+                }
+              ]
+            },
+            "description": "Método para obtener la cuenta de depósito a la vista, de ahorro y de pago prepago mantenidas por el cliente en la entidad transmisora y para las que haya prestado su consentimiento."
+          },
+          "response": []
+        },
+        {
+          "name": "/accounts/{accountID}/balance Carlos Garcia",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-fapi-interaction-id",
+                "value": "333e9999-e88b-12d3-a456-426655443333",
+                "description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+              },
+              {
+                "key": "x-jws-signature",
+                "value": "in Ut consequat magna sint",
+                "description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/accounts/v1/accounts/:accountID/balance?fromDate=2025-01-15&toDate=2025-03-15",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "accounts",
+                "v1",
+                "accounts",
+                ":accountID",
+                "balance"
+              ],
+              "query": [
+                {
+                  "key": "fromDate",
+                  "value": "2025-01-15"
+                },
+                {
+                  "key": "toDate",
+                  "value": "2025-03-15"
+                }
+              ],
+              "variable": [
+                {
+                  "key": "accountID",
+                  "value": "ACC30002",
+                  "description": "(Required) Identificador de la cuenta"
+                }
+              ]
+            },
+            "description": "Método para obtener los saldos de las cuentas mantenidas en la institución"
+          },
+          "response": []
+        },
+        {
+          "name": "/accounts/{accountID}/balance Jose Perez",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-fapi-interaction-id",
+                "value": "444e9999-e88b-12d3-a456-426655444444",
+                "description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+              },
+              {
+                "key": "x-jws-signature",
+                "value": "in Ut consequat magna sint",
+                "description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/accounts/v1/accounts/:accountID/balance?fromDate=2025-02-01&page=1&pageSize=3",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "accounts",
+                "v1",
+                "accounts",
+                ":accountID",
+                "balance"
+              ],
+              "query": [
+                {
+                  "key": "fromDate",
+                  "value": "2025-02-01"
+                },
+                {
+                  "key": "page",
+                  "value": "1",
+                  "description": "Número de la página que se solicita (el valor de la primera página es 1)"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "3"
+                }
+              ],
+              "variable": [
+                {
+                  "key": "accountID",
+                  "value": "ACC40005",
+                  "description": "(Required) Identificador de la cuenta"
+                }
+              ]
+            },
+            "description": "Método para obtener los saldos de las cuentas mantenidas en la institución"
+          },
+          "response": []
+        },
+        {
+          "name": "/accounts/{accountID}/balance Juan Mendoza",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-fapi-interaction-id",
+                "value": "111e9999-e88b-12d3-a456-426655441111",
+                "description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+              },
+              {
+                "key": "x-jws-signature",
+                "value": "in Ut consequat magna sint",
+                "description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/accounts/v1/accounts/:accountID/balance?fromDate=2025-01-01&toDate=2025-02-01&page=1&pageSize=2",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "accounts",
+                "v1",
+                "accounts",
+                ":accountID",
+                "balance"
+              ],
+              "query": [
+                {
+                  "key": "fromDate",
+                  "value": "2025-01-01",
+                  "description": "Fecha de inicio del rango"
+                },
+                {
+                  "key": "toDate",
+                  "value": "2025-02-01",
+                  "description": "Fecha de fin del rango"
+                },
+                {
+                  "key": "page",
+                  "value": "1",
+                  "description": "Número de la página que se solicita (el valor de la primera página es 1)"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "2",
+                  "description": "Número total de registros por página"
+                }
+              ],
+              "variable": [
+                {
+                  "key": "accountID",
+                  "value": "ACC10001",
+                  "description": "(Required) Identificador de la cuenta"
+                }
+              ]
+            },
+            "description": "Método para obtener los saldos de las cuentas mantenidas en la institución"
+          },
+          "response": []
+        },
+        {
+          "name": "/accounts/{accountID}/balance Maria Rojas",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-fapi-interaction-id",
+                "value": "222e9999-e88b-12d3-a456-426655442222",
+                "description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+              },
+              {
+                "key": "x-jws-signature",
+                "value": "in Ut consequat magna sint",
+                "description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/accounts/v1/accounts/:accountID/balance?page=2&pageSize=2",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "accounts",
+                "v1",
+                "accounts",
+                ":accountID",
+                "balance"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "2"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "2"
+                }
+              ],
+              "variable": [
+                {
+                  "key": "accountID",
+                  "value": "ACC20002",
+                  "description": "(Required) Identificador de la cuenta"
+                }
+              ]
+            },
+            "description": "Método para obtener los saldos de las cuentas mantenidas en la institución"
+          },
+          "response": []
+        },
+        {
+          "name": "/accounts/{accountID}/balance Sandra Fernandez",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-fapi-interaction-id",
+                "value": "555e9999-e88b-12d3-a456-426655445555",
+                "description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+              },
+              {
+                "key": "x-jws-signature",
+                "value": "in Ut consequat magna sint",
+                "description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/accounts/v1/accounts/:accountID/balance",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "accounts",
+                "v1",
+                "accounts",
+                ":accountID",
+                "balance"
+              ],
+              "variable": [
+                {
+                  "key": "accountID",
+                  "value": "ACC50002",
+                  "description": "(Required) Identificador de la cuenta"
+                }
+              ]
+            },
+            "description": "Método para obtener los saldos de las cuentas mantenidas en la institución"
+          },
+          "response": []
+        },
+        {
+          "name": "/accounts/{accountID}/current-overdraft-limit Carlos Garcia",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-fapi-interaction-id",
+                "value": "333e9999-e88b-12d3-a456-426655443333",
+                "description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+              },
+              {
+                "key": "x-jws-signature",
+                "value": "in Ut consequat magna sint",
+                "description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/accounts/v1/accounts/:accountID/current-overdraft-limit?page=1&pageSize=1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "accounts",
+                "v1",
+                "accounts",
+                ":accountID",
+                "current-overdraft-limit"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1",
+                  "description": "Número de la página que se solicita (el valor de la primera página es 1)"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "1",
+                  "description": "Número total de registros por página"
+                }
+              ],
+              "variable": [
+                {
+                  "key": "accountID",
+                  "value": "ACC30002",
+                  "description": "(Required) Identificador de la cuenta"
+                }
+              ]
+            },
+            "description": "Método para obtener los datos del límite de sobregiro y de los pagos anticipados del depositante de la cuenta mantenida en la institución."
+          },
+          "response": []
+        },
+        {
+          "name": "/accounts/{accountID}/current-overdraft-limit Jose Perez",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-fapi-interaction-id",
+                "value": "444e9999-e88b-12d3-a456-426655444444",
+                "description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+              },
+              {
+                "key": "x-jws-signature",
+                "value": "in Ut consequat magna sint",
+                "description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/accounts/v1/accounts/:accountID/current-overdraft-limit?page=2&pageSize=2",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "accounts",
+                "v1",
+                "accounts",
+                ":accountID",
+                "current-overdraft-limit"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "2",
+                  "description": "Número de la página que se solicita (el valor de la primera página es 1)"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "2",
+                  "description": "Número total de registros por página"
+                }
+              ],
+              "variable": [
+                {
+                  "key": "accountID",
+                  "value": "ACC40005",
+                  "description": "(Required) Identificador de la cuenta"
+                }
+              ]
+            },
+            "description": "Método para obtener los datos del límite de sobregiro y de los pagos anticipados del depositante de la cuenta mantenida en la institución."
+          },
+          "response": []
+        },
+        {
+          "name": "/accounts/{accountID}/current-overdraft-limit Juan Mendoza",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-fapi-interaction-id",
+                "value": "111e9999-e88b-12d3-a456-426655441111",
+                "description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+              },
+              {
+                "key": "x-jws-signature",
+                "value": "in Ut consequat magna sint",
+                "description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/accounts/v1/accounts/:accountID/current-overdraft-limit?page=1&pageSize=2",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "accounts",
+                "v1",
+                "accounts",
+                ":accountID",
+                "current-overdraft-limit"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1",
+                  "description": "Número de la página que se solicita (el valor de la primera página es 1)"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "2",
+                  "description": "Número total de registros por página"
+                }
+              ],
+              "variable": [
+                {
+                  "key": "accountID",
+                  "value": "ACC10001",
+                  "description": "(Required) Identificador de la cuenta"
+                }
+              ]
+            },
+            "description": "Método para obtener los datos del límite de sobregiro y de los pagos anticipados del depositante de la cuenta mantenida en la institución."
+          },
+          "response": []
+        },
+        {
+          "name": "/accounts/{accountID}/current-overdraft-limit Maria Rojas",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-fapi-interaction-id",
+                "value": "222e9999-e88b-12d3-a456-426655442222",
+                "description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+              },
+              {
+                "key": "x-jws-signature",
+                "value": "in Ut consequat magna sint",
+                "description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/accounts/v1/accounts/:accountID/current-overdraft-limit",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "accounts",
+                "v1",
+                "accounts",
+                ":accountID",
+                "current-overdraft-limit"
+              ],
+              "variable": [
+                {
+                  "key": "accountID",
+                  "value": "ACC20002",
+                  "description": "(Required) Identificador de la cuenta"
+                }
+              ]
+            },
+            "description": "Método para obtener los datos del límite de sobregiro y de los pagos anticipados del depositante de la cuenta mantenida en la institución."
+          },
+          "response": []
+        },
+        {
+          "name": "/accounts/{accountID}/current-overdraft-limit Sandra Fernandez",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-fapi-interaction-id",
+                "value": "555e9999-e88b-12d3-a456-426655445555",
+                "description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+              },
+              {
+                "key": "x-jws-signature",
+                "value": "in Ut consequat magna sint",
+                "description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/accounts/v1/accounts/:accountID/current-overdraft-limit",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "accounts",
+                "v1",
+                "accounts",
+                ":accountID",
+                "current-overdraft-limit"
+              ],
+              "variable": [
+                {
+                  "key": "accountID",
+                  "value": "ACC50002",
+                  "description": "(Required) Identificador de la cuenta"
+                }
+              ]
+            },
+            "description": "Método para obtener los datos del límite de sobregiro y de los pagos anticipados del depositante de la cuenta mantenida en la institución."
+          },
+          "response": []
+        },
+        {
+          "name": "/accounts/{accountID}/overdraft Carlos Garcia",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-fapi-interaction-id",
+                "value": "333e9999-e88b-12d3-a456-426655443333",
+                "description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+              },
+              {
+                "key": "x-jws-signature",
+                "value": "in Ut consequat magna sint",
+                "description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/accounts/v1/accounts/:accountID/overdraft?fromDate=2025-01-15&toDate=2025-03-15",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "accounts",
+                "v1",
+                "accounts",
+                ":accountID",
+                "overdraft"
+              ],
+              "query": [
+                {
+                  "key": "fromDate",
+                  "value": "2025-01-15"
+                },
+                {
+                  "key": "toDate",
+                  "value": "2025-03-15"
+                }
+              ],
+              "variable": [
+                {
+                  "key": "accountID",
+                  "value": "ACC30002",
+                  "description": "(Required) Identificador de la cuenta"
+                }
+              ]
+            },
+            "description": "Método para obtener los montos por sobregiro asociado a cuentas."
+          },
+          "response": []
+        },
+        {
+          "name": "/accounts/{accountID}/overdraft Jose Perez",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-fapi-interaction-id",
+                "value": "444e9999-e88b-12d3-a456-426655444444",
+                "description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+              },
+              {
+                "key": "x-jws-signature",
+                "value": "in Ut consequat magna sint",
+                "description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/accounts/v1/accounts/:accountID/overdraft?page=1&fromDate=2025-02-01&pageSize=1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "accounts",
+                "v1",
+                "accounts",
+                ":accountID",
+                "overdraft"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1",
+                  "description": "Número de la página que se solicita (el valor de la primera página es 1)"
+                },
+                {
+                  "key": "fromDate",
+                  "value": "2025-02-01"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "1"
+                }
+              ],
+              "variable": [
+                {
+                  "key": "accountID",
+                  "value": "ACC40005",
+                  "description": "(Required) Identificador de la cuenta"
+                }
+              ]
+            },
+            "description": "Método para obtener los montos por sobregiro asociado a cuentas."
+          },
+          "response": []
+        },
+        {
+          "name": "/accounts/{accountID}/overdraft Juan Mendoza",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-fapi-interaction-id",
+                "value": "111e9999-e88b-12d3-a456-426655441111",
+                "description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+              },
+              {
+                "key": "x-jws-signature",
+                "value": "in Ut consequat magna sint",
+                "description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/accounts/v1/accounts/:accountID/overdraft?fromDate=2025-01-01&toDate=2025-02-01&page=1&pageSize=2",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "accounts",
+                "v1",
+                "accounts",
+                ":accountID",
+                "overdraft"
+              ],
+              "query": [
+                {
+                  "key": "fromDate",
+                  "value": "2025-01-01"
+                },
+                {
+                  "key": "toDate",
+                  "value": "2025-02-01"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "2"
+                }
+              ],
+              "variable": [
+                {
+                  "key": "accountID",
+                  "value": "ACC10001",
+                  "description": "(Required) Identificador de la cuenta"
+                }
+              ]
+            },
+            "description": "Método para obtener los montos por sobregiro asociado a cuentas."
+          },
+          "response": []
+        },
+        {
+          "name": "/accounts/{accountID}/overdraft Maria Rojas",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-fapi-interaction-id",
+                "value": "222e9999-e88b-12d3-a456-426655442222",
+                "description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+              },
+              {
+                "key": "x-jws-signature",
+                "value": "in Ut consequat magna sint",
+                "description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/accounts/v1/accounts/:accountID/overdraft?page=2&pageSize=2",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "accounts",
+                "v1",
+                "accounts",
+                ":accountID",
+                "overdraft"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "2"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "2"
+                }
+              ],
+              "variable": [
+                {
+                  "key": "accountID",
+                  "value": "ACC20002",
+                  "description": "(Required) Identificador de la cuenta"
+                }
+              ]
+            },
+            "description": "Método para obtener los montos por sobregiro asociado a cuentas."
+          },
+          "response": []
+        },
+        {
+          "name": "/accounts/{accountID}/overdraft Sandra Fernandez",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-fapi-interaction-id",
+                "value": "555e9999-e88b-12d3-a456-426655445555",
+                "description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+              },
+              {
+                "key": "x-jws-signature",
+                "value": "in Ut consequat magna sint",
+                "description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/accounts/v1/accounts/:accountID/overdraft",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "accounts",
+                "v1",
+                "accounts",
+                ":accountID",
+                "overdraft"
+              ],
+              "variable": [
+                {
+                  "key": "accountID",
+                  "value": "ACC50002",
+                  "description": "(Required) Identificador de la cuenta"
+                }
+              ]
+            },
+            "description": "Método para obtener los montos por sobregiro asociado a cuentas."
+          },
+          "response": []
+        },
+        {
+          "name": "/accounts/{accountID}/transactions Carlos Garcia",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-fapi-interaction-id",
+                "value": "333e9999-e88b-12d3-a456-426655443333",
+                "description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+              },
+              {
+                "key": "x-jws-signature",
+                "value": "in Ut consequat magna sint",
+                "description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/accounts/v1/accounts/:accountID/transactions?fromDate=2025-03-01&toDate=2025-03-15",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "accounts",
+                "v1",
+                "accounts",
+                ":accountID",
+                "transactions"
+              ],
+              "query": [
+                {
+                  "key": "fromDate",
+                  "value": "2025-03-01"
+                },
+                {
+                  "key": "toDate",
+                  "value": "2025-03-15"
+                }
+              ],
+              "variable": [
+                {
+                  "key": "accountID",
+                  "value": "ACC30002",
+                  "description": "(Required) Identificador de la cuenta"
+                }
+              ]
+            },
+            "description": "Método para obtener las transacciones asociadas a la cuenta de la entidad transmisora del cliente."
+          },
+          "response": []
+        },
+        {
+          "name": "/accounts/{accountID}/transactions Jose Perez",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-fapi-interaction-id",
+                "value": "444e9999-e88b-12d3-a456-426655444444",
+                "description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+              },
+              {
+                "key": "x-jws-signature",
+                "value": "in Ut consequat magna sint",
+                "description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/accounts/v1/accounts/:accountID/transactions?page=1&fromDate=2025-02-01&pageSize=2",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "accounts",
+                "v1",
+                "accounts",
+                ":accountID",
+                "transactions"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1",
+                  "description": "Número de la página que se solicita (el valor de la primera página es 1)"
+                },
+                {
+                  "key": "fromDate",
+                  "value": "2025-02-01"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "2"
+                }
+              ],
+              "variable": [
+                {
+                  "key": "accountID",
+                  "value": "ACC40005",
+                  "description": "(Required) Identificador de la cuenta"
+                }
+              ]
+            },
+            "description": "Método para obtener las transacciones asociadas a la cuenta de la entidad transmisora del cliente."
+          },
+          "response": []
+        },
+        {
+          "name": "/accounts/{accountID}/transactions Juan Mendoza",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-fapi-interaction-id",
+                "value": "111e9999-e88b-12d3-a456-426655441111",
+                "description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+              },
+              {
+                "key": "x-jws-signature",
+                "value": "in Ut consequat magna sint",
+                "description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/accounts/v1/accounts/:accountID/transactions?fromDate=2025-01-01&toDate=2025-02-01&page=1&pageSize=2",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "accounts",
+                "v1",
+                "accounts",
+                ":accountID",
+                "transactions"
+              ],
+              "query": [
+                {
+                  "key": "fromDate",
+                  "value": "2025-01-01",
+                  "description": "Fecha de inicio del rango"
+                },
+                {
+                  "key": "toDate",
+                  "value": "2025-02-01",
+                  "description": "Fecha de fin del rango"
+                },
+                {
+                  "key": "page",
+                  "value": "1",
+                  "description": "Número de la página que se solicita (el valor de la primera página es 1)"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "2",
+                  "description": "Número total de registros por página"
+                }
+              ],
+              "variable": [
+                {
+                  "key": "accountID",
+                  "value": "ACC10001",
+                  "description": "(Required) Identificador de la cuenta"
+                }
+              ]
+            },
+            "description": "Método para obtener las transacciones asociadas a la cuenta de la entidad transmisora del cliente."
+          },
+          "response": []
+        },
+        {
+          "name": "/accounts/{accountID}/transactions Maria Rojas",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-fapi-interaction-id",
+                "value": "222e9999-e88b-12d3-a456-426655442222",
+                "description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+              },
+              {
+                "key": "x-jws-signature",
+                "value": "in Ut consequat magna sint",
+                "description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/accounts/v1/accounts/:accountID/transactions?page=2&pageSize=2",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "accounts",
+                "v1",
+                "accounts",
+                ":accountID",
+                "transactions"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "2"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "2"
+                }
+              ],
+              "variable": [
+                {
+                  "key": "accountID",
+                  "value": "ACC20002",
+                  "description": "(Required) Identificador de la cuenta"
+                }
+              ]
+            },
+            "description": "Método para obtener las transacciones asociadas a la cuenta de la entidad transmisora del cliente."
+          },
+          "response": []
+        },
+        {
+          "name": "/accounts/{accountID}/transactions Sandra Fernandez",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-fapi-interaction-id",
+                "value": "555e9999-e88b-12d3-a456-426655445555",
+                "description": "(Required) UUID para rastrear la solicitud. Facilita la correlación de logs y el debugging. FAPI 2.0 sugiere retornarlo en la respuesta también."
+              },
+              {
+                "key": "x-jws-signature",
+                "value": "in Ut consequat magna sint",
+                "description": "Porta una firma JWS que cubre el cuerpo y/o ciertos headers de la solicitud para garantizar integridad. FAPI 2.0 Avanzado/High puede requerirlo."
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/accounts/v1/accounts/:accountID/transactions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "accounts",
+                "v1",
+                "accounts",
+                ":accountID",
+                "transactions"
+              ],
+              "variable": [
+                {
+                  "key": "accountID",
+                  "value": "ACC50002",
+                  "description": "(Required) Identificador de la cuenta"
+                }
+              ]
+            },
+            "description": "Método para obtener las transacciones asociadas a la cuenta de la entidad transmisora del cliente."
+          },
+          "response": []
+        }
+      ],
+      "description": "Operaciones que obtiene información de cuentas, balances, sobregiros y transacciones.",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "packages": {},
+            "exec": [
+              ""
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "packages": {},
+            "exec": [
+              ""
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "bearerToken",
+      "value": "eyJhbGciOiJQUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJZdXZwVk03cVdJNUN1bko5SmJQMEh3Z0hzMTlibnN6V3d1Y2d4YjcyUkp3In0.eyJleHAiOjE3NDU1OTg2MTYsImlhdCI6MTc0NTU5NTAxNiwiYXV0aF90aW1lIjoxNzQ1NTk1MDEzLCJqdGkiOiJmMTcwMGI0Yi1lZmE2LTQzYzEtYjNlMS1lYjBlZTRkNzAyOWYiLCJpc3MiOiJodHRwczovL2VjMi0zNC0yMzQtMjIxLTExOC5jb21wdXRlLTEuYW1hem9uYXdzLmNvbTo4NDQzL3JlYWxtcy9tYXN0ZXIiLCJzdWIiOiI0MDg5NDJjMi04NmU5LTQwNTUtYWMxMS1hMDEzZjlhYzA2NTkiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJBc2VndXJhZG9yYS1iZXRhIiwic2lkIjoiODM5NzBkMzMtODkzZC00NDIwLWE2YTEtNmMzMDFkODNlNzc3IiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyIiXSwiY25mIjp7Ing1dCNTMjU2IjoicmNZclpCUkthU0Y0NVNjUVdKYWsydkRuZmt6ZzYwRlM4RWRUX0F2TXA5SSJ9LCJzY29wZSI6ImZhcGkgcHJvZmlsZSBlbWFpbCBSZWFkTG9hbnMiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwicHJlZmVycmVkX3VzZXJuYW1lIjoiY2dhcmNpYSIsImNvbnNlbnRfaWQiOiI4OTAxMjM0In0.MVXtV7r8rQ5MSx5QeOE_0D4JOGf328zf2NMDL5ERnxuWGYLT8kCkljaeD1wZqHvQ4f1CAQ_QxpsCTAAL1NTPt65sdTaCTOvJwXIbhmaO11dXbYxnN5i4JhzxO_wVcQQI6x3ZRv7v9jgjoB0bRIaxDe0XdE22VxSz0_Odg-euXfYcwtXlcBjaC-31FvA1lLrvvPnhhG5XOnZe6GW-8ZIEp3fgCx_4dVOMQt5K3IeU958RJjcxkLDevioINKqqLQrl0h5BHolQcQfqLCCKR00DodI7kA48fZVlNF0XyVgUIpBvpF0-vEmGYLRrcTA9xJAMwl7jpTcff_GoKWA5SnbDIg"
+    }
+  ]
+}

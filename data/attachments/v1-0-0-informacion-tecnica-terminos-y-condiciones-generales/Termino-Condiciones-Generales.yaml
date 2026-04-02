@@ -1,0 +1,1544 @@
+openapi: 3.0.3
+info:
+  title: API Datos Abiertos - Productos y Servicios
+  version: 1.0.0
+  description: Este documento describe las API de datos abiertos relacionadas a los distintos productos y servicios ofrecidos por la distintas entidades financieras.
+tags:
+  - name: Endpoints Productos y Servicios
+    description: Operaciones que obtienen productos y servicios.
+
+servers:
+  - url: https://api-chile.cl/products-services/v1
+paths:
+  /opendata-accounts:
+    get:
+      tags:
+        - Endpoints Productos y Servicios
+      summary: Obtiene los distintos productos y servicios asociados a cuentas.
+      description: "Método para obtener los tipos de productos y servicios asociado a cuentas."
+      parameters:
+        - $ref: "#/components/parameters/page"
+        - $ref: "#/components/parameters/pageSize"
+        - $ref: "#/components/parameters/accountType"
+        - $ref: "#/components/parameters/status"
+        - $ref: "#/components/parameters/maintenanceFrequency"
+      responses:
+        '200':
+          description: "Respuesta exitosa con el listado de cuentas"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OpenDataAccounts"
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '405':
+          $ref: '#/components/responses/MethodNotAllowed'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+        '504':
+          $ref: '#/components/responses/GatewayTimeout'
+        '529':
+          $ref: '#/components/responses/SiteIsOverloaded'
+        default:
+          $ref: '#/components/responses/Default'
+          
+  /opendata-credit-cards:
+    get:
+      tags:
+        - Endpoints Productos y Servicios
+      summary: Obtiene las distintas opciones de tarjetas de créditos
+      description: "Método para obtener lass distintas opciones de tarjetas de créditos"
+      parameters:
+        - $ref: "#/components/parameters/page"
+        - $ref: "#/components/parameters/pageSize"
+        - $ref: "#/components/parameters/cardType"
+        - $ref: "#/components/parameters/status"
+      responses:
+        '200':
+          description: "Respuesta exitosa con el listado de tarjetas de crédito"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OpenDataCreditCards"
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '405':
+          $ref: '#/components/responses/MethodNotAllowed'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+        '504':
+          $ref: '#/components/responses/GatewayTimeout'
+        '529':
+          $ref: '#/components/responses/SiteIsOverloaded'
+        default:
+          $ref: '#/components/responses/Default'
+
+  /opendata-credit-operations:
+    get:
+      tags:
+        - Endpoints Productos y Servicios
+      summary: Obtiene las distintas operaciones de créditos
+      description: "Método para obtener las distintas operaciones de créditos"
+      parameters:
+        - $ref: "#/components/parameters/page"
+        - $ref: "#/components/parameters/pageSize"
+        - $ref: "#/components/parameters/creditType"
+        - $ref: "#/components/parameters/status"
+      responses:
+        '200':
+          description: "Respuesta exitosa con el listado de operaciones de crédito"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OpenDataCreditOperations"
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '405':
+          $ref: '#/components/responses/MethodNotAllowed'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+        '504':
+          $ref: '#/components/responses/GatewayTimeout'
+        '529':
+          $ref: '#/components/responses/SiteIsOverloaded'
+        default:
+          $ref: '#/components/responses/Default'
+          
+  /opendata-insurance-polices:
+    get:
+      tags:
+        - Endpoints Productos y Servicios
+      summary: Obtiene las distintas opciones de pólizas de seguros
+      description: "Método para obtener las distintas opciones de pólizas de seguros"
+      parameters:
+        - $ref: "#/components/parameters/page"
+        - $ref: "#/components/parameters/pageSize"
+        - $ref: "#/components/parameters/policyType"
+        - $ref: "#/components/parameters/status"
+      responses:
+        '200':
+          description: "Respuesta exitosa con el listado de pólizas de seguros"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OpenDataInsurancePolicies"
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '405':
+          $ref: '#/components/responses/MethodNotAllowed'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+        '504':
+          $ref: '#/components/responses/GatewayTimeout'
+        '529':
+          $ref: '#/components/responses/SiteIsOverloaded'
+        default:
+          $ref: '#/components/responses/Default'
+
+  /opendata-saving-instruments:
+    get:
+      tags:
+        - Endpoints Productos y Servicios
+      summary: Obtiene los distintos instrumentos de ahorro
+      description: "Método para obtener los distintos instrumentos de ahorro"
+      parameters:
+        - $ref: "#/components/parameters/page"
+        - $ref: "#/components/parameters/pageSize"
+        - $ref: "#/components/parameters/savingsType"
+        - $ref: "#/components/parameters/status"
+      responses:
+        '200':
+          description: "Respuesta exitosa con el listado de instrumentos de ahorro"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OpenDataSavingsInstruments"
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '405':
+          $ref: '#/components/responses/MethodNotAllowed'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+        '504':
+          $ref: '#/components/responses/GatewayTimeout'
+        '529':
+          $ref: '#/components/responses/SiteIsOverloaded'
+        default:
+          $ref: '#/components/responses/Default'
+
+  /opendata-investment-instruments:
+    get:
+      tags:
+        - Endpoints Productos y Servicios
+      summary: Obtiene los distintos instrumentos de inversión
+      description: "Método para obtener los distintos instrumentos de inversión"
+      parameters:
+        - $ref: "#/components/parameters/page"
+        - $ref: "#/components/parameters/pageSize"
+        - $ref: "#/components/parameters/instrumentType"
+        - $ref: "#/components/parameters/status"
+      responses:
+        '200':
+          description: "Respuesta exitosa con el listado de instrumentos de inversión"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OpenDataInvestmentInstruments"
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '405':
+          $ref: '#/components/responses/MethodNotAllowed'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+        '504':
+          $ref: '#/components/responses/GatewayTimeout'
+        '529':
+          $ref: '#/components/responses/SiteIsOverloaded'
+        default:
+          $ref: '#/components/responses/Default'
+
+  /opendata-card-operation-services:
+    get:
+      tags:
+        - Endpoints Productos y Servicios
+      summary: Obtiene los distintos servicios de operación de tarjetas
+      description: "Método para obtener los distintos servicios de operación de tarjetas"
+      parameters:
+        - $ref: "#/components/parameters/page"
+        - $ref: "#/components/parameters/pageSize"
+        - $ref: "#/components/parameters/serviceType"
+        - $ref: "#/components/parameters/status"
+      responses:
+        '200':
+          description: "Respuesta exitosa con el listado de servicios de operación de tarjetas"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OpenDataCardOperationService"
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '405':
+          $ref: '#/components/responses/MethodNotAllowed'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+        '504':
+          $ref: '#/components/responses/GatewayTimeout'
+        '529':
+          $ref: '#/components/responses/SiteIsOverloaded'
+        default:
+          $ref: '#/components/responses/Default'
+
+  /opendata-financial-service-providers:
+    get:
+      tags:
+        - Endpoints Productos y Servicios
+      summary: Obtiene los distintos proveedores de servicios financieros
+      description: "Método para obtener los distintos proveedores de servicios financieros"
+      parameters:
+        - $ref: "#/components/parameters/page"
+        - $ref: "#/components/parameters/pageSize"
+      responses:
+        '200':
+          description: "Respuesta exitosa con el listado de proveedores de servicios financieros"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OpenDataFinancialServiceProviders"
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '405':
+          $ref: '#/components/responses/MethodNotAllowed'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+        '504':
+          $ref: '#/components/responses/GatewayTimeout'
+        '529':
+          $ref: '#/components/responses/SiteIsOverloaded'
+        default:
+          $ref: '#/components/responses/Default'
+components:
+
+  schemas:
+  
+    OpenDataAccounts:
+      type: object
+      required :
+        - productServices
+        - links
+        - meta
+      properties:
+        productServices:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccountsProductService'
+        links:
+          $ref: '#/components/schemas/Links'
+        meta:
+          $ref: '#/components/schemas/Meta'
+
+    AccountsProductService:
+      allOf:
+        - $ref : '#/components/schemas/ProductService'
+        - type: object
+          properties:
+            accounts:
+              type: array
+              items:
+                $ref: '#/components/schemas/Account'
+    
+    Account:
+      type: object
+      properties:
+        accountType:
+          type: string
+          description: Tipo de cuenta
+          maxLength: 70
+          example: "Cuenta Corriente"
+        accountSubType:
+          type: string
+          description: Tipo de sub cuenta
+          maxLength: 70
+          example: "Personal"
+        minimumOpeningAmount:
+          type: string
+          description: Monto mínimo de apertura
+          pattern: "^[+-]?\\d+(\\.\\d{1,2})?$"
+          example: "5000"
+        overdraftAvailability:
+          type: boolean
+          description: Identifica si la cuenta permite sobre giro
+          example: true
+        overdraftLimit:
+          type: string
+          description: limite del sobre giro
+          pattern: "^[+-]?\\d+(\\.\\d{1,2})?$"
+          example: 200000
+        interestRateCredit:
+          type: string
+          description: Tasa de interés aplicado al sobre giro
+          example: "2.5% mensual"
+        periodRateCredit:
+          type: string
+          description: Periodicidad de Tasa de interés aplicable
+          maxLength: 70
+          example : "Mensual"
+        interestRateDebit:
+          type: string
+          description: Tasa de interés aplicable a cuentas de ahorro
+          example : "0.1% mensual"
+        periodRateDebit:
+          type: string
+          description: Periodicidad de Tasa de interés aplicable
+          maxLength: 70
+          example : "Mensual"
+        maximumOperations:
+          type: integer
+          description: Número máximo de operaciones libres de comisión
+          example: 10
+        operationScope:
+          type: string
+          description: Alcance o canales de operación incluidos sin recargo
+          maxLength: 70
+          example: "Sucursales"
+          
+    OpenDataCreditCards:
+      type: object
+      required :
+        - productServices
+        - links
+        - meta
+      properties:
+        productServices:
+          type: array
+          items:
+            $ref: '#/components/schemas/CreditCardsProductService'
+        links:
+          $ref: '#/components/schemas/Links'
+        meta:
+          $ref: '#/components/schemas/Meta'
+          
+    CreditCardsProductService:
+      allOf:
+        - $ref : '#/components/schemas/ProductService'
+        - type: object
+          properties:
+            cards:
+              type: array
+              items:
+                $ref: '#/components/schemas/Card'
+    
+    Card:
+      type: object
+      properties:
+        cardType:
+          type: string
+          description: tipo de tarjeta
+          maxLength: 70
+          example: "Tarjeta Crédito"
+        cardSubType:
+          type: string
+          description: subtipo de tarjeta
+          maxLength: 70
+          example : "Premium"
+        creditLimit:
+          $ref: '#/components/schemas/CreditLimit'
+        internationalUsage:
+          type: boolean
+          description: Indica si la tarjeta se puede usar internacionalmente.
+          example: true
+        billingCycle:
+          type: string
+          description: Ciclo de facturación de la tarjeta
+          maxLength: 70
+          example: "Mensual"
+        dueDate:
+          type: integer
+          description: Día del mes que vence el pago a la tarjeta
+          maxLength: 70
+          example: 10
+        interestRatePurchases:
+          type: string
+          description: Tasa de interes aplicada a compras no pagadas según fecha
+          example: "2.2% mensual"
+        periodRatePurchases:
+          type: string
+          description: Periodicidad de la tasa
+          maxLength: 70
+          example: "Mensual"
+        cashAdvance:
+          $ref: '#/components/schemas/CashAdvance'
+        minimumPaymentPercent:
+          type: string
+          description: Pago minimo para pagar el saldo facturado
+          pattern: "^(100(?:\\.0{1,2})?|\\d{1,2}(?:\\.\\d{1,2})?)%$"
+          example: "10%"
+        gracePeriodDays:
+          type: integer
+          description: Días de gracia sin interes a las compras realizadas.
+          example: 45
+        loyaltyProgram:
+          type: string
+          description: Descripción del programa de fidelización.
+          maxLength: 256
+          example: "Programa de puntos y millas-"
+          
+    CashAdvance:
+      type: object
+      properties:
+        maximumPencentage:
+          type: string
+          description: Porcentaje maximo permitido para avance en efectivo
+          pattern: "^(100(?:\\.0{1,2})?|\\d{1,2}(?:\\.\\d{1,2})?)%$"
+          example: "40%"
+        fee:
+          type: string
+          description: Fee del avance permitido
+          example: "6.0"
+        currency:
+          type: string
+          description: Moneda permitida en el avance.
+          example: "CLP"
+        interestRate:
+          type: string
+          description: Tasa de interes aplicada al avance en efectivo.
+          example: "3.0% mensual"
+        periodRate:
+          type: string
+          description: Periodicidad de la tasa
+          example: "Mensual"
+        conditions:
+          type: string
+          description: Condiciones del avance en efectivo
+          maxLength: 256
+          example: "El porcentaje máximo es sobre el límite disponible"
+          
+    CreditLimit:
+      type: object
+      properties:
+        minimum:
+          type: string
+          description: Límite de crédito mínimo.
+          maxLength: 70
+          example: 500
+        maximum:
+          type: string
+          description: Límite de crédito máximo.
+          maxLength: 70
+          example: 2000000
+        currency:
+          type: string
+          description: Moneda asociada al crédito
+          maxLength: 35
+          example: "CLP"
+          
+    OpenDataCreditOperations:
+      type: object
+      required :
+        - productServices
+        - links
+        - meta
+      properties:
+        productServices:
+          type: array
+          items:
+            $ref: '#/components/schemas/CreditOperationsProductService'
+        links:
+          $ref: '#/components/schemas/Links'
+        meta:
+          $ref: '#/components/schemas/Meta'
+
+    CreditOperationsProductService:
+      allOf:
+        - $ref : '#/components/schemas/ProductService'
+        - type: object
+          properties:
+            creditOperations:
+              type: array
+              items:
+                $ref: '#/components/schemas/CreditOperations'
+
+    CreditOperations:
+      type: object
+      properties:
+        creditType:
+          type: string
+          description: "Tipo de Crédito"
+          maxLength: 70
+          example: "Personal"
+        creditSubType:
+          type: string
+          description: "Identifica el sub tipo de crédito"
+          maxLength: 70
+          example: "Consumo"
+        minTermMonths:
+          type: integer
+          description: "Plazo mínimo en meses"
+          example: 6
+        maxTermMonths:
+          type: integer
+          description: "Plazo máximo en meses"
+          example: 60
+        minAmount:
+          type: string
+          description: "Monto mínimo a solicitar en la operación de crédito"
+          example: 100000
+        maxAmount:
+          type: string
+          description: "Monto máximo referencial"
+          example: 20000000
+        interesRate:
+          type: string
+          description: "Tasa de interés"
+          example: "2.1% mensual"
+        periodInterestRate:
+          type: string
+          description: "Periodicidad del interés"
+          example: "Mensual"
+        typeInterestRate:
+          type: string
+          description: "Tipo de tasa"
+          maxLength: 256
+          example: "Fija"
+        gracePeriodMonths:
+          type: integer
+          description: "Periodo de gracia en meses"
+          example: 6
+        installmentsAllowed:
+          type: boolean
+          description: "Indica si se puede pactar el pago en cuotas"
+          example: true
+        installmentsFrequency:
+          type: string
+          description: "Frecuencia de las cuotas"
+          maxLength: 70
+          example: "Mensual"
+        collateralRequired:
+          type: boolean
+          description: "Indica si se requiere garantía"
+          example: false
+        collateralDescription:
+          type: string
+          description: "Descripción de la garantía"
+          maxLength: 256
+          example: "Requiere prenda vehiculo o hipoteca"
+          
+    OpenDataInsurancePolicies:
+      type: object
+      required :
+        - productServices
+        - links
+        - meta
+      properties:
+        productServices:
+          type: array
+          items:
+            $ref: '#/components/schemas/InsurancePoliciesProductService'
+        links:
+          $ref: '#/components/schemas/Links'
+        meta:
+          $ref: '#/components/schemas/Meta'
+
+    InsurancePoliciesProductService:
+      allOf:
+        - $ref : '#/components/schemas/ProductService'
+        - type: object
+          properties:
+            insurancePolicies:
+              type: array
+              items:
+                $ref: '#/components/schemas/InsurancePolicies'
+                
+    InsurancePolicies:
+      type: object
+      properties:
+        policyType:
+          type: string
+          description: "Tipo de Póliza"
+          maxLength: 70
+          example: "Vida"
+        coverageDescription:
+          type: string
+          description: "Descripción de la cobertura principal"
+          pattern: "^[0-9]{1,3}(\\.[0-9]{3})*(,[0-9]{1,2})?$"
+          maxLength: 256
+          example: "Cobertura de muerte e invalidez"
+        sumInsured:
+          type: string
+          description: "Monto asegurado"
+          pattern: "^[0-9]{1,3}(\\.[0-9]{3})*(,[0-9]{1,2})?$"
+          example: "10.000.000"
+        deductible:
+          type: string
+          description: "Deducible aplicado"
+          example: "100.000"
+        coInsuranceRate:
+          type: string
+          description: "Porcentaje del coaseguro."
+          maxLength: 10
+          pattern: "^(\\d{1,3}(\\.\\d{1,2})?)%?$"
+          example: "10%"
+        maxBeneficiaries:
+          type: integer
+          description: "Cantidad máxima de beneficiarios"
+          example: 5
+        gracePeriodDays:
+          type: integer
+          description: "Periodo de gracia en que la póliza se mantiene vigente sin pago."
+          example: 30
+        renewalConditions:
+          type: string
+          description: "Periodo de gracia en que la póliza se mantiene vigente sin pago."
+          maxLength: 256
+          example: "Renovable anualmente"
+        exclusions:
+          type: string
+          description: "Exclusiones de la póliza"
+          maxLength: 256
+          example: "Suicidio, eventos preexistentes, etc."
+        premiumRange:
+          type: string
+          description: "Rango premium"
+          maxLength: 70
+          example: "$300.000 -$1.000.000/ anual"
+        availableRegion:
+          type: array
+          items:
+            type: string
+            maxLength: 70
+            description: "Regiones disponibles"
+            example: 
+              - "Región Metropolitana"
+              - "Región de Valparaíso"
+              
+    OpenDataSavingsInstruments:
+      type: object
+      required :
+        - productServices
+        - links
+        - meta
+      properties:
+        productServices:
+          type: array
+          items:
+            $ref: '#/components/schemas/SavingsInstrumentsProductService'
+        links:
+          $ref: '#/components/schemas/Links'
+        meta:
+          $ref: '#/components/schemas/Meta'
+
+    SavingsInstrumentsProductService:
+      allOf:
+        - $ref : '#/components/schemas/ProductService'
+        - type: object
+          properties:
+            savingsInstruments:
+              type: array
+              items:
+                $ref: '#/components/schemas/SavingsInstruments'
+                
+    SavingsInstruments:
+      type: object
+      properties:
+        savingsType:
+          type: string
+          description: "Tipo de instrumento"
+          maxLength: 70
+          example: "Deposito a plazo"
+        savingsSubType:
+          type: string
+          description: "Subtipo de instrumento"
+          maxLength: 70
+          example: "Deposito a plazo"
+        minTermMonths:
+          type: integer
+          description: "Plazo mínimo en meses"
+          example: 3
+        maxTermMonths:
+          type: integer
+          description: "Plazo máximo en meses"
+          example: 12
+        interestRate:
+          type: string
+          description: "Tasa de interés"
+          maxLength: 70
+          example: "0.7% mensual"
+        periodInterestRate:
+          type: string
+          description: "Periodicidad"
+          maxLength: 70
+          example: "Mensual"
+        typeInterestRate:
+          type: string
+          description: "Tipo de tasa de interés"
+          maxLength: 70
+          example: "Fija"
+        capitalizationPeriod:
+          type: string
+          description: "Indica la frecuencia con que se capitalizan los intereses"
+          maxLength: 70
+          example: "Mensual"
+        minDepositAmount:
+          type: string
+          description: "Monto mínimo de apertura o depósito inicial"
+          maxLength: 70
+          pattern: "^[0-9]{1,3}(\\.[0-9]{3})*(,[0-9]{1,2})?$"
+          example: "100.000"
+        maxDepositAmount:
+          type: string
+          description: "Monto máximo permitido"
+          maxLength: 70
+          pattern: "^[0-9]{1,3}(\\.[0-9]{3})*(,[0-9]{1,2})?$"
+          example: "100.000.000"
+        partialWithdrawalAllowed:
+          type: boolean
+          description: "Indica si el instrumento permite retiros parciales antes del vencimiento"
+          example: true
+        earlyWithdrawalPenalties:
+          type: string
+          description: "Descripción de penalizaciones o costos por retiro anticipado"
+          maxLength: 256
+          example: "Penalización de 2% sobre capital"
+        autoRenewal:
+          type: boolean
+          description: "Indica si el instrumento se renueva automáticamente al vencimiento"
+          example: true
+          
+    OpenDataInvestmentInstruments:
+      type: object
+      required :
+        - productServices
+        - links
+        - meta
+      properties:
+        productServices:
+          type: array
+          items:
+            $ref: '#/components/schemas/InvestmentInstrumentsProductService'
+        links:
+          $ref: '#/components/schemas/Links'
+        meta:
+          $ref: '#/components/schemas/Meta'
+
+    InvestmentInstrumentsProductService:
+      allOf:
+        - $ref : '#/components/schemas/ProductService'
+        - type: object
+          properties:
+            investmentInstruments:
+              type: array
+              items:
+                $ref: '#/components/schemas/InvestmentInstruments'
+                
+    InvestmentInstruments:
+      type: object
+      properties:
+        instrumentType:
+          type: string
+          description : "Tipo de instrumento de inversión"
+          maxLength: 70
+          example: "Fondo Mutuo"
+        instrumentSubType:
+          type: string
+          description : "Subtipo de instrumento de inversión"
+          maxLength: 70
+          example: "Acción"
+        riskProfile:
+          type: string
+          description : "Nivel de riesgo"
+          maxLength: 70
+          example: "Medio"
+        investmentOptions:
+          type: array
+          items:
+            $ref: '#/components/schemas/InvestmentOptions'
+        fees:
+          $ref: '#/components/schemas/Fees'
+          
+    InvestmentOptions:
+      type: object
+      properties:
+        currency:
+          type: string
+          description : "Moneda principal"
+          maxLength: 3
+          example: "CLP"
+        minInvestmentAmount:
+          type: string
+          description : "Monto mínimo de inversion"
+          pattern: "^[0-9]{1,3}(\\.[0-9]{3})*(,[0-9]{1,2})?$"
+          example: "100.000"
+        maxInvestmentAmount:
+          type: string
+          description : "Monto máximo de inversion"
+          pattern: "^[0-9]{1,3}(\\.[0-9]{3})*(,[0-9]{1,2})?$"
+          example: "100.000.000"
+        tenor:
+          type: integer
+          description : "Plazo en meses"
+          example: 24
+        yieldRate:
+          type: string
+          description : "Rentabilidad estimada"
+          maxLength: 70
+          example: "5% anual estimado"
+        periodYieldRate:
+          type: string
+          description : "Periodicidad"
+          maxLength: 35
+          example: "Mensual"
+        typeYieldRate:
+          type: string
+          description : "Tipo de tasa"
+          maxLength: 35
+          example: "Variable"
+        conditions:
+          type: string
+          description : "Condiciones"
+          maxLength: 256
+          example: "Rescate en 48 horas, con penalización"
+          
+    Fees:
+      type: object
+      properties:
+        managementFee:
+          type: string
+          description : "Comisión cobrada"
+          pattern: "^(\\d{1,3}(\\.\\d{1,2})?)%?$"
+          maxLength: 35
+          example: "1.5%"
+        periodManagementFee:
+          type: string
+          description : "Periodicidad"
+          maxLength: 25
+          example: "Anual"
+        subscriptionFee:
+          type: string
+          description : "Comisión de entrada"
+          maxLength: 70
+          example: "1% sobre aporte inicial"
+        redemptionFee:
+          type: string
+          description : "Comisión de salida"
+          maxLength: 70
+          example: "0.5% si se retira antes de 6 meses"
+        performanceFee:
+          type: string
+          description : "Comisión de rendimiento"
+          maxLength: 35
+          pattern: "^(\\d{1,3}(\\.\\d{1,2})?)%?$"
+          example: "0.1%"
+        conditions:
+          type: string
+          description : "Condiciones"
+          maxLength: 256
+          example: "Porcentaje sobre utilidades anuales"
+          
+    OpenDataCardOperationService:
+      type: object
+      required :
+        - productServices
+        - links
+        - meta
+      properties:
+        productServices:
+          type: array
+          items:
+            $ref: '#/components/schemas/CardOperationServiceProductService'
+        links:
+          $ref: '#/components/schemas/Links'
+        meta:
+          $ref: '#/components/schemas/Meta'
+
+    CardOperationServiceProductService:
+      allOf:
+        - $ref : '#/components/schemas/ProductService'
+        - type: object
+          properties:
+            cardOperationServices:
+              type: array
+              items:
+                $ref: '#/components/schemas/CardOperationServices'
+    
+    CardOperationServices:
+      type: object
+      properties:
+        serviceType:
+          type: string
+          description: "Tipo de servicio"
+          maxLength: 70
+          example: "POS Físico"
+        serviceSubType:
+          type: string
+          description: "Subtipo de servicio"
+          maxLength: 70
+          example: "Mobile"
+        acceptanceChannels:
+          type: array
+          items:
+            type: string
+            maxLength: 70
+            description: "Canales y métodos de aceptación"
+            example: 
+              - "Contacto"
+              - "QR"
+        coverageArea:
+          type: string
+          description: "Alcance geografica del servicio"
+          maxLength: 70
+          example: "Nacional"
+        brandCompatibility:
+          type: array
+          items:
+            type: string
+            maxLength: 70
+            description: "Marcas o redes con las cuales el servicio es compatible"
+            example: 
+              - "Visa"
+              - "Mastercard"
+              - "Amex"
+        transactionFee:
+          type: string
+          description: "Costo o comisión por transacción"
+          maxLength: 70
+          example: "2.5% por transacción"
+        transactionFeeBase:
+          type: string
+          description: "Base de la comisión"
+          maxLength: 70
+          example: "monto de la venta"
+        settlementTime:
+          type: integer
+          description: "Plazo para que el comercio reciba el dinero"
+          example: 48
+        dailyTransactionLimit:
+          type: integer
+          description: "Limite maximo de transacciones diarias"
+          example: 10
+        fraudPreventionTools:
+          type: string
+          description: "Descripción de las herramientas de prevencion de fraude"
+          maxLength: 256
+          example: "3D Secure, Tokenización"
+        chargeBackPolicy:
+          type: string
+          description: "Descripción pólitica de disputas"
+          maxLength: 256
+          example: "Tiempo de disputa 30 días"
+          
+    OpenDataFinancialServiceProviders:
+      type: object
+      required :
+        - productServices
+        - links
+        - meta
+      properties:
+        productServices:
+          type: array
+          items:
+            $ref: '#/components/schemas/FinancialServiceProvidersProductService'
+        links:
+          $ref: '#/components/schemas/Links'
+        meta:
+          $ref: '#/components/schemas/Meta'
+
+    FinancialServiceProvidersProductService:
+      allOf:
+        - $ref : '#/components/schemas/ProductService'
+        - type: object
+          properties:
+            financialServiceProviders:
+              type: array
+              items:
+                $ref: '#/components/schemas/FinancialServiceProviders'
+                
+    FinancialServiceProviders:
+      type: object
+      properties:
+        productId:
+          type: string
+          description: "Identificador del producto"
+          maxLength: 40
+          example: "PRD12345"
+        productName:
+          type: string
+          description: "Nombre del producto"
+          maxLength: 140
+          example: "Servicio de pagos"
+        description:
+          type: string
+          description: "Descripción del producto"
+          maxLength: 256
+          example: "Gestión de pagos online"
+        serviceType:
+          type: string
+          description: "Tipo de servicio"
+          maxLength: 40
+          example: "Pagos"
+        pricingModel:
+          type: string
+          description: "Modelo de precios"
+          maxLength: 140
+          example: "Por transacción"
+        region:
+          type: string
+          description: "Región de disponibilidad"
+          maxLength: 35
+          example: "LatAm"
+        launchDate:
+          type: string
+          description: "Fecha de lanzamiento del producto"
+          format: date
+          example: "2023-01-01"
+        
+    ProductService:
+      type: object
+      properties:
+        productServiceId:
+          type: string
+          description: Identificador del producto de servicio
+          maxLength: 35
+          example: "C0001"
+        productServiceType:
+          type: string
+          description: Tipo de producto del servicio
+          maxLength: 70
+          example: "Cuenta"
+        productServiceName:
+          type: string
+          description: Nombre del producto de servicio
+          maxLength: 70
+          example: "Cuenta Corriente VIP"
+        providerId:
+          type: string
+          description: Identificador de la institución
+          maxLength: 35
+          example: "C0001"
+        providerName:
+          type: string
+          description: Nombre de la institución
+          maxLength: 70
+          example: "BCI Group"
+        currency:
+          type: string
+          description: Moneda principal asociada al producto.
+          maxLength: 10
+          example: "CLP"
+        status:
+          type: string
+          description: Estado del producto
+          maxLength: 70
+          example: "Activo"
+        validFrom:
+          type: string
+          format: date-time
+          description: Fecha/hora desde que está vigente el producto/servicio.
+          example: "2025-01-01T00:00:00Z"
+        validTo:
+          type: string
+          format: date-time
+          description: Fecha/hora de término de vigencia
+          example: "2025-01-01T00:00:00Z"
+        description:
+          type: string
+          description: Descripción breve o marketing del producto/servicio.
+          maxLength: 256
+          example: "Cta. con beneficios exclusivos"
+        maintenanceCost:
+            $ref: '#/components/schemas/maintenanceCost'
+        commissions:
+          type: array
+          items:
+            $ref: '#/components/schemas/commissions'
+        termsDuration:
+          type: integer
+          description: Términos de duración
+          example: 12
+        benefits:
+          type: string
+          description: Beneficios asociados
+          maxLength: 256
+          example: "Programa de puntos, descuentos."
+        eligibilityCriteria:
+          type: string
+          description: Criterios de elegibilidad
+          maxLength: 256
+          example: "Ingreso mínimo, nacionalidad."
+        clientType:
+          type: string
+          description: Tipo de cliente al que va dirigido.
+          maxLength: 256
+          example: "Persona Natural"
+        minOpeningStandards:
+          type: string
+          description: Estándares mínimos de apertura.
+          maxLength: 256
+          example: "Requiere antigüedad laboral de 6 meses"
+        additionalNotes:
+          type: string
+          description: Notas adicionales
+          maxLength: 256
+          example: "Este producto está dirigido a personas con renta alta"
+          
+    maintenanceCost:
+      type: object
+      properties:
+        periodicity:
+          type: string
+          description: Temporalidad de los costos de mantenimiento.
+          maxLength: 70
+          example: "Mensual"
+        amount:
+          type: string
+          description: Costos de mantenimiento.
+          maxLength: 35
+          example: "0.5%"
+        currency:
+          type: string
+          description: Moneda
+          maxLength: 3
+          example: "CLP"
+        base:
+          type: string
+          description: Base sobre la cual se calculan costos de mantenimiento
+          maxLength: 70
+          example: "Saldo promedio mensual"
+        exemptionCondition:
+          type: string
+          description: Descripción de la condición
+          maxLength: 256
+          example: "Exonerado si saldo promedio supera los 5 millones de pesos."
+          
+    commissions:
+      type: object
+      properties:
+        type:
+          type: string
+          description: Tipo de comisión
+          maxLength: 35
+          example: "Anual"
+        amount:
+          type: string
+          description: Costo de mantenimiento
+          maxLength: 70
+          example: "0.8%"
+        currency:
+          type: string
+          description: Tipo moneda del costo
+          maxLength: 3
+          example: "CLP"
+        base:
+          type: string
+          description: Saldo promedio mensual
+          maxLength: 70
+          example: "Monto fijo"
+        exemptionCondition:
+          type: string
+          description: Condiciones de excepción
+          maxLength: 256
+          example: "Exonerado si saldo promedio supera los 5 millones de pesos."
+          
+    Links:
+      type: object
+      description: Referencias a otros recursos de la API solicitada
+      properties:
+        self:
+          type: string
+          format: url
+          description: URL de la página actual de registros
+          maxLength: 2000
+          minLength: 5
+          example: "https://api-chile.cl/open-data/v1/opendata-accounts?accountType=&status=&maintenanceFrequency=&page=4&pageSize=20"
+        first:
+          type: string
+          format: url
+          description: URL de la primera página de registros
+          maxLength: 2000
+          minLength: 5
+          example: "https://api-chile.cl/open-data/v1/opendata-accounts?accountType=&status=&maintenanceFrequency=&page=1&pageSize=20"
+        prev:
+          type: string
+          format: url
+          description: URL de la página anterior de registros
+          maxLength: 2000
+          minLength: 5
+          example: "https://api-chile.cl/open-data/v1/opendata-accounts?accountType=&status=&maintenanceFrequency=&page=3&pageSize=20"
+        next:
+          type: string
+          format: url
+          description: URL de la próxima página de registros
+          maxLength: 2000
+          minLength: 5
+          example: "https://api-chile.cl/open-data/v1/opendata-accounts?accountType=&status=&maintenanceFrequency=&page=5&pageSize=20"
+        last:
+          type: string
+          format: url
+          description: URL da última página de registros
+          maxLength: 2000
+          minLength: 5
+          example: "https://api-chile.cl/open-data/v1/opendata-accounts?accountType=&status=&maintenanceFrequency=&page=13&pageSize=20"
+          
+    Meta:
+      type: object
+      description: Meta información sobre los datos solicitados
+      properties:
+        firstAvailableDateTime:
+          type: string
+          format: date-time
+          description: Fecha del primer registro encontrado
+          example: "2024-01-11 14:56:34"
+        lastAvailableDateTime:
+          type: string
+          format: date-time
+          description: Fecha del último registro encontrado
+          example: "2025-01-23 14:56:34"
+        totalPages:
+          type: integer
+          description: Total de páginas para los registros encontrados
+          example: 12
+      required:
+        - firstAvailableDateTime
+        - lastAvailableDateTime
+        - totalPages  
+      
+    ResponseErrorMetaSingle:
+      type: object
+      required:
+        - errors
+      properties:
+        errors:
+          type: array
+          minItems: 1
+          maxItems: 13
+          items:
+            type: object
+            required:
+              - code
+              - title
+              - detail
+            properties:
+              code:
+                description: Código de error específico de la solicitud
+                type: string
+                maxLength: 255
+                example: "50001"
+              title:
+                description: Título legible por un humano de este error en específico
+                type: string
+                maxLength: 255
+                example: "Conexión interrumpida"
+              detail:
+                description: Descripción legible por un humano de este error en especifico
+                type: string
+                maxLength: 2048
+                example: "No pudimos conectar con el servidor de datos abiertos. Por favor, verifica tu conexión a internet o contáctanos si el problema persiste."
+        meta:
+          type: object
+          description: Meta de información sobre la API solicitada
+          required:
+            - requestDateTime
+          properties:
+            requestDateTime:
+              description: Fecha y hora de la consulta, según especificación RFC-3339, formato UTC.
+              type: string
+              format: date-time
+              minLength: 20
+              maxLength: 20
+              pattern: '^[2-9]\d{3}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$'
+              example: '2023-10-09T14:10:00Z'
+              
+    ResponseError:
+      type: object
+      required:
+        - errors
+      properties:
+        errors:
+          type: array
+          minItems: 1
+          maxItems: 13
+          items:
+            type: object
+            required:
+              - code
+              - title
+              - detail
+            properties:
+              code:
+                description: Código de error específico
+                type: string
+                maxLength: 255
+                example: "20001"
+              title:
+                description: Título legible por un humano de este error en específico
+                type: string
+                maxLength: 255
+                example: "Error al obtener oficinas presenciales"
+              detail:
+                description: Descripción legible por un humano de este error en específico
+                type: string
+                maxLength: 2048
+                example: "La información sobre oficinas presenciales no está disponible actualmente."
+        meta:
+          type: object
+          description: Meta de información sobre la API solicitada
+          required:
+            - requestDateTime
+          properties:
+            requestDateTime:
+              description: Fecha y hora de la consulta, según especificación RFC-3339, formato UTC.
+              type: string
+              format: date-time
+              minLength: 20
+              maxLength: 20
+              pattern: '^[2-9]\d{3}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$'
+              example: '2023-10-09T14:10:00Z'
+              
+  parameters:
+    page:
+      name: page
+      in: query
+      description: Número de la página que se solicita (el valor de la primera página es 1).
+      schema:
+        type: integer
+        format: int32
+        default: 1
+        minimum: 1
+        maximum: 2147483647
+    pageSize:
+      name: pageSize
+      in: query
+      description: Número total de registros por página.
+      schema:
+        type: integer
+        format: int32
+        default: 20
+        minimum: 1
+        maximum: 2147483647
+    accountType:
+      name: accountType
+      in: query
+      description: Nombre del tipo de cuenta.
+      schema:
+        type: string
+        minimum: 1
+        maximum: 70
+    cardType:
+      name: cardType
+      in: query
+      description: Tipo de tarjeta
+      schema:
+        type: string
+        minimum: 1
+        maximum: 70
+    status:
+      name: status
+      in: query
+      description: Estado del producto (activo o inactivo)
+      schema:
+        type: string
+        minimum: 1
+        maximum: 70
+    maintenanceFrequency:
+      name: maintenanceFrequency
+      in: query
+      description: Periodicidad de costos de mantenimiento
+      schema:
+        type: string
+        minimum: 1
+        maximum: 70
+    creditType:
+      name: creditType
+      in: query
+      description: Tipo de Crédito
+      schema:
+        type: string
+        minimum: 1
+        maximum: 70
+    policyType:
+      name: policyType
+      in: query
+      description: Tipo de póliza
+      schema:
+        type: string
+        minimum: 1
+        maximum: 70
+    savingsType:
+      name: savingsType
+      in: query
+      description: Tipo de Ahorro
+      schema:
+        type: string
+        minimum: 1
+        maximum: 70
+    instrumentType:
+      name: instrumentType
+      in: query
+      description: Tipo de Instrumento
+      schema:
+        type: string
+        minimum: 1
+        maximum: 70
+    serviceType:
+      name: serviceType
+      in: query
+      description: Tipo de Servicio
+      schema:
+        type: string
+        minimum: 1
+        maximum: 70
+  
+  responses:
+    BadRequest:
+      description: La solicitud presentaba un formato incorrecto y faltaban atributos obligatorios, tanto en el cuerpo de la solicitud como en los parámetros de la URL.
+      content:
+        application/json; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/ResponseError'
+          example:
+            code: "400"
+            title: "Solicitud inválida"
+            detail: "El parámetro 'city' es obligatorio y no fue incluido en la solicitud."
+    NotFound:
+      description: La característica solicitada no está disponible o aún no ha sido implementada.
+      content:
+        application/json; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/ResponseError'
+          example:
+            code: "404"
+            title: "Recurso no encontrado"
+            detail: "No se encontraron oficinas presenciales para la región especificada."
+    MethodNotAllowed:
+      description: El consumidor intentó acceder al recurso utilizando un método no compatible.
+      content:
+        application/json; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/ResponseError'
+          example:
+            code: "405"
+            title: "Método no permitido"
+            detail: "El método HTTP 'POST' no está habilitado para este recurso. Por favor, utilice 'GET'."
+    TooManyRequests:
+      description: La operación fue rechazada debido a que se superó el número permitido de solicitudes dentro de un período determinado o se alcanzó el límite de solicitudes simultáneas.
+      content:
+        application/json; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/ResponseError'
+          example:
+            code: "429"
+            title: "Demasiadas solicitudes"
+            detail: "Has excedido el límite de solicitudes permitidas. Intenta nuevamente después de 1 minuto."
+    InternalServerError:
+      description: Ocurrió un error en la puerta de enlace API o en el microservicio.
+      content:
+        application/json; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/ResponseError'
+          example:
+            code: "500"
+            title: "Error interno del servidor"
+            detail: "Ocurrió un error inesperado en el servidor. Por favor, inténtalo de nuevo más tarde."
+    GatewayTimeout:
+      description: GATEWAY TIMEOUT - La solicitud no fue respondida dentro del tiempo límite establecido.
+      content:
+        application/json; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/ResponseError'
+          example:
+            code: "504"
+            title: "Tiempo de espera agotado"
+            detail: "El servidor no pudo completar la solicitud a tiempo. Por favor, verifica tu conexión o inténtalo más tarde."
+    SiteIsOverloaded:
+      description: El sitio está sobrecargado y la operación fue rechazada debido a que se alcanzó el límite máximo global de TPS (transacciones por segundo) en este momento.
+      content:
+        application/json; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/ResponseErrorMetaSingle'
+          example:
+            code: "529"
+            title: "El sitio está sobrecargado"
+            detail: "El sistema está experimentando una carga elevada. Por favor, inténtalo más tarde."
+    Default:
+      description: '\-'
+      content:
+        application/json; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/ResponseError'
+          example:
+            code: "001"
+            title: "Error desconocido"
+            detail: "Ha ocurrido un error inesperado. Por favor, contacta al soporte técnico con los detalles de la solicitud."
+      
+      
+        
